@@ -117,7 +117,10 @@
     $('#gridKnomee').innerHTML = g.knomee.join('');
     $('#gridGames').innerHTML = g.games.join('');
     $('#gridEarlier').innerHTML = g.earlier.join('');
-    $('#sideList').innerHTML = C.side.map(function (s) { return '<li><strong>' + esc(s.t) + '</strong>' + esc(L(s.d)) + '</li>'; }).join('');
+    $('#sideList').innerHTML = C.side.map(function (s) {
+      var name = s.url ? '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.t) + ICON.ext + '</a>' : esc(s.t);
+      return '<li><strong>' + name + '</strong>' + esc(L(s.d)) + '</li>';
+    }).join('');
   }
 
   function renderProcess() {
@@ -715,18 +718,18 @@
   }
 
   /* pointer-driven effects: hero glow, spotlight cards, magnetic buttons */
-  var heroSec = $('.hero'), ptr = { x: 0, y: 0, t: null }, ptrRaf = 0;
+  var glowZone = $('.hero-zone'), ptr = { x: 0, y: 0, t: null }, ptrRaf = 0;
   function pointerFrame() {
     ptrRaf = 0;
     var e = ptr, t = e.t; if (!t) return;
     var card = t.closest && t.closest('.case-card');
     if (card) { var r = card.getBoundingClientRect(); card.style.setProperty('--sx', (e.x - r.left) + 'px'); card.style.setProperty('--sy', (e.y - r.top) + 'px'); }
-    var hr = heroSec.getBoundingClientRect();
-    if (e.y > hr.top && e.y < hr.bottom) {
-      // the glow is painted on .hero::before, which bleeds past the hero; measure from its corner
-      var gs = getComputedStyle(heroSec, '::before');
-      heroSec.style.setProperty('--gx', (e.x - hr.left - parseFloat(gs.left)) + 'px');
-      heroSec.style.setProperty('--gy', (e.y - hr.top - parseFloat(gs.top)) + 'px');
+    var zr = glowZone.getBoundingClientRect();
+    if (e.y > zr.top && e.y < zr.bottom) {
+      // the glow is painted on .hero-zone::before, which bleeds past the zone; measure from its corner
+      var gs = getComputedStyle(glowZone, '::before');
+      glowZone.style.setProperty('--gx', (e.x - zr.left - parseFloat(gs.left)) + 'px');
+      glowZone.style.setProperty('--gy', (e.y - zr.top - parseFloat(gs.top)) + 'px');
     }
     var mag = t.closest && t.closest('.btn-primary, .btn-card, .contact .btn');
     if (mag !== magActive) { if (magActive) { magActive.style.setProperty('--mx', '0px'); magActive.style.setProperty('--my', '0px'); } magActive = mag; }

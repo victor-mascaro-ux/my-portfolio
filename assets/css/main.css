@@ -104,6 +104,7 @@
   --gutter: max(clamp(16px, 4vw, 40px), env(safe-area-inset-left, 0px));
   --gutter-r: max(clamp(16px, 4vw, 40px), env(safe-area-inset-right, 0px));
   --maxw: 1240px;
+  --section-gap: clamp(80px, 10vw, 140px);
   --hud-h: 64px;
   --r-sm: 8px;
   --r: 14px;
@@ -418,7 +419,7 @@ kbd {
 .short-list span { font-size: var(--t-xs); color: var(--muted); line-height: 1.45; }
 
 /* ---------- Sections ---------- */
-.work, .process, .experience, .skills { padding-top: clamp(80px, 10vw, 140px); }
+.work, .process, .experience, .skills { padding-top: var(--section-gap); }
 .section-head { display: grid; gap: 14px; margin-bottom: clamp(36px, 5vw, 56px); max-width: 760px; }
 .section-head-row { max-width: none; display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
 .section-head-row > div { display: grid; gap: 14px; }
@@ -500,6 +501,8 @@ kbd {
 .side-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 24px; }
 .side-list li { display: grid; gap: 2px; font-size: var(--t-xs); color: var(--muted); }
 .side-list strong { font-family: var(--f-display); font-size: 1rem; font-weight: 650; color: var(--ink); letter-spacing: -.01em; }
+.side-list a { display: inline-flex; align-items: center; gap: 6px; color: inherit; text-decoration: none; }
+.side-list a svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; color: var(--muted); }
 
 /* ---------- Process ---------- */
 .process-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; counter-reset: step; position: relative; }
@@ -512,7 +515,6 @@ kbd {
   position: relative; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
   background: var(--paper); border: 2px solid var(--accent); color: var(--accent); font-family: var(--f-mono); font-size: .8rem; font-weight: 700;
 }
-.process-list li:last-child .step-node { background: var(--gold); border-color: var(--gold); color: var(--on-gold); }
 .step-title { font-size: 1.35rem; font-weight: 680; margin-top: 6px; }
 .step-body { color: var(--ink-2); font-size: var(--t-sm); }
 .step-proof {
@@ -772,10 +774,13 @@ kbd {
 /* Hero entrance */
 main { overflow-x: clip; }
 .hero { position: relative; isolation: isolate; }
-.hero::before {
-  content: ""; position: absolute; inset: -12% -30% -10%; z-index: -1; pointer-events: none;
-  background: radial-gradient(560px circle at var(--gx, 72%) var(--gy, 42%), var(--glow), transparent 65%);
-  transition: background-position .3s;
+/* Pointer glow: covers the hero and In short, then fades out in the gap above Work */
+.hero-zone { position: relative; isolation: isolate; }
+.hero-zone::before {
+  content: ""; position: absolute; inset: -160px 0 calc(-1 * var(--section-gap)); z-index: -1; pointer-events: none;
+  background: radial-gradient(560px circle at var(--gx, 80%) var(--gy, 37%), var(--glow), transparent 65%);
+  -webkit-mask-image: linear-gradient(#000 calc(100% - var(--section-gap)), transparent);
+  mask-image: linear-gradient(#000 calc(100% - var(--section-gap)), transparent);
 }
 .hero-title .w { display: inline-block; }
 .intro .hero .eyebrow { animation: rise .7s var(--ease-out) .05s both; }
@@ -856,7 +861,6 @@ main { overflow-x: clip; }
 .process-list.rv .step-node { transform: scale(.4); transition: transform .6s var(--ease-pop), background-color .25s, color .25s; transition-delay: calc(.2s + var(--i, 0) * .22s); }
 .process-list.rv.in .step-node { transform: none; }
 .process-list li:hover .step-node { background: var(--accent); color: var(--accent-ink); transition-delay: 0s; }
-.process-list li:last-child:hover .step-node { background: var(--gold); color: var(--on-gold); }
 
 /* Timeline rows */
 .timeline > li { transition: background-color .3s; border-radius: 12px; }
@@ -875,7 +879,7 @@ main { overflow-x: clip; }
 .tree-detail > *:nth-child(4) { animation-delay: .12s; } .tree-detail > *:nth-child(5) { animation-delay: .16s; } .tree-detail > *:nth-child(6) { animation-delay: .2s; }
 .course-list li, .side-list li { transition: transform .25s var(--ease-out), border-color .25s, color .25s; }
 .course-list li:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--ink); }
-.side-list li:hover strong { color: var(--accent); }
+.side-list a:hover, .side-list a:hover svg { color: var(--accent); }
 
 /* Contact */
 .mail-address { transition: background-color .4s, border-color .4s; }
@@ -980,7 +984,7 @@ main { overflow-x: clip; }
   .js .reveal.pre { transform: none; opacity: 1; }
   .rv, .process-list.rv::before, .process-list.rv .step-node { transform: none !important; }
   .hero-card-wrap { animation: none !important; }
-  .hero::before { display: none; }
+  .hero-zone::before { display: none; }
 }
 
 @media print {

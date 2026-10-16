@@ -115,114 +115,114 @@ window.CONTENT = {
       'quest.max': 'That’s everything. If you got this far, we should talk.',
       'levels': ['Visitor', 'Explorer', 'Insider', 'Friend'],
 
-      'toast.lang': 'Página em português', 'toast.theme': 'Theme changed'
+      'toast.lang': 'Page in English', 'toast.theme': 'Theme changed'
     },
     pt: {
-      'meta.title': 'Victor Mascaro · Designer de UX/UI',
-      'meta.desc': 'Designer de UX/UI em São Paulo que veio do game design. Hoje trabalho na Knomee, um produto fintech para assessores financeiros.',
+      'meta.title': 'Victor Mascaro · UX/UI Designer',
+      'meta.desc': 'UX/UI designer em São Paulo, com background em game design. Hoje trabalho na Knomee, uma fintech para assessores financeiros.',
       'skip': 'Pular para o conteúdo',
       'nav.work': 'Trabalhos', 'nav.process': 'Processo', 'nav.experience': 'Experiência', 'nav.skills': 'Formação', 'nav.contact': 'Contato',
       'nav.menu': 'Menu', 'nav.close': 'Fechar menu',
       'hud.lang': 'English', 'hud.langShort': 'EN',
-      'hud.themeDark': 'Mudar para o tema escuro', 'hud.themeLight': 'Mudar para o tema claro',
+      'hud.themeDark': 'Ativar tema escuro', 'hud.themeLight': 'Ativar tema claro',
       'hud.xp': 'Diário de missões', 'hud.level': 'Nv',
 
       'hero.eyebrow': 'Victor Mascaro · São Paulo',
-      'hero.title.a': 'Designer de UX/UI que veio ',
-      'hero.title.b': 'do game design.',
-      'hero.lede': 'Nos últimos dois anos tenho trabalhado na Knomee, um produto fintech para assessores financeiros e seus clientes. Antes disso trabalhei em jogos mobile como Smashing Four e Auction City, principalmente com progressão, eventos e onboarding.',
-      'hero.ctaWork': 'Ver trabalhos', 'hero.ctaContact': 'Falar comigo',
+      'hero.title.a': 'UX/UI designer com background em ',
+      'hero.title.b': 'game design.',
+      'hero.lede': 'Há dois anos faço o design da Knomee, uma fintech para assessores financeiros e os clientes deles. Antes disso, trabalhei com jogos mobile como Smashing Four e Auction City, principalmente em progressão, eventos e onboarding.',
+      'hero.ctaWork': 'Ver projetos', 'hero.ctaContact': 'Falar comigo',
 
-      'card.rarity': 'Carta de jogador',
-      'card.class': 'Designer de UX/UI',
+      'card.rarity': 'Ficha do jogador',
+      'card.class': 'UX/UI Designer',
       'card.subclass': 'Gamificação e sistemas de jogo',
       'card.level': 'Nv. 5',
-      'card.levelHint': '5 anos de trabalho desde 2021',
-      'card.base': 'Moro em', 'card.baseV': 'São Paulo (UTC−3)',
-      'card.works': 'Trabalho', 'card.worksV': 'Remoto',
+      'card.levelHint': '5 anos de carreira, desde 2021',
+      'card.base': 'Base', 'card.baseV': 'São Paulo (UTC−3)',
+      'card.works': 'Modelo', 'card.worksV': 'Remoto',
       'card.langs': 'Idiomas', 'card.langsV': 'Português, inglês',
-      'card.status': 'Status', 'card.statusV': 'Aberto a freelas e vagas fixas',
+      'card.status': 'Status', 'card.statusV': 'Aberto a freela e full-time',
       'card.loadout': 'Ferramentas',
-      'card.cv': 'Baixar currículo',
+      'card.cv': 'Baixar CV',
 
-      'short.title': 'Resumindo',
-      'short.1.v': '5 anos', 'short.1.l': 'trabalhando com game design e design de produto, desde 2021',
+      'short.title': 'Em resumo',
+      'short.1.v': '5 anos', 'short.1.l': 'de experiência em game design e design de produto, desde 2021',
       'short.2.v': '6', 'short.2.l': 'jogos e apps comerciais em que trabalhei',
       'short.3.v': '4', 'short.3.l': 'jogos mobile live-service na By Aliens',
-      'short.4.v': '643', 'short.4.l': 'pull requests aprovados no protótipo da Knomee, que eu desenho e construo',
+      'short.4.v': '643', 'short.4.l': 'pull requests mergeados no protótipo da Knomee, que eu desenho e desenvolvo',
 
       'work.eyebrow': 'Trabalhos',
       'work.title': 'Projetos selecionados',
-      'work.lede': 'Cada projeto tem um resumo curto: o contexto, o que eu fiz e o resultado, quando tenho um que posso mostrar.',
+      'work.lede': 'Cada projeto tem um resumo curto: o contexto, o que eu fiz e o resultado, quando posso compartilhar.',
       'work.knomee.title': 'Knomee',
       'work.knomee.meta': 'Fintech · 2024 até hoje',
-      'work.knomee.lede': 'A Knomee ajuda assessores financeiros a conhecer os clientes antes da primeira reunião. Trabalho nos dois lados do produto: o app que os clientes preenchem e o painel que os assessores usam.',
+      'work.knomee.lede': 'A Knomee ajuda assessores financeiros a conhecer os clientes antes da primeira reunião. Trabalho nos dois lados do produto: o app que o cliente preenche e o dashboard que o assessor usa.',
       'work.games.title': 'Jogos mobile',
       'work.games.meta': 'By Aliens · 2022 a 2025',
-      'work.games.lede': 'Na By Aliens fui game designer e UX designer em quatro jogos live, trabalhando principalmente com sistemas, economia, eventos e onboarding.',
+      'work.games.lede': 'Na By Aliens, fui game e UX designer em quatro jogos live, principalmente em sistemas, economia, eventos e onboarding.',
       'work.earlier.title': 'Trabalhos anteriores',
       'work.earlier.meta': '2021 a 2024',
       'work.side.title': 'Projetos da faculdade e game jams',
-      'work.side.lede': 'Jogos que fiz durante a graduação em game design, sozinho ou em grupos pequenos.',
+      'work.side.lede': 'Jogos que fiz na faculdade de game design, sozinho ou em grupos pequenos.',
       'work.read': 'Ler', 'work.min': 'min', 'work.open': 'Ler',
 
       'process.eyebrow': 'Processo',
       'process.title': 'Como eu trabalho',
-      'process.lede': 'Mais ou menos os passos que sigo na maioria dos projetos.',
-      'process.example': 'Exemplo',
+      'process.lede': 'Os passos que costumo seguir na maioria dos projetos.',
+      'process.example': 'Na prática',
 
       'exp.eyebrow': 'Experiência',
       'exp.title': 'Onde trabalhei',
-      'exp.cv': 'Currículo completo (PDF)',
+      'exp.cv': 'CV completo (PDF)',
 
       'skills.eyebrow': 'Formação',
       'skills.title': 'Formação e cursos',
-      'skills.lede': 'Organizei como uma árvore de habilidades, porque venho dos games. Clique em um item para ver o que ele cobriu.',
+      'skills.lede': 'Organizei como uma árvore de habilidades, já que venho dos games. Clique num item para ver o que estudei.',
       'skills.done': 'Concluído', 'skills.progress': 'Em andamento', 'skills.grade': 'Nota final',
-      'skills.core': 'O que cobriu', 'skills.certs': 'Disciplinas',
-      'skills.more': 'Cursos mais curtos',
+      'skills.core': 'O que estudei', 'skills.certs': 'Disciplinas',
+      'skills.more': 'Cursos livres',
       'skills.select': 'Selecione um item para ver os detalhes.',
 
       'contact.eyebrow': 'Contato',
       'contact.title': 'Vamos conversar',
-      'contact.lede': 'Estou aberto a projetos freelance e a vagas fixas. O melhor jeito de falar comigo é por e-mail.',
+      'contact.lede': 'Estou aberto a freelas e vagas full-time. O melhor jeito de falar comigo é por e-mail.',
       'contact.copy': 'Copiar e-mail', 'contact.copied': 'E-mail copiado',
       'contact.copyFail': 'Selecione o endereço acima para copiar',
-      'contact.linkedin': 'LinkedIn', 'contact.github': 'GitHub', 'contact.cv': 'Baixar currículo',
-      'contact.where': 'Moro em São Paulo (UTC−3). Já trabalhei com times no Brasil, nos EUA e nos Emirados Árabes.',
+      'contact.linkedin': 'LinkedIn', 'contact.github': 'GitHub', 'contact.cv': 'Baixar CV',
+      'contact.where': 'Estou em São Paulo (UTC−3) e já trabalhei com times do Brasil, dos EUA e dos Emirados Árabes.',
 
-      'footer.colophon': 'Desenhei e construí este site com a ajuda do Claude Code. É HTML, CSS e JavaScript simples no GitHub Pages, sem cookies nem rastreamento.',
-      'footer.patch': 'Histórico',
+      'footer.colophon': 'Desenhei e desenvolvi este site com a ajuda do Claude Code. É HTML, CSS e JavaScript puro no GitHub Pages, sem cookies nem rastreamento.',
+      'footer.patch': 'Patch notes',
       'footer.patch.v': 'v1.3 · outubro de 2026',
-      'footer.patch.items': ['Cores novas', 'Textos reescritos', 'Animações', 'Diário de missões', 'Versão em português'],
+      'footer.patch.items': ['Novas cores', 'Textos reescritos', 'Animações', 'Diário de missões', 'Versão em português'],
       'footer.top': 'Voltar ao topo',
 
       'case.close': 'Fechar', 'case.prev': 'Anterior', 'case.next': 'Próximo projeto',
-      'case.role': 'Papel', 'case.when': 'Quando', 'case.platform': 'Plataforma', 'case.context': 'Contexto',
+      'case.role': 'Função', 'case.when': 'Período', 'case.platform': 'Plataforma', 'case.context': 'Contexto',
       'case.problem': 'Contexto', 'case.moves': 'O que eu fiz', 'case.outcome': 'Resultado', 'case.learned': 'Observações',
-      'case.live': 'Abrir a versão ao vivo', 'case.evolution': 'Versão anterior',
+      'case.live': 'Ver no ar', 'case.evolution': 'Versão anterior',
       'case.before': 'Antes', 'case.after': 'Depois', 'case.compare': 'Arraste para comparar o antes e o depois',
-      'case.film': 'Quadros do vídeo', 'case.frame': 'Quadro',
+      'case.film': 'Frames do vídeo', 'case.frame': 'Frame',
       'case.end': 'Fim',
       'case.measured': 'Medido', 'case.projected': 'Projetado', 'case.estimated': 'Estimado',
 
       'quest.title': 'Diário de missões', 'quest.xp': 'XP',
-      'quest.lede': 'Você ganha XP explorando a página. É só uma brincadeira, nada fica bloqueado.',
+      'quest.lede': 'Você ganha XP explorando o site. É só de brincadeira, e nada fica bloqueado.',
       'quest.locked': 'Ainda não', 'quest.secret': 'Secreta',
-      'quest.reset': 'Zerar', 'quest.hide': 'Desligar XP', 'quest.show': 'Ligar XP',
+      'quest.reset': 'Resetar', 'quest.hide': 'Desligar XP', 'quest.show': 'Ligar XP',
       'quest.close': 'Fechar diário de missões',
       'quest.unlocked': 'Conquista', 'quest.levelUp': 'Subiu de nível',
-      'quest.max': 'Isso é tudo. Se você chegou até aqui, a gente devia conversar.',
-      'levels': ['Visitante', 'Explorador', 'Insider', 'Amigo'],
+      'quest.max': 'Você viu tudo. Se chegou até aqui, a gente devia conversar.',
+      'levels': ['Visitante', 'Explorador', 'De casa', 'Amigo'],
 
-      'toast.lang': 'Page in English', 'toast.theme': 'Tema alterado'
+      'toast.lang': 'Página em português', 'toast.theme': 'Tema alterado'
     }
   },
 
   /* ---------- Tools on the hero card ---------- */
   loadout: {
     en: ['Figma', 'Prototyping in code', 'React + TypeScript', 'Design systems', 'UX research', 'Game economy', 'Unity + C#'],
-    pt: ['Figma', 'Protótipos em código', 'React + TypeScript', 'Design systems', 'Pesquisa de UX', 'Economia de jogos', 'Unity + C#']
+    pt: ['Figma', 'Prototipação em código', 'React + TypeScript', 'Design systems', 'Pesquisa de UX', 'Economia de jogos', 'Unity + C#']
   },
 
   /* ---------- Process ---------- */
@@ -231,7 +231,7 @@ window.CONTENT = {
       title: { en: 'Understand why people come back', pt: 'Entender por que as pessoas voltam' },
       body: {
         en: 'Before drawing screens I try to understand what someone gets out of the product and what would make them use it again. Most of my design decisions start there.',
-        pt: 'Antes de desenhar telas, tento entender o que a pessoa ganha com o produto e o que faria ela usar de novo. A maior parte das minhas decisões de design começa daí.'
+        pt: 'Antes de desenhar qualquer tela, tento entender o que a pessoa ganha com o produto e o que a faria voltar. A maioria das minhas decisões de design parte daí.'
       },
       proof: { en: 'At Knomee, each adventure shows clients something about their own finances that they can then share with their advisor.', pt: 'Na Knomee, cada aventura mostra ao cliente algo sobre as próprias finanças, que ele pode compartilhar com o assessor.' }
     },
@@ -239,7 +239,7 @@ window.CONTENT = {
       title: { en: 'Prototype early', pt: 'Prototipar cedo' },
       body: {
         en: 'Static mockups don’t show timing, animation or how a flow feels after the tenth tap. When those details matter, I build the prototype in HTML or React.',
-        pt: 'Mockups estáticos não mostram ritmo, animação nem como um fluxo fica depois do décimo toque. Quando esses detalhes importam, construo o protótipo em HTML ou React.'
+        pt: 'Mockups estáticos não mostram timing, animação nem a sensação de um fluxo depois do décimo toque. Quando esses detalhes importam, faço o protótipo em HTML ou React.'
       },
       proof: { en: 'The Knomee prototype has 58 screens and was used for handoff, sales demos and user tests.', pt: 'O protótipo da Knomee tem 58 telas e foi usado em handoff, demos de vendas e testes com usuários.' }
     },
@@ -247,9 +247,9 @@ window.CONTENT = {
       title: { en: 'Make reviews easy', pt: 'Facilitar as revisões' },
       body: {
         en: 'Feedback is more useful when it’s left on the screen it’s about. When the team needed a way to comment on coded prototypes, I built one.',
-        pt: 'Feedback é mais útil quando fica na tela a que ele se refere. Quando o time precisou comentar em protótipos feitos em código, eu construí uma ferramenta para isso.'
+        pt: 'O feedback é mais útil quando fica direto na tela em questão. Quando o time precisou comentar protótipos em código, criei uma ferramenta para isso.'
       },
-      proof: { en: 'Review Layer, the commenting tool I made, was used on five Knomee prototypes.', pt: 'O Review Layer, a ferramenta de comentários que eu fiz, foi usado em cinco protótipos da Knomee.' }
+      proof: { en: 'Review Layer, the commenting tool I made, was used on five Knomee prototypes.', pt: 'O Review Layer, a ferramenta de comentários que criei, foi usado em cinco protótipos da Knomee.' }
     },
     {
       title: { en: 'Ship, watch, adjust', pt: 'Lançar, observar, ajustar' },
@@ -269,7 +269,7 @@ window.CONTENT = {
   cases: [
     {
       id: 'adventures', group: 'knomee', layout: 'lg', tone: 'deep', art: 'fan', minutes: 4,
-      cover: 'assets/img/card-adventures.webp', coverAlt: { en: 'Three Knomee mobile screens: a swipe card, an outlook screen and a confidence badge', pt: 'Três telas do app Knomee: um card para deslizar, uma tela de perspectivas e um selo de confiança' },
+      cover: 'assets/img/card-adventures.webp', coverAlt: { en: 'Three Knomee mobile screens: a swipe card, an outlook screen and a confidence badge', pt: 'Três telas do app da Knomee: um card de swipe, uma tela do Outlook e um selo do Confidence' },
       kicker: { en: 'Knomee · Client app', pt: 'Knomee · App do cliente' },
       title: { en: 'Knomee Adventures', pt: 'Knomee Adventures' },
       tagline: { en: 'Replacing a financial intake form with five short, game-like questionnaires.', pt: 'Troquei um formulário de cadastro financeiro por cinco questionários curtos, com cara de jogo.' },
@@ -278,47 +278,47 @@ window.CONTENT = {
         role: { en: 'UX/UI and gamification designer', pt: 'Designer de UX/UI e gamificação' },
         when: { en: '2024 to 2026', pt: '2024 a 2026' },
         platform: { en: 'Mobile web, white-label', pt: 'Web mobile, white-label' },
-        context: { en: 'Early-stage fintech, remote team', pt: 'Fintech em estágio inicial, time remoto' }
+        context: { en: 'Early-stage fintech, remote team', pt: 'Fintech em fase inicial, time remoto' }
       },
       problem: {
         en: 'Financial advisors usually start with a long intake form. Many prospects drop off halfway, and the answers they do give are short. Knomee wanted clients to share what they actually care about, like goals, worries and plans, before meeting their advisor.',
-        pt: 'Assessores financeiros costumam começar com um formulário de cadastro longo. Muita gente desiste no meio, e quem termina responde o mínimo. A Knomee queria que os clientes contassem o que realmente importa para eles, como objetivos, preocupações e planos, antes de conhecer o assessor.'
+        pt: 'Assessores financeiros costumam começar com um formulário de cadastro longo. Muitos prospects desistem no meio, e as respostas que chegam são curtas. A Knomee queria que os clientes contassem o que importa de verdade para eles, como objetivos, preocupações e planos, antes de conhecer o assessor.'
       },
       moves: [
         {
           title: { en: 'Five short adventures', pt: 'Cinco aventuras curtas' },
-          body: { en: 'I split the intake into five parts: Financial Joy, Confidence, Outlook, Future You and Goals. Each one takes one to three minutes, ends with a badge and fills in a section of the client’s Financial ID, a profile they can share with their advisor.', pt: 'Dividi o cadastro em cinco partes: Financial Joy, Confidence, Outlook, Future You e Goals. Cada uma leva de um a três minutos, termina com um selo e preenche uma parte do Financial ID, um perfil que o cliente pode compartilhar com o assessor.' },
+          body: { en: 'I split the intake into five parts: Financial Joy, Confidence, Outlook, Future You and Goals. Each one takes one to three minutes, ends with a badge and fills in a section of the client’s Financial ID, a profile they can share with their advisor.', pt: 'Dividi o formulário em cinco partes: Financial Joy, Confidence, Outlook, Future You e Goals. Cada uma leva de um a três minutos, termina com um selo e preenche uma parte do Financial ID, um perfil que o cliente pode compartilhar com o assessor.' },
           img: ['assets/img/k-adventures.webp', 'assets/img/k-welcome.webp'], kind: 'phones'
         },
         {
           title: { en: 'One question at a time', pt: 'Uma pergunta por vez' },
-          body: { en: 'When all seven areas of life were on one screen, people tended to skip some. I moved them to a deck of cards, one area per card, where you choose more, the same or less attention.', pt: 'Quando as sete áreas da vida ficavam numa tela só, as pessoas pulavam algumas. Passei para um baralho de cards, uma área por card, em que você escolhe mais, a mesma ou menos atenção.' },
+          body: { en: 'When all seven areas of life were on one screen, people tended to skip some. I moved them to a deck of cards, one area per card, where you choose more, the same or less attention.', pt: 'Com as sete áreas da vida numa tela só, as pessoas tendiam a pular algumas. Passei para um deck de cards, uma área por card, em que você escolhe dar mais, a mesma ou menos atenção.' },
           img: ['assets/img/k-joy-photos.webp', 'assets/img/k-joy-swipe.webp'], kind: 'phones'
         },
         {
           title: { en: 'Help with open questions', pt: 'Ajuda nas perguntas abertas' },
-          body: { en: 'Open questions about money are hard to start. I added suggested openings people can tap, and example text that types itself into the empty box.', pt: 'Perguntas abertas sobre dinheiro são difíceis de começar. Coloquei sugestões de início de frase para tocar e um texto de exemplo que se digita sozinho na caixa vazia.' },
+          body: { en: 'Open questions about money are hard to start. I added suggested openings people can tap, and example text that types itself into the empty box.', pt: 'É difícil começar a responder uma pergunta aberta sobre dinheiro. Coloquei começos de frase para tocar e um texto de exemplo que vai se digitando sozinho no campo vazio.' },
           img: ['assets/img/k-outlook-ask.webp', 'assets/img/k-outlook-sky.webp'], kind: 'phones'
         },
         {
-          title: { en: 'Inputs that fit the question', pt: 'Controles que combinam com a pergunta' },
-          body: { en: 'The Confidence slider has a sun that gets brighter as you drag it. Future You asks people to place their plans on a timeline and ends with a postcard to their future self.', pt: 'O slider de Confidence tem um sol que fica mais forte conforme você arrasta. O Future You pede para a pessoa colocar os planos numa linha do tempo e termina com um cartão-postal para o eu do futuro.' },
+          title: { en: 'Inputs that fit the question', pt: 'Inputs que combinam com a pergunta' },
+          body: { en: 'The Confidence slider has a sun that gets brighter as you drag it. Future You asks people to place their plans on a timeline and ends with a postcard to their future self.', pt: 'O slider do Confidence tem um sol que brilha mais conforme você arrasta. O Future You pede para a pessoa colocar os planos numa linha do tempo e termina com um cartão-postal para o eu do futuro.' },
           img: ['assets/img/k-conf-slider.webp', 'assets/img/k-fy-orb.webp', 'assets/img/k-fy-road.webp'], kind: 'phones'
         },
         {
-          title: { en: 'Showing what the answers turned into', pt: 'Mostrar no que as respostas viraram' },
+          title: { en: 'Showing what the answers turned into', pt: 'Mostrar o que as respostas geraram' },
           body: { en: 'The badge screen at the end of each adventure also shows the part of the Financial ID it just filled in, so people can see what came out of their answers.', pt: 'A tela do selo, no fim de cada aventura, também mostra a parte do Financial ID que acabou de ser preenchida, para a pessoa ver o resultado das próprias respostas.' },
           img: ['assets/img/k-badge.webp', 'assets/img/k-conf-result.webp'], kind: 'phones'
         },
         {
-          title: { en: 'Testing the funnel', pt: 'Testes no funil' },
-          body: { en: 'I tested two versions of the welcome page, moved sign-up to after the first results, made “Continue without saving” the main button and used the loading screen to explain what each part of the profile means.', pt: 'Testei duas versões da página de boas-vindas, passei o cadastro para depois dos primeiros resultados, deixei “Continuar sem salvar” como botão principal e usei a tela de carregamento para explicar cada parte do perfil.' },
+          title: { en: 'Testing the funnel', pt: 'Testando o funil' },
+          body: { en: 'I tested two versions of the welcome page, moved sign-up to after the first results, made “Continue without saving” the main button and used the loading screen to explain what each part of the profile means.', pt: 'Testei duas versões da página de boas-vindas, passei a criação de conta para depois dos primeiros resultados, deixei “Continuar sem salvar” como botão principal e usei a tela de carregamento para explicar cada parte do perfil.' },
           img: ['assets/img/k-landing-welcome.webp', 'assets/img/k-loading.webp'], kind: 'pair'
         }
       ],
       evolution: {
         title: { en: '2024 and 2026', pt: '2024 e 2026' },
-        body: { en: 'The 2024 version was built around levels and locked tiles. In 2026 I reorganised it around what each adventure gives back to the person filling it in.', pt: 'A versão de 2024 era organizada em níveis com blocos trancados. Em 2026 reorganizei tudo em torno do que cada aventura devolve para quem está preenchendo.' },
+        body: { en: 'The 2024 version was built around levels and locked tiles. In 2026 I reorganised it around what each adventure gives back to the person filling it in.', pt: 'A versão de 2024 era baseada em níveis e blocos bloqueados. Em 2026, reorganizei tudo em torno do que cada aventura devolve para quem preenche.' },
         img: ['assets/img/g-knomee-2024-a.webp', 'assets/img/k-adventures.webp']
       },
       metrics: [
@@ -329,10 +329,10 @@ window.CONTENT = {
     },
     {
       id: 'advisor', group: 'knomee', layout: 'md', tone: 'paper', minutes: 5,
-      cover: 'assets/img/k-readiness.webp', coverAlt: { en: 'Knomee Advisor prospect readiness screen with a score of 81', pt: 'Tela de prontidão do Knomee Advisor com nota 81' },
-      kicker: { en: 'Knomee · Advisor dashboard', pt: 'Knomee · Painel do assessor' },
+      cover: 'assets/img/k-readiness.webp', coverAlt: { en: 'Knomee Advisor prospect readiness screen with a score of 81', pt: 'Tela de prontidão de um prospect no Knomee Advisor, com score 81' },
+      kicker: { en: 'Knomee · Advisor dashboard', pt: 'Knomee · Dashboard do assessor' },
       title: { en: 'Knomee Advisor', pt: 'Knomee Advisor' },
-      tagline: { en: 'A dashboard that shows advisors which prospects are ready and how to start the conversation.', pt: 'Um painel que mostra ao assessor quais interessados estão prontos e como começar a conversa.' },
+      tagline: { en: 'A dashboard that shows advisors which prospects are ready and how to start the conversation.', pt: 'Um dashboard que mostra ao assessor quais prospects estão prontos e como puxar a conversa.' },
       chip: { en: '58 screens', pt: '58 telas' },
       meta: {
         role: { en: 'Product designer, prototype in code', pt: 'Product designer, protótipo em código' },
@@ -342,32 +342,32 @@ window.CONTENT = {
       },
       problem: {
         en: 'Advisors get a lot of prospects and very little information about them. They needed to know who to contact first and what to talk about. A readiness score could help, but only if advisors could see how it was calculated.',
-        pt: 'Assessores recebem muitos interessados e quase nenhuma informação sobre eles. Precisavam saber com quem falar primeiro e sobre o quê. Uma nota de prontidão ajudava, mas só se desse para ver como ela era calculada.'
+        pt: 'Os assessores recebem muitos prospects e quase nenhuma informação sobre eles. Precisavam saber com quem falar primeiro e sobre o quê. Um score de prontidão podia ajudar, mas só se eles conseguissem ver como era calculado.'
       },
       moves: [
         {
-          title: { en: 'Prospects grouped by readiness', pt: 'Interessados agrupados por prontidão' },
-          body: { en: 'The prospect list is split into Ready now, Considering and Nurture, with the totals at the top, so advisors can see who to call first without going through the whole list.', pt: 'A lista é dividida em Pronto agora, Considerando e Nutrir, com os totais no topo, para o assessor ver com quem falar primeiro sem percorrer a lista inteira.' },
+          title: { en: 'Prospects grouped by readiness', pt: 'Prospects agrupados por prontidão' },
+          body: { en: 'The prospect list is split into Ready now, Considering and Nurture, with the totals at the top, so advisors can see who to call first without going through the whole list.', pt: 'A lista de prospects é dividida em Ready now, Considering e Nurture, com os totais no topo, para o assessor ver com quem falar primeiro sem rolar a lista toda.' },
           img: ['assets/img/k-prospects.webp'], kind: 'wide'
         },
         {
-          title: { en: 'Scores with the calculation visible', pt: 'Notas com o cálculo à vista' },
-          body: { en: 'Each score is broken down into Intent, Clarity and Receptivity, and the screen shows how it was calculated.', pt: 'Cada nota é dividida em Intenção, Clareza e Receptividade, e a tela mostra como ela foi calculada.' },
+          title: { en: 'Scores with the calculation visible', pt: 'Scores com o cálculo à mostra' },
+          body: { en: 'Each score is broken down into Intent, Clarity and Receptivity, and the screen shows how it was calculated.', pt: 'Cada score se divide em Intent, Clarity e Receptivity, e a tela mostra como ele foi calculado.' },
           img: ['assets/img/k-readiness.webp'], kind: 'wide'
         },
         {
-          title: { en: 'Conversation starters', pt: 'Sugestões para a conversa' },
-          body: { en: 'The Playbook tab turns the client’s answers into suggested openers, along with words to use and words to avoid with that person.', pt: 'A aba Playbook transforma as respostas do cliente em sugestões de como abrir a conversa, além de palavras para usar e evitar com aquela pessoa.' },
+          title: { en: 'Conversation starters', pt: 'Sugestões de abordagem' },
+          body: { en: 'The Playbook tab turns the client’s answers into suggested openers, along with words to use and words to avoid with that person.', pt: 'A aba Playbook transforma as respostas do cliente em frases para abrir a conversa, além de palavras para usar e evitar com aquela pessoa.' },
           img: ['assets/img/k-playbook.webp'], kind: 'wide'
         },
         {
-          title: { en: 'Converting a prospect', pt: 'Converter um interessado' },
-          body: { en: 'Turning a prospect into a client asks for confirmation first. After that there’s a short celebration with confetti, a message and the new row highlighted in the client list.', pt: 'Transformar um interessado em cliente pede confirmação antes. Depois vem uma comemoração rápida, com confete, uma mensagem e a nova linha destacada na lista de clientes.' },
+          title: { en: 'Converting a prospect', pt: 'Converter um prospect' },
+          body: { en: 'Turning a prospect into a client asks for confirmation first. After that there’s a short celebration with confetti, a message and the new row highlighted in the client list.', pt: 'Transformar um prospect em cliente pede uma confirmação antes. Depois vem uma comemoração rápida, com confete, uma mensagem e a nova linha destacada na lista de clientes.' },
           img: ['assets/img/k-convert.webp', 'assets/img/k-confetti.webp'], kind: 'pair'
         },
         {
-          title: { en: 'Different colors for prospects and clients', pt: 'Cores diferentes para interessados e clientes' },
-          body: { en: 'Prospect pages use Knomee’s plum and client pages use teal, so advisors always know which list they’re looking at.', pt: 'As páginas de interessados usam o roxo da Knomee e as de clientes usam azul-petróleo, para o assessor sempre saber em qual lista está.' },
+          title: { en: 'Different colors for prospects and clients', pt: 'Cores diferentes para prospects e clientes' },
+          body: { en: 'Prospect pages use Knomee’s plum and client pages use teal, so advisors always know which list they’re looking at.', pt: 'As páginas de prospects usam o roxo da Knomee e as de clientes usam azul-petróleo, para o assessor sempre saber em qual lista está.' },
           img: ['assets/img/k-client-insights.webp'], kind: 'wide'
         },
         {
@@ -377,36 +377,36 @@ window.CONTENT = {
         },
         {
           title: { en: 'White-label settings', pt: 'Configurações de white-label' },
-          body: { en: 'Firms can set their own logo, colors, fonts and welcome text. There’s a live preview, and fields that could break the layout have a character counter.', pt: 'As empresas podem definir logo, cores, fontes e texto de boas-vindas. Tem uma prévia ao vivo, e os campos que podem quebrar o layout têm contador de caracteres.' },
+          body: { en: 'Firms can set their own logo, colors, fonts and welcome text. There’s a live preview, and fields that could break the layout have a character counter.', pt: 'Cada empresa pode definir logo, cores, fontes e texto de boas-vindas. Há um preview em tempo real, e os campos que podem quebrar o layout têm contador de caracteres.' },
           img: ['assets/img/k-org-custom.webp'], kind: 'wide'
         },
         {
           title: { en: 'Segmentation', pt: 'Segmentação' },
-          body: { en: 'I rebuilt the prospect segmentation so every answer maps to a single segment, then tested it with generated data. The test found a bug that was quietly dropping some answers.', pt: 'Refiz a segmentação de interessados para que cada resposta leve a um único segmento e testei com dados gerados. O teste encontrou um bug que descartava algumas respostas sem avisar.' }
+          body: { en: 'I rebuilt the prospect segmentation so every answer maps to a single segment, then tested it with generated data. The test found a bug that was quietly dropping some answers.', pt: 'Refiz a segmentação de prospects para cada resposta cair em um único segmento e testei com dados sintéticos. O teste revelou um bug que descartava algumas respostas sem ninguém perceber.' }
         }
       ],
       metrics: [
-        { v: '643', l: { en: 'merged pull requests on the coded prototype', pt: 'pull requests aprovados no protótipo em código' } },
+        { v: '643', l: { en: 'merged pull requests on the coded prototype', pt: 'pull requests mergeados no protótipo em código' } },
         { v: '58', l: { en: 'screens across the advisor, firm and client views', pt: 'telas nas visões de assessor, empresa e cliente' } }
       ],
       live: 'https://victor-mascaro-ux.github.io/knomee-demo/'
     },
     {
       id: 'review-layer', group: 'knomee', layout: 'md', tone: 'pale', minutes: 3,
-      cover: 'assets/img/k-overlay.webp', coverAlt: { en: 'A prototype with yellow comment pins and an open comment thread', pt: 'Um protótipo com pinos de comentário amarelos e uma conversa aberta' },
+      cover: 'assets/img/k-overlay.webp', coverAlt: { en: 'A prototype with yellow comment pins and an open comment thread', pt: 'Um protótipo com pins de comentário amarelos e uma thread aberta' },
       kicker: { en: 'Knomee · Internal tool', pt: 'Knomee · Ferramenta interna' },
       title: { en: 'Review Layer', pt: 'Review Layer' },
-      tagline: { en: 'A commenting tool I built so the team could leave feedback directly on coded prototypes.', pt: 'Uma ferramenta de comentários que eu fiz para o time deixar feedback direto nos protótipos em código.' },
+      tagline: { en: 'A commenting tool I built so the team could leave feedback directly on coded prototypes.', pt: 'Uma ferramenta de comentários que criei para o time dar feedback direto nos protótipos em código.' },
       chip: { en: 'Used on 5 prototypes', pt: 'Usada em 5 protótipos' },
       meta: {
         role: { en: 'Designer and developer', pt: 'Designer e desenvolvedor' },
         when: { en: '2026', pt: '2026' },
-        platform: { en: 'Web overlay', pt: 'Camada web' },
+        platform: { en: 'Web overlay', pt: 'Overlay web' },
         context: { en: 'Internal tool for the Knomee team', pt: 'Ferramenta interna do time da Knomee' }
       },
       problem: {
         en: 'When we moved prototypes from Figma to code, we lost Figma’s comments. Feedback ended up in chat messages and screenshots, and it was hard to tell which screen or version someone meant.',
-        pt: 'Quando passamos os protótipos do Figma para o código, perdemos os comentários do Figma. O feedback foi parar em mensagens e prints, e ficava difícil saber de qual tela ou versão a pessoa estava falando.'
+        pt: 'Quando passamos os protótipos do Figma para o código, perdemos os comentários do Figma. O feedback foi parar no chat e em prints, e ficava difícil saber de qual tela ou versão a pessoa estava falando.'
       },
       moves: [
         {
@@ -415,16 +415,16 @@ window.CONTENT = {
           img: ['assets/img/k-overlay.webp'], kind: 'wide'
         },
         {
-          title: { en: 'Pins that stay in place', pt: 'Pinos que ficam no lugar' },
-          body: { en: 'Comment pins are saved as a percentage of the screen, so they stay in the right spot at any window size.', pt: 'Os pinos são salvos em porcentagem da tela, então ficam no lugar certo em qualquer tamanho de janela.' }
+          title: { en: 'Pins that stay in place', pt: 'Pins que não saem do lugar' },
+          body: { en: 'Comment pins are saved as a percentage of the screen, so they stay in the right spot at any window size.', pt: 'Os pins são salvos como porcentagem da tela, então ficam no lugar certo em qualquer tamanho de janela.' }
         },
         {
           title: { en: 'A neutral look', pt: 'Visual neutro' },
-          body: { en: 'It has its own neutral style and typeface so it doesn’t get mixed up with the product underneath. There are three themes to choose from.', pt: 'Ela tem estilo e tipografia próprios e neutros, para não se misturar com o produto embaixo. Dá para escolher entre três temas.' }
+          body: { en: 'It has its own neutral style and typeface so it doesn’t get mixed up with the product underneath. There are three themes to choose from.', pt: 'Ela tem estilo e fonte próprios, neutros, para não se confundir com o produto por baixo. Dá para escolher entre três temas.' }
         },
         {
           title: { en: 'Comments tied to screens', pt: 'Comentários ligados às telas' },
-          body: { en: 'Each comment belongs to the screen where it was left and can reopen that exact step of a flow. Every project keeps its own comments, and the tool warns you if two sites are sharing an ID by mistake.', pt: 'Cada comentário pertence à tela onde foi deixado e consegue reabrir aquele passo exato do fluxo. Cada projeto guarda os próprios comentários, e a ferramenta avisa se dois sites estiverem usando o mesmo ID por engano.' }
+          body: { en: 'Each comment belongs to the screen where it was left and can reopen that exact step of a flow. Every project keeps its own comments, and the tool warns you if two sites are sharing an ID by mistake.', pt: 'Cada comentário fica vinculado à tela onde foi deixado e pode reabrir exatamente aquele passo do fluxo. Cada projeto guarda os próprios comentários, e a ferramenta avisa se dois sites estiverem usando o mesmo ID por engano.' }
         }
       ],
       metrics: [
@@ -442,40 +442,40 @@ window.CONTENT = {
         role: { en: 'Designer and developer', pt: 'Designer e desenvolvedor' },
         when: { en: '2026', pt: '2026' },
         platform: { en: 'Website, browser deck, video', pt: 'Site, deck no navegador, vídeo' },
-        context: { en: 'For sales, customer success and the founder', pt: 'Para vendas, sucesso do cliente e a fundadora' }
+        context: { en: 'For sales, customer success and the founder', pt: 'Para vendas, customer success e a fundadora' }
       },
       problem: {
         en: 'Knomee is a new kind of product, and the team had to explain it to firms, advisors and investors. Sales, customer success and the founder each needed material they could use with their own audience.',
-        pt: 'A Knomee é um tipo novo de produto, e o time precisava explicar isso para empresas, assessores e investidores. Vendas, sucesso do cliente e a fundadora precisavam de material para usar com o próprio público.'
+        pt: 'A Knomee é um tipo novo de produto, e o time precisava explicá-la para empresas, assessores e investidores. Vendas, customer success e a fundadora precisavam, cada um, de material para o próprio público.'
       },
       moves: [
         {
           title: { en: 'Activation toolkit', pt: 'Kit de ativação' },
-          body: { en: 'The toolkit started as a long PDF. I turned it into a website where you pick a goal (new clients, existing clients or recruiting) and a type of lead, and get a strategy and sample copy for that case. Customer success can edit the text on the page without a developer.', pt: 'O kit começou como um PDF longo. Transformei num site em que você escolhe um objetivo (novos clientes, clientes atuais ou recrutamento) e um tipo de lead, e recebe uma estratégia e textos de exemplo para aquele caso. O time de sucesso do cliente edita os textos direto na página, sem precisar de desenvolvedor.' },
+          body: { en: 'The toolkit started as a long PDF. I turned it into a website where you pick a goal (new clients, existing clients or recruiting) and a type of lead, and get a strategy and sample copy for that case. Customer success can edit the text on the page without a developer.', pt: 'O kit começou como um PDF longo. Transformei num site em que você escolhe um objetivo (novos clientes, clientes atuais ou recrutamento) e um tipo de lead, e recebe uma estratégia e textos de exemplo para aquele caso. O time de customer success edita os textos direto na página, sem depender de desenvolvedor.' },
           img: ['assets/img/k-activation-prospect.webp', 'assets/img/k-activation-cold.webp'], kind: 'pair'
         },
         {
           title: { en: 'Pitch deck', pt: 'Pitch deck' },
-          body: { en: 'I prototyped three ways to present the deck: with search, with a slide list on the side, and as a grid of slides. The founder chose the grid, which lets her open the detail slides only when someone asks about them.', pt: 'Prototipei três formas de apresentar o deck: com busca, com uma lista de slides na lateral e como uma grade de slides. A fundadora escolheu a grade, que deixa ela abrir os slides de detalhe só quando alguém pergunta.' },
+          body: { en: 'I prototyped three ways to present the deck: with search, with a slide list on the side, and as a grid of slides. The founder chose the grid, which lets her open the detail slides only when someone asks about them.', pt: 'Prototipei três formas de apresentar o deck: com busca, com uma lista de slides na lateral e como um grid de slides. A fundadora escolheu o grid, em que ela abre os slides de detalhe só quando alguém pergunta.' },
           img: ['assets/img/k-deck-backstage.webp'], kind: 'wide'
         },
         {
           title: { en: 'Product video', pt: 'Vídeo do produto' },
-          body: { en: 'I made the video in code: the scenes are React components, the voice-over was generated with AI, and the frames were rendered one by one. The first cut was 2:48, and I later cut it down to 90 seconds.', pt: 'Fiz o vídeo em código: as cenas são componentes React, a narração foi gerada com IA e os quadros foram renderizados um a um. A primeira versão tinha 2:48, e depois reduzi para 90 segundos.' },
+          body: { en: 'I made the video in code: the scenes are React components, the voice-over was generated with AI, and the frames were rendered one by one. The first cut was 2:48, and I later cut it down to 90 seconds.', pt: 'Fiz o vídeo em código: as cenas são componentes React, a locução foi gerada com IA e os frames foram renderizados um a um. O primeiro corte tinha 2:48, e depois enxuguei para 90 segundos.' },
           film: [
-            { t: '0:08', src: 'assets/img/film-8.webp', cap: { en: 'A typical wealth firm website ending in an intake form.', pt: 'Um site típico de gestora que termina num formulário.' } },
+            { t: '0:08', src: 'assets/img/film-8.webp', cap: { en: 'A typical wealth firm website ending in an intake form.', pt: 'Um site típico de gestora, que termina num formulário de cadastro.' } },
             { t: '0:34', src: 'assets/img/film-34.webp', cap: { en: 'Several made-up competitor sites.', pt: 'Vários sites de concorrentes fictícios.' } },
             { t: '0:48', src: 'assets/img/film-48.webp', cap: { en: 'The Financial Joy adventure.', pt: 'A aventura Financial Joy.' } },
             { t: '1:02', src: 'assets/img/film-62.webp', cap: { en: 'The Future You postcard.', pt: 'O cartão-postal do Future You.' } },
             { t: '1:16', src: 'assets/img/film-76.webp', cap: { en: 'The advisor’s Playbook.', pt: 'O Playbook do assessor.' } },
             { t: '2:26', src: 'assets/img/film-146.webp', cap: { en: 'A client relationship over the years.', pt: 'A relação com um cliente ao longo dos anos.' } },
-            { t: '2:40', src: 'assets/img/film-160.webp', cap: { en: 'End card.', pt: 'Encerramento.' } }
+            { t: '2:40', src: 'assets/img/film-160.webp', cap: { en: 'End card.', pt: 'Cartela final.' } }
           ]
         }
       ],
       metrics: [
-        { v: '3', l: { en: 'toolkits: prospects, clients and recruiting', pt: 'kits: interessados, clientes e recrutamento' } },
-        { v: '2:48 → 1:30', l: { en: 'video length after the recut', pt: 'duração do vídeo depois da reedição' } }
+        { v: '3', l: { en: 'toolkits: prospects, clients and recruiting', pt: 'kits: prospects, clientes e recrutamento' } },
+        { v: '2:48 → 1:30', l: { en: 'video length after the recut', pt: 'duração do vídeo depois do novo corte' } }
       ],
       live: 'https://activation.knomee.com/'
     },
@@ -483,13 +483,13 @@ window.CONTENT = {
     /* ---------- Games ---------- */
     {
       id: 'smashing-four', group: 'games', layout: 'md', tone: 'deep', minutes: 2,
-      cover: 'assets/img/g-sf-bloodbite.webp', coverAlt: { en: 'Bloodbite, a raccoon gunslinger hero with glowing red eyes', pt: 'Bloodbite, um herói guaxinim pistoleiro com olhos vermelhos' },
+      cover: 'assets/img/g-sf-bloodbite.webp', coverAlt: { en: 'Bloodbite, a raccoon gunslinger hero with glowing red eyes', pt: 'Bloodbite, um herói guaxinim pistoleiro de olhos vermelhos brilhantes' },
       kicker: { en: 'By Aliens · Game design', pt: 'By Aliens · Game design' },
       title: { en: 'Smashing Four', pt: 'Smashing Four' },
-      tagline: { en: 'New heroes and a redesigned Hero Event for a live PvP game.', pt: 'Heróis novos e um Hero Event redesenhado para um jogo PvP live.' },
-      chip: { en: '3 new heroes', pt: '3 heróis novos' },
+      tagline: { en: 'New heroes and a redesigned Hero Event for a live PvP game.', pt: 'Novos heróis e um Hero Event redesenhado para um jogo PvP live.' },
+      chip: { en: '3 new heroes', pt: '3 novos heróis' },
       meta: {
-        role: { en: 'Game and UX designer, By Aliens', pt: 'Game designer e UX designer, By Aliens' },
+        role: { en: 'Game and UX designer, By Aliens', pt: 'Game e UX designer, By Aliens' },
         when: { en: '2025', pt: '2025' },
         platform: { en: 'iOS and Android', pt: 'iOS e Android' },
         context: { en: 'Live PvP game with a long-running meta', pt: 'Jogo PvP live com um meta já estabelecido' }
@@ -501,17 +501,17 @@ window.CONTENT = {
       moves: [
         {
           title: { en: 'Bloodbite', pt: 'Bloodbite' },
-          body: { en: 'I designed Bloodbite, a hero whose bite leaves a wound that never heals and deals damage at the end of every turn. I worked on the ability, its stacking rules and the in-game description. I also designed Sheriff and Otter.', pt: 'Desenhei o Bloodbite, um herói cuja mordida deixa uma ferida que nunca cicatriza e causa dano no fim de cada turno. Trabalhei na habilidade, nas regras de acúmulo e na descrição dentro do jogo. Também desenhei o Sheriff e o Otter.' },
+          body: { en: 'I designed Bloodbite, a hero whose bite leaves a wound that never heals and deals damage at the end of every turn. I worked on the ability, its stacking rules and the in-game description. I also designed Sheriff and Otter.', pt: 'Criei o Bloodbite, um herói cuja mordida deixa uma ferida que nunca cicatriza e causa dano no fim de cada turno. Trabalhei na habilidade, nas regras de stack e na descrição que aparece no jogo. Também criei o Sheriff e o Otter.' },
           img: ['assets/img/g-sf-bloodbite.webp'], kind: 'square'
         },
         {
           title: { en: 'Hero Event', pt: 'Hero Event' },
-          body: { en: 'I reorganised the event tasks into golden, daily silver and daily bronze tiers, each with its own progress bar, reward and reset timer.', pt: 'Reorganizei as tarefas do evento em faixas de ouro, prata diária e bronze diária, cada uma com barra de progresso, recompensa e cronômetro próprios.' },
+          body: { en: 'I reorganised the event tasks into golden, daily silver and daily bronze tiers, each with its own progress bar, reward and reset timer.', pt: 'Reorganizei as tarefas do evento em faixas de ouro, prata diária e bronze diária, cada uma com sua barra de progresso, recompensa e timer de reset.' },
           compare: ['assets/img/g-sf-hero-event-before.webp', 'assets/img/g-sf-hero-event-after.webp']
         },
         {
           title: { en: 'Rebalancing', pt: 'Rebalanceamento' },
-          body: { en: 'I adjusted stats (HP, damage, weight and speed) for heroes players weren’t picking, based on performance data and what players were saying. I also worked on the reward tiers for Hero Event 2.0.', pt: 'Ajustei atributos (vida, dano, peso e velocidade) de heróis que os jogadores não escolhiam, com base em dados de desempenho e no que os jogadores falavam. Também trabalhei nas faixas de recompensa do Hero Event 2.0.' }
+          body: { en: 'I adjusted stats (HP, damage, weight and speed) for heroes players weren’t picking, based on performance data and what players were saying. I also worked on the reward tiers for Hero Event 2.0.', pt: 'Ajustei atributos (HP, dano, peso e velocidade) de heróis pouco escolhidos, com base em dados de desempenho e no que os jogadores diziam. Também trabalhei nas faixas de recompensa do Hero Event 2.0.' }
         }
       ],
       metrics: [],
@@ -519,20 +519,20 @@ window.CONTENT = {
     },
     {
       id: 'auction-city', group: 'games', layout: 'md', tone: 'blue', minutes: 2,
-      cover: 'assets/img/g-ac-hunter-pass.webp', coverAlt: { en: 'Auction City Hunter Pass screen with free and premium reward tracks', pt: 'Tela do Hunter Pass de Auction City com trilhas de recompensa' },
+      cover: 'assets/img/g-ac-hunter-pass.webp', coverAlt: { en: 'Auction City Hunter Pass screen with free and premium reward tracks', pt: 'Tela do Hunter Pass do Auction City, com trilhas de recompensa grátis e premium' },
       kicker: { en: 'By Aliens · Systems and UX', pt: 'By Aliens · Sistemas e UX' },
       title: { en: 'Auction City', pt: 'Auction City' },
-      tagline: { en: 'A season pass, new tutorials and clearer auction results for a tycoon game.', pt: 'Um passe de temporada, tutoriais novos e resultados de leilão mais claros para um jogo de gerenciamento.' },
+      tagline: { en: 'A season pass, new tutorials and clearer auction results for a tycoon game.', pt: 'Um passe de temporada, novos tutoriais e resultados de leilão mais claros para um jogo tycoon.' },
       chip: { en: 'Season pass and onboarding', pt: 'Passe de temporada e onboarding' },
       meta: {
         role: { en: 'Systems and UX designer, By Aliens', pt: 'Designer de sistemas e UX, By Aliens' },
         when: { en: '2024', pt: '2024' },
         platform: { en: 'iOS and Android', pt: 'iOS e Android' },
-        context: { en: 'Auction tycoon game', pt: 'Jogo de gerenciamento com leilões' }
+        context: { en: 'Auction tycoon game', pt: 'Jogo tycoon de leilões' }
       },
       problem: {
         en: 'New players were leaving early. The tutorials were long, auction results were hard to read, and there wasn’t much reason to come back each season.',
-        pt: 'Os jogadores novos saíam cedo. Os tutoriais eram longos, os resultados dos leilões eram difíceis de entender e não havia muito motivo para voltar a cada temporada.'
+        pt: 'Os jogadores novos saíam cedo. Os tutoriais eram longos, os resultados dos leilões eram difíceis de ler e não havia muito motivo para voltar a cada temporada.'
       },
       moves: [
         {
@@ -542,7 +542,7 @@ window.CONTENT = {
         },
         {
           title: { en: 'Tutorials', pt: 'Tutoriais' },
-          body: { en: 'I rewrote the tutorials to be shorter and to start with an action instead of an explanation. I also rebalanced the early game so difficulty and rewards go up more gradually.', pt: 'Reescrevi os tutoriais para serem mais curtos e começarem por uma ação, em vez de uma explicação. Também rebalanceei o início do jogo para a dificuldade e as recompensas subirem aos poucos.' },
+          body: { en: 'I rewrote the tutorials to be shorter and to start with an action instead of an explanation. I also rebalanced the early game so difficulty and rewards go up more gradually.', pt: 'Reescrevi os tutoriais para ficarem mais curtos e começarem com uma ação, não com uma explicação. Também rebalanceei o early game para a dificuldade e as recompensas subirem de forma mais gradual.' },
           img: ['assets/img/g-ac-city.webp', 'assets/img/g-ac-appraisal.webp'], kind: 'game'
         },
         {
@@ -552,7 +552,7 @@ window.CONTENT = {
         },
         {
           title: { en: 'Statues and a gacha concept', pt: 'Estátuas e um conceito de gacha' },
-          body: { en: 'Statues are permanent buildings you earn at milestones. For the gacha, I came up with a lighthouse that calls a drifting ship, which drops containers.', pt: 'As Estátuas são construções permanentes que você ganha em marcos do jogo. Para o gacha, criei um farol que chama um navio à deriva, que solta contêineres.' },
+          body: { en: 'Statues are permanent buildings you earn at milestones. For the gacha, I came up with a lighthouse that calls a drifting ship, which drops containers.', pt: 'As Estátuas são construções permanentes que você ganha ao atingir marcos do jogo. Para o gacha, pensei num farol que chama um navio à deriva, que solta contêineres.' },
           img: ['assets/img/g-ac-statue.webp', 'assets/img/g-ac-mystery-dock.webp'], kind: 'game'
         }
       ],
@@ -563,20 +563,20 @@ window.CONTENT = {
       id: 'illuminati', group: 'games', layout: 'sm', tone: 'night', minutes: 1, emblem: 'eye',
       kicker: { en: 'By Aliens · Game design', pt: 'By Aliens · Game design' },
       title: { en: 'We Are Illuminati', pt: 'We Are Illuminati' },
-      tagline: { en: 'A new layout, a side story with three endings and a rewarded ad that fits the story.', pt: 'Um layout novo, uma história paralela com três finais e um anúncio com recompensa que faz parte da história.' },
+      tagline: { en: 'A new layout, a side story with three endings and a rewarded ad that fits the story.', pt: 'Um novo layout, uma história paralela com três finais e um anúncio com recompensa que faz parte da trama.' },
       chip: { en: '3 endings', pt: '3 finais' },
       meta: {
-        role: { en: 'Game and UX designer, By Aliens', pt: 'Game designer e UX designer, By Aliens' },
+        role: { en: 'Game and UX designer, By Aliens', pt: 'Game e UX designer, By Aliens' },
         when: { en: '2023', pt: '2023' },
         platform: { en: 'iOS and Android', pt: 'iOS e Android' },
         context: { en: 'Idle game', pt: 'Jogo idle' }
       },
       problem: {
         en: 'Sessions in the middle of the game were getting shorter, the idle boosters were hard to understand, and the rewarded ads felt like interruptions.',
-        pt: 'As sessões no meio do jogo estavam ficando mais curtas, os bônus idle eram difíceis de entender e os anúncios com recompensa pareciam interrupções.'
+        pt: 'As sessões no mid-game estavam ficando mais curtas, os boosters idle eram difíceis de entender e os anúncios com recompensa pareciam interrupções.'
       },
       moves: [
-        { title: { en: 'Main screen', pt: 'Tela principal' }, body: { en: 'I redesigned the main screen, made the managers and multipliers easier to understand, and added visible collectibles and a new area with more progression.', pt: 'Redesenhei a tela principal, deixei os gerentes e multiplicadores mais fáceis de entender e adicionei colecionáveis visíveis e uma área nova com mais progressão.' } },
+        { title: { en: 'Main screen', pt: 'Tela principal' }, body: { en: 'I redesigned the main screen, made the managers and multipliers easier to understand, and added visible collectibles and a new area with more progression.', pt: 'Redesenhei a tela principal, deixei os gerentes e multiplicadores mais fáceis de entender e adicionei colecionáveis à vista e uma nova área com mais progressão.' } },
         { title: { en: 'Side story', pt: 'História paralela' }, body: { en: 'A side story with three endings, decided by what the player does, that runs alongside the idle loop.', pt: 'Uma história paralela com três finais, que dependem do que o jogador faz, rodando junto com o loop idle.' } },
         { title: { en: 'Neila the Chrononaut', pt: 'Neila, a Crononauta' }, body: { en: 'A rewarded ad presented by Neila, a time-travelling character who brings random resources.', pt: 'Um anúncio com recompensa apresentado pela Neila, uma personagem que viaja no tempo e traz recursos aleatórios.' } }
       ],
@@ -589,17 +589,17 @@ window.CONTENT = {
       tagline: { en: 'Economy tuning, UX reviews and three minigames for an idle game.', pt: 'Ajustes de economia, revisões de UX e três minigames para um jogo idle.' },
       chip: { en: '3 minigames', pt: '3 minigames' },
       meta: {
-        role: { en: 'Game and UX designer, By Aliens', pt: 'Game designer e UX designer, By Aliens' },
+        role: { en: 'Game and UX designer, By Aliens', pt: 'Game e UX designer, By Aliens' },
         when: { en: '2022 to 2023', pt: '2022 a 2023' },
         platform: { en: 'iOS and Android', pt: 'iOS e Android' },
         context: { en: 'Idle airline game', pt: 'Jogo idle de companhia aérea' }
       },
       problem: {
         en: 'After a while the pacing and the upgrade economy flattened out, and there wasn’t much to do besides tapping.',
-        pt: 'Depois de um tempo, o ritmo e a economia de upgrades ficavam monótonos, e não havia muito o que fazer além de tocar na tela.'
+        pt: 'Depois de um tempo, o ritmo e a economia de upgrades estagnavam, e não sobrava muito o que fazer além de tocar na tela.'
       },
       moves: [
-        { title: { en: 'Pacing and economy', pt: 'Ritmo e economia' }, body: { en: 'I tuned the upgrade pacing and resource generation, and proposed systems for goals and progress feedback.', pt: 'Ajustei o ritmo dos upgrades e a geração de recursos e propus sistemas de metas e de feedback de progresso.' } },
+        { title: { en: 'Pacing and economy', pt: 'Ritmo e economia' }, body: { en: 'I tuned the upgrade pacing and resource generation, and proposed systems for goals and progress feedback.', pt: 'Ajustei o ritmo dos upgrades e a geração de recursos, e propus sistemas de metas e de feedback de progresso.' } },
         { title: { en: 'UX reviews', pt: 'Revisões de UX' }, body: { en: 'Screen-by-screen reviews pointing out where goals and rewards weren’t clear to the player.', pt: 'Revisões tela a tela apontando onde os objetivos e as recompensas não estavam claros para o jogador.' } },
         { title: { en: 'Minigames', pt: 'Minigames' }, body: { en: 'Three minigames that give players something to do between collections.', pt: 'Três minigames para o jogador ter o que fazer entre uma coleta e outra.' } }
       ],
@@ -609,21 +609,21 @@ window.CONTENT = {
       id: 'betsie', group: 'earlier', layout: 'sm', tone: 'deep', minutes: 1, emblem: 'dice',
       kicker: { en: 'Startup · Consulting', pt: 'Startup · Consultoria' },
       title: { en: 'Betsie', pt: 'Betsie' },
-      tagline: { en: 'UI redesign and gamification for a social betting app, ready for the pitch.', pt: 'Redesign da interface e gamificação de um app social de apostas, pronto para o pitch.' },
+      tagline: { en: 'UI redesign and gamification for a social betting app, ready for the pitch.', pt: 'Redesign de UI e gamificação para um app social de apostas, pronto para o pitch.' },
       chip: { en: 'Clickable prototype', pt: 'Protótipo navegável' },
       meta: {
         role: { en: 'UX and product design consultant', pt: 'Consultor de UX e produto' },
         when: { en: 'Jul to Nov 2024', pt: 'Jul a nov de 2024' },
         platform: { en: 'Mobile app', pt: 'App mobile' },
-        context: { en: 'Early-stage US startup', pt: 'Startup americana em estágio inicial' }
+        context: { en: 'Early-stage US startup', pt: 'Startup americana em fase inicial' }
       },
       problem: {
         en: 'An early-stage US startup needed a cleaner product and a reason for users to keep coming back.',
-        pt: 'Uma startup americana em estágio inicial precisava de um produto mais limpo e de um motivo para os usuários voltarem.'
+        pt: 'Uma startup americana em fase inicial precisava de um produto mais limpo e de um motivo para os usuários continuarem voltando.'
       },
       moves: [
-        { title: { en: 'Redesign and gamification', pt: 'Redesign e gamificação' }, body: { en: 'I redesigned the UI and added onboarding, scoring and feedback that help users learn how the app works.', pt: 'Redesenhei a interface e adicionei onboarding, pontuação e feedback para ajudar os usuários a aprender como o app funciona.' } },
-        { title: { en: 'Prototype and video', pt: 'Protótipo e vídeo' }, body: { en: 'I delivered a clickable prototype and a showcase video they could use with investors and developers.', pt: 'Entreguei um protótipo navegável e um vídeo de apresentação para usarem com investidores e desenvolvedores.' } }
+        { title: { en: 'Redesign and gamification', pt: 'Redesign e gamificação' }, body: { en: 'I redesigned the UI and added onboarding, scoring and feedback that help users learn how the app works.', pt: 'Refiz a UI e adicionei onboarding, pontuação e feedback que ajudam o usuário a entender como o app funciona.' } },
+        { title: { en: 'Prototype and video', pt: 'Protótipo e vídeo' }, body: { en: 'I delivered a clickable prototype and a showcase video they could use with investors and developers.', pt: 'Entreguei um protótipo navegável e um vídeo de apresentação para eles usarem com investidores e desenvolvedores.' } }
       ],
       metrics: []
     },
@@ -638,15 +638,15 @@ window.CONTENT = {
         role: { en: 'Producer and game designer', pt: 'Produtor e game designer' },
         when: { en: '2021 to 2022', pt: '2021 a 2022' },
         platform: { en: 'Mobile', pt: 'Mobile' },
-        context: { en: 'Indie studio in São Paulo', pt: 'Estúdio independente em São Paulo' }
+        context: { en: 'Indie studio in Aracaju', pt: 'Estúdio indie em Aracaju' }
       },
       problem: {
         en: 'A small studio needed someone to manage art production and run the game after launch.',
-        pt: 'Um estúdio pequeno precisava de alguém para cuidar da produção de arte e operar o jogo depois do lançamento.'
+        pt: 'Um estúdio pequeno precisava de alguém para gerenciar a produção de arte e tocar o jogo depois do lançamento.'
       },
       moves: [
         { title: { en: 'Production', pt: 'Produção' }, body: { en: 'I managed art production, helped with the technical pipeline and wrote documentation for the team and partners.', pt: 'Cuidei da produção de arte, ajudei no pipeline técnico e escrevi a documentação para o time e os parceiros.' } },
-        { title: { en: 'Live operations', pt: 'Operação do jogo' }, body: { en: 'I ran events, news and in-game content, designed retention and monetization events, and analysed playtests.', pt: 'Cuidei de eventos, notícias e conteúdo do jogo, desenhei eventos de retenção e monetização e analisei playtests.' } }
+        { title: { en: 'Live operations', pt: 'Live ops' }, body: { en: 'I ran events, news and in-game content, designed retention and monetization events, and analysed playtests.', pt: 'Rodei eventos, notícias e conteúdo no jogo, criei eventos de retenção e monetização e analisei playtests.' } }
       ],
       metrics: []
     }
@@ -654,47 +654,47 @@ window.CONTENT = {
 
   /* ---------- University & game-jam projects ---------- */
   side: [
-    { t: 'Lira Adventure', d: { en: 'A jelly puzzle game.', pt: 'Um jogo de quebra-cabeça com gelatinas.' } },
-    { t: 'CommuniCity', d: { en: 'A mobile game for learning English.', pt: 'Um jogo mobile para aprender inglês.' } },
-    { t: 'Dashy Bird', d: { en: 'Tap to fly, drag to slingshot.', pt: 'Toque para voar, arraste para estilingar.' } },
-    { t: 'The Other King', d: { en: 'A game that breaks the fourth wall.', pt: 'Um jogo que quebra a quarta parede.' } },
-    { t: 'Thunderclock: Red Shell', d: { en: 'Another game that breaks the fourth wall.', pt: 'Outro jogo que quebra a quarta parede.' } },
+    { t: 'Lira Adventure', url: 'https://flying-frog.itch.io/lira-adventure', d: { en: 'A jelly puzzle game.', pt: 'Um jogo de puzzle com gelatinas.' } },
+    { t: 'CommuniCity', url: 'https://audev.itch.io/communicity', d: { en: 'A mobile game for learning English.', pt: 'Um jogo mobile para aprender inglês.' } },
+    { t: 'Dashy Bird', url: 'https://siriusgamedesign.itch.io/dashy-bird', d: { en: 'Tap to fly, drag to slingshot.', pt: 'Toque para voar e arraste para usar o estilingue.' } },
+    { t: 'The Other King', url: 'https://siriusgamedesign.itch.io/the-other-king', d: { en: 'A game that breaks the fourth wall.', pt: 'Um jogo que quebra a quarta parede.' } },
+    { t: 'Thunderclock: Red Shell', url: 'https://fortune-game-studio.itch.io/thunderclock', d: { en: 'Another game that breaks the fourth wall.', pt: 'Outro jogo que quebra a quarta parede.' } },
     { t: 'Behind the Curtain', d: { en: 'Based on Hitchcock’s Rear Window.', pt: 'Baseado em Janela Indiscreta, de Hitchcock.' } },
-    { t: 'Yetu’s Journey', d: { en: 'A psychological game set during the Yongxing disaster.', pt: 'Um jogo psicológico ambientado no desastre de Yongxing.' } },
-    { t: 'Friday Heist', d: { en: 'A remake of the classic Elevator Action.', pt: 'Uma releitura do clássico Elevator Action.' } },
-    { t: 'Hambogus', d: { en: 'Tilt your phone to stack falling burger ingredients.', pt: 'Incline o celular para empilhar os ingredientes do hambúrguer.' } },
-    { t: 'The Druids’ Path', d: { en: 'Druids work together to save their village.', pt: 'Druidas se unem para salvar a vila.' } },
-    { t: 'Deathrow', d: { en: 'A first-person horror shooter.', pt: 'Um jogo de tiro em primeira pessoa de terror.' } },
+    { t: 'Yetu’s Journey', url: 'https://siriusgamedesign.itch.io/a-viagem-de-yetu', d: { en: 'A psychological game set during the Yongxing disaster.', pt: 'Um jogo psicológico ambientado no desastre de Yongxing.' } },
+    { t: 'Friday Heist', url: 'https://audev.itch.io/friday-heist', d: { en: 'A remake of the classic Elevator Action.', pt: 'Um remake do clássico Elevator Action.' } },
+    { t: 'Hambogus', d: { en: 'Tilt your phone to stack falling burger ingredients.', pt: 'Incline o celular para empilhar ingredientes de hambúrguer que caem.' } },
+    { t: 'The Druids’ Path', url: 'https://siriusgamedesign.itch.io/caminho-dos-druidas', d: { en: 'Druids work together to save their village.', pt: 'Druidas se unem para salvar a vila.' } },
+    { t: 'Deathrow', d: { en: 'A first-person horror shooter.', pt: 'Um FPS de terror.' } },
     { t: 'Chicken Tikka Masala', d: { en: 'A 2D side-scroller with a very fast chicken.', pt: 'Um side-scroller 2D com uma galinha muito rápida.' } },
-    { t: 'Break Into', d: { en: 'A mix of Pong and Breakout.', pt: 'Uma mistura de Pong e Breakout.' } },
-    { t: 'Armazone', d: { en: 'Put out fires in the Amazon forest.', pt: 'Apague incêndios na Floresta Amazônica.' } },
-    { t: 'Where is Estela?', d: { en: 'Search a phone to find out what happened to Estela.', pt: 'Investigue um celular para descobrir o que aconteceu com a Estela.' } }
+    { t: 'Break Into', url: 'https://siriusgamedesign.itch.io/break-into', d: { en: 'A mix of Pong and Breakout.', pt: 'Uma mistura de Pong e Breakout.' } },
+    { t: 'Armazone', url: 'https://siriusgamedesign.itch.io/armazone', d: { en: 'Put out fires in the Amazon forest.', pt: 'Apague incêndios na Amazônia.' } },
+    { t: 'Where is Estela?', d: { en: 'Search a phone to find out what happened to Estela.', pt: 'Vasculhe um celular para descobrir o que aconteceu com a Estela.' } }
   ],
 
   /* ---------- Experience ---------- */
   experience: [
     {
-      org: 'Knomee', when: { en: '2024 – now', pt: '2024 – hoje' },
+      org: 'Knomee', when: { en: '2024 – now', pt: '2024 – atual' },
       role: { en: 'UX & Gamification Designer', pt: 'Designer de UX e Gamificação' },
-      where: { en: 'Fintech · Remote', pt: 'Fintech · Remoto' },
+      where: { en: 'Fintech · Los Angeles · Remote', pt: 'Fintech · Los Angeles · Remoto' },
       points: {
         en: ['Designed the client app’s Adventures, short questionnaires that build a Financial ID clients can share.', 'Designed the advisor dashboard: readiness scores, segmentation, alerts and conversation playbooks.', 'Built the coded prototype used for handoff, sales demos and user tests (643 merged pull requests).', 'Made the activation toolkit, the pitch deck and the product video.'],
-        pt: ['Desenhei as Adventures do app do cliente, questionários curtos que montam um Financial ID compartilhável.', 'Desenhei o painel do assessor: notas de prontidão, segmentação, alertas e playbooks de conversa.', 'Construí o protótipo em código usado em handoff, demos de vendas e testes com usuários (643 pull requests aprovados).', 'Fiz o kit de ativação, o pitch deck e o vídeo do produto.']
+        pt: ['Desenhei as Adventures do app do cliente, questionários curtos que montam um Financial ID compartilhável.', 'Desenhei o dashboard do assessor: scores de prontidão, segmentação, alertas e playbooks de conversa.', 'Desenvolvi o protótipo em código usado em handoff, demos de vendas e testes com usuários (643 pull requests mergeados).', 'Fiz o kit de ativação, o pitch deck e o vídeo do produto.']
       }
     },
     {
       org: 'By Aliens', when: { en: '2022 – 2025', pt: '2022 – 2025' },
-      role: { en: 'Game & UX Designer', pt: 'Game Designer e UX Designer' },
-      where: { en: 'Game studio · Remote', pt: 'Estúdio de jogos · Remoto' },
+      role: { en: 'Game & UX Designer', pt: 'Game e UX Designer' },
+      where: { en: 'Game studio · Dubai · Remote', pt: 'Estúdio de jogos · Dubai · Remoto' },
       points: {
         en: ['Smashing Four: new heroes (Bloodbite, Sheriff, Otter), rebalancing and Hero Event 2.0.', 'Auction City: Hunter Pass season pass, new onboarding, Statues system and a gacha concept.', 'We Are Illuminati: new layout, a side story with three endings, ads and in-app purchases.', 'Idle Planes: pacing, upgrade economy, UX reviews and three minigames.'],
-        pt: ['Smashing Four: heróis novos (Bloodbite, Sheriff, Otter), rebalanceamento e Hero Event 2.0.', 'Auction City: passe de temporada Hunter Pass, novo onboarding, sistema de Estátuas e um conceito de gacha.', 'We Are Illuminati: layout novo, uma história paralela com três finais, anúncios e compras no app.', 'Idle Planes: ritmo, economia de upgrades, revisões de UX e três minigames.']
+        pt: ['Smashing Four: novos heróis (Bloodbite, Sheriff, Otter), rebalanceamento e Hero Event 2.0.', 'Auction City: passe de temporada Hunter Pass, novo onboarding, sistema de Estátuas e um conceito de gacha.', 'We Are Illuminati: novo layout, uma história paralela com três finais, anúncios e compras in-app.', 'Idle Planes: ritmo, economia de upgrades, revisões de UX e três minigames.']
       }
     },
     {
       org: 'Betsie', when: { en: 'Jul – Nov 2024', pt: 'jul – nov 2024' },
       role: { en: 'UX/Product Design Consultant', pt: 'Consultor de UX e Produto' },
-      where: { en: 'US startup · Remote', pt: 'Startup americana · Remoto' },
+      where: { en: 'Startup · Los Angeles · Remote', pt: 'Startup · Los Angeles · Remoto' },
       points: {
         en: ['Added gamification to a social betting app: onboarding, scoring and feedback.', 'Delivered a clickable prototype and a showcase video for the pitch.'],
         pt: ['Adicionei gamificação a um app social de apostas: onboarding, pontuação e feedback.', 'Entreguei um protótipo navegável e um vídeo de apresentação para o pitch.']
@@ -703,19 +703,19 @@ window.CONTENT = {
     {
       org: 'Lumen Games', when: { en: '2021 – 2022', pt: '2021 – 2022' },
       role: { en: 'Producer / Game Designer', pt: 'Produtor / Game Designer' },
-      where: { en: 'Game studio · São Paulo', pt: 'Estúdio de jogos · São Paulo' },
+      where: { en: 'Game studio · Aracaju · Remote', pt: 'Estúdio de jogos · Aracaju · Remoto' },
       points: {
         en: ['Managed art production and the technical pipeline for Hemp Paradise.', 'Ran the live game: events, news and content. Designed retention and monetization events.', 'Analysed playtests and turned the findings into design changes.'],
-        pt: ['Cuidei da produção de arte e do pipeline técnico do Hemp Paradise.', 'Operei o jogo ao vivo: eventos, notícias e conteúdo. Desenhei eventos de retenção e monetização.', 'Analisei playtests e transformei o que aprendi em mudanças de design.']
+        pt: ['Gerenciei a produção de arte e o pipeline técnico do Hemp Paradise.', 'Cuidei do live ops: eventos, notícias e conteúdo. Criei eventos de retenção e monetização.', 'Analisei playtests e transformei os insights em mudanças de design.']
       }
     },
     {
       org: 'PROAC', when: { en: '2021 – 2022', pt: '2021 – 2022' },
       role: { en: 'Game Design Intern', pt: 'Estagiário de Game Design' },
-      where: { en: 'Cultural grant · São Paulo', pt: 'Edital cultural · São Paulo' },
+      where: { en: 'Cultural grant · São Paulo · Remote', pt: 'Edital cultural · São Paulo · Remoto' },
       points: {
         en: ['Worked on systems and gameplay for an experimental mobile game funded by a São Paulo cultural grant.'],
-        pt: ['Trabalhei em sistemas e jogabilidade de um jogo mobile experimental financiado por um edital cultural de São Paulo.']
+        pt: ['Trabalhei nos sistemas e no gameplay de um jogo mobile experimental financiado por um edital cultural de São Paulo.']
       }
     }
   ],
@@ -738,14 +738,14 @@ window.CONTENT = {
       kind: { en: 'Technical course · Senac São Paulo', pt: 'Curso técnico · Senac São Paulo' },
       when: '2015 – 2016', grade: { en: 'Great', pt: 'Ótimo' },
       core: { en: ['Stage presence', 'Communication', 'Improvisation', 'Storytelling'], pt: ['Presença de palco', 'Comunicação', 'Improvisação', 'Storytelling'] },
-      extra: { en: ['Acting, musical theatre, stage direction and public speaking'], pt: ['Atuação, teatro musical, direção e falar em público'] }
+      extra: { en: ['Acting, musical theatre, stage direction and public speaking'], pt: ['Atuação, teatro musical, direção cênica e oratória'] }
     },
     {
       id: 'gamification', branch: 'behavior', status: 'done',
       name: { en: 'Games and Gamification in Education', pt: 'Games e Gamificação na Educação' },
       kind: { en: 'Postgraduate · UNINTER', pt: 'Pós-graduação · UNINTER' },
       when: '2023 – 2024', grade: '100',
-      core: { en: ['Habit loops', 'Motivation theory', 'Reward systems', 'Behavior design'], pt: ['Loops de hábito', 'Teoria da motivação', 'Sistemas de recompensa', 'Design de comportamento'] },
+      core: { en: ['Habit loops', 'Motivation theory', 'Reward systems', 'Behavior design'], pt: ['Loops de hábito', 'Teoria da motivação', 'Sistemas de recompensa', 'Design comportamental'] },
       extra: { en: ['UX for games', 'Gamified interfaces', 'Design for engagement'], pt: ['UX para jogos', 'Interfaces gamificadas', 'Design para engajamento'] }
     },
     {
@@ -754,43 +754,43 @@ window.CONTENT = {
       kind: { en: 'Postgraduate · UNINTER', pt: 'Pós-graduação · UNINTER' },
       when: '2023 – 2024', grade: '100',
       core: { en: ['Learning psychology', 'Cognitive design', 'Emotional engagement', 'Educational UX'], pt: ['Psicologia da aprendizagem', 'Design cognitivo', 'Engajamento emocional', 'UX educacional'] },
-      extra: { en: ['Cognitive neuroscience', 'Learning motivation'], pt: ['Neurociência cognitiva', 'Motivação para aprender'] }
+      extra: { en: ['Cognitive neuroscience', 'Learning motivation'], pt: ['Neurociência cognitiva', 'Motivação na aprendizagem'] }
     },
     {
-      id: 'mba-ux', branch: 'strategy', status: 'progress',
+      id: 'mba-ux', branch: 'strategy', status: 'done',
       name: { en: 'MBA in Strategic Management in UX Design', pt: 'MBA em Gestão Estratégica em UX Design' },
       kind: { en: 'Postgraduate · UNINTER', pt: 'Pós-graduação · UNINTER' },
-      when: { en: '2025 – ongoing', pt: '2025 – em andamento' },
-      core: { en: ['UX leadership and business strategy', 'Research-based product development', 'Information architecture and usability', 'Agile design delivery'], pt: ['Liderança de UX e estratégia de negócio', 'Desenvolvimento de produto baseado em pesquisa', 'Arquitetura de informação e usabilidade', 'Entrega ágil de design'] },
+      when: '2025 – 2026',
+      core: { en: ['UX leadership and business strategy', 'Research-based product development', 'Information architecture and usability', 'Agile design delivery'], pt: ['Liderança de UX e estratégia de negócio', 'Desenvolvimento de produto orientado por pesquisa', 'Arquitetura da informação e usabilidade', 'Entrega ágil de design'] },
       extra: { en: ['UX metrics and UXOps', 'Neuromarketing', 'Design thinking'], pt: ['Métricas de UX e UXOps', 'Neuromarketing', 'Design thinking'] }
     },
     {
-      id: 'mba-ai', branch: 'strategy', status: 'progress',
+      id: 'mba-ai', branch: 'strategy', status: 'done',
       name: { en: 'MBA in AI-Oriented Innovation and UX', pt: 'MBA em Inovação Orientada por IA e UX' },
       kind: { en: 'Postgraduate · UNIFAST', pt: 'Pós-graduação · UNIFAST' },
-      when: { en: '2025 – ongoing', pt: '2025 – em andamento' },
+      when: '2025 – 2026',
       core: { en: ['UX research and discovery with AI', 'AI agents and automation', 'ResearchOps and DesignOps', 'Cognitive biases and decision design'], pt: ['Pesquisa e discovery de UX com IA', 'Agentes de IA e automação', 'ResearchOps e DesignOps', 'Vieses cognitivos e design de decisão'] },
-      extra: { en: ['Data visualization and statistics', 'Working as a one-person UX team'], pt: ['Visualização de dados e estatística', 'Trabalhar como time de UX de uma pessoa só'] }
+      extra: { en: ['Data visualization and statistics', 'Working as a one-person UX team'], pt: ['Visualização de dados e estatística', 'Atuar como um time de UX de uma pessoa só'] }
     },
     {
-      id: 'leadership', branch: 'strategy', status: 'progress',
+      id: 'leadership', branch: 'strategy', status: 'done',
       name: { en: 'Leadership, Management and Innovation', pt: 'Liderança, Gestão e Inovação' },
       kind: { en: 'Postgraduate · UNINTER', pt: 'Pós-graduação · UNINTER' },
-      when: { en: '2025 – ongoing', pt: '2025 – em andamento' },
+      when: '2025 – 2026',
       core: { en: ['Strategic planning and decision-making', 'High-performance teams', 'Innovation in creative environments'], pt: ['Planejamento estratégico e tomada de decisão', 'Times de alta performance', 'Inovação em ambientes criativos'] },
       extra: { en: ['Conflict management', 'Knowledge management'], pt: ['Gestão de conflitos', 'Gestão do conhecimento'] }
     },
     {
-      id: 'unicorn', branch: 'strategy', status: 'progress',
+      id: 'unicorn', branch: 'strategy', status: 'done',
       name: { en: 'UX Unicorn 2.0', pt: 'UX Unicorn 2.0' },
       kind: { en: 'Professional certificate · Leandro Rezende', pt: 'Certificado profissional · Leandro Rezende' },
-      when: { en: '2025 – ongoing', pt: '2025 – em andamento' },
-      core: { en: ['UX research and usability testing', 'UX metrics (HEART, AARRR)', 'UX writing', 'Journey maps and service blueprints'], pt: ['Pesquisa de UX e testes de usabilidade', 'Métricas de UX (HEART, AARRR)', 'UX writing', 'Mapas de jornada e blueprints de serviço'] },
+      when: '2025 – 2026',
+      core: { en: ['UX research and usability testing', 'UX metrics (HEART, AARRR)', 'UX writing', 'Journey maps and service blueprints'], pt: ['Pesquisa de UX e testes de usabilidade', 'Métricas de UX (HEART, AARRR)', 'UX writing', 'Mapas de jornada e service blueprints'] },
       extra: { en: ['Workshop facilitation', 'Front-end for designers'], pt: ['Facilitação de workshops', 'Front-end para designers'] }
     }
   ],
   branches: {
-    foundation: { en: 'Foundations', pt: 'Base' },
+    foundation: { en: 'Foundations', pt: 'Fundamentos' },
     behavior: { en: 'Behavior and learning', pt: 'Comportamento e aprendizagem' },
     strategy: { en: 'Strategy and research', pt: 'Estratégia e pesquisa' }
   },
@@ -798,13 +798,13 @@ window.CONTENT = {
 
   /* ---------- Achievements (quest log) ---------- */
   achievements: [
-    { id: 'scout', xp: 10, t: { en: 'First steps', pt: 'Primeiros passos' }, d: { en: 'Scrolled past the top of the page', pt: 'Rolou além do topo da página' } },
+    { id: 'scout', xp: 10, t: { en: 'First steps', pt: 'Primeiros passos' }, d: { en: 'Scrolled past the top of the page', pt: 'Passou do topo da página' } },
     { id: 'reader', xp: 40, t: { en: 'Case closed', pt: 'Caso encerrado' }, d: { en: 'Read a project to the end', pt: 'Leu um projeto até o fim' } },
     { id: 'completionist', xp: 80, t: { en: 'Main quest', pt: 'Missão principal' }, d: { en: 'Opened all four Knomee projects', pt: 'Abriu os quatro projetos da Knomee' } },
     { id: 'polyglot', xp: 20, t: { en: 'Bilingual', pt: 'Bilíngue' }, d: { en: 'Switched language', pt: 'Trocou de idioma' } },
     { id: 'daynight', xp: 10, t: { en: 'Day and night', pt: 'Dia e noite' }, d: { en: 'Switched theme', pt: 'Trocou de tema' } },
-    { id: 'climber', xp: 30, t: { en: 'Tree climber', pt: 'Escalador' }, d: { en: 'Opened three items in Education', pt: 'Abriu três itens em Formação' } },
-    { id: 'party', xp: 100, t: { en: 'Party invite', pt: 'Convite para o grupo' }, d: { en: 'Copied my email or opened LinkedIn', pt: 'Copiou meu e-mail ou abriu o LinkedIn' } },
+    { id: 'climber', xp: 30, t: { en: 'Tree climber', pt: 'De galho em galho' }, d: { en: 'Opened three items in Education', pt: 'Abriu três itens em Formação' } },
+    { id: 'party', xp: 100, t: { en: 'Party invite', pt: 'Convite para a party' }, d: { en: 'Copied my email or opened LinkedIn', pt: 'Copiou meu e-mail ou abriu o LinkedIn' } },
     { id: 'secret', xp: 50, secret: true, t: { en: 'Old school', pt: 'Das antigas' }, d: { en: 'Entered the Konami code', pt: 'Digitou o código Konami' } }
   ],
   levels: [0, 50, 140, 260]
