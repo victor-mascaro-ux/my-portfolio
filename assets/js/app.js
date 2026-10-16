@@ -722,7 +722,12 @@
     var card = t.closest && t.closest('.case-card');
     if (card) { var r = card.getBoundingClientRect(); card.style.setProperty('--sx', (e.x - r.left) + 'px'); card.style.setProperty('--sy', (e.y - r.top) + 'px'); }
     var hr = heroSec.getBoundingClientRect();
-    if (e.y > hr.top && e.y < hr.bottom) { heroSec.style.setProperty('--gx', (e.x - hr.left) + 'px'); heroSec.style.setProperty('--gy', (e.y - hr.top) + 'px'); }
+    if (e.y > hr.top && e.y < hr.bottom) {
+      // the glow is painted on .hero::before, which bleeds past the hero; measure from its corner
+      var gs = getComputedStyle(heroSec, '::before');
+      heroSec.style.setProperty('--gx', (e.x - hr.left - parseFloat(gs.left)) + 'px');
+      heroSec.style.setProperty('--gy', (e.y - hr.top - parseFloat(gs.top)) + 'px');
+    }
     var mag = t.closest && t.closest('.btn-primary, .btn-card, .contact .btn');
     if (mag !== magActive) { if (magActive) { magActive.style.setProperty('--mx', '0px'); magActive.style.setProperty('--my', '0px'); } magActive = mag; }
     if (mag) {
