@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Victor Mascaro · CV</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+  /* Printable CV, rendered to PDF (A4). Content comes from assets/js/content.js. */
+  @font-face { font-family: 'Bricolage Grotesque'; src: url('assets/fonts/bricolage-grotesque-latin-standard-normal.woff2') format('woff2'); font-weight: 200 800; font-stretch: 75% 100%; }
+  @font-face { font-family: 'Instrument Sans'; src: url('assets/fonts/instrument-sans-latin-standard-normal.woff2') format('woff2'); font-weight: 400 700; }
+  @font-face { font-family: 'JetBrains Mono'; src: url('assets/fonts/jetbrains-mono-latin-wght-normal.woff2') format('woff2'); font-weight: 100 800; }
+  :root { --ink: #0B1530; --ink-2: #26345A; --muted: #4F5F82; --line: #D2DCEB; --gold: #F2B705; --gold-ink: #7E5600; --accent: #0B63C9; --paper: #FFFFFF; }
+  @page { size: A4; margin: 11mm 14mm 9mm 14mm; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #E1E9F5; color: var(--ink); }
+  body { font-family: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif; font-size: 9.1pt; line-height: 1.42; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; min-height: 297mm; margin: 24px auto; padding: 14mm 15mm; background: var(--paper); box-shadow: 0 10px 40px rgba(11, 18, 32, .15); }
+  @media print { html, body { background: #fff; } .page { margin: 0; padding: 0; width: auto; min-height: 0; box-shadow: none; } .noprint { display: none; } }
+  h1, h2, h3 { font-family: 'Bricolage Grotesque', 'Avenir Next', sans-serif; margin: 0; letter-spacing: -.02em; }
+  p { margin: 0; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  .head { display: grid; grid-template-columns: 1fr auto; gap: 6mm; align-items: end; padding-bottom: 4mm; border-bottom: 2px solid var(--accent); }
+  .name { font-size: 28pt; font-weight: 750; line-height: .95; letter-spacing: -.035em; }
+  .role { font-size: 11pt; font-weight: 600; margin-top: 2mm; color: var(--accent); }
+  .role span { color: var(--muted); font-weight: 500; }
+  .contact { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 7.8pt; line-height: 1.65; color: var(--ink-2); }
+  .contact a { color: var(--ink); text-decoration: none; }
+  .summary { margin: 4mm 0 0; font-size: 10.2pt; color: var(--ink-2); max-width: 165mm; }
+  .grid { display: grid; grid-template-columns: minmax(0, 1fr) 54mm; gap: 8mm; margin-top: 4mm; }
+  .sec-t { font-family: 'JetBrains Mono', monospace; font-size: 7.4pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 2mm; margin: 3.5mm 0 2mm; }
+  .sec-t::before { content: ""; width: 2mm; height: 2mm; background: var(--gold); transform: rotate(45deg); }
+  .job { padding: 2mm 0; border-top: 1px solid var(--line); break-inside: avoid; }
+  .job:first-of-type { border-top: 0; padding-top: 0; }
+  .job-h { display: flex; justify-content: space-between; gap: 4mm; align-items: baseline; }
+  .job-org { font-size: 11.5pt; font-weight: 700; }
+  .job-when { font-family: 'JetBrains Mono', monospace; font-size: 7.6pt; color: var(--muted); white-space: nowrap; }
+  .job-role { font-weight: 600; font-size: 9.4pt; }
+  .job-role span { color: var(--muted); font-weight: 500; }
+  .job ul { margin-top: 1.2mm; display: grid; gap: .8mm; }
+  .job li { position: relative; padding-left: 3.6mm; color: var(--ink-2); }
+  .job li::before { content: ""; position: absolute; left: .3mm; top: 1.7mm; width: 1.3mm; height: 1.3mm; border: 1px solid var(--gold); transform: rotate(45deg); }
+  .side .block + .block { margin-top: 1mm; }
+  .metric { display: grid; grid-template-columns: 17mm 1fr; gap: 2mm; padding: 1.4mm 0; border-top: 1px solid var(--line); align-items: baseline; }
+  .metric:first-child { border-top: 0; }
+  .metric b { font-family: 'Bricolage Grotesque', sans-serif; font-size: 12pt; font-weight: 750; letter-spacing: -.03em; color: var(--accent); }
+  .metric span { font-size: 8pt; color: var(--ink-2); line-height: 1.35; }
+  .edu { padding: 1.4mm 0; border-top: 1px solid var(--line); }
+  .edu:first-child { border-top: 0; }
+  .edu b { display: block; font-size: 8.8pt; line-height: 1.3; }
+  .edu span { display: block; font-size: 7.8pt; color: var(--muted); }
+  .tags { display: flex; flex-wrap: wrap; gap: 1.2mm; }
+  .tags li { font-size: 7.4pt; padding: .4mm 1.6mm; border: 1px solid var(--line); border-radius: 1.2mm; color: var(--ink-2); }
+  :lang(pt-BR) body { font-size: 8.75pt; }
+  :lang(pt-BR) .job ul { gap: .5mm; }
+  .row2 { display: grid; grid-template-columns: minmax(0, 1fr) 54mm; gap: 8mm; border-top: 1px solid var(--line); margin-top: 2mm; }
+  .row2 .sec-t { margin-top: 3mm; }
+  .foot { margin-top: 3.5mm; padding-top: 2.5mm; border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 7.2pt; color: var(--muted); display: flex; justify-content: space-between; }
+  .noprint { text-align: center; padding: 16px; font: 14px system-ui; }
+  .noprint button { font: inherit; padding: 8px 14px; border-radius: 8px; border: 1px solid #bbb; background: #fff; cursor: pointer; }
+</style>
+</head>
+<body>
+<p class="noprint"><button type="button" onclick="window.print()">Print / Save as PDF</button></p>
+<div class="page" id="cv"></div>
+<script src="assets/js/content.js"></script>
+<script>
+(function () {
+  var C = window.CONTENT;
+  var q = new URLSearchParams(location.search);
+  var lang = q.get('lang') === 'pt' ? 'pt' : 'en';
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+  function L(v) { return typeof v === 'string' ? v : (v[lang] || v.en); }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); }
+  var T = {
+    en: { title: 'UX/UI Designer', sub: 'Game systems & gamification', sum: 'UX/UI designer based in São Paulo. I’ve worked on mobile games since 2021 and on Knomee, a fintech product for financial advisors, since 2024. Most of my work is on onboarding, progression and gamification, and I prototype in code when it helps.', exp: 'Experience', res: 'Highlights', edu: 'Education', tools: 'Tools & skills', langs: 'Languages', langsV: 'Portuguese (native) · English (professional)', loc: 'São Paulo, Brazil · UTC−3 · Remote', port: 'Portfolio with case studies' },
+    pt: { title: 'Designer de UX/UI', sub: 'Sistemas de jogo e gamificação', sum: 'Designer de UX/UI em São Paulo. Trabalho com jogos mobile desde 2021 e na Knomee, um produto fintech para assessores financeiros, desde 2024. A maior parte do meu trabalho é com onboarding, progressão e gamificação, e prototipo em código quando ajuda.', exp: 'Experiência', res: 'Destaques', edu: 'Formação', tools: 'Ferramentas e habilidades', langs: 'Idiomas', langsV: 'Português (nativo) · Inglês (profissional)', loc: 'São Paulo, Brasil · UTC−3 · Remoto', port: 'Portfólio com estudos de caso' }
+  }[lang];
+  var site = 'victor-mascaro-ux.github.io/my-portfolio';
+  var results = [
+    ['643', { en: 'merged PRs on the Knomee coded prototype', pt: 'PRs aprovados no protótipo da Knomee' }],
+    ['58', { en: 'screens across advisor, firm and client views (Knomee)', pt: 'telas nas visões de assessor, empresa e cliente (Knomee)' }],
+    ['5', { en: 'gamified Adventures in the Knomee client app', pt: 'Adventures gamificadas no app de clientes da Knomee' }],
+    ['3', { en: 'new Smashing Four heroes: Bloodbite, Sheriff, Otter', pt: 'heróis novos no Smashing Four: Bloodbite, Sheriff, Otter' }],
+    ['4', { en: 'live-service games at By Aliens', pt: 'jogos live-service na By Aliens' }]
+  ];
+  if (lang === 'pt') results.forEach(function (r) { r[0] = r[0].replace('.', ','); });
+  var tools = { en: ['Figma', 'Prototyping in code', 'React + TypeScript', 'HTML / CSS / JS', 'Design systems', 'UX research', 'Game economy', 'Unity + C#', 'Claude Code'], pt: ['Figma', 'Protótipos em código', 'React + TypeScript', 'HTML / CSS / JS', 'Design systems', 'Pesquisa de UX', 'Economia de jogos', 'Unity + C#', 'Claude Code'] }[lang];
+  var edu = C.skills.filter(function (s) { return s.status === 'done'; }).map(function (s) {
+    var when = typeof s.when === 'string' ? s.when : L(s.when);
+    return '<div class="edu"><b>' + esc(L(s.name)) + '</b><span>' + esc(L(s.kind)) + ' · ' + esc(when) + '</span></div>';
+  }).join('') + '<div class="edu"><b>' + (lang === 'pt' ? 'Em curso (2025 –)' : 'In progress (2025 –)') + '</b><span>' +
+    C.skills.filter(function (s) { return s.status === 'progress'; }).map(function (s) { return esc(L(s.name)); }).join(' · ') + '</span></div>';
+  var html =
+    '<header class="head"><div><h1 class="name">Victor Mascaro</h1><p class="role">' + T.title + ' <span>· ' + T.sub + '</span></p></div>' +
+    '<p class="contact"><a href="mailto:' + C.person.email + '">' + C.person.email + '</a><br><a href="' + C.person.linkedin + '">linkedin.com/in/viktor-mascaro</a><br><a href="https://' + site + '">' + site + '</a><br>' + T.loc + '</p></header>' +
+    '<p class="summary">' + esc(T.sum) + '</p>' +
+    '<div class="grid"><section><h2 class="sec-t">' + T.exp + '</h2>' +
+    C.experience.map(function (x) {
+      return '<article class="job"><div class="job-h"><h3 class="job-org">' + esc(x.org) + '</h3><span class="job-when">' + esc(L(x.when)) + '</span></div>' +
+        '<p class="job-role">' + esc(L(x.role)) + ' <span>· ' + esc(L(x.where)) + '</span></p>' +
+        '<ul>' + x.points[lang].map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul></article>';
+    }).join('') + '</section>' +
+    '<aside class="side"><div class="block"><h2 class="sec-t">' + T.res + '</h2>' + results.map(function (r) { return '<div class="metric"><b>' + r[0] + '</b><span>' + esc(L(r[1])) + '</span></div>'; }).join('') + '</div>' +
+    '<div class="block"><h2 class="sec-t">' + T.edu + '</h2>' + edu + '</div></aside></div>' +
+    '<div class="row2"><div><h2 class="sec-t">' + T.tools + '</h2><ul class="tags">' + tools.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' +
+    '<div><h2 class="sec-t">' + T.langs + '</h2><p style="font-size:8.4pt">' + T.langsV + '</p></div></div>' +
+    '<p class="foot"><span>' + T.port + ': ' + site + '</span><span>2026</span></p>';
+  document.getElementById('cv').innerHTML = html;
+})();
+</script>
+</body>
+</html>

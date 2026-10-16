@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Victor Mascaro · UX/UI Designer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="UX/UI designer in São Paulo with a background in game design. Currently working on Knomee, a fintech product for financial advisors.">
+<meta name="theme-color" content="#0A1430" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#EEF3FA" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Victor Mascaro · UX/UI Designer">
+<meta property="og:description" content="UX/UI designer in São Paulo with a background in game design. Currently working on Knomee, a fintech product for financial advisors.">
+<meta property="og:image" content="https://victor-mascaro-ux.github.io/my-portfolio/assets/og.png">
+<meta property="og:url" content="https://victor-mascaro-ux.github.io/my-portfolio/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/bricolage-grotesque-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-sans-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/main.css">
+<script>
+  /* Apply saved theme and language before first paint (no flash). */
+  (function () {
+    try {
+      var t = localStorage.getItem('vm-theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      var l = localStorage.getItem('vm-lang') || ((navigator.language || '').toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en');
+      document.documentElement.setAttribute('lang', l === 'pt' ? 'pt-BR' : 'en');
+      if (localStorage.getItem('vm-game') === 'off') document.documentElement.classList.add('game-off');
+    } catch (e) {}
+    document.documentElement.classList.add('js');
+    try { if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('intro'); } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<!-- ============ HUD (sticky header) ============ -->
+<header class="hud" id="hud">
+  <div class="hud-inner wrap">
+    <a class="brand" href="#top" aria-label="Victor Mascaro">
+      <span class="brand-mark" aria-hidden="true">VM</span>
+      <span class="brand-name">Victor Mascaro</span>
+    </a>
+    <nav class="hud-nav" aria-label="Primary">
+      <a href="#work" data-i18n="nav.work">Work</a>
+      <a href="#process" data-i18n="nav.process">Process</a>
+      <a href="#experience" data-i18n="nav.experience">Experience</a>
+      <a href="#skills" data-i18n="nav.skills">Education</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="hud-tools">
+      <button class="xp-btn game" id="xpBtn" type="button" aria-haspopup="dialog" aria-controls="questlog">
+        <span class="xp-level" id="xpLevel">Lv 1</span>
+        <span class="xp-track" aria-hidden="true"><span class="xp-fill" id="xpFill"></span></span>
+        <span class="sr-only" id="xpLabel">Quest log</span>
+      </button>
+      <button class="tool icon" id="langBtn" type="button" aria-label="Português">
+        <span class="lang-code" id="langCode">PT</span>
+      </button>
+      <button class="tool icon" id="themeBtn" type="button" aria-label="Switch theme">
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6Z"/></svg>
+      </button>
+      <button class="tool icon menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Primary" hidden>
+    <a href="#work" data-i18n="nav.work">Work</a>
+    <a href="#process" data-i18n="nav.process">Process</a>
+    <a href="#experience" data-i18n="nav.experience">Experience</a>
+    <a href="#skills" data-i18n="nav.skills">Education</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+  <!-- ============ Hero ============ -->
+  <section class="hero wrap" id="top" aria-labelledby="heroTitle">
+    <div class="hero-copy">
+      <p class="eyebrow" data-i18n="hero.eyebrow">Victor Mascaro · São Paulo</p>
+      <h1 class="hero-title" id="heroTitle">
+        <span data-i18n="hero.title.a">UX/UI designer with a background in </span><span class="xp-underline"><span data-i18n="hero.title.b">game design.</span></span>
+      </h1>
+      <p class="hero-lede" data-i18n="hero.lede">For the last two years I’ve been designing Knomee, a fintech product for financial advisors and their clients. Before that I worked on mobile games like Smashing Four and Auction City, mostly on progression, events and onboarding.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#work"><span data-i18n="hero.ctaWork">See my work</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+        <a class="btn btn-ghost" href="#contact" data-i18n="hero.ctaContact">Contact me</a>
+      </div>
+    </div>
+
+    <div class="hero-card-wrap">
+      <article class="player-card" id="playerCard" aria-label="Victor Mascaro, player card">
+        <div class="pc-holo" aria-hidden="true"></div>
+        <div class="pc-top">
+          <span class="pc-rarity" data-i18n="card.rarity">Player card</span>
+          <span class="pc-level" title="5 years shipping products"><span data-i18n="card.level">Lv. 5</span></span>
+        </div>
+        <div class="pc-portrait">
+          <img src="assets/img/victor.webp" alt="Portrait of Victor Mascaro" width="340" height="340">
+        </div>
+        <div class="pc-id">
+          <h2 class="pc-name">Victor Mascaro</h2>
+          <p class="pc-class"><span data-i18n="card.class">UX/UI Designer</span><span class="pc-sub" data-i18n="card.subclass">Gamification and game systems</span></p>
+        </div>
+        <dl class="pc-stats">
+          <div><dt data-i18n="card.base">Based in</dt><dd data-i18n="card.baseV">São Paulo, Brazil (UTC−3)</dd></div>
+          <div><dt data-i18n="card.works">Works</dt><dd data-i18n="card.worksV">Remotely</dd></div>
+          <div><dt data-i18n="card.langs">Languages</dt><dd data-i18n="card.langsV">Portuguese, English</dd></div>
+        </dl>
+        <div class="pc-loadout">
+          <p class="pc-label" data-i18n="card.loadout">Tools</p>
+          <ul class="chips" id="loadout"></ul>
+        </div>
+        <div class="pc-foot">
+          <p class="pc-status"><span class="dot" aria-hidden="true"></span><span data-i18n="card.statusV">Open to freelance and full-time work</span></p>
+          <a class="btn btn-small btn-card" id="cardCv" href="assets/cv/Victor-Mascaro-CV-EN.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+            <span data-i18n="card.cv">Download CV</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ 60-second version ============ -->
+  <section class="short wrap" aria-labelledby="shortTitle">
+    <div class="short-inner">
+      <h2 class="short-title label" id="shortTitle" data-i18n="short.title">In short</h2>
+      <ul class="short-list">
+        <li><strong data-i18n="short.1.v">5 yrs</strong><span data-i18n="short.1.l">working in game and product design, since 2021</span></li>
+        <li><strong data-i18n="short.2.v">6</strong><span data-i18n="short.2.l">commercial games and apps I’ve worked on</span></li>
+        <li><strong data-i18n="short.3.v">4</strong><span data-i18n="short.3.l">live-service mobile games at By Aliens</span></li>
+        <li><strong data-i18n="short.4.v">643</strong><span data-i18n="short.4.l">merged pull requests on the Knomee prototype, which I design and build</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ Work ============ -->
+  <section class="work wrap" id="work" aria-labelledby="workTitle">
+    <header class="section-head">
+      <p class="eyebrow" data-i18n="work.eyebrow">Work</p>
+      <h2 class="section-title" id="workTitle" data-i18n="work.title">Selected projects</h2>
+      <p class="section-lede" data-i18n="work.lede">Each project has a short write-up: the context, what I did, and the result when there is one I can share.</p>
+    </header>
+
+    <div class="work-group">
+      <div class="group-head">
+        <h3 class="group-title"><span data-i18n="work.knomee.title">Knomee</span> <span class="group-meta" data-i18n="work.knomee.meta">Fintech · 2024 to now</span></h3>
+        <p class="group-lede" data-i18n="work.knomee.lede">Knomee helps financial advisors get to know their clients before the first meeting. I work on both sides of the product: the app clients fill in and the dashboard advisors use.</p>
+      </div>
+      <div class="grid-knomee" id="gridKnomee"></div>
+    </div>
+
+    <div class="work-group">
+      <div class="group-head">
+        <h3 class="group-title"><span data-i18n="work.games.title">Mobile games</span> <span class="group-meta" data-i18n="work.games.meta">By Aliens · 2022 to 2025</span></h3>
+        <p class="group-lede" data-i18n="work.games.lede">At By Aliens I was a game and UX designer on four live games, working mostly on systems, economy, events and onboarding.</p>
+      </div>
+      <div class="grid-games" id="gridGames"></div>
+    </div>
+
+    <div class="work-group">
+      <div class="group-head">
+        <h3 class="group-title"><span data-i18n="work.earlier.title">Earlier work</span> <span class="group-meta" data-i18n="work.earlier.meta">2021 to 2024</span></h3>
+      </div>
+      <div class="grid-earlier" id="gridEarlier"></div>
+      <div class="side">
+        <h4 class="label" data-i18n="work.side.title">University projects and game jams</h4>
+        <p class="side-lede" data-i18n="work.side.lede">Games I made during my game design degree, alone or in small teams.</p>
+        <ul class="side-list" id="sideList"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Process ============ -->
+  <section class="process wrap" id="process" aria-labelledby="processTitle">
+    <header class="section-head">
+      <p class="eyebrow" data-i18n="process.eyebrow">Process</p>
+      <h2 class="section-title" id="processTitle" data-i18n="process.title">How I work</h2>
+      <p class="section-lede" data-i18n="process.lede">Roughly the steps I follow on most projects.</p>
+    </header>
+    <ol class="process-list" id="processList"></ol>
+  </section>
+
+  <!-- ============ Experience ============ -->
+  <section class="experience wrap" id="experience" aria-labelledby="expTitle">
+    <header class="section-head section-head-row">
+      <div>
+        <p class="eyebrow" data-i18n="exp.eyebrow">Experience</p>
+        <h2 class="section-title" id="expTitle" data-i18n="exp.title">Where I’ve worked</h2>
+      </div>
+      <a class="btn btn-ghost btn-small" id="expCv" href="assets/cv/Victor-Mascaro-CV-EN.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+        <span data-i18n="exp.cv">Full CV (PDF)</span></a>
+    </header>
+    <ol class="timeline" id="timeline"></ol>
+  </section>
+
+  <!-- ============ Skills ============ -->
+  <section class="skills wrap" id="skills" aria-labelledby="skillsTitle">
+    <header class="section-head">
+      <p class="eyebrow" data-i18n="skills.eyebrow">Education</p>
+      <h2 class="section-title" id="skillsTitle" data-i18n="skills.title">Education and courses</h2>
+      <p class="section-lede" data-i18n="skills.lede">Laid out as a skill tree, because I come from games. Click an item to see what it covered.</p>
+    </header>
+    <div class="tree-layout">
+      <div class="tree" id="tree" role="group" aria-label="Skill tree"></div>
+      <div class="tree-detail" id="treeDetail" aria-live="polite"></div>
+    </div>
+    <div class="courses">
+      <h3 class="label" data-i18n="skills.more">Shorter courses</h3>
+      <ul class="course-list" id="courseList"></ul>
+    </div>
+  </section>
+
+  <!-- ============ Contact ============ -->
+  <section class="contact" id="contact" aria-labelledby="contactTitle">
+    <div class="wrap contact-inner">
+      <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+      <h2 class="contact-title" id="contactTitle" data-i18n="contact.title">Let’s talk</h2>
+      <p class="contact-lede" data-i18n="contact.lede">I’m open to freelance projects and full-time roles. Email is the best way to reach me.</p>
+      <div class="contact-mail">
+        <span class="mail-address" id="mailAddress">viktor.mascaro@gmail.com</span>
+        <button class="btn btn-primary" id="copyMail" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8"/></svg>
+          <span data-i18n="contact.copy">Copy email</span></button>
+      </div>
+      <div class="contact-links">
+        <a class="btn btn-ghost" id="linkedin" href="https://www.linkedin.com/in/viktor-mascaro/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M8 10.5V16M8 7.8v.1M11.5 16v-3.2c0-1.4 1-2.3 2.2-2.3s2 .9 2 2.3V16M11.5 10.5V16"/></svg>
+          <span data-i18n="contact.linkedin">LinkedIn</span></a>
+        <a class="btn btn-ghost" href="https://github.com/victor-mascaro-ux" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-6-2.5M15 21v-3.4a3 3 0 0 0-.8-2.3c2.8-.3 5.8-1.4 5.8-6.2a4.8 4.8 0 0 0-1.3-3.3 4.5 4.5 0 0 0-.1-3.3s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6.2 0C6.6 2.2 5.6 2.5 5.6 2.5a4.5 4.5 0 0 0-.1 3.3 4.8 4.8 0 0 0-1.3 3.3c0 4.8 3 5.9 5.8 6.2a3 3 0 0 0-.8 2.3V21"/></svg>
+          <span data-i18n="contact.github">GitHub</span></a>
+        <a class="btn btn-ghost" id="contactCv" href="assets/cv/Victor-Mascaro-CV-EN.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+          <span data-i18n="contact.cv">Download CV</span></a>
+      </div>
+      <p class="contact-where" data-i18n="contact.where">Based in São Paulo (UTC−3). I’ve worked with teams in Brazil, the US and the UAE.</p>
+    </div>
+  </section>
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p class="colophon" data-i18n="footer.colophon">I designed and built this site with help from Claude Code. It’s plain HTML, CSS and JavaScript on GitHub Pages, with no cookies or tracking.</p>
+    <div class="patch">
+      <p class="label"><span data-i18n="footer.patch">Changelog</span> · <span data-i18n="footer.patch.v">v1.3 · October 2026</span></p>
+      <ul id="patchList"></ul>
+    </div>
+    <div class="footer-end">
+      <span>© 2026 Victor Mascaro</span>
+      <a href="#top" data-i18n="footer.top">Back to top</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ Case study sheet ============ -->
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+  <div class="sheet-scrim" data-close></div>
+  <div class="sheet-panel" id="sheetPanel" tabindex="-1">
+    <div class="sheet-bar">
+      <span class="sheet-crumb label" id="sheetCrumb"></span>
+      <div class="sheet-bar-tools">
+        <button class="tool icon" id="sheetPrev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button class="tool icon" id="sheetNext" type="button" aria-label="Next case"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        <button class="tool close-btn" id="sheetClose" type="button" data-close><span data-i18n="case.close">Close</span> <kbd>Esc</kbd></button>
+      </div>
+    </div>
+    <div class="sheet-body" id="sheetBody"></div>
+  </div>
+</div>
+
+<!-- ============ Quest log ============ -->
+<div class="questlog" id="questlog" role="dialog" aria-modal="false" aria-labelledby="questTitle" hidden>
+  <div class="ql-head">
+    <h2 class="ql-title" id="questTitle" data-i18n="quest.title">Quest log</h2>
+    <button class="tool icon" id="questClose" type="button" aria-label="Close quest log"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="ql-level">
+    <span class="ql-lv" id="qlLv"></span>
+    <span class="ql-name" id="qlName"></span>
+    <span class="ql-xp" id="qlXp"></span>
+  </div>
+  <div class="ql-track" aria-hidden="true"><span class="ql-fill" id="qlFill"></span></div>
+  <p class="ql-lede" data-i18n="quest.lede">You earn XP for looking around. It’s just for fun and nothing is locked.</p>
+  <ul class="ql-list" id="qlList"></ul>
+  <p class="ql-max" id="qlMax" hidden></p>
+  <div class="ql-actions">
+    <button class="btn btn-ghost btn-small" id="gameToggle" type="button" data-i18n="quest.hide">Turn off XP</button>
+    <button class="btn btn-ghost btn-small" id="questReset" type="button" data-i18n="quest.reset">Reset</button>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite" aria-atomic="false"></div>
+
+<noscript>
+  <style>.js-only{display:none}</style>
+  <p class="wrap noscript">Victor Mascaro, UX/UI designer. Email: viktor.mascaro@gmail.com · <a href="assets/cv/Victor-Mascaro-CV-EN.pdf">CV (PDF)</a></p>
+</noscript>
+
+<script src="assets/js/content.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
