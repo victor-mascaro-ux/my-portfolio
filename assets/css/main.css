@@ -292,10 +292,10 @@ kbd {
 @keyframes bump { 30% { transform: scale(1.08); } }
 
 .lang-code { font-family: var(--f-mono); font-size: .74rem; font-weight: 700; letter-spacing: .04em; }
-/* Flag of the language the button switches to (flag colours are fixed artwork, not theme tokens) */
+/* Flag of the current language. Both share a 20×14 box; the wider US flag is cropped from the right so its canton stays. */
 .tool.lang-btn { gap: 7px; padding: 0 11px 0 10px; }
-.tool .lang-flag { width: 20px; height: 14px; stroke: none; border-radius: 3px; box-shadow: 0 0 0 1px var(--line); flex: none; }
-.flag-br:lang(pt-BR), .flag-us:not(:lang(pt-BR)) { display: none; }
+.tool .lang-flag { width: 20px; height: 14px; object-fit: cover; object-position: left center; border-radius: 3px; box-shadow: 0 0 0 1px var(--line); flex: none; }
+.flag-br:not(:lang(pt-BR)), .flag-us:lang(pt-BR) { display: none; }
 .i-moon { display: none; }
 :root[data-theme="dark"] .i-sun { display: none; }
 :root[data-theme="dark"] .i-moon { display: block; }

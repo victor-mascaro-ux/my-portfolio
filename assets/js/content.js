@@ -23,7 +23,7 @@ window.CONTENT = {
       'skip': 'Skip to content',
       'nav.work': 'Work', 'nav.process': 'Process', 'nav.experience': 'Experience', 'nav.skills': 'Education', 'nav.contact': 'Contact',
       'nav.menu': 'Menu', 'nav.close': 'Close menu',
-      'hud.lang': 'Português', 'hud.langShort': 'PT',
+      'hud.lang': 'EN, switch to Portuguese', 'hud.langShort': 'EN',
       'hud.themeDark': 'Switch to dark theme', 'hud.themeLight': 'Switch to light theme',
       'hud.xp': 'Quest log', 'hud.level': 'Lv',
 
@@ -123,7 +123,7 @@ window.CONTENT = {
       'skip': 'Pular para o conteúdo',
       'nav.work': 'Trabalhos', 'nav.process': 'Processo', 'nav.experience': 'Experiência', 'nav.skills': 'Formação', 'nav.contact': 'Contato',
       'nav.menu': 'Menu', 'nav.close': 'Fechar menu',
-      'hud.lang': 'English', 'hud.langShort': 'EN',
+      'hud.lang': 'PT, mudar para inglês', 'hud.langShort': 'PT',
       'hud.themeDark': 'Ativar tema escuro', 'hud.themeLight': 'Ativar tema claro',
       'hud.xp': 'Diário de missões', 'hud.level': 'Nv',
 
