@@ -81,7 +81,7 @@
 
 <main id="main">
   <!-- ============ Hero ============ -->
-  <div class="hero-zone">
+  <div class="hero-zone" data-tab="home">
   <section class="hero wrap" id="top" aria-labelledby="heroTitle">
     <div class="hero-copy">
       <p class="eyebrow" data-i18n="hero.eyebrow">Victor Mascaro · São Paulo</p>
@@ -89,11 +89,13 @@
         <span data-i18n="hero.title.a">UX/UI designer with a background in </span><span class="xp-underline"><span data-i18n="hero.title.b">game design.</span></span>
       </h1>
       <p class="hero-lede" data-i18n="hero.lede">For the last two years I’ve been designing Knomee, a fintech product for financial advisors and their clients. I design for AI and with it, from a voice shortcut in the client app to the prototypes I build in code with Claude Code. Before that I worked on mobile games like Smashing Four and Auction City, mostly on progression, events and onboarding.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="#work"><span data-i18n="hero.ctaWork">See my work</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
-        <a class="btn btn-ghost" href="#contact" data-i18n="hero.ctaContact">Contact me</a>
-      </div>
+      <nav class="hero-tabs" aria-label="Sections">
+        <a class="hero-tab is-primary" href="#work"><strong><span data-i18n="nav.work">Work</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></strong><span data-i18n="hero.tab.work">Knomee, Betsie and mobile games</span></a>
+        <a class="hero-tab" href="#process"><strong><span data-i18n="nav.process">Process</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></strong><span data-i18n="hero.tab.process">How I work, step by step</span></a>
+        <a class="hero-tab" href="#experience"><strong><span data-i18n="nav.experience">Experience</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></strong><span data-i18n="hero.tab.experience">Where I’ve worked since 2021</span></a>
+        <a class="hero-tab" href="#skills"><strong><span data-i18n="nav.skills">Education</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></strong><span data-i18n="hero.tab.skills">Degrees and courses</span></a>
+        <a class="hero-tab" href="#contact"><strong><span data-i18n="nav.contact">Contact</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></strong><span data-i18n="hero.tab.contact">Email, LinkedIn and CV</span></a>
+      </nav>
     </div>
 
     <div class="hero-card-wrap">
@@ -144,7 +146,7 @@
   </div>
 
   <!-- ============ Work ============ -->
-  <section class="work wrap" id="work" aria-labelledby="workTitle">
+  <section class="work wrap" id="work" data-tab="work" hidden aria-labelledby="workTitle">
     <header class="section-head">
       <p class="eyebrow" data-i18n="work.eyebrow">Work</p>
       <h2 class="section-title" id="workTitle" data-i18n="work.title">Selected projects</h2>
@@ -184,7 +186,7 @@
   </section>
 
   <!-- ============ Process ============ -->
-  <section class="process wrap" id="process" aria-labelledby="processTitle">
+  <section class="process wrap" id="process" data-tab="process" hidden aria-labelledby="processTitle">
     <header class="section-head">
       <p class="eyebrow" data-i18n="process.eyebrow">Process</p>
       <h2 class="section-title" id="processTitle" data-i18n="process.title">How I work</h2>
@@ -194,7 +196,7 @@
   </section>
 
   <!-- ============ Experience ============ -->
-  <section class="experience wrap" id="experience" aria-labelledby="expTitle">
+  <section class="experience wrap" id="experience" data-tab="experience" hidden aria-labelledby="expTitle">
     <header class="section-head section-head-row">
       <div>
         <p class="eyebrow" data-i18n="exp.eyebrow">Experience</p>
@@ -208,7 +210,7 @@
   </section>
 
   <!-- ============ Skills ============ -->
-  <section class="skills wrap" id="skills" aria-labelledby="skillsTitle">
+  <section class="skills wrap" id="skills" data-tab="skills" hidden aria-labelledby="skillsTitle">
     <header class="section-head">
       <p class="eyebrow" data-i18n="skills.eyebrow">Education</p>
       <h2 class="section-title" id="skillsTitle" data-i18n="skills.title">Education and courses</h2>
@@ -225,7 +227,7 @@
   </section>
 
   <!-- ============ Contact ============ -->
-  <section class="contact" id="contact" aria-labelledby="contactTitle">
+  <section class="contact" id="contact" data-tab="contact" hidden aria-labelledby="contactTitle">
     <div class="wrap contact-inner">
       <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
       <h2 class="contact-title" id="contactTitle" data-i18n="contact.title">Let’s talk</h2>

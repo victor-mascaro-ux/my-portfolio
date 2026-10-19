@@ -39,6 +39,7 @@
     $('#langCode').textContent = t('hud.langShort');
     $('#langBtn').setAttribute('aria-label', t('hud.lang'));
     $('#menuBtn').setAttribute('aria-label', t('nav.menu'));
+    $('.hero-tabs').setAttribute('aria-label', t('hero.tabs'));
     var cv = C.person.cv[lang];
     ['#cardCv', '#expCv', '#contactCv'].forEach(function (s) { var a = $(s); if (a) a.setAttribute('href', cv); });
     $('#sheetPrev').setAttribute('aria-label', t('case.prev'));
@@ -222,7 +223,7 @@
     unlock('polyglot');
   });
 
-  /* ---------- HUD: scrolled state, scrollspy, mobile menu ---------- */
+  /* ---------- HUD: scrolled state, tabs, mobile menu ---------- */
   var hud = $('#hud');
   var heroEl = $('.hero');
   function onScrollHud() {
@@ -230,23 +231,42 @@
     if (window.scrollY > heroEl.offsetHeight * 0.6) unlock('scout');
   }
   window.addEventListener('scroll', onScrollHud, { passive: true });
-  if ('IntersectionObserver' in window) {
-    var navLinks = $$('.hud-nav a');
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          navLinks.forEach(function (a) { a.setAttribute('aria-current', a.getAttribute('href') === '#' + e.target.id ? 'true' : 'false'); });
-          moveNavInd();
-        }
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    ['work', 'process', 'experience', 'skills', 'contact'].forEach(function (id) { var el = document.getElementById(id); if (el) spy.observe(el); });
+  /* One section at a time. Home is the hero and In short; each other section is a
+     tab with its own hash (#work, #process…), so links, Back and reloads land on it.
+     A case study (#case-<id>) opens over the Work tab. */
+  var TABS = ['work', 'process', 'experience', 'skills', 'contact'];
+  var currentTab = null;
+  function tabFromHash(h) {
+    var id = (h || '').replace(/^#/, '');
+    if (/^case-/.test(id)) return 'work';
+    return TABS.indexOf(id) >= 0 ? id : 'home';
   }
+  function showTab(id, opts) {
+    opts = opts || {};
+    var changed = id !== currentTab;
+    currentTab = id;
+    $$('[data-tab]').forEach(function (p) { p.hidden = p.getAttribute('data-tab') !== id; });
+    $$('.hud-nav a, .mobile-nav a').forEach(function (a) { a.setAttribute('aria-current', a.getAttribute('href') === '#' + id ? 'page' : 'false'); });
+    moveNavInd();
+    if (changed && !opts.keepScroll) window.scrollTo(0, 0);
+  }
+  function tabUrl(id) { return location.pathname + location.search + (id === 'home' ? '' : '#' + id); }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a || a.hasAttribute('data-case') || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    var href = a.getAttribute('href');
+    if (href !== '#top' && TABS.indexOf(href.slice(1)) < 0) return;
+    e.preventDefault();
+    var id = href === '#top' ? 'home' : href.slice(1);
+    if (id !== currentTab) hist('pushState', { tab: id }, tabUrl(id));
+    else window.scrollTo(0, 0);
+    showTab(id);
+  });
   /* sliding nav indicator */
   var navEl = $('.hud-nav'), navInd = document.createElement('span');
   navInd.className = 'nav-ind'; navInd.setAttribute('aria-hidden', 'true'); navEl.appendChild(navInd);
   function moveNavInd(target) {
-    var a = target || $('.hud-nav a[aria-current="true"]');
+    var a = target || $('.hud-nav a[aria-current="page"]');
     if (!a) { navInd.style.setProperty('--no', 0); return; }
     navInd.style.setProperty('--nx', (a.offsetLeft + 12) + 'px');
     navInd.style.setProperty('--nw', (a.offsetWidth - 24) + 'px');
@@ -445,9 +465,10 @@
   function closeCase() {
     if (sheetEl.hidden) return;
     if (sheet.pushed) { sheet.pushed = false; history.back(); }
-    else { hist('replaceState', null, location.pathname + location.search); hideSheet(); }
+    else { hist('replaceState', null, tabUrl(currentTab)); hideSheet(); }
   }
   window.addEventListener('popstate', function () {
+    showTab(tabFromHash(location.hash));
     var m = location.hash.match(/^#case-([\w-]+)$/);
     if (m && caseById(m[1])) openCase(m[1], { fromHash: true });
     else hideSheet();
@@ -754,6 +775,7 @@
   setTimeout(function () { root.classList.remove('intro'); }, 2600);
   renderGameFooter();
   onScrollHud();
+  showTab(tabFromHash(location.hash), { keepScroll: true });
   var m0 = location.hash.match(/^#case-([\w-]+)$/);
   if (m0 && caseById(m0[1])) openCase(m0[1], { fromHash: true });
 
