@@ -606,7 +606,8 @@ window.CONTENT = {
       metrics: []
     },
     {
-      id: 'betsie', group: 'earlier', layout: 'sm', tone: 'deep', minutes: 1, emblem: 'dice',
+      id: 'betsie', group: 'earlier', layout: 'sm', tone: 'deep', minutes: 1,
+      cover: 'assets/img/card-betsie.webp', coverAlt: { en: 'Four Betsie app screens: starting a bet, a pending bet, a live bet and the bet details', pt: 'Quatro telas do app Betsie: criar uma aposta, aposta pendente, aposta no ar e os detalhes da aposta' },
       kicker: { en: 'Startup · Consulting', pt: 'Startup · Consultoria' },
       title: { en: 'Betsie', pt: 'Betsie' },
       tagline: { en: 'UI redesign and gamification for a social betting app, ready for the pitch.', pt: 'Redesign de UI e gamificação para um app social de apostas, pronto para o pitch.' },
@@ -622,10 +623,13 @@ window.CONTENT = {
         pt: 'Uma startup americana em fase inicial precisava de um produto mais limpo e de um motivo para os usuários continuarem voltando.'
       },
       moves: [
-        { title: { en: 'Redesign and gamification', pt: 'Redesign e gamificação' }, body: { en: 'I redesigned the UI and added onboarding, scoring and feedback that help users learn how the app works.', pt: 'Refiz a UI e adicionei onboarding, pontuação e feedback que ajudam o usuário a entender como o app funciona.' } },
-        { title: { en: 'Prototype and video', pt: 'Protótipo e vídeo' }, body: { en: 'I delivered a clickable prototype and a showcase video they could use with investors and developers.', pt: 'Entreguei um protótipo navegável e um vídeo de apresentação para eles usarem com investidores e desenvolvedores.' } }
+        { title: { en: 'Redesign and gamification', pt: 'Redesign e gamificação' }, body: { en: 'I redesigned the UI and added onboarding, scoring and feedback that help users learn how the app works.', pt: 'Refiz a UI e adicionei onboarding, pontuação e feedback que ajudam o usuário a entender como o app funciona.' },
+          img: ['assets/img/betsie-start.webp', 'assets/img/betsie-pending.webp'], kind: 'phones' },
+        { title: { en: 'Prototype and video', pt: 'Protótipo e vídeo' }, body: { en: 'I delivered a clickable prototype and a showcase video they could use with investors and developers.', pt: 'Entreguei um protótipo navegável e um vídeo de apresentação para eles usarem com investidores e desenvolvedores.' },
+          img: ['assets/img/betsie-live.webp', 'assets/img/betsie-on.webp'], kind: 'phones' }
       ],
-      metrics: []
+      metrics: [],
+      live: 'https://betsie.app/'
     },
     {
       id: 'lumen', group: 'earlier', layout: 'sm', tone: 'night', minutes: 1,
@@ -648,7 +652,8 @@ window.CONTENT = {
         { title: { en: 'Production', pt: 'Produção' }, body: { en: 'I managed art production, helped with the technical pipeline and wrote documentation for the team and partners.', pt: 'Cuidei da produção de arte, ajudei no pipeline técnico e escrevi a documentação para o time e os parceiros.' } },
         { title: { en: 'Live operations', pt: 'Live ops' }, body: { en: 'I ran events, news and in-game content, designed retention and monetization events, and analysed playtests.', pt: 'Rodei eventos, notícias e conteúdo no jogo, criei eventos de retenção e monetização e analisei playtests.' } }
       ],
-      metrics: []
+      metrics: [],
+      live: 'https://apps.apple.com/us/app/hemp-paradise-420-weed-farm/id1541215176'
     }
   ],
 
@@ -659,16 +664,16 @@ window.CONTENT = {
     { t: 'Dashy Bird', url: 'https://siriusgamedesign.itch.io/dashy-bird', d: { en: 'Tap to fly, drag to slingshot.', pt: 'Toque para voar e arraste para usar o estilingue.' } },
     { t: 'The Other King', url: 'https://siriusgamedesign.itch.io/the-other-king', d: { en: 'A game that breaks the fourth wall.', pt: 'Um jogo que quebra a quarta parede.' } },
     { t: 'Thunderclock: Red Shell', url: 'https://fortune-game-studio.itch.io/thunderclock', d: { en: 'Another game that breaks the fourth wall.', pt: 'Outro jogo que quebra a quarta parede.' } },
-    { t: 'Behind the Curtain', d: { en: 'Based on Hitchcock’s Rear Window.', pt: 'Baseado em Janela Indiscreta, de Hitchcock.' } },
+    { t: 'Behind the Curtain', url: 'https://www.youtube.com/watch?v=bdaiMLI0oW8', d: { en: 'Based on Hitchcock’s Rear Window.', pt: 'Baseado em Janela Indiscreta, de Hitchcock.' } },
     { t: 'Yetu’s Journey', url: 'https://siriusgamedesign.itch.io/a-viagem-de-yetu', d: { en: 'A psychological game set during the Yongxing disaster.', pt: 'Um jogo psicológico ambientado no desastre de Yongxing.' } },
     { t: 'Friday Heist', url: 'https://audev.itch.io/friday-heist', d: { en: 'A remake of the classic Elevator Action.', pt: 'Um remake do clássico Elevator Action.' } },
-    { t: 'Hambogus', d: { en: 'Tilt your phone to stack falling burger ingredients.', pt: 'Incline o celular para empilhar ingredientes de hambúrguer que caem.' } },
+    { t: 'Hambogus', url: 'https://www.youtube.com/watch?v=oySXhbCswD4', d: { en: 'Tilt your phone to stack falling burger ingredients.', pt: 'Incline o celular para empilhar ingredientes de hambúrguer que caem.' } },
     { t: 'The Druids’ Path', url: 'https://siriusgamedesign.itch.io/caminho-dos-druidas', d: { en: 'Druids work together to save their village.', pt: 'Druidas se unem para salvar a vila.' } },
-    { t: 'Deathrow', d: { en: 'A first-person horror shooter.', pt: 'Um FPS de terror.' } },
-    { t: 'Chicken Tikka Masala', d: { en: 'A 2D side-scroller with a very fast chicken.', pt: 'Um side-scroller 2D com uma galinha muito rápida.' } },
+    { t: 'Deathrow', url: 'https://www.youtube.com/watch?v=GpPVBNhG6iA', d: { en: 'A first-person horror shooter.', pt: 'Um FPS de terror.' } },
+    { t: 'Chicken Tikka Masala', url: 'https://www.youtube.com/watch?v=xe20lxsitPE', d: { en: 'A 2D side-scroller with a very fast chicken.', pt: 'Um side-scroller 2D com uma galinha muito rápida.' } },
     { t: 'Break Into', url: 'https://siriusgamedesign.itch.io/break-into', d: { en: 'A mix of Pong and Breakout.', pt: 'Uma mistura de Pong e Breakout.' } },
     { t: 'Armazone', url: 'https://siriusgamedesign.itch.io/armazone', d: { en: 'Put out fires in the Amazon forest.', pt: 'Apague incêndios na Amazônia.' } },
-    { t: 'Where is Estela?', d: { en: 'Search a phone to find out what happened to Estela.', pt: 'Vasculhe um celular para descobrir o que aconteceu com a Estela.' } }
+    { t: 'Where is Estela?', url: 'https://panaisbouki.itch.io/onde-esta-estela', d: { en: 'Search a phone to find out what happened to Estela.', pt: 'Vasculhe um celular para descobrir o que aconteceu com a Estela.' } }
   ],
 
   /* ---------- Experience ---------- */
@@ -676,7 +681,7 @@ window.CONTENT = {
     {
       org: 'Knomee', when: { en: '2024 – now', pt: '2024 – atual' },
       role: { en: 'UX & Gamification Designer', pt: 'Designer de UX e Gamificação' },
-      where: { en: 'Fintech · Los Angeles · Remote', pt: 'Fintech · Los Angeles · Remoto' },
+      where: { en: 'Fintech · San Francisco · Remote', pt: 'Fintech · San Francisco · Remoto' },
       points: {
         en: ['Designed the client app’s Adventures, short questionnaires that build a Financial ID clients can share.', 'Designed the advisor dashboard: readiness scores, segmentation, alerts and conversation playbooks.', 'Built the coded prototype used for handoff, sales demos and user tests (643 merged pull requests).', 'Made the activation toolkit, the pitch deck and the product video.'],
         pt: ['Desenhei as Adventures do app do cliente, questionários curtos que montam um Financial ID compartilhável.', 'Desenhei o dashboard do assessor: scores de prontidão, segmentação, alertas e playbooks de conversa.', 'Desenvolvi o protótipo em código usado em handoff, demos de vendas e testes com usuários (643 pull requests mergeados).', 'Fiz o kit de ativação, o pitch deck e o vídeo do produto.']
@@ -694,7 +699,7 @@ window.CONTENT = {
     {
       org: 'Betsie', when: { en: 'Jul – Nov 2024', pt: 'jul – nov 2024' },
       role: { en: 'UX/Product Design Consultant', pt: 'Consultor de UX e Produto' },
-      where: { en: 'Startup · Los Angeles · Remote', pt: 'Startup · Los Angeles · Remoto' },
+      where: { en: 'Startup · San Francisco · Remote', pt: 'Startup · San Francisco · Remoto' },
       points: {
         en: ['Added gamification to a social betting app: onboarding, scoring and feedback.', 'Delivered a clickable prototype and a showcase video for the pitch.'],
         pt: ['Adicionei gamificação a um app social de apostas: onboarding, pontuação e feedback.', 'Entreguei um protótipo navegável e um vídeo de apresentação para o pitch.']
@@ -771,14 +776,6 @@ window.CONTENT = {
       when: '2025 – 2026',
       core: { en: ['UX research and discovery with AI', 'AI agents and automation', 'ResearchOps and DesignOps', 'Cognitive biases and decision design'], pt: ['Pesquisa e discovery de UX com IA', 'Agentes de IA e automação', 'ResearchOps e DesignOps', 'Vieses cognitivos e design de decisão'] },
       extra: { en: ['Data visualization and statistics', 'Working as a one-person UX team'], pt: ['Visualização de dados e estatística', 'Atuar como um time de UX de uma pessoa só'] }
-    },
-    {
-      id: 'leadership', branch: 'strategy', status: 'done',
-      name: { en: 'Leadership, Management and Innovation', pt: 'Liderança, Gestão e Inovação' },
-      kind: { en: 'Postgraduate · UNINTER', pt: 'Pós-graduação · UNINTER' },
-      when: '2025 – 2026',
-      core: { en: ['Strategic planning and decision-making', 'High-performance teams', 'Innovation in creative environments'], pt: ['Planejamento estratégico e tomada de decisão', 'Times de alta performance', 'Inovação em ambientes criativos'] },
-      extra: { en: ['Conflict management', 'Knowledge management'], pt: ['Gestão de conflitos', 'Gestão do conhecimento'] }
     },
     {
       id: 'unicorn', branch: 'strategy', status: 'done',
