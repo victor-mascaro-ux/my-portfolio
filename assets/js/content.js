@@ -102,7 +102,7 @@ window.CONTENT = {
       'case.role': 'Role', 'case.when': 'When', 'case.platform': 'Platform', 'case.context': 'Context',
       'case.problem': 'Context', 'case.moves': 'What I did', 'case.outcome': 'Result', 'case.learned': 'Notes',
       'case.live': 'Open the live version', 'case.evolution': 'Earlier version',
-      'case.before': 'Before', 'case.after': 'After', 'case.compare': 'Drag to compare before and after', 'case.compareHover': 'Move your mouse across the image to compare before and after',
+      'case.before': 'Before', 'case.after': 'After', 'case.compare': 'Drag to compare, or press a label to see that version in full',
       'case.film': 'Pick a frame to jump to that moment in the video', 'case.frame': 'Frame', 'case.play': 'Play the video', 'case.videoTitle': 'Knomee product video', 'lightbox.close': 'Close',
       'case.end': 'End',
       'case.measured': 'Measured', 'case.projected': 'Projected', 'case.estimated': 'Estimated',
@@ -203,7 +203,7 @@ window.CONTENT = {
       'case.role': 'Função', 'case.when': 'Período', 'case.platform': 'Plataforma', 'case.context': 'Contexto',
       'case.problem': 'Contexto', 'case.moves': 'O que eu fiz', 'case.outcome': 'Resultado', 'case.learned': 'Observações',
       'case.live': 'Ver no ar', 'case.evolution': 'Versão anterior',
-      'case.before': 'Antes', 'case.after': 'Depois', 'case.compare': 'Arraste para comparar o antes e o depois', 'case.compareHover': 'Passe o mouse sobre a imagem para comparar o antes e o depois',
+      'case.before': 'Antes', 'case.after': 'Depois', 'case.compare': 'Arraste para comparar, ou toque num rótulo para ver aquela versão inteira',
       'case.film': 'Escolha um frame para pular até esse momento do vídeo', 'case.frame': 'Frame', 'case.play': 'Assistir ao vídeo', 'case.videoTitle': 'Vídeo do produto da Knomee', 'lightbox.close': 'Fechar',
       'case.end': 'Fim',
       'case.measured': 'Medido', 'case.projected': 'Projetado', 'case.estimated': 'Estimado',
@@ -433,6 +433,11 @@ window.CONTENT = {
         {
           title: { en: 'Comments tied to screens', pt: 'Comentários ligados às telas' },
           body: { en: 'Each comment belongs to the screen where it was left and can reopen that exact step of a flow. Every project keeps its own comments, and the tool warns you if two sites are sharing an ID by mistake.', pt: 'Cada comentário fica vinculado à tela onde foi deixado e pode reabrir exatamente aquele passo do fluxo. Cada projeto guarda os próprios comentários, e a ferramenta avisa se dois sites estiverem usando o mesmo ID por engano.' }
+        },
+        {
+          title: { en: 'Names on comments', pt: 'Nomes nos comentários' },
+          body: { en: 'Reviewers type their name once, and it signs every note they leave on every prototype, so a thread shows who said what. The name is added to each note when it’s written, so changing it later doesn’t rewrite older notes.', pt: 'Quem revisa digita o nome uma vez, e ele assina cada nota em todos os protótipos, então a thread mostra quem disse o quê. O nome entra em cada nota no momento em que ela é escrita, então trocar o nome depois não reescreve as notas antigas.' },
+          img: ['assets/img/k-overlay-names.webp'], kind: 'wide'
         }
       ],
       metrics: [

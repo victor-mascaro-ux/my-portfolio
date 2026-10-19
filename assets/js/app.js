@@ -344,7 +344,7 @@
     return '<img src="' + src + '" alt="' + esc(alt || '') + '" loading="lazy"' + (cls ? ' class="' + cls + '"' : '') + '>';
   }
 
-  function compareHint() { return '<p class="compare-hint">' + esc(t(finePointer.matches ? 'case.compareHover' : 'case.compare')) + '</p>'; }
+  function compareHint() { return '<p class="compare-hint">' + esc(t('case.compare')) + '</p>'; }
   function moveMedia(m, c) {
     if (m.compare) {
       var tb = m.tags ? m.tags[0] : t('case.before'), ta = m.tags ? m.tags[1] : t('case.after');
@@ -353,7 +353,7 @@
         '<div class="cmp-after">' + imgTag(m.compare[1], ta + ': ' + L(m.title)) + '</div>' +
         '<input type="range" min="0" max="100" value="50" aria-label="' + esc(t('case.compare')) + '">' +
         '<span class="cmp-line" aria-hidden="true"></span>' +
-        '<span class="cmp-tag before">' + esc(tb) + '</span><span class="cmp-tag after">' + esc(ta) + '</span>' +
+        '<button type="button" class="cmp-tag before" aria-pressed="false">' + esc(tb) + '</button><button type="button" class="cmp-tag after" aria-pressed="false">' + esc(ta) + '</button>' +
         '</div>' + (m.noHint ? '' : compareHint()) + '</div>';
     }
     if (m.film) {
@@ -424,13 +424,24 @@
 
   function wireSheet() {
     $$('.compare', sheetBody).forEach(function (cmp) {
-      var input = $('input', cmp);
-      function set(v) { v = Math.max(0, Math.min(100, v)); input.value = v; cmp.style.setProperty('--pos', v + '%'); }
+      var input = $('input', cmp), tagB = $('.cmp-tag.before', cmp), tagA = $('.cmp-tag.after', cmp);
+      function set(v, glide) {
+        v = Math.max(0, Math.min(100, v)); input.value = v;
+        cmp.classList.toggle('is-gliding', !!glide && !reduceMotion.matches);
+        cmp.style.setProperty('--pos', v + '%');
+        tagB.setAttribute('aria-pressed', String(v >= 100)); tagA.setAttribute('aria-pressed', String(v <= 0));
+      }
       function follow(e) { var r = cmp.getBoundingClientRect(); set((e.clientX - r.left) / r.width * 100); }
       input.addEventListener('input', function () { set(+input.value); });
-      // a mouse moves the divider just by hovering; touch and pen drag it (vertical swipes still scroll)
-      cmp.addEventListener('pointermove', function (e) { if (e.pointerType === 'mouse' || cmp.hasPointerCapture(e.pointerId)) follow(e); });
-      cmp.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse') { cmp.setPointerCapture(e.pointerId); follow(e); } });
+      // drag the divider with a mouse, a finger or a pen (vertical swipes still scroll on touch)
+      cmp.addEventListener('pointerdown', function (e) {
+        if (e.button > 0 || e.target.closest('.cmp-tag')) return;
+        cmp.setPointerCapture(e.pointerId); follow(e);
+      });
+      cmp.addEventListener('pointermove', function (e) { if (cmp.hasPointerCapture(e.pointerId)) follow(e); });
+      // the labels show one version whole: Before slides the divider all the way right, After all the way left
+      tagB.addEventListener('click', function () { set(100, true); });
+      tagA.addEventListener('click', function () { set(0, true); });
     });
     $$('[data-film]', sheetBody).forEach(function (film) {
       var c = caseById(sheet.current);
