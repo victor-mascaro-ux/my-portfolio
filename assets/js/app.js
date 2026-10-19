@@ -119,8 +119,11 @@
     $('#gridGamification').innerHTML = g.gamification.join('');
     $('#gridGames').innerHTML = g.games.join('');
     $('#sideList').innerHTML = C.side.map(function (s) {
-      var name = s.url ? '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.t) + ICON.ext + '</a>' : esc(s.t);
-      return '<li><strong>' + name + '</strong>' + esc(L(s.d)) + '</li>';
+      var tag = s.url ? 'a href="' + esc(s.url) + '" target="_blank" rel="noopener"' : 'div';
+      return '<li><' + tag + ' class="side-card">' +
+        (s.img ? '<span class="side-media' + (s.fit === 'contain' ? ' is-contain' : '') + '"><img src="' + s.img + '" alt="" loading="lazy"></span>' : '') +
+        '<span class="side-text"><strong>' + esc(s.t) + (s.url ? ICON.ext : '') + '</strong><span>' + esc(L(s.d)) + '</span></span>' +
+        '</' + (s.url ? 'a' : 'div') + '></li>';
     }).join('');
   }
 
@@ -141,7 +144,7 @@
     }).join('');
   }
 
-  var selectedSkill = 'gamification';
+  var selectedSkill = 'gamedesign';
   var inspectedSkills = {};
   function renderTree() {
     var branches = ['foundation', 'behavior', 'strategy'];
@@ -635,6 +638,11 @@
     renderSkillDetail();
     inspectedSkills[selectedSkill] = 1;
     if (Object.keys(inspectedSkills).length >= 3) unlock('climber');
+    // when the details card sits under the tree (phones, narrow windows), bring it into view
+    var detail = $('#treeDetail');
+    if (detail.getBoundingClientRect().top >= $('#tree').getBoundingClientRect().bottom - 1) {
+      detail.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
+    }
   });
 
   /* ---------- contact ---------- */

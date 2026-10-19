@@ -679,21 +679,21 @@ window.CONTENT = {
 
   /* ---------- University & game-jam projects ---------- */
   side: [
-    { t: 'Lira Adventure', url: 'https://flying-frog.itch.io/lira-adventure', d: { en: 'A jelly puzzle game.', pt: 'Um jogo de puzzle com gelatinas.' } },
-    { t: 'CommuniCity', url: 'https://audev.itch.io/communicity', d: { en: 'A mobile game for learning English.', pt: 'Um jogo mobile para aprender inglês.' } },
-    { t: 'Dashy Bird', url: 'https://siriusgamedesign.itch.io/dashy-bird', d: { en: 'Tap to fly, drag to slingshot.', pt: 'Toque para voar e arraste para usar o estilingue.' } },
-    { t: 'The Other King', url: 'https://siriusgamedesign.itch.io/the-other-king', d: { en: 'A game that breaks the fourth wall.', pt: 'Um jogo que quebra a quarta parede.' } },
-    { t: 'Thunderclock: Red Shell', url: 'https://fortune-game-studio.itch.io/thunderclock', d: { en: 'Another game that breaks the fourth wall.', pt: 'Outro jogo que quebra a quarta parede.' } },
-    { t: 'Behind the Curtain', url: 'https://www.youtube.com/watch?v=bdaiMLI0oW8', d: { en: 'Based on Hitchcock’s Rear Window.', pt: 'Baseado em Janela Indiscreta, de Hitchcock.' } },
-    { t: 'Yetu’s Journey', url: 'https://siriusgamedesign.itch.io/a-viagem-de-yetu', d: { en: 'A psychological game set during the Yongxing disaster.', pt: 'Um jogo psicológico ambientado no desastre de Yongxing.' } },
-    { t: 'Friday Heist', url: 'https://audev.itch.io/friday-heist', d: { en: 'A remake of the classic Elevator Action.', pt: 'Um remake do clássico Elevator Action.' } },
-    { t: 'Hambogus', url: 'https://www.youtube.com/watch?v=oySXhbCswD4', d: { en: 'Tilt your phone to stack falling burger ingredients.', pt: 'Incline o celular para empilhar ingredientes de hambúrguer que caem.' } },
-    { t: 'The Druids’ Path', url: 'https://siriusgamedesign.itch.io/caminho-dos-druidas', d: { en: 'Druids work together to save their village.', pt: 'Druidas se unem para salvar a vila.' } },
-    { t: 'Deathrow', url: 'https://www.youtube.com/watch?v=GpPVBNhG6iA', d: { en: 'A first-person horror shooter.', pt: 'Um FPS de terror.' } },
-    { t: 'Chicken Tikka Masala', url: 'https://www.youtube.com/watch?v=xe20lxsitPE', d: { en: 'A 2D side-scroller with a very fast chicken.', pt: 'Um side-scroller 2D com uma galinha muito rápida.' } },
-    { t: 'Break Into', url: 'https://siriusgamedesign.itch.io/break-into', d: { en: 'A mix of Pong and Breakout.', pt: 'Uma mistura de Pong e Breakout.' } },
-    { t: 'Armazone', url: 'https://siriusgamedesign.itch.io/armazone', d: { en: 'Put out fires in the Amazon forest.', pt: 'Apague incêndios na Amazônia.' } },
-    { t: 'Where is Estela?', url: 'https://panaisbouki.itch.io/onde-esta-estela', d: { en: 'Search a phone to find out what happened to Estela.', pt: 'Vasculhe um celular para descobrir o que aconteceu com a Estela.' } }
+    { t: 'Lira Adventure', img: 'assets/img/side-lira-adventure.webp', url: 'https://flying-frog.itch.io/lira-adventure', d: { en: 'A jelly puzzle game.', pt: 'Um jogo de puzzle com gelatinas.' } },
+    { t: 'CommuniCity', img: 'assets/img/side-communicity.webp', url: 'https://audev.itch.io/communicity', d: { en: 'A mobile game for learning English.', pt: 'Um jogo mobile para aprender inglês.' } },
+    { t: 'Dashy Bird', img: 'assets/img/side-dashy-bird.webp', url: 'https://siriusgamedesign.itch.io/dashy-bird', d: { en: 'Tap to fly, drag to slingshot.', pt: 'Toque para voar e arraste para usar o estilingue.' } },
+    { t: 'The Other King', img: 'assets/img/side-the-other-king.webp', url: 'https://siriusgamedesign.itch.io/the-other-king', d: { en: 'A game that breaks the fourth wall.', pt: 'Um jogo que quebra a quarta parede.' } },
+    { t: 'Thunderclock: Red Shell', img: 'assets/img/side-thunderclock.webp', url: 'https://fortune-game-studio.itch.io/thunderclock', d: { en: 'Another game that breaks the fourth wall.', pt: 'Outro jogo que quebra a quarta parede.' } },
+    { t: 'Behind the Curtain', img: 'assets/img/side-behind-the-curtain.webp', url: 'https://www.youtube.com/watch?v=bdaiMLI0oW8', d: { en: 'Based on Hitchcock’s Rear Window.', pt: 'Baseado em Janela Indiscreta, de Hitchcock.' } },
+    { t: 'Yetu’s Journey', img: 'assets/img/side-yetus-journey.webp', url: 'https://siriusgamedesign.itch.io/a-viagem-de-yetu', d: { en: 'A psychological game set during the Yongxing disaster.', pt: 'Um jogo psicológico ambientado no desastre de Yongxing.' } },
+    { t: 'Friday Heist', img: 'assets/img/side-friday-heist.webp', url: 'https://audev.itch.io/friday-heist', d: { en: 'A remake of the classic Elevator Action.', pt: 'Um remake do clássico Elevator Action.' } },
+    { t: 'Hambogus', img: 'assets/img/side-hambogus.webp', url: 'https://www.youtube.com/watch?v=oySXhbCswD4', d: { en: 'Tilt your phone to stack falling burger ingredients.', pt: 'Incline o celular para empilhar ingredientes de hambúrguer que caem.' } },
+    { t: 'The Druids’ Path', img: 'assets/img/side-druids-path.webp', url: 'https://siriusgamedesign.itch.io/caminho-dos-druidas', d: { en: 'Druids work together to save their village.', pt: 'Druidas se unem para salvar a vila.' } },
+    { t: 'Deathrow', img: 'assets/img/side-deathrow.webp', url: 'https://www.youtube.com/watch?v=GpPVBNhG6iA', d: { en: 'A first-person horror shooter.', pt: 'Um FPS de terror.' } },
+    { t: 'Chicken Tikka Masala', img: 'assets/img/side-chicken-tikka-masala.webp', url: 'https://www.youtube.com/watch?v=xe20lxsitPE', d: { en: 'A 2D side-scroller with a very fast chicken.', pt: 'Um side-scroller 2D com uma galinha muito rápida.' } },
+    { t: 'Break Into', img: 'assets/img/side-break-into.webp', url: 'https://siriusgamedesign.itch.io/break-into', d: { en: 'A mix of Pong and Breakout.', pt: 'Uma mistura de Pong e Breakout.' } },
+    { t: 'Armazone', img: 'assets/img/side-armazone.webp', fit: 'contain', url: 'https://siriusgamedesign.itch.io/armazone', d: { en: 'Put out fires in the Amazon forest.', pt: 'Apague incêndios na Amazônia.' } },
+    { t: 'Where is Estela?', img: 'assets/img/side-where-is-estela.webp', fit: 'contain', url: 'https://panaisbouki.itch.io/onde-esta-estela', d: { en: 'Search a phone to find out what happened to Estela.', pt: 'Vasculhe um celular para descobrir o que aconteceu com a Estela.' } }
   ],
 
   /* ---------- Experience ---------- */
