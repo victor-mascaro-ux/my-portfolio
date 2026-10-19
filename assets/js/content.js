@@ -58,10 +58,10 @@ window.CONTENT = {
       'work.knomee.meta': 'Fintech · 2024 to now',
       'work.knomee.lede': 'Knomee helps financial advisors get to know their clients before the first meeting. I work on both sides of the product: the app clients fill in and the dashboard advisors use.',
       'work.games.title': 'Mobile games',
-      'work.games.meta': 'By Aliens · 2022 to 2025',
-      'work.games.lede': 'At By Aliens I was a game and UX designer on four live games, working mostly on systems, economy, events and onboarding.',
-      'work.earlier.title': 'Earlier work',
-      'work.earlier.meta': '2021 to 2024',
+      'work.games.meta': '2021 to 2025',
+      'work.games.lede': 'At By Aliens I was a game and UX designer on four live games, working mostly on systems, economy, events and onboarding. Before that, I was producer and game designer on Hemp Paradise at Lumen Games.',
+      'work.gamification.title': 'Gamification',
+      'work.gamification.meta': 'Betsie · 2024',
       'work.side.title': 'University projects and game jams',
       'work.side.lede': 'Games I made during my game design degree, alone or in small teams.',
       'work.read': 'Read', 'work.min': 'min', 'work.open': 'Read',
@@ -158,10 +158,10 @@ window.CONTENT = {
       'work.knomee.meta': 'Fintech · 2024 até hoje',
       'work.knomee.lede': 'A Knomee ajuda assessores financeiros a conhecer os clientes antes da primeira reunião. Trabalho nos dois lados do produto: o app que o cliente preenche e o dashboard que o assessor usa.',
       'work.games.title': 'Jogos mobile',
-      'work.games.meta': 'By Aliens · 2022 a 2025',
-      'work.games.lede': 'Na By Aliens, fui game e UX designer em quatro jogos live, principalmente em sistemas, economia, eventos e onboarding.',
-      'work.earlier.title': 'Trabalhos anteriores',
-      'work.earlier.meta': '2021 a 2024',
+      'work.games.meta': '2021 a 2025',
+      'work.games.lede': 'Na By Aliens, fui game e UX designer em quatro jogos live, principalmente em sistemas, economia, eventos e onboarding. Antes disso, fui produtor e game designer do Hemp Paradise na Lumen Games.',
+      'work.gamification.title': 'Gamificação',
+      'work.gamification.meta': 'Betsie · 2024',
       'work.side.title': 'Projetos da faculdade e game jams',
       'work.side.lede': 'Jogos que fiz na faculdade de game design, sozinho ou em grupos pequenos.',
       'work.read': 'Ler', 'work.min': 'min', 'work.open': 'Ler',
@@ -262,7 +262,7 @@ window.CONTENT = {
   ],
 
   /* ---------- Projects ----------
-     group: knomee | games | earlier
+     group: knomee | gamification | games
      layout: card size in the grid (lg, md, lg-wide, sm)
      metrics: kind = measured | projected | estimated (shown as a label)
   */
@@ -482,6 +482,32 @@ window.CONTENT = {
 
     /* ---------- Games ---------- */
     {
+      id: 'betsie', group: 'gamification', layout: 'lg-wide', tone: 'deep', minutes: 1,
+      cover: 'assets/img/card-betsie.webp', coverAlt: { en: 'Four Betsie app screens: starting a bet, a pending bet, a live bet and the bet details', pt: 'Quatro telas do app Betsie: criar uma aposta, aposta pendente, aposta no ar e os detalhes da aposta' },
+      kicker: { en: 'Startup · Consulting', pt: 'Startup · Consultoria' },
+      title: { en: 'Betsie', pt: 'Betsie' },
+      tagline: { en: 'UI redesign and gamification for a social betting app, ready for the pitch.', pt: 'Redesign de UI e gamificação para um app social de apostas, pronto para o pitch.' },
+      chip: { en: 'Clickable prototype', pt: 'Protótipo navegável' },
+      meta: {
+        role: { en: 'UX and product design consultant', pt: 'Consultor de UX e produto' },
+        when: { en: 'Jul to Nov 2024', pt: 'Jul a nov de 2024' },
+        platform: { en: 'Mobile app', pt: 'App mobile' },
+        context: { en: 'Early-stage US startup', pt: 'Startup americana em fase inicial' }
+      },
+      problem: {
+        en: 'An early-stage US startup needed a cleaner product and a reason for users to keep coming back.',
+        pt: 'Uma startup americana em fase inicial precisava de um produto mais limpo e de um motivo para os usuários continuarem voltando.'
+      },
+      moves: [
+        { title: { en: 'Redesign and gamification', pt: 'Redesign e gamificação' }, body: { en: 'I redesigned the UI and added onboarding, scoring and feedback that help users learn how the app works.', pt: 'Refiz a UI e adicionei onboarding, pontuação e feedback que ajudam o usuário a entender como o app funciona.' },
+          img: ['assets/img/betsie-start.webp', 'assets/img/betsie-pending.webp'], kind: 'phones' },
+        { title: { en: 'Prototype and video', pt: 'Protótipo e vídeo' }, body: { en: 'I delivered a clickable prototype and a showcase video they could use with investors and developers.', pt: 'Entreguei um protótipo navegável e um vídeo de apresentação para eles usarem com investidores e desenvolvedores.' },
+          img: ['assets/img/betsie-live.webp', 'assets/img/betsie-on.webp'], kind: 'phones' }
+      ],
+      metrics: [],
+      live: 'https://betsie.app/'
+    },
+    {
       id: 'smashing-four', group: 'games', layout: 'md', tone: 'deep', minutes: 2,
       cover: 'assets/img/g-sf-bloodbite.webp', coverAlt: { en: 'Bloodbite, a raccoon gunslinger hero with glowing red eyes', pt: 'Bloodbite, um herói guaxinim pistoleiro de olhos vermelhos brilhantes' },
       kicker: { en: 'By Aliens · Game design', pt: 'By Aliens · Game design' },
@@ -560,7 +586,8 @@ window.CONTENT = {
       live: 'https://apps.apple.com/br/app/auction-city-tycoon-simulator/id6446124916'
     },
     {
-      id: 'illuminati', group: 'games', layout: 'sm', tone: 'night', minutes: 1, emblem: 'eye',
+      id: 'illuminati', group: 'games', layout: 'sm', tone: 'night', minutes: 1,
+      cover: 'assets/img/g-wai-key-art.webp', coverAlt: { en: 'We Are Illuminati key art: a triangle-headed Illuminati agent and a man in a suit on either side of the game logo', pt: 'Arte do We Are Illuminati: um agente Illuminati com cabeça de triângulo e um homem de terno, um de cada lado do logo do jogo' },
       kicker: { en: 'By Aliens · Game design', pt: 'By Aliens · Game design' },
       title: { en: 'We Are Illuminati', pt: 'We Are Illuminati' },
       tagline: { en: 'A new layout, a side story with three endings and a rewarded ad that fits the story.', pt: 'Um novo layout, uma história paralela com três finais e um anúncio com recompensa que faz parte da trama.' },
@@ -576,9 +603,12 @@ window.CONTENT = {
         pt: 'As sessões no mid-game estavam ficando mais curtas, os boosters idle eram difíceis de entender e os anúncios com recompensa pareciam interrupções.'
       },
       moves: [
-        { title: { en: 'Main screen', pt: 'Tela principal' }, body: { en: 'I redesigned the main screen, made the managers and multipliers easier to understand, and added visible collectibles and a new area with more progression.', pt: 'Redesenhei a tela principal, deixei os gerentes e multiplicadores mais fáceis de entender e adicionei colecionáveis à vista e uma nova área com mais progressão.' } },
-        { title: { en: 'Side story', pt: 'História paralela' }, body: { en: 'A side story with three endings, decided by what the player does, that runs alongside the idle loop.', pt: 'Uma história paralela com três finais, que dependem do que o jogador faz, rodando junto com o loop idle.' } },
-        { title: { en: 'Neila the Chrononaut', pt: 'Neila, a Crononauta' }, body: { en: 'A rewarded ad presented by Neila, a time-travelling character who brings random resources.', pt: 'Um anúncio com recompensa apresentado pela Neila, uma personagem que viaja no tempo e traz recursos aleatórios.' } }
+        { title: { en: 'Main screen', pt: 'Tela principal' }, body: { en: 'I redesigned the main screen, made the managers and multipliers easier to understand, and added visible collectibles and a new area with more progression.', pt: 'Redesenhei a tela principal, deixei os gerentes e multiplicadores mais fáceis de entender e adicionei colecionáveis à vista e uma nova área com mais progressão.' },
+          img: ['assets/img/g-wai-main-screen.webp'], kind: 'game' },
+        { title: { en: 'Side story', pt: 'História paralela' }, body: { en: 'A side story with three endings, decided by what the player does, that runs alongside the idle loop.', pt: 'Uma história paralela com três finais, que dependem do que o jogador faz, rodando junto com o loop idle.' },
+          img: ['assets/img/g-wai-side-story.webp'], kind: 'game' },
+        { title: { en: 'Neila the Chrononaut', pt: 'Neila, a Crononauta' }, body: { en: 'A rewarded ad presented by Neila, a time-travelling character who brings random resources.', pt: 'Um anúncio com recompensa apresentado pela Neila, uma personagem que viaja no tempo e traz recursos aleatórios.' },
+          img: ['assets/img/g-wai-neila.webp'], kind: 'game' }
       ],
       metrics: []
     },
@@ -606,33 +636,7 @@ window.CONTENT = {
       metrics: []
     },
     {
-      id: 'betsie', group: 'earlier', layout: 'sm', tone: 'deep', minutes: 1,
-      cover: 'assets/img/card-betsie.webp', coverAlt: { en: 'Four Betsie app screens: starting a bet, a pending bet, a live bet and the bet details', pt: 'Quatro telas do app Betsie: criar uma aposta, aposta pendente, aposta no ar e os detalhes da aposta' },
-      kicker: { en: 'Startup · Consulting', pt: 'Startup · Consultoria' },
-      title: { en: 'Betsie', pt: 'Betsie' },
-      tagline: { en: 'UI redesign and gamification for a social betting app, ready for the pitch.', pt: 'Redesign de UI e gamificação para um app social de apostas, pronto para o pitch.' },
-      chip: { en: 'Clickable prototype', pt: 'Protótipo navegável' },
-      meta: {
-        role: { en: 'UX and product design consultant', pt: 'Consultor de UX e produto' },
-        when: { en: 'Jul to Nov 2024', pt: 'Jul a nov de 2024' },
-        platform: { en: 'Mobile app', pt: 'App mobile' },
-        context: { en: 'Early-stage US startup', pt: 'Startup americana em fase inicial' }
-      },
-      problem: {
-        en: 'An early-stage US startup needed a cleaner product and a reason for users to keep coming back.',
-        pt: 'Uma startup americana em fase inicial precisava de um produto mais limpo e de um motivo para os usuários continuarem voltando.'
-      },
-      moves: [
-        { title: { en: 'Redesign and gamification', pt: 'Redesign e gamificação' }, body: { en: 'I redesigned the UI and added onboarding, scoring and feedback that help users learn how the app works.', pt: 'Refiz a UI e adicionei onboarding, pontuação e feedback que ajudam o usuário a entender como o app funciona.' },
-          img: ['assets/img/betsie-start.webp', 'assets/img/betsie-pending.webp'], kind: 'phones' },
-        { title: { en: 'Prototype and video', pt: 'Protótipo e vídeo' }, body: { en: 'I delivered a clickable prototype and a showcase video they could use with investors and developers.', pt: 'Entreguei um protótipo navegável e um vídeo de apresentação para eles usarem com investidores e desenvolvedores.' },
-          img: ['assets/img/betsie-live.webp', 'assets/img/betsie-on.webp'], kind: 'phones' }
-      ],
-      metrics: [],
-      live: 'https://betsie.app/'
-    },
-    {
-      id: 'lumen', group: 'earlier', layout: 'sm', tone: 'night', minutes: 1,
+      id: 'lumen', group: 'games', layout: 'sm', tone: 'night', minutes: 1,
       cover: 'assets/img/g-hemp-paradise.webp', coverAlt: { en: 'Island farming game with waterfalls and wooden bridges', pt: 'Jogo de fazenda numa ilha com cachoeiras e pontes de madeira' },
       kicker: { en: 'Studio · Production and live ops', pt: 'Estúdio · Produção e live ops' },
       title: { en: 'Lumen Games', pt: 'Lumen Games' },

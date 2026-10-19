@@ -42,9 +42,10 @@
   .job li { position: relative; padding-left: 3.6mm; color: var(--ink-2); }
   .job li::before { content: ""; position: absolute; left: .3mm; top: 1.7mm; width: 1.3mm; height: 1.3mm; border: 1px solid var(--gold); transform: rotate(45deg); }
   .side .block + .block { margin-top: 1mm; }
-  .metric { display: grid; grid-template-columns: 10mm 1fr; column-gap: 3mm; padding: 1.4mm 0; border-top: 1px solid var(--line); align-items: baseline; }
+  .metric { display: grid; grid-template-columns: 10mm 1fr; column-gap: 3mm; padding: 1.4mm 0; border-top: 1px solid var(--line); align-items: start; }
   .metric:first-child { border-top: 0; }
-  .metric b { font-family: 'Bricolage Grotesque', sans-serif; font-size: 12pt; font-weight: 750; letter-spacing: -.03em; color: var(--accent); text-align: right; font-variant-numeric: tabular-nums; }
+  /* line-height puts the middle of the digits on the middle of the first description line */
+  .metric b { font-family: 'Bricolage Grotesque', sans-serif; font-size: 12pt; line-height: 11.8pt; font-weight: 750; letter-spacing: -.03em; color: var(--accent); text-align: right; font-variant-numeric: tabular-nums; }
   .metric span { font-size: 8pt; color: var(--ink-2); line-height: 1.35; }
   .edu { padding: 1mm 0; border-top: 1px solid var(--line); }
   .edu:first-child { border-top: 0; }

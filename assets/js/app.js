@@ -112,11 +112,11 @@
   }
 
   function renderWork() {
-    var g = { knomee: [], games: [], earlier: [] };
+    var g = { knomee: [], gamification: [], games: [] };
     C.cases.forEach(function (c, i) { g[c.group].push(cardHTML(c, i)); });
     $('#gridKnomee').innerHTML = g.knomee.join('');
+    $('#gridGamification').innerHTML = g.gamification.join('');
     $('#gridGames').innerHTML = g.games.join('');
-    $('#gridEarlier').innerHTML = g.earlier.join('');
     $('#sideList').innerHTML = C.side.map(function (s) {
       var name = s.url ? '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.t) + ICON.ext + '</a>' : esc(s.t);
       return '<li><strong>' + name + '</strong>' + esc(L(s.d)) + '</li>';
@@ -328,7 +328,7 @@
     var c = caseById(id); if (!c) return;
     var idx = caseIndex(id);
     var next = C.cases[(idx + 1) % C.cases.length];
-    var groupName = c.group === 'knomee' ? 'Knomee' : c.group === 'games' ? t('work.games.title') : t('work.earlier.title');
+    var groupName = c.group === 'knomee' ? 'Knomee' : t('work.' + c.group + '.title');
     var inGroup = C.cases.filter(function (x) { return x.group === c.group; });
     $('#sheetCrumb').textContent = groupName + ' · ' + (inGroup.indexOf(c) + 1) + '/' + inGroup.length;
     var meta = c.meta, keys = ['role', 'when', 'platform', 'context'];
@@ -686,9 +686,9 @@
   function setupReveal() {
     if (!revealIO) return;
     var groups = [
-      ['.section-head', 0], ['.group-head', 0], ['.side', 0], ['.courses', 0], ['.contact-inner', 0],
-      ['#gridKnomee > .case-card', 90], ['#gridGames > .case-card', 90], ['#gridEarlier > .case-card', 90],
-      ['.timeline > li', 70], ['.branch', 110], ['.tree-detail', 0], ['.footer-inner', 0]
+      ['.section-head', 0], ['.group-head', 0], ['.side-list', 0], ['.courses', 0], ['.contact-inner', 0],
+      ['#gridKnomee > .case-card', 90], ['#gridGamification > .case-card', 90], ['#gridGames > .case-card', 90],
+      ['.timeline > li', 70], ['.tree-detail', 0], ['.footer-inner', 0]
     ];
     groups.forEach(function (g) {
       $$(g[0]).forEach(function (el, i) {
@@ -706,7 +706,7 @@
     }
     var tree = $('#tree');
     if (!tree.classList.contains('in')) {
-      if (reduceMotion.matches) tree.classList.add('in'); else revealIO.observe(tree);
+      if (reduceMotion.matches) tree.classList.add('in'); else { tree.classList.add('rv'); revealIO.observe(tree); }
     }
   }
 
@@ -717,20 +717,15 @@
     moveNavInd();
   }
 
-  /* pointer-driven effects: hero glow, spotlight cards, magnetic buttons */
-  var glowZone = $('.hero-zone'), ptr = { x: 0, y: 0, t: null }, ptrRaf = 0;
+  /* pointer-driven effects: page glow, spotlight cards, magnetic buttons */
+  var pageGlow = $('.page-glow'), ptr = { x: 0, y: 0, t: null }, ptrRaf = 0;
   function pointerFrame() {
     ptrRaf = 0;
     var e = ptr, t = e.t; if (!t) return;
     var card = t.closest && t.closest('.case-card');
     if (card) { var r = card.getBoundingClientRect(); card.style.setProperty('--sx', (e.x - r.left) + 'px'); card.style.setProperty('--sy', (e.y - r.top) + 'px'); }
-    var zr = glowZone.getBoundingClientRect();
-    if (e.y > zr.top && e.y < zr.bottom) {
-      // the glow is painted on .hero-zone::before, which bleeds past the zone; measure from its corner
-      var gs = getComputedStyle(glowZone, '::before');
-      glowZone.style.setProperty('--gx', (e.x - zr.left - parseFloat(gs.left)) + 'px');
-      glowZone.style.setProperty('--gy', (e.y - zr.top - parseFloat(gs.top)) + 'px');
-    }
+    pageGlow.style.setProperty('--gx', e.x + 'px');
+    pageGlow.style.setProperty('--gy', e.y + 'px');
     var mag = t.closest && t.closest('.btn-primary, .btn-card, .contact .btn');
     if (mag !== magActive) { if (magActive) { magActive.style.setProperty('--mx', '0px'); magActive.style.setProperty('--my', '0px'); } magActive = mag; }
     if (mag) {
