@@ -328,7 +328,7 @@
     var c = caseById(id); if (!c) return;
     var idx = caseIndex(id);
     var next = C.cases[(idx + 1) % C.cases.length];
-    var groupName = c.group === 'knomee' ? 'Knomee' : t('work.' + c.group + '.title');
+    var groupName = t('work.' + c.group + '.title');
     var inGroup = C.cases.filter(function (x) { return x.group === c.group; });
     $('#sheetCrumb').textContent = groupName + ' · ' + (inGroup.indexOf(c) + 1) + '/' + inGroup.length;
     var meta = c.meta, keys = ['role', 'when', 'platform', 'context'];
