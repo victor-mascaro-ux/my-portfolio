@@ -48,6 +48,7 @@
   --muted: #4F5F82;
   --line: #D2DCEB;
   --line-2: #B8C6DC;
+  --band: rgba(195, 211, 235, .42);
 
   /* 30 — neon blue */
   --accent: #0B63C9;
@@ -125,7 +126,7 @@
     --paper: #0A1430; --paper-2: #0E1A3A; --dot: rgba(120, 170, 255, .10);
     --surface: #111E43; --surface-2: #16264F;
     --ink: #EEF3FF; --ink-2: #C5D0EA; --muted: #8E9CC2;
-    --line: #1E2C56; --line-2: #2A3A69;
+    --line: #1E2C56; --line-2: #2A3A69; --band: rgba(22, 38, 79, .6);
     --accent: #4FC3F7; --accent-ink: #06122B; --accent-soft: #102E57;
     --blue-deep: #15265C; --blue-deep-2: #2346A0; --on-blue: #F5F6F8; --on-blue-2: #A9BCEA; --on-blue-line: rgba(245, 246, 248, .18);
     --gold: #FFC83D; --gold-ink: #FFC83D; --gold-soft: #2E250B; --on-gold: #1F1600;
@@ -145,7 +146,7 @@
   --paper: #0A1430; --paper-2: #0E1A3A; --dot: rgba(120, 170, 255, .10);
   --surface: #111E43; --surface-2: #16264F;
   --ink: #EEF3FF; --ink-2: #C5D0EA; --muted: #8E9CC2;
-  --line: #1E2C56; --line-2: #2A3A69;
+  --line: #1E2C56; --line-2: #2A3A69; --band: rgba(22, 38, 79, .6);
   --accent: #4FC3F7; --accent-ink: #06122B; --accent-soft: #102E57;
   --blue-deep: #15265C; --blue-deep-2: #2346A0; --on-blue: #F5F6F8; --on-blue-2: #A9BCEA; --on-blue-line: rgba(245, 246, 248, .18);
   --gold: #FFC83D; --gold-ink: #FFC83D; --gold-soft: #2E250B; --on-gold: #1F1600;
@@ -424,6 +425,12 @@ kbd {
 
 /* ---------- Sections ---------- */
 .work, .process, .experience, .skills { padding-top: var(--section-gap); }
+/* Process and Education sit on a full-width band, so the sections alternate and each reads as its own block */
+.process, .skills { position: relative; margin-top: var(--section-gap); padding-bottom: var(--section-gap); }
+.process::before, .skills::before {
+  content: ""; position: absolute; inset: 0 calc(50% - 50vw); z-index: -1; pointer-events: none;
+  background: var(--band); border-block: 1px solid var(--line);
+}
 .section-head { display: grid; gap: 14px; margin-bottom: clamp(36px, 5vw, 56px); max-width: 760px; }
 .section-head-row { max-width: none; display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
 .section-head-row > div { display: grid; gap: 14px; }
@@ -689,13 +696,14 @@ kbd {
 .next-case svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2; flex: none; }
 
 /* compare slider */
-.compare { position: relative; width: min(300px, 100%); border-radius: 12px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); --pos: 50%; user-select: none; }
+.compare { position: relative; width: min(300px, 100%); border-radius: 12px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); --pos: 50%; user-select: none; cursor: ew-resize; touch-action: pan-y; }
 .compare img { width: 100%; display: block; pointer-events: none; }
 .compare .cmp-after { position: absolute; inset: 0; clip-path: inset(0 0 0 var(--pos)); }
 .compare .cmp-after img { height: 100%; object-fit: cover; }
 .compare .cmp-line { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; margin-left: -1.5px; background: var(--note); box-shadow: 0 0 0 1px rgba(0, 0, 0, .25); pointer-events: none; }
 .compare .cmp-line::after { content: "⟷"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--note); color: var(--note-ink); font-size: 16px; font-weight: 700; box-shadow: 0 4px 12px rgba(0, 0, 0, .35); }
-.compare input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+/* the range input stays for keyboard use; pointers are handled on .compare */
+.compare input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; margin: 0; pointer-events: none; }
 .compare input:focus-visible + .cmp-line::after { outline: 3px solid var(--accent); outline-offset: 2px; }
 .cmp-tag { position: absolute; top: 10px; font-family: var(--f-mono); font-size: .64rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 7px; border-radius: 5px; background: rgba(10, 10, 20, .7); color: #fff; pointer-events: none; }
 .cmp-tag.before { left: 10px; } .cmp-tag.after { right: 10px; }

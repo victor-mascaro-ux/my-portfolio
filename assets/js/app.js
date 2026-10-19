@@ -306,7 +306,7 @@
         '<input type="range" min="0" max="100" value="50" aria-label="' + esc(t('case.compare')) + '">' +
         '<span class="cmp-line" aria-hidden="true"></span>' +
         '<span class="cmp-tag before">' + esc(t('case.before')) + '</span><span class="cmp-tag after">' + esc(t('case.after')) + '</span>' +
-        '</div><p class="compare-hint">' + esc(t('case.compare')) + '</p></div>';
+        '</div><p class="compare-hint">' + esc(t(finePointer.matches ? 'case.compareHover' : 'case.compare')) + '</p></div>';
     }
     if (m.film) {
       var f0 = m.film[0];
@@ -375,7 +375,12 @@
   function wireSheet() {
     $$('.compare', sheetBody).forEach(function (cmp) {
       var input = $('input', cmp);
-      input.addEventListener('input', function () { cmp.style.setProperty('--pos', input.value + '%'); });
+      function set(v) { v = Math.max(0, Math.min(100, v)); input.value = v; cmp.style.setProperty('--pos', v + '%'); }
+      function follow(e) { var r = cmp.getBoundingClientRect(); set((e.clientX - r.left) / r.width * 100); }
+      input.addEventListener('input', function () { set(+input.value); });
+      // a mouse moves the divider just by hovering; touch and pen drag it (vertical swipes still scroll)
+      cmp.addEventListener('pointermove', function (e) { if (e.pointerType === 'mouse' || cmp.hasPointerCapture(e.pointerId)) follow(e); });
+      cmp.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse') { cmp.setPointerCapture(e.pointerId); follow(e); } });
     });
     $$('[data-film]', sheetBody).forEach(function (film) {
       var c = caseById(sheet.current);

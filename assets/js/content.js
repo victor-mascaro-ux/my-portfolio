@@ -30,12 +30,12 @@ window.CONTENT = {
       'hero.eyebrow': 'Victor Mascaro · São Paulo',
       'hero.title.a': 'UX/UI designer with a background in ',
       'hero.title.b': 'game design.',
-      'hero.lede': 'For the last two years I’ve been designing Knomee, a fintech product for financial advisors and their clients. Before that I worked on mobile games like Smashing Four and Auction City, mostly on progression, events and onboarding.',
+      'hero.lede': 'For the last two years I’ve been designing Knomee, a fintech product for financial advisors and their clients. I design for AI and with it, from a voice shortcut in the client app to the prototypes I build in code with Claude Code. Before that I worked on mobile games like Smashing Four and Auction City, mostly on progression, events and onboarding.',
       'hero.ctaWork': 'See my work', 'hero.ctaContact': 'Contact me',
 
       'card.rarity': 'Player card',
       'card.class': 'UX/UI Designer',
-      'card.subclass': 'Gamification and game systems',
+      'card.subclass': 'Gamification, game systems and AI',
       'card.level': 'Lv. 5',
       'card.levelHint': '5 years of work since 2021',
       'card.base': 'Based in', 'card.baseV': 'São Paulo, Brazil (UTC−3)',
@@ -49,14 +49,14 @@ window.CONTENT = {
       'short.1.v': '5 yrs', 'short.1.l': 'working in game and product design, since 2021',
       'short.2.v': '6', 'short.2.l': 'commercial games and apps I’ve worked on',
       'short.3.v': '4', 'short.3.l': 'live-service mobile games at By Aliens',
-      'short.4.v': '643', 'short.4.l': 'merged pull requests on the Knomee prototype, which I design and build',
+      'short.4.v': '643', 'short.4.l': 'merged pull requests on the Knomee prototype, which I design and build with Claude Code',
 
       'work.eyebrow': 'Work',
       'work.title': 'Selected projects',
       'work.lede': 'Each project has a short write-up: the context, what I did, and the result when there is one I can share.',
       'work.knomee.title': 'UX/UI',
       'work.knomee.meta': 'Knomee · 2024 to now',
-      'work.knomee.lede': 'Knomee helps financial advisors get to know their clients before the first meeting. I work on both sides of the product: the app clients fill in and the dashboard advisors use.',
+      'work.knomee.lede': 'Knomee helps financial advisors get to know their clients before the first meeting. I work on both sides of the product: the app clients fill in and the dashboard advisors use. I design its AI features, like a voice shortcut in the client app, and build the prototype with AI.',
       'work.games.title': 'Mobile games',
       'work.games.meta': 'By Aliens and Lumen Games · 2021 to 2025',
       'work.games.lede': 'At By Aliens I was a game and UX designer on four live games, working mostly on systems, economy, events and onboarding. Before that, I was producer and game designer on Hemp Paradise at Lumen Games.',
@@ -101,7 +101,7 @@ window.CONTENT = {
       'case.role': 'Role', 'case.when': 'When', 'case.platform': 'Platform', 'case.context': 'Context',
       'case.problem': 'Context', 'case.moves': 'What I did', 'case.outcome': 'Result', 'case.learned': 'Notes',
       'case.live': 'Open the live version', 'case.evolution': 'Earlier version',
-      'case.before': 'Before', 'case.after': 'After', 'case.compare': 'Drag to compare before and after',
+      'case.before': 'Before', 'case.after': 'After', 'case.compare': 'Drag to compare before and after', 'case.compareHover': 'Move your mouse across the image to compare before and after',
       'case.film': 'Frames from the video', 'case.frame': 'Frame',
       'case.end': 'End',
       'case.measured': 'Measured', 'case.projected': 'Projected', 'case.estimated': 'Estimated',
@@ -130,12 +130,12 @@ window.CONTENT = {
       'hero.eyebrow': 'Victor Mascaro · São Paulo',
       'hero.title.a': 'UX/UI designer com background em ',
       'hero.title.b': 'game design.',
-      'hero.lede': 'Há dois anos faço o design da Knomee, uma fintech para assessores financeiros e os clientes deles. Antes disso, trabalhei com jogos mobile como Smashing Four e Auction City, principalmente em progressão, eventos e onboarding.',
+      'hero.lede': 'Há dois anos faço o design da Knomee, uma fintech para assessores financeiros e os clientes deles. Desenho para IA e com IA, de um atalho de voz no app do cliente aos protótipos que construo em código com o Claude Code. Antes disso, trabalhei com jogos mobile como Smashing Four e Auction City, principalmente em progressão, eventos e onboarding.',
       'hero.ctaWork': 'Ver projetos', 'hero.ctaContact': 'Falar comigo',
 
       'card.rarity': 'Ficha do jogador',
       'card.class': 'UX/UI Designer',
-      'card.subclass': 'Gamificação e sistemas de jogo',
+      'card.subclass': 'Gamificação, sistemas de jogo e IA',
       'card.level': 'Nv. 5',
       'card.levelHint': '5 anos de carreira, desde 2021',
       'card.base': 'Base', 'card.baseV': 'São Paulo (UTC−3)',
@@ -149,14 +149,14 @@ window.CONTENT = {
       'short.1.v': '5 anos', 'short.1.l': 'de experiência em game design e design de produto, desde 2021',
       'short.2.v': '6', 'short.2.l': 'jogos e apps comerciais em que trabalhei',
       'short.3.v': '4', 'short.3.l': 'jogos mobile live-service na By Aliens',
-      'short.4.v': '643', 'short.4.l': 'pull requests mergeados no protótipo da Knomee, que eu desenho e desenvolvo',
+      'short.4.v': '643', 'short.4.l': 'pull requests mergeados no protótipo da Knomee, que eu desenho e desenvolvo com o Claude Code',
 
       'work.eyebrow': 'Trabalhos',
       'work.title': 'Projetos selecionados',
       'work.lede': 'Cada projeto tem um resumo curto: o contexto, o que eu fiz e o resultado, quando posso compartilhar.',
       'work.knomee.title': 'UX/UI',
       'work.knomee.meta': 'Knomee · 2024 até hoje',
-      'work.knomee.lede': 'A Knomee ajuda assessores financeiros a conhecer os clientes antes da primeira reunião. Trabalho nos dois lados do produto: o app que o cliente preenche e o dashboard que o assessor usa.',
+      'work.knomee.lede': 'A Knomee ajuda assessores financeiros a conhecer os clientes antes da primeira reunião. Trabalho nos dois lados do produto: o app que o cliente preenche e o dashboard que o assessor usa. Desenho as funcionalidades de IA, como um atalho de voz no app do cliente, e construo o protótipo com IA.',
       'work.games.title': 'Jogos mobile',
       'work.games.meta': 'By Aliens e Lumen Games · 2021 a 2025',
       'work.games.lede': 'Na By Aliens, fui game e UX designer em quatro jogos live, principalmente em sistemas, economia, eventos e onboarding. Antes disso, fui produtor e game designer do Hemp Paradise na Lumen Games.',
@@ -201,7 +201,7 @@ window.CONTENT = {
       'case.role': 'Função', 'case.when': 'Período', 'case.platform': 'Plataforma', 'case.context': 'Contexto',
       'case.problem': 'Contexto', 'case.moves': 'O que eu fiz', 'case.outcome': 'Resultado', 'case.learned': 'Observações',
       'case.live': 'Ver no ar', 'case.evolution': 'Versão anterior',
-      'case.before': 'Antes', 'case.after': 'Depois', 'case.compare': 'Arraste para comparar o antes e o depois',
+      'case.before': 'Antes', 'case.after': 'Depois', 'case.compare': 'Arraste para comparar o antes e o depois', 'case.compareHover': 'Passe o mouse sobre a imagem para comparar o antes e o depois',
       'case.film': 'Frames do vídeo', 'case.frame': 'Frame',
       'case.end': 'Fim',
       'case.measured': 'Medido', 'case.projected': 'Projetado', 'case.estimated': 'Estimado',
@@ -221,8 +221,8 @@ window.CONTENT = {
 
   /* ---------- Tools on the hero card ---------- */
   loadout: {
-    en: ['Figma', 'Prototyping in code', 'React + TypeScript', 'Design systems', 'UX research', 'Game economy', 'Unity + C#'],
-    pt: ['Figma', 'Prototipação em código', 'React + TypeScript', 'Design systems', 'Pesquisa de UX', 'Economia de jogos', 'Unity + C#']
+    en: ['Figma', 'Claude Code', 'Claude Design', 'Prototyping in code', 'React + TypeScript', 'Design systems', 'UX research', 'Game economy', 'Unity + C#'],
+    pt: ['Figma', 'Claude Code', 'Claude Design', 'Prototipação em código', 'React + TypeScript', 'Design systems', 'Pesquisa de UX', 'Economia de jogos', 'Unity + C#']
   },
 
   /* ---------- Process ---------- */
@@ -236,12 +236,12 @@ window.CONTENT = {
       proof: { en: 'At Knomee, each adventure shows clients something about their own finances that they can then share with their advisor.', pt: 'Na Knomee, cada aventura mostra ao cliente algo sobre as próprias finanças, que ele pode compartilhar com o assessor.' }
     },
     {
-      title: { en: 'Prototype early', pt: 'Prototipar cedo' },
+      title: { en: 'Prototype early, with AI', pt: 'Prototipar cedo, com IA' },
       body: {
-        en: 'Static mockups don’t show timing, animation or how a flow feels after the tenth tap. When those details matter, I build the prototype in HTML or React.',
-        pt: 'Mockups estáticos não mostram timing, animação nem a sensação de um fluxo depois do décimo toque. Quando esses detalhes importam, faço o protótipo em HTML ou React.'
+        en: 'Static mockups don’t show timing, animation or how a flow feels after the tenth tap. When those details matter, I build the prototype in HTML or React, working with Claude Code.',
+        pt: 'Mockups estáticos não mostram timing, animação nem a sensação de um fluxo depois do décimo toque. Quando esses detalhes importam, faço o protótipo em HTML ou React, junto com o Claude Code.'
       },
-      proof: { en: 'The Knomee prototype has 58 screens and was used for handoff, sales demos and user tests.', pt: 'O protótipo da Knomee tem 58 telas e foi usado em handoff, demos de vendas e testes com usuários.' }
+      proof: { en: 'The Knomee prototype has 58 screens, all built with Claude Code, and was used for handoff, sales demos and user tests.', pt: 'O protótipo da Knomee tem 58 telas, todas construídas com o Claude Code, e foi usado em handoff, demos de vendas e testes com usuários.' }
     },
     {
       title: { en: 'Make reviews easy', pt: 'Facilitar as revisões' },
@@ -306,6 +306,11 @@ window.CONTENT = {
           img: ['assets/img/k-conf-slider.webp', 'assets/img/k-fy-orb.webp', 'assets/img/k-fy-road.webp'], kind: 'phones'
         },
         {
+          title: { en: 'A voice shortcut powered by AI', pt: 'Um atalho de voz com IA' },
+          body: { en: 'Hold the Knomee button and say what changed, like “I just got divorced”. AI turns the sentence into the right next step: a life event, a question for the advisor or a goal. Before anything is saved, the person can edit what was heard, and the button says what it will create. The result appears as the record itself, the way it will look on the Financial ID. In the prototype the speech is scripted, to show the interaction.', pt: 'Segure o botão da Knomee e diga o que mudou, como “Acabei de me divorciar”. A IA transforma a frase no próximo passo certo: um evento de vida, uma pergunta para o assessor ou uma meta. Antes de salvar, a pessoa pode editar o que foi ouvido, e o botão diz o que vai criar. O resultado aparece como o próprio registro, do jeito que vai ficar no Financial ID. No protótipo, a fala é simulada para mostrar a interação.' },
+          img: ['assets/img/k-voice-listen.webp', 'assets/img/k-voice-ready.webp', 'assets/img/k-voice-done.webp'], kind: 'phones'
+        },
+        {
           title: { en: 'Showing what the answers turned into', pt: 'Mostrar o que as respostas geraram' },
           body: { en: 'The badge screen at the end of each adventure also shows the part of the Financial ID it just filled in, so people can see what came out of their answers.', pt: 'A tela do selo, no fim de cada aventura, também mostra a parte do Financial ID que acabou de ser preenchida, para a pessoa ver o resultado das próprias respostas.' },
           img: ['assets/img/k-badge.webp', 'assets/img/k-conf-result.webp'], kind: 'phones'
@@ -335,7 +340,7 @@ window.CONTENT = {
       tagline: { en: 'A dashboard that shows advisors which prospects are ready and how to start the conversation.', pt: 'Um dashboard que mostra ao assessor quais prospects estão prontos e como puxar a conversa.' },
       chip: { en: '58 screens', pt: '58 telas' },
       meta: {
-        role: { en: 'Product designer, prototype in code', pt: 'Product designer, protótipo em código' },
+        role: { en: 'Product designer, prototype in code with AI', pt: 'Product designer, protótipo em código com IA' },
         when: { en: '2024 to 2026', pt: '2024 a 2026' },
         platform: { en: 'Desktop web, responsive', pt: 'Web desktop, responsivo' },
         context: { en: 'Fintech for wealth management firms', pt: 'Fintech para gestoras de patrimônio' }
@@ -396,7 +401,7 @@ window.CONTENT = {
       cover: 'assets/img/k-overlay.webp', coverAlt: { en: 'A prototype with yellow comment pins and an open comment thread', pt: 'Um protótipo com pins de comentário amarelos e uma thread aberta' },
       kicker: { en: 'Knomee · Internal tool', pt: 'Knomee · Ferramenta interna' },
       title: { en: 'Review Layer', pt: 'Review Layer' },
-      tagline: { en: 'A commenting tool I built so the team could leave feedback directly on coded prototypes.', pt: 'Uma ferramenta de comentários que criei para o time dar feedback direto nos protótipos em código.' },
+      tagline: { en: 'A commenting tool I built with Claude Code so the team could leave feedback directly on coded prototypes.', pt: 'Uma ferramenta de comentários que criei com o Claude Code para o time dar feedback direto nos protótipos em código.' },
       chip: { en: 'Used on 5 prototypes', pt: 'Usada em 5 protótipos' },
       meta: {
         role: { en: 'Designer and developer', pt: 'Designer e desenvolvedor' },
@@ -500,9 +505,9 @@ window.CONTENT = {
       },
       moves: [
         { title: { en: 'Redesign and gamification', pt: 'Redesign e gamificação' }, body: { en: 'I redesigned the UI and added onboarding, scoring and feedback that help users learn how the app works.', pt: 'Refiz a UI e adicionei onboarding, pontuação e feedback que ajudam o usuário a entender como o app funciona.' },
-          img: ['assets/img/betsie-start.webp', 'assets/img/betsie-pending.webp'], kind: 'phones' },
+          compare: ['assets/img/betsie-start.webp', 'assets/img/betsie-pending.webp'] },
         { title: { en: 'Prototype and video', pt: 'Protótipo e vídeo' }, body: { en: 'I delivered a clickable prototype and a showcase video they could use with investors and developers.', pt: 'Entreguei um protótipo navegável e um vídeo de apresentação para eles usarem com investidores e desenvolvedores.' },
-          img: ['assets/img/betsie-live.webp', 'assets/img/betsie-on.webp'], kind: 'phones' }
+          compare: ['assets/img/betsie-live.webp', 'assets/img/betsie-on.webp'] }
       ],
       metrics: [],
       live: 'https://betsie.app/'
@@ -513,7 +518,7 @@ window.CONTENT = {
       kicker: { en: 'By Aliens · Game design', pt: 'By Aliens · Game design' },
       title: { en: 'Smashing Four', pt: 'Smashing Four' },
       tagline: { en: 'New heroes and a redesigned Hero Event for a live PvP game.', pt: 'Novos heróis e um Hero Event redesenhado para um jogo PvP live.' },
-      chip: { en: '3 new heroes', pt: '3 novos heróis' },
+      chip: { en: '3 new heroes, balancing and live ops', pt: '3 novos heróis, balanceamento e live ops' },
       meta: {
         role: { en: 'Game and UX designer, By Aliens', pt: 'Game e UX designer, By Aliens' },
         when: { en: '2025', pt: '2025' },
@@ -538,6 +543,10 @@ window.CONTENT = {
         {
           title: { en: 'Rebalancing', pt: 'Rebalanceamento' },
           body: { en: 'I adjusted stats (HP, damage, weight and speed) for heroes players weren’t picking, based on performance data and what players were saying. I also worked on the reward tiers for Hero Event 2.0.', pt: 'Ajustei atributos (HP, dano, peso e velocidade) de heróis pouco escolhidos, com base em dados de desempenho e no que os jogadores diziam. Também trabalhei nas faixas de recompensa do Hero Event 2.0.' }
+        },
+        {
+          title: { en: 'Live ops', pt: 'Live ops' },
+          body: { en: 'I set up events and the season pass, and kept the game’s news and in-game content up to date.', pt: 'Configurei os eventos e o passe de temporada, e mantive em dia as notícias e o conteúdo dentro do jogo.' }
         }
       ],
       metrics: [],
@@ -604,7 +613,7 @@ window.CONTENT = {
       },
       moves: [
         { title: { en: 'Main screen', pt: 'Tela principal' }, body: { en: 'I redesigned the main screen, made the managers and multipliers easier to understand, and added visible collectibles and a new area with more progression.', pt: 'Redesenhei a tela principal, deixei os gerentes e multiplicadores mais fáceis de entender e adicionei colecionáveis à vista e uma nova área com mais progressão.' },
-          img: ['assets/img/g-wai-main-screen.webp'], kind: 'game' },
+          compare: ['assets/img/g-wai-main-before.webp', 'assets/img/g-wai-main-after.webp'] },
         { title: { en: 'Side story', pt: 'História paralela' }, body: { en: 'A side story with three endings, decided by what the player does, that runs alongside the idle loop.', pt: 'Uma história paralela com três finais, que dependem do que o jogador faz, rodando junto com o loop idle.' },
           img: ['assets/img/g-wai-side-story.webp'], kind: 'game' },
         { title: { en: 'Neila the Chrononaut', pt: 'Neila, a Crononauta' }, body: { en: 'A rewarded ad presented by Neila, a time-travelling character who brings random resources.', pt: 'Um anúncio com recompensa apresentado pela Neila, uma personagem que viaja no tempo e traz recursos aleatórios.' },
@@ -613,7 +622,8 @@ window.CONTENT = {
       metrics: []
     },
     {
-      id: 'idle-planes', group: 'games', layout: 'sm', tone: 'blue', minutes: 1, emblem: 'plane',
+      id: 'idle-planes', group: 'games', layout: 'sm', tone: 'blue', minutes: 1,
+      cover: 'assets/img/g-ip-cover.webp', coverAlt: { en: 'A green propeller fighter plane flying through a sunset sky', pt: 'Um caça verde de hélice voando num céu ao pôr do sol' },
       kicker: { en: 'By Aliens · Economy and UX', pt: 'By Aliens · Economia e UX' },
       title: { en: 'Idle Planes', pt: 'Idle Planes' },
       tagline: { en: 'Economy tuning, UX reviews and three minigames for an idle game.', pt: 'Ajustes de economia, revisões de UX e três minigames para um jogo idle.' },
@@ -629,11 +639,15 @@ window.CONTENT = {
         pt: 'Depois de um tempo, o ritmo e a economia de upgrades estagnavam, e não sobrava muito o que fazer além de tocar na tela.'
       },
       moves: [
-        { title: { en: 'Pacing and economy', pt: 'Ritmo e economia' }, body: { en: 'I tuned the upgrade pacing and resource generation, and proposed systems for goals and progress feedback.', pt: 'Ajustei o ritmo dos upgrades e a geração de recursos, e propus sistemas de metas e de feedback de progresso.' } },
-        { title: { en: 'UX reviews', pt: 'Revisões de UX' }, body: { en: 'Screen-by-screen reviews pointing out where goals and rewards weren’t clear to the player.', pt: 'Revisões tela a tela apontando onde os objetivos e as recompensas não estavam claros para o jogador.' } },
-        { title: { en: 'Minigames', pt: 'Minigames' }, body: { en: 'Three minigames that give players something to do between collections.', pt: 'Três minigames para o jogador ter o que fazer entre uma coleta e outra.' } }
+        { title: { en: 'Pacing and economy', pt: 'Ritmo e economia' }, body: { en: 'I tuned the upgrade pacing and resource generation, and proposed systems for goals and progress feedback.', pt: 'Ajustei o ritmo dos upgrades e a geração de recursos, e propus sistemas de metas e de feedback de progresso.' },
+          img: ['assets/img/g-ip-build.webp', 'assets/img/g-ip-legendary.webp'], kind: 'phones' },
+        { title: { en: 'UX reviews', pt: 'Revisões de UX' }, body: { en: 'Screen-by-screen reviews pointing out where goals and rewards weren’t clear to the player.', pt: 'Revisões tela a tela apontando onde os objetivos e as recompensas não estavam claros para o jogador.' },
+          img: ['assets/img/g-ip-daily-reward.webp'], kind: 'phones' },
+        { title: { en: 'Minigames', pt: 'Minigames' }, body: { en: 'Three minigames that give players something to do between collections.', pt: 'Três minigames para o jogador ter o que fazer entre uma coleta e outra.' },
+          img: ['assets/img/g-ip-combat.webp'], kind: 'phones' }
       ],
-      metrics: []
+      metrics: [],
+      live: 'https://apps.apple.com/br/app/idle-planes-air-force-squad/id1633630486'
     },
     {
       id: 'lumen', group: 'games', layout: 'sm', tone: 'night', minutes: 1,
@@ -687,8 +701,8 @@ window.CONTENT = {
       role: { en: 'UX & Gamification Designer', pt: 'Designer de UX e Gamificação' },
       where: { en: 'Fintech · San Francisco · Remote', pt: 'Fintech · San Francisco · Remoto' },
       points: {
-        en: ['Designed the client app’s Adventures, short questionnaires that build a Financial ID clients can share.', 'Designed the advisor dashboard: readiness scores, segmentation, alerts and conversation playbooks.', 'Built the coded prototype used for handoff, sales demos and user tests (643 merged pull requests).', 'Made the activation toolkit, the pitch deck and the product video.'],
-        pt: ['Desenhei as Adventures do app do cliente, questionários curtos que montam um Financial ID compartilhável.', 'Desenhei o dashboard do assessor: scores de prontidão, segmentação, alertas e playbooks de conversa.', 'Desenvolvi o protótipo em código usado em handoff, demos de vendas e testes com usuários (643 pull requests mergeados).', 'Fiz o kit de ativação, o pitch deck e o vídeo do produto.']
+        en: ['Designed the client app’s Adventures, short questionnaires that build a Financial ID clients can share.', 'Designed the advisor dashboard: readiness scores, segmentation, alerts and conversation playbooks.', 'Designed an AI voice shortcut that turns what a client says into an in-app action.', 'Built the coded prototype with Claude Code, used for handoff, sales demos and user tests (643 merged pull requests).', 'Made the activation toolkit, the pitch deck and the product video.'],
+        pt: ['Desenhei as Adventures do app do cliente, questionários curtos que montam um Financial ID compartilhável.', 'Desenhei o dashboard do assessor: scores de prontidão, segmentação, alertas e playbooks de conversa.', 'Desenhei um atalho de voz com IA que transforma a fala do cliente em ação.', 'Desenvolvi com o Claude Code o protótipo em código usado em handoff, demos de vendas e testes com usuários (643 pull requests mergeados).', 'Fiz o kit de ativação, o pitch deck e o vídeo do produto.']
       }
     },
     {
@@ -696,8 +710,8 @@ window.CONTENT = {
       role: { en: 'Game & UX Designer', pt: 'Game e UX Designer' },
       where: { en: 'Game studio · Dubai · Remote', pt: 'Estúdio de jogos · Dubai · Remoto' },
       points: {
-        en: ['Smashing Four: new heroes (Bloodbite, Sheriff, Otter), rebalancing and Hero Event 2.0.', 'Auction City: Hunter Pass season pass, new onboarding, Statues system and a gacha concept.', 'We Are Illuminati: new layout, a side story with three endings, ads and in-app purchases.', 'Idle Planes: pacing, upgrade economy, UX reviews and three minigames.'],
-        pt: ['Smashing Four: novos heróis (Bloodbite, Sheriff, Otter), rebalanceamento e Hero Event 2.0.', 'Auction City: passe de temporada Hunter Pass, novo onboarding, sistema de Estátuas e um conceito de gacha.', 'We Are Illuminati: novo layout, uma história paralela com três finais, anúncios e compras in-app.', 'Idle Planes: ritmo, economia de upgrades, revisões de UX e três minigames.']
+        en: ['Smashing Four: new heroes (Bloodbite, Sheriff, Otter), rebalancing, Hero Event 2.0 and live ops: events, season pass, news and in-game content.', 'Auction City: Hunter Pass season pass, new onboarding, Statues system and a gacha concept.', 'We Are Illuminati: new layout, a side story with three endings, ads and in-app purchases.', 'Idle Planes: pacing, upgrade economy, UX reviews and three minigames.'],
+        pt: ['Smashing Four: novos heróis (Bloodbite, Sheriff, Otter), rebalanceamento, Hero Event 2.0 e live ops: eventos, passe de temporada, notícias e conteúdo no jogo.', 'Auction City: passe de temporada Hunter Pass, novo onboarding, sistema de Estátuas e um conceito de gacha.', 'We Are Illuminati: novo layout, uma história paralela com três finais, anúncios e compras in-app.', 'Idle Planes: ritmo, economia de upgrades, revisões de UX e três minigames.']
       }
     },
     {

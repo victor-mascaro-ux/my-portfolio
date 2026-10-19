@@ -31,14 +31,14 @@
   .grid { display: grid; grid-template-columns: minmax(0, 1fr) 54mm; gap: 8mm; margin-top: 4mm; }
   .sec-t { font-family: 'JetBrains Mono', monospace; font-size: 7.4pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 2mm; margin: 3.5mm 0 2mm; }
   .sec-t::before { content: ""; width: 2mm; height: 2mm; background: var(--gold); transform: rotate(45deg); }
-  .job { padding: 2mm 0; border-top: 1px solid var(--line); break-inside: avoid; }
+  .job { padding: 1.6mm 0; border-top: 1px solid var(--line); break-inside: avoid; }
   .job:first-of-type { border-top: 0; padding-top: 0; }
   .job-h { display: flex; justify-content: space-between; gap: 4mm; align-items: baseline; }
   .job-org { font-size: 11.5pt; font-weight: 700; }
   .job-when { font-family: 'JetBrains Mono', monospace; font-size: 7.6pt; color: var(--muted); white-space: nowrap; }
   .job-role { font-weight: 600; font-size: 9.4pt; }
   .job-role span { color: var(--muted); font-weight: 500; }
-  .job ul { margin-top: 1.2mm; display: grid; gap: .8mm; }
+  .job ul { margin-top: 1mm; display: grid; gap: .6mm; }
   .job li { position: relative; padding-left: 3.6mm; color: var(--ink-2); }
   .job li::before { content: ""; position: absolute; left: .3mm; top: 1.7mm; width: 1.3mm; height: 1.3mm; border: 1px solid var(--gold); transform: rotate(45deg); }
   .side .block + .block { margin-top: 1mm; }
@@ -75,8 +75,8 @@
   function L(v) { return typeof v === 'string' ? v : (v[lang] || v.en); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); }
   var T = {
-    en: { title: 'UX/UI Designer', sub: 'Game systems & gamification', sum: 'UX/UI designer based in São Paulo. I’ve worked on mobile games since 2021 and on Knomee, a fintech product for financial advisors, since 2024. Most of my work is on onboarding, progression and gamification, and I prototype in code when it helps.', exp: 'Experience', res: 'Highlights', edu: 'Education', tools: 'Tools & skills', langs: 'Languages', langsV: 'Portuguese (native) · English (professional)', loc: 'São Paulo, Brazil · UTC−3 · Remote', port: 'Portfolio with case studies' },
-    pt: { title: 'UX/UI Designer', sub: 'Sistemas de jogo e gamificação', sum: 'UX/UI designer em São Paulo. Trabalho com jogos mobile desde 2021 e, desde 2024, na Knomee, uma fintech para assessores financeiros. A maior parte do meu trabalho é em onboarding, progressão e gamificação, e prototipo em código quando faz sentido.', exp: 'Experiência', res: 'Destaques', edu: 'Formação', tools: 'Ferramentas e habilidades', langs: 'Idiomas', langsV: 'Português (nativo) · Inglês (profissional)', loc: 'São Paulo, Brasil · UTC−3 · Remoto', port: 'Portfólio com cases' }
+    en: { title: 'UX/UI Designer', sub: 'Game systems, gamification & AI', sum: 'UX/UI designer based in São Paulo. I’ve worked on mobile games since 2021 and on Knomee, a fintech product for financial advisors, since 2024. Most of my work is on onboarding, progression and gamification. I design for AI and with it, and I build my prototypes in code with Claude Code.', exp: 'Experience', res: 'Highlights', edu: 'Education', tools: 'Tools & skills', langs: 'Languages', langsV: 'Portuguese (native) · English (professional)', loc: 'São Paulo, Brazil · UTC−3 · Remote', port: 'Portfolio with case studies' },
+    pt: { title: 'UX/UI Designer', sub: 'Sistemas de jogo, gamificação e IA', sum: 'UX/UI designer em São Paulo. Trabalho com jogos mobile desde 2021 e, desde 2024, na Knomee, uma fintech para assessores financeiros. Meu trabalho é sobretudo em onboarding, progressão e gamificação. Desenho para IA e com IA, e construo meus protótipos em código com o Claude Code.', exp: 'Experiência', res: 'Destaques', edu: 'Formação', tools: 'Ferramentas e habilidades', langs: 'Idiomas', langsV: 'Português (nativo) · Inglês (profissional)', loc: 'São Paulo, Brasil · UTC−3 · Remoto', port: 'Portfólio com cases' }
   }[lang];
   var site = 'victor-mascaro-ux.github.io/my-portfolio';
   var results = [
@@ -87,7 +87,7 @@
     ['4', { en: 'live-service games at By Aliens', pt: 'jogos live-service na By Aliens' }]
   ];
   if (lang === 'pt') results.forEach(function (r) { r[0] = r[0].replace('.', ','); });
-  var tools = { en: ['Figma', 'Prototyping in code', 'React + TypeScript', 'HTML / CSS / JS', 'Design systems', 'UX research', 'Game economy', 'Unity + C#', 'Claude Code'], pt: ['Figma', 'Prototipação em código', 'React + TypeScript', 'HTML / CSS / JS', 'Design systems', 'Pesquisa de UX', 'Economia de jogos', 'Unity + C#', 'Claude Code'] }[lang];
+  var tools = { en: ['Figma', 'Prototyping in code', 'React + TypeScript', 'HTML / CSS / JS', 'Design systems', 'UX research', 'Game economy', 'Unity + C#', 'Claude Code', 'Claude Design'], pt: ['Figma', 'Prototipação em código', 'React + TypeScript', 'HTML / CSS / JS', 'Design systems', 'Pesquisa de UX', 'Economia de jogos', 'Unity + C#', 'Claude Code', 'Claude Design'] }[lang];
   var inProgress = C.skills.filter(function (s) { return s.status === 'progress'; });
   var edu = C.skills.filter(function (s) { return s.status === 'done'; }).map(function (s) {
     var when = typeof s.when === 'string' ? s.when : L(s.when);
