@@ -39,7 +39,9 @@
     $('#langCode').textContent = t('hud.langShort');
     $('#langBtn').setAttribute('aria-label', t('hud.lang'));
     $('#menuBtn').setAttribute('aria-label', t('nav.menu'));
+    $('#lbClose').setAttribute('aria-label', t('lightbox.close'));
     $('.hero-tabs').setAttribute('aria-label', t('hero.tabs'));
+    markTabNext();
     var cv = C.person.cv[lang];
     ['#cardCv', '#expCv', '#contactCv'].forEach(function (s) { var a = $(s); if (a) a.setAttribute('href', cv); });
     $('#sheetPrev').setAttribute('aria-label', t('case.prev'));
@@ -68,6 +70,7 @@
   /* ---------- icons ---------- */
   var ICON = {
     arrow: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+    play: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>',
     ext: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>',
     star: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg>',
     lock: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>',
@@ -252,16 +255,26 @@
     var changed = id !== currentTab;
     currentTab = id;
     $$('[data-tab]').forEach(function (p) { p.hidden = p.getAttribute('data-tab') !== id; });
-    tabNext.hidden = id === 'home';
-    var next = TABS[(TABS.indexOf(id) + 1) % TABS.length];
-    $$('.hero-tab', tabNext).forEach(function (a) {
-      var tab = a.getAttribute('href').slice(1);
-      a.classList.toggle('is-primary', tab === next);
-      if (tab === id) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
-    });
+    markTabNext();
     $$('.hud-nav a, .mobile-nav a').forEach(function (a) { a.setAttribute('aria-current', a.getAttribute('href') === '#' + id ? 'page' : 'false'); });
     moveNavInd();
     if (changed && !opts.keepScroll) window.scrollTo(0, 0);
+  }
+  /* the end-of-tab tiles say which one is next and which page you're on, in words:
+     a filled tile would read as the current page */
+  function markTabNext() {
+    if (!currentTab) return;
+    var id = currentTab, next = TABS[(TABS.indexOf(id) + 1) % TABS.length];
+    tabNext.hidden = id === 'home';
+    $$('.hero-tab', tabNext).forEach(function (a) {
+      var tab = a.getAttribute('href').slice(1);
+      a.classList.remove('is-primary');
+      a.classList.toggle('is-next', tab === next);
+      if (tab === id) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+      if (tab === next) a.setAttribute('data-badge', t('tabs.next'));
+      else if (tab === id) a.setAttribute('data-badge', t('tabs.here'));
+      else a.removeAttribute('data-badge');
+    });
   }
   function tabUrl(id) { return location.pathname + location.search + (id === 'home' ? '' : '#' + id); }
   document.addEventListener('click', function (e) {
@@ -331,20 +344,24 @@
     return '<img src="' + src + '" alt="' + esc(alt || '') + '" loading="lazy"' + (cls ? ' class="' + cls + '"' : '') + '>';
   }
 
+  function compareHint() { return '<p class="compare-hint">' + esc(t(finePointer.matches ? 'case.compareHover' : 'case.compare')) + '</p>'; }
   function moveMedia(m, c) {
     if (m.compare) {
+      var tb = m.tags ? m.tags[0] : t('case.before'), ta = m.tags ? m.tags[1] : t('case.after');
       return '<div class="compare-wrap"><div class="compare" style="--pos:50%">' +
-        imgTag(m.compare[0], t('case.before') + ': ' + L(m.title)) +
-        '<div class="cmp-after">' + imgTag(m.compare[1], t('case.after') + ': ' + L(m.title)) + '</div>' +
+        imgTag(m.compare[0], tb + ': ' + L(m.title)) +
+        '<div class="cmp-after">' + imgTag(m.compare[1], ta + ': ' + L(m.title)) + '</div>' +
         '<input type="range" min="0" max="100" value="50" aria-label="' + esc(t('case.compare')) + '">' +
         '<span class="cmp-line" aria-hidden="true"></span>' +
-        '<span class="cmp-tag before">' + esc(t('case.before')) + '</span><span class="cmp-tag after">' + esc(t('case.after')) + '</span>' +
-        '</div><p class="compare-hint">' + esc(t(finePointer.matches ? 'case.compareHover' : 'case.compare')) + '</p></div>';
+        '<span class="cmp-tag before">' + esc(tb) + '</span><span class="cmp-tag after">' + esc(ta) + '</span>' +
+        '</div>' + (m.noHint ? '' : compareHint()) + '</div>';
     }
     if (m.film) {
       var f0 = m.film[0];
-      return '<div class="film" data-film>' +
-        '<div class="film-screen"><img src="' + f0.src + '" alt="' + esc(L(f0.cap)) + '" data-film-img><p class="film-cap"><span data-film-t>' + f0.t + '</span><span data-film-cap>' + esc(L(f0.cap)) + '</span></p></div>' +
+      return '<div class="film" data-film' + (m.video ? ' data-video="' + esc(m.video) + '"' : '') + '>' +
+        '<div class="film-screen"><img src="' + f0.src + '" alt="' + esc(L(f0.cap)) + '" data-film-img>' +
+        (m.video ? '<button type="button" class="film-play" data-film-play aria-label="' + esc(t('case.play')) + '">' + ICON.play + '</button>' : '') +
+        '<p class="film-cap"><span data-film-t>' + f0.t + '</span><span data-film-cap>' + esc(L(f0.cap)) + '</span></p></div>' +
         '<div class="film-strip">' + m.film.map(function (f, i) {
           return '<button type="button" aria-pressed="' + (i === 0) + '" data-frame="' + i + '" aria-label="' + esc(t('case.frame') + ' ' + f.t + ': ' + L(f.cap)) + '">' + imgTag(f.src, '') + '</button>';
         }).join('') + '</div>' +
@@ -389,7 +406,7 @@
         }).join('') +
       '</div></section>' +
       (c.evolution ? '<section class="cs-section"><h3 class="label">' + esc(t('case.evolution')) + '</h3><div class="move"><h4 class="move-title">' + esc(L(c.evolution.title)) + '</h4><p class="move-body">' + esc(L(c.evolution.body)) + '</p>' +
-        '<div class="evolution"><figure>' + imgTag(c.evolution.img[0], '2024') + '<figcaption>2024</figcaption></figure><figure>' + imgTag(c.evolution.img[1], '2026') + '<figcaption>2026</figcaption></figure></div></div></section>' : '') +
+        '<div class="evolution">' + c.evolution.compare.map(function (pair) { return moveMedia({ compare: pair, tags: c.evolution.tags, title: c.evolution.title, noHint: true }); }).join('') + '</div>' + compareHint() + '</div></section>' : '') +
       (c.metrics && c.metrics.length ? '<section class="cs-section"><h3 class="label">' + esc(t('case.outcome')) + '</h3><div class="metrics">' +
         c.metrics.map(function (m) {
           return '<div class="metric"><span class="metric-v">' + esc(m.v) + '</span><span class="metric-l">' + esc(L(m.l)) + '</span>' +
@@ -427,8 +444,30 @@
         img.alt = L(f.cap); cap.textContent = L(f.cap); tt.textContent = f.t; range.value = i;
         btns.forEach(function (b, j) { b.setAttribute('aria-pressed', String(j === i)); });
       }
-      btns.forEach(function (b, i) { b.addEventListener('click', function () { show(i); }); });
+      /* The real video, from YouTube's privacy-enhanced domain. It loads only when someone
+         presses play or picks a frame, so nothing is fetched from YouTube before that.
+         Once it is playing, picking a frame jumps the video to that moment. */
+      var vid = film.getAttribute('data-video'), screen = $('.film-screen', film), player = null;
+      function secs(tm) { var p = tm.split(':'); return +p[0] * 60 + +p[1]; }
+      function send(func, args) { player.contentWindow.postMessage(JSON.stringify({ event: 'command', func: func, args: args || [] }), '*'); }
+      function playAt(s) {
+        if (!vid) return;
+        if (player) { send('seekTo', [s, true]); send('playVideo'); return; }
+        player = document.createElement('iframe');
+        player.className = 'film-video';
+        player.title = t('case.videoTitle');
+        player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        player.allowFullscreen = true;
+        player.src = 'https://www.youtube-nocookie.com/embed/' + vid + '?autoplay=1&rel=0&playsinline=1&enablejsapi=1&start=' + s;
+        player.addEventListener('load', function () { player.contentWindow.postMessage(JSON.stringify({ event: 'listening' }), '*'); });
+        screen.appendChild(player);
+        film.classList.add('is-playing');
+      }
+      var playBtn = $('[data-film-play]', film);
+      if (playBtn) playBtn.addEventListener('click', function () { playAt(0); });
+      btns.forEach(function (b, i) { b.addEventListener('click', function () { show(i); playAt(secs(frames[i].t)); }); });
       range.addEventListener('input', function () { show(+range.value); });
+      range.addEventListener('change', function () { if (player) playAt(secs(frames[+range.value].t)); });
     });
     $$('[data-goto]', sheetBody).forEach(function (b) {
       b.addEventListener('click', function () { openCase(b.getAttribute('data-goto'), { replace: true }); });
@@ -492,6 +531,25 @@
     if (a && !e.metaKey && !e.ctrlKey && !e.shiftKey && e.button === 0) { e.preventDefault(); openCase(a.getAttribute('data-case')); return; }
     if (e.target.closest('[data-close]')) { closeCase(); return; }
   });
+  /* ---------- picture lightbox: click a case study picture to see it large ---------- */
+  var lb = $('#lightbox'), lbImg = $('#lbImg');
+  function openLightbox(img) {
+    lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt;
+    lb.hidden = false;
+    $('#lbClose').focus({ preventScroll: true });
+  }
+  function closeLightbox() {
+    if (lb.hidden) return;
+    lb.hidden = true; lbImg.removeAttribute('src');
+    sheetPanel.focus({ preventScroll: true });
+  }
+  sheetBody.addEventListener('click', function (e) {
+    var img = e.target.closest('.cs-cover img, .move-media img');
+    if (img) openLightbox(img);
+  });
+  lb.addEventListener('click', closeLightbox);
+  lb.addEventListener('keydown', function (e) { if (e.key === 'Tab') { e.preventDefault(); $('#lbClose').focus(); } });
+
   $('#sheetPrev').addEventListener('click', function () { var i = caseIndex(sheet.current); openCase(C.cases[(i - 1 + C.cases.length) % C.cases.length].id, { replace: true }); });
   $('#sheetNext').addEventListener('click', function () { var i = caseIndex(sheet.current); openCase(C.cases[(i + 1) % C.cases.length].id, { replace: true }); });
   sheetEl.addEventListener('keydown', function (e) {
@@ -638,10 +696,11 @@
     renderSkillDetail();
     inspectedSkills[selectedSkill] = 1;
     if (Object.keys(inspectedSkills).length >= 3) unlock('climber');
-    // when the details card sits under the tree (phones, narrow windows), bring it into view
+    // when the details card sits under the tree (phones, narrow windows), scroll just enough to
+    // show it at the bottom of the screen, so the item that was tapped stays in view above it
     var detail = $('#treeDetail');
     if (detail.getBoundingClientRect().top >= $('#tree').getBoundingClientRect().bottom - 1) {
-      detail.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
+      detail.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'nearest' });
     }
   });
 
@@ -676,6 +735,7 @@
     pos = (k === seq[pos]) ? pos + 1 : (k === seq[0] ? 1 : 0);
     if (pos === seq.length) { pos = 0; unlock('secret'); confetti(); }
     if (e.key === 'Escape') {
+      if (!lb.hidden) { closeLightbox(); return; }
       if (!ql.hidden) { setQuest(false); $('#xpBtn').focus(); return; }
       if (!sheetEl.hidden) { closeCase(); return; }
       if (!mobileNav.hidden) { setMenu(false); menuBtn.focus(); return; }

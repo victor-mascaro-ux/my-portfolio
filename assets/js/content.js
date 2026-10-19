@@ -96,14 +96,14 @@ window.CONTENT = {
       'footer.patch': 'Changelog',
       'footer.patch.v': 'v1.3 · October 2026',
       'footer.patch.items': ['New colors', 'Rewrote the copy', 'Animations', 'Quest log', 'Portuguese version'],
-      'footer.top': 'Back to home', 'tabs.more': 'Keep exploring',
+      'footer.top': 'Back to home', 'tabs.more': 'Keep exploring', 'tabs.next': 'Next', 'tabs.here': 'You’re here',
 
       'case.close': 'Close', 'case.prev': 'Previous', 'case.next': 'Next project',
       'case.role': 'Role', 'case.when': 'When', 'case.platform': 'Platform', 'case.context': 'Context',
       'case.problem': 'Context', 'case.moves': 'What I did', 'case.outcome': 'Result', 'case.learned': 'Notes',
       'case.live': 'Open the live version', 'case.evolution': 'Earlier version',
       'case.before': 'Before', 'case.after': 'After', 'case.compare': 'Drag to compare before and after', 'case.compareHover': 'Move your mouse across the image to compare before and after',
-      'case.film': 'Frames from the video', 'case.frame': 'Frame',
+      'case.film': 'Pick a frame to jump to that moment in the video', 'case.frame': 'Frame', 'case.play': 'Play the video', 'case.videoTitle': 'Knomee product video', 'lightbox.close': 'Close',
       'case.end': 'End',
       'case.measured': 'Measured', 'case.projected': 'Projected', 'case.estimated': 'Estimated',
 
@@ -197,14 +197,14 @@ window.CONTENT = {
       'footer.patch': 'Patch notes',
       'footer.patch.v': 'v1.3 · outubro de 2026',
       'footer.patch.items': ['Novas cores', 'Textos reescritos', 'Animações', 'Diário de missões', 'Versão em português'],
-      'footer.top': 'Voltar ao início', 'tabs.more': 'Continue explorando',
+      'footer.top': 'Voltar ao início', 'tabs.more': 'Continue explorando', 'tabs.next': 'Próximo', 'tabs.here': 'Você está aqui',
 
       'case.close': 'Fechar', 'case.prev': 'Anterior', 'case.next': 'Próximo projeto',
       'case.role': 'Função', 'case.when': 'Período', 'case.platform': 'Plataforma', 'case.context': 'Contexto',
       'case.problem': 'Contexto', 'case.moves': 'O que eu fiz', 'case.outcome': 'Resultado', 'case.learned': 'Observações',
       'case.live': 'Ver no ar', 'case.evolution': 'Versão anterior',
       'case.before': 'Antes', 'case.after': 'Depois', 'case.compare': 'Arraste para comparar o antes e o depois', 'case.compareHover': 'Passe o mouse sobre a imagem para comparar o antes e o depois',
-      'case.film': 'Frames do vídeo', 'case.frame': 'Frame',
+      'case.film': 'Escolha um frame para pular até esse momento do vídeo', 'case.frame': 'Frame', 'case.play': 'Assistir ao vídeo', 'case.videoTitle': 'Vídeo do produto da Knomee', 'lightbox.close': 'Fechar',
       'case.end': 'Fim',
       'case.measured': 'Medido', 'case.projected': 'Projetado', 'case.estimated': 'Estimado',
 
@@ -326,7 +326,8 @@ window.CONTENT = {
       evolution: {
         title: { en: '2024 and 2026', pt: '2024 e 2026' },
         body: { en: 'The 2024 version was built around levels and locked tiles. In 2026 I reorganised it around what each adventure gives back to the person filling it in.', pt: 'A versão de 2024 era baseada em níveis e blocos bloqueados. Em 2026, reorganizei tudo em torno do que cada aventura devolve para quem preenche.' },
-        img: ['assets/img/g-knomee-2024-a.webp', 'assets/img/k-adventures.webp']
+        tags: ['2024', '2026'],
+        compare: [['assets/img/k-evo-2024-levels.webp', 'assets/img/k-evo-2026-adventures.webp'], ['assets/img/k-evo-2024-tasks.webp', 'assets/img/k-evo-2026-knomee-sheet.webp']]
       },
       metrics: [
         { v: '5', l: { en: 'adventures, one to three minutes each', pt: 'aventuras, de um a três minutos cada' } },
@@ -459,7 +460,7 @@ window.CONTENT = {
         {
           title: { en: 'Activation toolkit', pt: 'Kit de ativação' },
           body: { en: 'The toolkit started as a long PDF. I turned it into a website where you pick a goal (new clients, existing clients or recruiting) and a type of lead, and get a strategy and sample copy for that case. Customer success can edit the text on the page without a developer.', pt: 'O kit começou como um PDF longo. Transformei num site em que você escolhe um objetivo (novos clientes, clientes atuais ou recrutamento) e um tipo de lead, e recebe uma estratégia e textos de exemplo para aquele caso. O time de customer success edita os textos direto na página, sem depender de desenvolvedor.' },
-          img: ['assets/img/k-activation-prospect.webp', 'assets/img/k-activation-cold.webp'], kind: 'pair'
+          img: ['assets/img/k-activation-prospect.webp', 'assets/img/k-activation-hot.webp'], kind: 'pair'
         },
         {
           title: { en: 'Pitch deck', pt: 'Pitch deck' },
@@ -469,6 +470,7 @@ window.CONTENT = {
         {
           title: { en: 'Product video', pt: 'Vídeo do produto' },
           body: { en: 'I made the video in code: the scenes are React components, the voice-over was generated with AI, and the frames were rendered one by one. The first cut was 2:48, and I later cut it down to 90 seconds.', pt: 'Fiz o vídeo em código: as cenas são componentes React, a locução foi gerada com IA e os frames foram renderizados um a um. O primeiro corte tinha 2:48, e depois enxuguei para 90 segundos.' },
+          video: 'H_gZZZVwWFc',
           film: [
             { t: '0:08', src: 'assets/img/film-8.webp', cap: { en: 'A typical wealth firm website ending in an intake form.', pt: 'Um site típico de gestora, que termina num formulário de cadastro.' } },
             { t: '0:34', src: 'assets/img/film-34.webp', cap: { en: 'Several made-up competitor sites.', pt: 'Vários sites de concorrentes fictícios.' } },
