@@ -42,7 +42,7 @@ window.CONTENT = {
       'card.base': 'Based in', 'card.baseV': 'São Paulo, Brazil (UTC−3)',
       'card.works': 'Works', 'card.worksV': 'Remotely',
       'card.langs': 'Languages', 'card.langsV': 'Portuguese, English',
-      'card.status': 'Status', 'card.statusV': 'Open to freelance and full-time work',
+      'card.status': 'Status', 'card.statusV': 'Open to remote freelance work',
       'card.loadout': 'Tools',
       'card.cv': 'Download CV',
 
@@ -86,7 +86,7 @@ window.CONTENT = {
 
       'contact.eyebrow': 'Contact',
       'contact.title': 'Let’s talk',
-      'contact.lede': 'I’m open to freelance projects and full-time roles. Email is the best way to reach me.',
+      'contact.lede': 'I’m open to remote freelance projects. Email is the best way to reach me.',
       'contact.copy': 'Copy email', 'contact.copied': 'Email copied',
       'contact.copyFail': 'Select the address above to copy it',
       'contact.linkedin': 'LinkedIn', 'contact.github': 'GitHub', 'contact.cv': 'Download CV',
@@ -143,7 +143,7 @@ window.CONTENT = {
       'card.base': 'Base', 'card.baseV': 'São Paulo (UTC−3)',
       'card.works': 'Modelo', 'card.worksV': 'Remoto',
       'card.langs': 'Idiomas', 'card.langsV': 'Português, inglês',
-      'card.status': 'Status', 'card.statusV': 'Aberto a freela e full-time',
+      'card.status': 'Status', 'card.statusV': 'Aberto a freelas remotos',
       'card.loadout': 'Ferramentas',
       'card.cv': 'Baixar CV',
 
@@ -187,7 +187,7 @@ window.CONTENT = {
 
       'contact.eyebrow': 'Contato',
       'contact.title': 'Vamos conversar',
-      'contact.lede': 'Estou aberto a freelas e vagas full-time. O melhor jeito de falar comigo é por e-mail.',
+      'contact.lede': 'Estou aberto a freelas remotos. O melhor jeito de falar comigo é por e-mail.',
       'contact.copy': 'Copiar e-mail', 'contact.copied': 'E-mail copiado',
       'contact.copyFail': 'Selecione o endereço acima para copiar',
       'contact.linkedin': 'LinkedIn', 'contact.github': 'GitHub', 'contact.cv': 'Baixar CV',

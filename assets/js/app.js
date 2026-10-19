@@ -276,6 +276,11 @@
       else a.removeAttribute('data-badge');
     });
   }
+  function goToTab(id) {
+    if (id !== currentTab) hist('pushState', { tab: id }, tabUrl(id));
+    else window.scrollTo(0, 0);
+    showTab(id);
+  }
   function tabUrl(id) { return location.pathname + location.search + (id === 'home' ? '' : '#' + id); }
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href^="#"]');
@@ -283,10 +288,7 @@
     var href = a.getAttribute('href');
     if (href !== '#top' && TABS.indexOf(href.slice(1)) < 0) return;
     e.preventDefault();
-    var id = href === '#top' ? 'home' : href.slice(1);
-    if (id !== currentTab) hist('pushState', { tab: id }, tabUrl(id));
-    else window.scrollTo(0, 0);
-    showTab(id);
+    goToTab(href === '#top' ? 'home' : href.slice(1));
   });
   /* sliding nav indicator */
   var navEl = $('.hud-nav'), navInd = document.createElement('span');
@@ -607,9 +609,10 @@
       var done = !!unlocked[a.id];
       var title = a.secret && !done ? '???' : L(a.t);
       var desc = a.secret && !done ? t('quest.secret') : L(a.d);
-      return '<li class="' + (done ? 'is-done' : '') + '"><span class="medal" aria-hidden="true">' + (done ? ICON.check : ICON.lock) + '</span>' +
+      var tag = a.secret ? 'div' : 'button type="button" data-go="' + a.id + '"';
+      return '<li class="' + (done ? 'is-done' : '') + '"><' + tag + ' class="ql-item"><span class="medal" aria-hidden="true">' + (done ? ICON.check : ICON.lock) + '</span>' +
         '<span><span class="ql-t">' + esc(title) + '</span><span class="ql-d">' + esc(desc) + '</span></span>' +
-        '<span class="ql-x">+' + a.xp + '</span></li>';
+        '<span class="ql-x">+' + a.xp + '</span></' + (a.secret ? 'div' : 'button') + '></li>';
     }).join('');
     var maxed = C.achievements.filter(function (a) { return !a.secret; }).every(function (a) { return unlocked[a.id]; });
     $('#qlMax').hidden = !maxed; $('#qlMax').textContent = t('quest.max');
@@ -634,6 +637,27 @@
   function setQuest(open) { ql.hidden = !open; $('#xpBtn').setAttribute('aria-expanded', String(open)); if (open) { renderQuestLog(); $('#questClose').focus(); } }
   $('#xpBtn').addEventListener('click', function (e) { e.stopPropagation(); setQuest(ql.hidden); });
   $('#questClose').addEventListener('click', function () { setQuest(false); $('#xpBtn').focus(); });
+  // each mission takes you to where it can be done
+  function hint(el) { el.focus(); el.classList.add('is-hint'); setTimeout(function () { el.classList.remove('is-hint'); }, 2400); }
+  $('#qlList').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-go]'); if (!b) return;
+    var id = b.getAttribute('data-go');
+    setQuest(false);
+    if (id === 'scout') {
+      goToTab('home');
+      setTimeout(function () {
+        var sh = $('section.short'), y = sh.getBoundingClientRect().top + window.scrollY - (window.innerHeight - sh.offsetHeight) / 2;
+        window.scrollTo({ top: Math.max(0, y), behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+      }, 60);
+    } else if (id === 'reader' || id === 'completionist') {
+      var knomee = C.cases.filter(function (c) { return c.group === 'knomee'; });
+      var next = id === 'reader' ? knomee[0] : (knomee.filter(function (c) { return !opened[c.id]; })[0] || knomee[0]);
+      goToTab('work'); openCase(next.id);
+    } else if (id === 'climber') goToTab('skills');
+    else if (id === 'party') goToTab('contact');
+    else if (id === 'polyglot') hint($('#langBtn'));
+    else if (id === 'daynight') hint($('#themeBtn'));
+  });
   document.addEventListener('click', function (e) { if (!ql.hidden && !e.target.closest('#questlog, #xpBtn')) setQuest(false); });
   $('#questReset').addEventListener('click', function () {
     unlocked = {}; opened = {}; inspectedSkills = {}; store.del('vm-ach'); store.del('vm-opened'); renderQuestLog(); updateXPHud(false);
