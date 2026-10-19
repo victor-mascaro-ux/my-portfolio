@@ -236,6 +236,9 @@
      A case study (#case-<id>) opens over the Work tab. */
   var TABS = ['work', 'process', 'experience', 'skills', 'contact'];
   var currentTab = null;
+  /* every tab ends with the hero's tiles; the next tab is the highlighted one */
+  var tabNext = $('#tabNext');
+  $('.hero-tabs', tabNext).innerHTML = $('.hero-tabs').innerHTML;
   function tabFromHash(h) {
     var id = (h || '').replace(/^#/, '');
     if (/^case-/.test(id)) return 'work';
@@ -246,6 +249,13 @@
     var changed = id !== currentTab;
     currentTab = id;
     $$('[data-tab]').forEach(function (p) { p.hidden = p.getAttribute('data-tab') !== id; });
+    tabNext.hidden = id === 'home';
+    var next = TABS[(TABS.indexOf(id) + 1) % TABS.length];
+    $$('.hero-tab', tabNext).forEach(function (a) {
+      var tab = a.getAttribute('href').slice(1);
+      a.classList.toggle('is-primary', tab === next);
+      if (tab === id) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    });
     $$('.hud-nav a, .mobile-nav a').forEach(function (a) { a.setAttribute('aria-current', a.getAttribute('href') === '#' + id ? 'page' : 'false'); });
     moveNavInd();
     if (changed && !opts.keepScroll) window.scrollTo(0, 0);

@@ -96,7 +96,7 @@ window.CONTENT = {
       'footer.patch': 'Changelog',
       'footer.patch.v': 'v1.3 · October 2026',
       'footer.patch.items': ['New colors', 'Rewrote the copy', 'Animations', 'Quest log', 'Portuguese version'],
-      'footer.top': 'Back to top',
+      'footer.top': 'Back to home', 'tabs.more': 'Keep exploring',
 
       'case.close': 'Close', 'case.prev': 'Previous', 'case.next': 'Next project',
       'case.role': 'Role', 'case.when': 'When', 'case.platform': 'Platform', 'case.context': 'Context',
@@ -197,7 +197,7 @@ window.CONTENT = {
       'footer.patch': 'Patch notes',
       'footer.patch.v': 'v1.3 · outubro de 2026',
       'footer.patch.items': ['Novas cores', 'Textos reescritos', 'Animações', 'Diário de missões', 'Versão em português'],
-      'footer.top': 'Voltar ao topo',
+      'footer.top': 'Voltar ao início', 'tabs.more': 'Continue explorando',
 
       'case.close': 'Fechar', 'case.prev': 'Anterior', 'case.next': 'Próximo projeto',
       'case.role': 'Função', 'case.when': 'Período', 'case.platform': 'Plataforma', 'case.context': 'Contexto',
