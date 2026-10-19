@@ -81,6 +81,8 @@
   /* pictures: one corner radius; a soft shadow in light mode, a blue glow in dark mode */
   --pic-shadow: 0 1px 2px rgba(11, 21, 48, .06), 0 10px 24px -6px rgba(11, 21, 48, .2);
   --pic-drop: drop-shadow(0 10px 16px rgba(11, 21, 48, .2));
+  /* the player card's neon glow */
+  --card-glow: 0 0 44px -6px rgba(11, 99, 201, .42), 0 0 110px -20px rgba(11, 99, 201, .3);
   --scrim: rgba(4, 8, 22, .72);
   --glow: rgba(11, 99, 201, .10);
 
@@ -141,7 +143,7 @@
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
     --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 14px 36px -10px rgba(0, 0, 0, .6);
     --shadow-lg: 0 2px 6px rgba(0, 0, 0, .4), 0 36px 72px -18px rgba(0, 0, 0, .75);
-    --pic-shadow: 0 0 0 1px rgba(79, 195, 247, .16), 0 0 30px -4px rgba(79, 195, 247, .34); --pic-drop: drop-shadow(0 0 14px rgba(79, 195, 247, .36));
+    --pic-shadow: 0 0 0 1px rgba(79, 195, 247, .16), 0 0 30px -4px rgba(79, 195, 247, .34); --pic-drop: drop-shadow(0 0 14px rgba(79, 195, 247, .36)); --card-glow: 0 0 48px -4px rgba(79, 195, 247, .5), 0 0 130px -16px rgba(79, 195, 247, .38);
     --glow: rgba(79, 195, 247, .12);
     color-scheme: dark;
   }
@@ -162,7 +164,7 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
   --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 14px 36px -10px rgba(0, 0, 0, .6);
   --shadow-lg: 0 2px 6px rgba(0, 0, 0, .4), 0 36px 72px -18px rgba(0, 0, 0, .75);
-  --pic-shadow: 0 0 0 1px rgba(79, 195, 247, .16), 0 0 30px -4px rgba(79, 195, 247, .34); --pic-drop: drop-shadow(0 0 14px rgba(79, 195, 247, .36));
+  --pic-shadow: 0 0 0 1px rgba(79, 195, 247, .16), 0 0 30px -4px rgba(79, 195, 247, .34); --pic-drop: drop-shadow(0 0 14px rgba(79, 195, 247, .36)); --card-glow: 0 0 48px -4px rgba(79, 195, 247, .5), 0 0 130px -16px rgba(79, 195, 247, .38);
   --glow: rgba(79, 195, 247, .12);
   color-scheme: dark;
 }
@@ -367,7 +369,7 @@ kbd {
     radial-gradient(120% 80% at 0% 0%, color-mix(in srgb, var(--blue-deep-2) 75%, transparent), transparent 62%),
     linear-gradient(165deg, var(--blue-deep-2) -10%, var(--blue-deep) 55%);
   color: var(--on-blue);
-  box-shadow: var(--shadow-lg), 0 30px 80px -30px color-mix(in srgb, var(--blue-deep-2) 70%, transparent);
+  box-shadow: var(--shadow-lg), 0 30px 80px -30px color-mix(in srgb, var(--blue-deep-2) 70%, transparent), var(--card-glow);
   transform: rotateX(var(--rx)) rotateY(var(--ry)) rotate(1.2deg);
   transform-style: preserve-3d; transition: transform .5s var(--ease); display: grid; gap: 18px;
   isolation: isolate;
