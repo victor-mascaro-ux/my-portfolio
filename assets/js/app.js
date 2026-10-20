@@ -729,10 +729,11 @@
       var done = !!unlocked[a.id];
       var title = a.secret && !done ? '???' : L(a.t);
       var desc = a.secret && !done ? t('quest.secret') : L(a.d);
-      var tag = a.secret ? 'div' : 'button type="button" data-go="' + a.id + '"';
+      var still = a.secret && done;   // a found secret has nowhere left to point
+      var tag = still ? 'div' : 'button type="button" data-go="' + a.id + '"';
       return '<li class="' + (done ? 'is-done' : '') + '"><' + tag + ' class="ql-item"><span class="medal" aria-hidden="true">' + (done ? ICON.check : ICON.lock) + '</span>' +
         '<span><span class="ql-t">' + esc(title) + '</span><span class="ql-d">' + esc(desc) + '</span></span>' +
-        '<span class="ql-x">+' + a.xp + '</span></' + (a.secret ? 'div' : 'button') + '></li>';
+        '<span class="ql-x">+' + a.xp + '</span></' + (still ? 'div' : 'button') + '></li>';
     }).join('');
     var maxed = C.achievements.filter(function (a) { return !a.secret; }).every(function (a) { return unlocked[a.id]; });
     $('#qlMax').hidden = !maxed; $('#qlMax').textContent = t('quest.max');
@@ -758,7 +759,7 @@
   $('#xpBtn').addEventListener('click', function (e) { e.stopPropagation(); setQuest(ql.hidden); });
   $('#questClose').addEventListener('click', function () { setQuest(false); $('#xpBtn').focus(); });
   // each mission takes you to where it can be done
-  function hint(el) { el.focus(); el.classList.add('is-hint'); setTimeout(function () { el.classList.remove('is-hint'); }, 2400); }
+  function hint(el) { el.focus({ preventScroll: true }); el.classList.add('is-hint'); setTimeout(function () { el.classList.remove('is-hint'); }, 3000); }
   $('#qlList').addEventListener('click', function (e) {
     var b = e.target.closest('[data-go]'); if (!b) return;
     var id = b.getAttribute('data-go');
@@ -777,6 +778,15 @@
     else if (id === 'party') goToTab('contact');
     else if (id === 'polyglot') hint($('#langBtn'));
     else if (id === 'daynight') hint($('#themeBtn'));
+    else if (id === 'secret') {
+      // no words: bring the player card's Download CV button into view and make it pulse
+      goToTab('home');
+      setTimeout(function () {
+        var cv = $('#cardCv');
+        cv.scrollIntoView({ block: 'center', behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+        setTimeout(function () { hint(cv); }, reduceMotion.matches ? 0 : 500);
+      }, 60);
+    }
   });
   document.addEventListener('click', function (e) { if (!ql.hidden && !e.target.closest('#questlog, #xpBtn')) setQuest(false); });
   $('#questReset').addEventListener('click', function () {

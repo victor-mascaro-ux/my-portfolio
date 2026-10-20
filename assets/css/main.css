@@ -918,6 +918,11 @@ button.ql-item:focus-visible { outline: 3px solid var(--accent); outline-offset:
 /* a mission that points at a HUD button makes it pulse for a moment */
 .tool.is-hint { border-color: var(--accent); animation: hintPulse .8s ease-in-out 3; }
 @keyframes hintPulse { 50% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 35%, transparent); } }
+/* the secret mission's hint: the Download CV button sends out rings and its arrow bobs (inside the card, --gold is the card's light blue) */
+.btn.is-hint { outline: 2px solid var(--gold); outline-offset: 3px; animation: hintRing 1s ease-out 3; }
+.btn.is-hint svg { animation: hintBob .25s ease-in-out 12 alternate; }
+@keyframes hintRing { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--gold) 70%, transparent); } 15% { transform: translateY(-3px); } 30% { transform: none; } 100% { box-shadow: 0 0 0 18px transparent; } }
+@keyframes hintBob { to { transform: translateY(3px); } }
 .medal { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; border: 2px dashed var(--line-2); }
 .medal svg { width: 15px; height: 15px; fill: none; stroke: var(--muted); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .is-done .medal { border: 0; background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--gold) 55%, #fff), var(--gold) 60%); box-shadow: 0 0 0 2px var(--gold-soft); }
@@ -1216,7 +1221,7 @@ span.sep { display: inline; font-family: var(--f-mono); font-weight: 700; line-h
   .career-stop.is-now .career-medal, .timeline > li.tl-flash { animation: none; }
   .lang-btn.is-flipping .lang-flag, .lang-btn.is-flipping .lang-code { animation: none; }
   .enter, .enter .eyebrow::before { animation: none; }
-  .tool.is-hint { animation: none; }
+  .tool.is-hint, .btn.is-hint, .btn.is-hint svg { animation: none; }
   .film-play { transition: none; }
   .hero-tab:hover, .hero-tab:hover strong svg, a.side-card:hover { transform: none; }
 }
