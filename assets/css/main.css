@@ -222,7 +222,7 @@ kbd {
   font-family: var(--f-mono); font-size: var(--t-label); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
 }
 .eyebrow { display: inline-flex; align-items: center; gap: 10px; }
-.eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--gold); transform: rotate(45deg); flex: none; }
+.eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--gold); transform: rotate(45deg); flex: none; position: relative; top: -.06em; }
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -429,7 +429,8 @@ kbd {
   transition: transform var(--dur-1) var(--ease), border-color var(--dur-1), background-color var(--dur-1);
 }
 .player-card .chips li { background: rgba(255, 255, 255, .07); border-color: var(--on-blue-line); color: var(--on-blue); }
-.pc-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; position: relative; z-index: 3; }
+/* status, then the CV button on its own line (same in every language) */
+.pc-foot { display: grid; justify-items: start; gap: 12px; position: relative; z-index: 3; }
 .pc-status { display: inline-flex; align-items: center; gap: 8px; font-size: var(--t-xs); font-weight: 650; color: var(--on-blue); }
 .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--good-dot); box-shadow: 0 0 0 0 color-mix(in srgb, var(--good-dot) 60%, transparent); animation: ping 2.4s infinite; flex: none; }
 @keyframes ping { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--good-dot) 55%, transparent); } 70%, 100% { box-shadow: 0 0 0 9px transparent; } }
@@ -507,7 +508,7 @@ kbd {
   display: inline-flex; align-items: center; gap: 7px; font-family: var(--f-mono); font-size: .74rem; font-weight: 650;
   padding: 5px 10px; border-radius: 7px; background: var(--accent-soft); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
 }
-.chip-metric::before { content: ""; width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex: none; }
+.chip-metric::before { content: ""; width: 6px; height: 6px; background: var(--accent); transform: rotate(45deg); flex: none; }
 .cc-read { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-xs); font-weight: 650; color: var(--gold-ink); }
 .cc-read svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s var(--ease); }
 .case-card:hover .cc-read svg { transform: translateX(4px); }
@@ -574,9 +575,8 @@ kbd {
 /* each step shows the project it comes from, and links to it */
 .step-shot-link { display: block; margin-top: 4px; border-radius: var(--r); }
 .step-shot { display: block; aspect-ratio: 16 / 10; border-radius: var(--r); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--pic-shadow); background: var(--surface-2); }
-.step-shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease-out); }
+.step-shot img { width: 100%; height: 100%; object-fit: cover; }
 .step-shot.is-art img { object-fit: contain; padding: 6% 6% 0; }
-.process-list li:hover .step-shot img { transform: scale(1.05); }
 .step-see { display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; font-weight: 650; color: var(--accent); text-decoration: none; }
 .step-see svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s var(--ease-out); }
 .process-list li:hover .step-see svg, .step-see:focus-visible svg { transform: translateX(4px); }
@@ -592,7 +592,7 @@ kbd {
 .tl-where { font-size: var(--t-xs); color: var(--muted); }
 .tl-points { display: grid; gap: 8px; font-size: var(--t-sm); color: var(--ink-2); }
 .tl-points li { all: unset; display: block; position: relative; padding-left: 20px; }
-.tl-points li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 7px; height: 7px; border: 1.5px solid var(--gold); transform: rotate(45deg); }
+.tl-points li::before { content: ""; position: absolute; left: 2px; top: .567em; width: 7px; height: 7px; border: 1.5px solid var(--gold); transform: rotate(45deg); }
 .tl-main { display: grid; gap: 16px; align-content: start; min-width: 0; }
 /* the projects from each job, as small cards that open the case study */
 .tl-cases { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -1047,9 +1047,9 @@ a.side-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2p
 .sheet-open .cs-head > * { animation: rise .7s var(--ease-out) both; }
 .sheet-open .cs-head > *:nth-child(2) { animation-delay: .06s; } .sheet-open .cs-head > *:nth-child(3) { animation-delay: .12s; }
 .sheet-open .cs-head > *:nth-child(4) { animation-delay: .18s; } .sheet-open .cs-head > *:nth-child(5) { animation-delay: .24s; }
-.move-media img, .frame { transition: transform .5s var(--ease-out), box-shadow .5s; }
-.move-media.phones img:hover { transform: translateY(-6px) rotate(-1deg); }
-.move-media .frame:hover { transform: translateY(-4px); }
+/* every picture behaves the same on hover: it rises 4px, nothing else */
+.move-media img, .frame, .cs-cover, .compare, .film-screen, .step-shot { transition: transform .5s var(--ease-out), box-shadow .5s; }
+.move-media.phones img:hover, .move-media .frame:hover, .cs-cover:hover, .compare:hover, .film-screen:hover, .step-shot-link:hover .step-shot { transform: translateY(-4px); }
 .film-screen img { transition: opacity .25s; }
 .film-screen img.swap { opacity: .2; }
 .next-case svg { transition: transform .3s var(--ease-out); }
@@ -1115,13 +1115,16 @@ a.side-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2p
   .short-list li { border-left: 0; padding: 0 0 16px; border-bottom: 1px solid var(--line); }
   .short-list li:last-child { border-bottom: 0; padding-bottom: 0; }
   .short-inner { padding: 20px; }
-  .sheet-panel { margin-top: calc(env(safe-area-inset-top, 0px) + 8px); height: calc(100% - env(safe-area-inset-top, 0px) - 8px); border-radius: 16px 16px 0 0; }
+  /* on phones the case study fills the screen, its bar at the very top */
+  .sheet-panel { margin-top: 0; height: 100%; border-radius: 0; }
+  .sheet-bar { padding-top: calc(12px + env(safe-area-inset-top, 0px)); }
   .sheet-bar-tools .close-btn kbd { display: none; }
   .move-media.phones img { width: calc(50% - 9px); }
   .film-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .toasts { left: 16px; right: 16px; justify-items: stretch; }
   .toast { min-width: 0; max-width: none; grid-template-columns: 30px minmax(0, 1fr); padding: 9px 12px 9px 9px; gap: 10px; }
   .toast .medal { width: 30px; height: 30px; }
+  .toast-plain { grid-template-columns: minmax(0, 1fr); padding: 10px 14px; }
   .toast-t { font-size: var(--t-xs); }
   .questlog { left: 16px; right: 16px; width: auto; }
 }
@@ -1141,6 +1144,7 @@ a.side-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2p
   .hero-zone::before, .page-glow { display: none; }
   .hero-tab, .hero-tab strong svg { transition: none; }
   .lightbox, .lightbox img { animation: none; }
+  .move-media.phones img:hover, .move-media .frame:hover, .cs-cover:hover, .compare:hover, .film-screen:hover, .step-shot-link:hover .step-shot { transform: none; }
   .career-stop.is-now .career-medal, .timeline > li.tl-flash { animation: none; }
   .enter, .enter .eyebrow::before { animation: none; }
   .tool.is-hint { animation: none; }

@@ -12,7 +12,9 @@ window.CONTENT = {
     email: 'viktor.mascaro@gmail.com',
     linkedin: 'https://www.linkedin.com/in/victor-mascaro/',
     github: 'https://github.com/victor-mascaro-ux',
-    cv: { en: 'assets/cv/Victor-Mascaro-CV-EN.pdf', pt: 'assets/cv/Victor-Mascaro-CV-PT.pdf' }
+    cv: { en: 'assets/cv/Victor-Mascaro-CV-EN.pdf', pt: 'assets/cv/Victor-Mascaro-CV-PT.pdf' },
+    // bump whenever the PDFs are rebuilt: it changes the link, so browsers don't show an old saved copy
+    cvVersion: '2026-10-20b'
   },
 
   /* ---------- Interface strings ---------- */
@@ -103,7 +105,9 @@ window.CONTENT = {
       'case.role': 'Role', 'case.when': 'When', 'case.platform': 'Platform', 'case.context': 'Context',
       'case.problem': 'Context', 'case.moves': 'What I did', 'case.outcome': 'Result', 'case.learned': 'Notes',
       'case.live': 'Open the live version', 'case.evolution': 'Earlier version',
-      'case.before': 'Before', 'case.after': 'After', 'case.compare': 'Drag to compare, or press a label to see that version in full',
+      'case.before': 'Before', 'case.after': 'After', 'case.compare': 'Drag to compare before and after',
+      'case.hint.click': 'Drag to compare, or click Before or After to see that version in full', 'case.hint.tap': 'Drag to compare, or tap Before or After to see that version in full',
+      'case.hint.clickYear': 'Drag to compare, or click a year to see that version in full', 'case.hint.tapYear': 'Drag to compare, or tap a year to see that version in full',
       'case.film': 'Pick a frame to jump to that moment in the video', 'case.frame': 'Frame', 'case.play': 'Play the video', 'case.videoTitle': 'Knomee product video', 'lightbox.close': 'Close',
       'case.end': 'End',
       'case.measured': 'Measured', 'case.projected': 'Projected', 'case.estimated': 'Estimated',
@@ -205,7 +209,9 @@ window.CONTENT = {
       'case.role': 'Função', 'case.when': 'Período', 'case.platform': 'Plataforma', 'case.context': 'Contexto',
       'case.problem': 'Contexto', 'case.moves': 'O que eu fiz', 'case.outcome': 'Resultado', 'case.learned': 'Observações',
       'case.live': 'Ver no ar', 'case.evolution': 'Versão anterior',
-      'case.before': 'Antes', 'case.after': 'Depois', 'case.compare': 'Arraste para comparar, ou toque num rótulo para ver aquela versão inteira',
+      'case.before': 'Antes', 'case.after': 'Depois', 'case.compare': 'Arraste para comparar o antes e o depois',
+      'case.hint.click': 'Arraste para comparar, ou clique em Antes ou Depois para ver aquela versão inteira', 'case.hint.tap': 'Arraste para comparar, ou toque em Antes ou Depois para ver aquela versão inteira',
+      'case.hint.clickYear': 'Arraste para comparar, ou clique em um ano para ver aquela versão inteira', 'case.hint.tapYear': 'Arraste para comparar, ou toque em um ano para ver aquela versão inteira',
       'case.film': 'Escolha um frame para pular até esse momento do vídeo', 'case.frame': 'Frame', 'case.play': 'Assistir ao vídeo', 'case.videoTitle': 'Vídeo do produto da Knomee', 'lightbox.close': 'Fechar',
       'case.end': 'Fim',
       'case.measured': 'Medido', 'case.projected': 'Projetado', 'case.estimated': 'Estimado',
@@ -459,7 +465,7 @@ window.CONTENT = {
       cover: 'assets/img/k-activation.webp', coverAlt: { en: 'Knomee activation toolkit home page with three toolkit cards', pt: 'Página inicial do kit de ativação da Knomee com três cards' },
       kicker: { en: 'Knomee · Sales and marketing', pt: 'Knomee · Vendas e marketing' },
       title: { en: 'Knomee Go-to-Market', pt: 'Knomee Go-to-Market' },
-      tagline: { en: 'An activation toolkit, a pitch deck and a 90-second product video.', pt: 'Um kit de ativação, um pitch deck e um vídeo de produto de 90 segundos.' },
+      tagline: { en: 'An activation toolkit, a pitch deck and a 90-second product video made in code.', pt: 'Um kit de ativação, um pitch deck e um vídeo de produto de 90 segundos feito em código.' },
       chip: { en: 'Live at activation.knomee.com', pt: 'No ar em activation.knomee.com' },
       meta: {
         role: { en: 'Designer and developer', pt: 'Designer e desenvolvedor' },
@@ -483,7 +489,7 @@ window.CONTENT = {
           img: ['assets/img/k-deck-backstage.webp'], kind: 'wide'
         },
         {
-          title: { en: 'Product video', pt: 'Vídeo do produto' },
+          title: { en: 'Product video, made in code', pt: 'Vídeo do produto, feito em código' },
           body: { en: 'I made the video in code: the scenes are React components, the voice-over was generated with AI, and the frames were rendered one by one. The first cut was 2:48, and I later cut it down to 90 seconds.', pt: 'Fiz o vídeo em código: as cenas são componentes React, a locução foi gerada com IA e os frames foram renderizados um a um. O primeiro corte tinha 2:48, e depois enxuguei para 90 segundos.' },
           video: 'H_gZZZVwWFc',
           film: [
@@ -536,8 +542,8 @@ window.CONTENT = {
       cover: 'assets/img/g-sf-bloodbite.webp', coverAlt: { en: 'Bloodbite, a raccoon gunslinger hero with glowing red eyes', pt: 'Bloodbite, um herói guaxinim pistoleiro de olhos vermelhos brilhantes' },
       kicker: { en: 'By Aliens · Game design', pt: 'By Aliens · Game design' },
       title: { en: 'Smashing Four', pt: 'Smashing Four' },
-      tagline: { en: 'New heroes and a redesigned Hero Event for a live PvP game.', pt: 'Novos heróis e um Hero Event redesenhado para um jogo PvP live.' },
-      chip: { en: '3 new heroes, balancing and live ops', pt: '3 novos heróis, balanceamento e live ops' },
+      tagline: { en: 'A new hero and a redesigned Hero Event for a live PvP game.', pt: 'Um herói novo e um Hero Event redesenhado para um jogo PvP live.' },
+      chip: { en: 'New hero, balancing and live ops', pt: 'Herói novo, balanceamento e live ops' },
       meta: {
         role: { en: 'Game and UX designer, By Aliens', pt: 'Game e UX designer, By Aliens' },
         when: { en: '2025', pt: '2025' },
@@ -551,12 +557,12 @@ window.CONTENT = {
       moves: [
         {
           title: { en: 'Bloodbite', pt: 'Bloodbite' },
-          body: { en: 'I designed Bloodbite, a hero whose bite leaves a wound that never heals and deals damage at the end of every turn. I worked on the ability, its stacking rules and the in-game description. I also designed Sheriff and Otter.', pt: 'Criei o Bloodbite, um herói cuja mordida deixa uma ferida que nunca cicatriza e causa dano no fim de cada turno. Trabalhei na habilidade, nas regras de stack e na descrição que aparece no jogo. Também criei o Sheriff e o Otter.' },
+          body: { en: 'I designed Bloodbite, a hero whose bite leaves a wound that never heals and deals damage at the end of every turn. I worked on the ability, its stacking rules and the in-game description.', pt: 'Criei o Bloodbite, um herói cuja mordida deixa uma ferida que nunca cicatriza e causa dano no fim de cada turno. Trabalhei na habilidade, nas regras de stack e na descrição que aparece no jogo.' },
           img: ['assets/img/g-sf-bloodbite.webp'], kind: 'square'
         },
         {
           title: { en: 'Hero Event', pt: 'Hero Event' },
-          body: { en: 'I reorganised the event tasks into golden, daily silver and daily bronze tiers, each with its own progress bar, reward and reset timer.', pt: 'Reorganizei as tarefas do evento em faixas de ouro, prata diária e bronze diária, cada uma com sua barra de progresso, recompensa e timer de reset.' },
+          body: { en: 'I redesigned the event screen to make the milestones in the golden tasks and the missions in the silver and bronze tiers clearer. Each mission now shows how many are done out of the total, and a Claim button lets players collect their reward. Before, rewards were given automatically and players never saw what they got.', pt: 'Redesenhei a tela do evento para deixar mais claros os marcos das tarefas douradas e as missões das faixas prata e bronze. Agora cada missão mostra quantas foram concluídas do total, e um botão Resgatar deixa o jogador coletar a recompensa. Antes, as recompensas eram dadas automaticamente e o jogador não via o que tinha ganhado.' },
           compare: ['assets/img/g-sf-hero-event-before.webp', 'assets/img/g-sf-hero-event-after.webp']
         },
         {
@@ -724,8 +730,8 @@ window.CONTENT = {
       role: { en: 'UX & Gamification Designer', pt: 'Designer de UX e Gamificação' },
       where: { en: 'Fintech · San Francisco · Remote', pt: 'Fintech · San Francisco · Remoto' },
       points: {
-        en: ['Designed the client app’s Adventures, short questionnaires that build a Financial ID clients can share.', 'Designed the advisor dashboard: readiness scores, segmentation, alerts and conversation playbooks.', 'Designed an AI voice shortcut that turns what a client says into an in-app action.', 'Built the coded prototype with Claude Code, used for handoff, sales demos and user tests (643 merged pull requests).', 'Made the activation toolkit, the pitch deck and the product video.'],
-        pt: ['Desenhei as Adventures do app do cliente, questionários curtos que montam um Financial ID compartilhável.', 'Desenhei o dashboard do assessor: scores de prontidão, segmentação, alertas e playbooks de conversa.', 'Desenhei um atalho de voz com IA que transforma a fala do cliente em ação.', 'Desenvolvi com o Claude Code o protótipo em código usado em handoff, demos de vendas e testes com usuários (643 pull requests mergeados).', 'Fiz o kit de ativação, o pitch deck e o vídeo do produto.']
+        en: ['Designed the client app’s Adventures, short questionnaires that build a Financial ID clients can share.', 'Designed the advisor dashboard: readiness scores, segmentation, alerts and conversation playbooks.', 'Designed an AI voice shortcut that turns what a client says into an in-app action.', 'Built the coded prototype with Claude Code, used for handoff, sales demos and user tests (643 merged pull requests).', 'Made the activation toolkit and the pitch deck, and built the product video in code with React and an AI voice-over.'],
+        pt: ['Desenhei as Adventures do app do cliente, questionários curtos que montam um Financial ID compartilhável.', 'Desenhei o dashboard do assessor: scores de prontidão, segmentação, alertas e playbooks de conversa.', 'Desenhei um atalho de voz com IA que transforma a fala do cliente em ação.', 'Desenvolvi com o Claude Code o protótipo em código usado em handoff, demos de vendas e testes com usuários (643 pull requests mergeados).', 'Fiz o kit de ativação e o pitch deck, e construí o vídeo do produto em código, com React e locução gerada por IA.']
       }
     },
     {
@@ -733,8 +739,8 @@ window.CONTENT = {
       role: { en: 'Game & UX Designer', pt: 'Game e UX Designer' },
       where: { en: 'Game studio · Dubai · Remote', pt: 'Estúdio de jogos · Dubai · Remoto' },
       points: {
-        en: ['Smashing Four: new heroes (Bloodbite, Sheriff, Otter), rebalancing, Hero Event 2.0 and live ops: events, season pass, news and in-game content.', 'Auction City: Hunter Pass season pass, new onboarding, Statues system and a gacha concept.', 'We Are Illuminati: new layout, a side story with three endings, ads and in-app purchases.', 'Idle Planes: pacing, upgrade economy, UX reviews and three minigames.'],
-        pt: ['Smashing Four: novos heróis (Bloodbite, Sheriff, Otter), rebalanceamento, Hero Event 2.0 e live ops: eventos, passe de temporada, notícias e conteúdo no jogo.', 'Auction City: passe de temporada Hunter Pass, novo onboarding, sistema de Estátuas e um conceito de gacha.', 'We Are Illuminati: novo layout, uma história paralela com três finais, anúncios e compras in-app.', 'Idle Planes: ritmo, economia de upgrades, revisões de UX e três minigames.']
+        en: ['Smashing Four: a new hero (Bloodbite), rebalancing, Hero Event 2.0 and live ops: events, season pass, news and in-game content.', 'Auction City: Hunter Pass season pass, new onboarding, Statues system and a gacha concept.', 'We Are Illuminati: new layout, a side story with three endings, ads and in-app purchases.', 'Idle Planes: pacing, upgrade economy, UX reviews and three minigames.'],
+        pt: ['Smashing Four: um herói novo (Bloodbite), rebalanceamento, Hero Event 2.0 e live ops: eventos, passe de temporada, notícias e conteúdo no jogo.', 'Auction City: passe de temporada Hunter Pass, novo onboarding, sistema de Estátuas e um conceito de gacha.', 'We Are Illuminati: novo layout, uma história paralela com três finais, anúncios e compras in-app.', 'Idle Planes: ritmo, economia de upgrades, revisões de UX e três minigames.']
       }
     },
     {
@@ -743,7 +749,7 @@ window.CONTENT = {
       where: { en: 'Startup · San Francisco · Remote', pt: 'Startup · San Francisco · Remoto' },
       points: {
         en: ['Added gamification to a social betting app: onboarding, scoring and feedback.', 'Delivered a clickable prototype and a showcase video for the pitch.'],
-        pt: ['Adicionei gamificação a um app social de apostas: onboarding, pontuação e feedback.', 'Entreguei um protótipo navegável e um vídeo de apresentação para o pitch.']
+        pt: ['Gamifiquei um app social de apostas: onboarding, pontuação e feedback.', 'Entreguei um protótipo navegável e um vídeo de apresentação para o pitch.']
       }
     },
     {

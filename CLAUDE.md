@@ -41,4 +41,4 @@ Craft details matter as much as content.
 3. Open each case study; Esc and the browser Back button both close it.
 4. No horizontal scroll at 390px; no console errors.
 5. Images: WebP, ≤1600px wide, `alt` text in both languages where possible.
-6. If CV content changed, rebuild the PDFs (`scripts/build-cv.js`).
+6. If CV content changed, rebuild the PDFs (`scripts/build-cv.js`) and bump `cvVersion` in content.js (and the `?v=` on the CV links in index.html), so browsers fetch the new file instead of a saved copy.

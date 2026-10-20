@@ -43,7 +43,7 @@
     $('.hero-tabs').setAttribute('aria-label', t('hero.tabs'));
     $('#career').setAttribute('aria-label', t('exp.path'));
     markTabNext();
-    var cv = C.person.cv[lang];
+    var cv = C.person.cv[lang] + '?v=' + C.person.cvVersion;
     ['#cardCv', '#expCv', '#contactCv'].forEach(function (s) { var a = $(s); if (a) a.setAttribute('href', cv); });
     $('#sheetPrev').setAttribute('aria-label', t('case.prev'));
     $('#sheetNext').setAttribute('aria-label', t('case.next'));
@@ -383,7 +383,8 @@
     return '<img src="' + src + '" alt="' + esc(alt || '') + '" loading="lazy"' + (cls ? ' class="' + cls + '"' : '') + '>';
   }
 
-  function compareHint() { return '<p class="compare-hint">' + esc(t('case.compare')) + '</p>'; }
+  // names what to press (Before/After or a year) and how (click with a mouse, tap on touch)
+  function compareHint(years) { return '<p class="compare-hint">' + esc(t('case.hint.' + (finePointer.matches ? 'click' : 'tap') + (years ? 'Year' : ''))) + '</p>'; }
   function moveMedia(m, c) {
     if (m.compare) {
       var tb = m.tags ? m.tags[0] : t('case.before'), ta = m.tags ? m.tags[1] : t('case.after');
@@ -393,7 +394,7 @@
         '<input type="range" min="0" max="100" value="50" aria-label="' + esc(t('case.compare')) + '">' +
         '<span class="cmp-line" aria-hidden="true"></span>' +
         '<button type="button" class="cmp-tag before" aria-pressed="false">' + esc(tb) + '</button><button type="button" class="cmp-tag after" aria-pressed="false">' + esc(ta) + '</button>' +
-        '</div>' + (m.noHint ? '' : compareHint()) + '</div>';
+        '</div>' + (m.noHint ? '' : compareHint(!!m.tags)) + '</div>';
     }
     if (m.film) {
       var f0 = m.film[0];
@@ -445,7 +446,7 @@
         }).join('') +
       '</div></section>' +
       (c.evolution ? '<section class="cs-section"><h3 class="label">' + esc(t('case.evolution')) + '</h3><div class="move"><h4 class="move-title">' + esc(L(c.evolution.title)) + '</h4><p class="move-body">' + esc(L(c.evolution.body)) + '</p>' +
-        '<div class="evolution">' + c.evolution.compare.map(function (pair) { return moveMedia({ compare: pair, tags: c.evolution.tags, title: c.evolution.title, noHint: true }); }).join('') + '</div>' + compareHint() + '</div></section>' : '') +
+        '<div class="evolution">' + c.evolution.compare.map(function (pair) { return moveMedia({ compare: pair, tags: c.evolution.tags, title: c.evolution.title, noHint: true }); }).join('') + '</div>' + compareHint(true) + '</div></section>' : '') +
       (c.metrics && c.metrics.length ? '<section class="cs-section"><h3 class="label">' + esc(t('case.outcome')) + '</h3><div class="metrics">' +
         c.metrics.map(function (m) {
           return '<div class="metric"><span class="metric-v">' + esc(m.v) + '</span><span class="metric-l">' + esc(L(m.l)) + '</span>' +
