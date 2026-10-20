@@ -1187,8 +1187,9 @@ span.sep { display: inline; font-family: var(--f-mono); font-weight: 700; line-h
   .sheet-bar-tools .close-btn kbd { display: none; }
   .move-media.phones img { width: calc(50% - 9px); }
   .film-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .toasts { left: 16px; right: 16px; justify-items: stretch; }
-  .toast { min-width: 0; max-width: none; grid-template-columns: 30px minmax(0, 1fr); padding: 9px 12px 9px 9px; gap: 10px; }
+  /* toasts hug their content and sit on the right, as on desktop; long text wraps inside the screen */
+  .toasts { left: 16px; right: 16px; justify-items: end; }
+  .toast { min-width: 0; max-width: 100%; grid-template-columns: 30px minmax(0, 1fr); padding: 9px 12px 9px 9px; gap: 10px; }
   .toast .medal { width: 30px; height: 30px; }
   .toast-plain { grid-template-columns: minmax(0, 1fr); padding: 10px 14px; }
   .toast-t { font-size: var(--t-xs); }
