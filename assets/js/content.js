@@ -237,7 +237,7 @@ window.CONTENT = {
       'ds.m.s.demos': 'Demos',
       'ds.icons.intro': 'Every icon is an inline SVG on a 24px viewBox, drawn with <code>stroke: currentColor</code> at 1.8–2px with round caps and joins, and no fill. They take the color of the text around them and are marked <code>aria-hidden</code>, since a visible label always sits next to them.',
       'ds.icons.count': '29 icons, collected from <code>index.html</code> and the icon set in <code>app.js</code>, without duplicates.',
-      'ds.icons.brands': 'The tool logos in Experience are brand marks from Simple Icons (CC0), kept in <code>assets/img/tools.svg</code> and drawn in one color like these icons: one logo per brand, with initials where a brand doesn’t license its logo there. Their names show in a tooltip.',
+      'ds.icons.brands': 'The tool logos in Experience are brand marks, mostly from Simple Icons (CC0), kept in <code>assets/img/tools.svg</code> and drawn in one color like these icons, one logo per brand. Their names show in a tooltip.',
       'ds.escHint': 'Press <kbd>Esc</kbd> to close.',
       'ds.for': 'for',
       'ds.comp.intro': 'Each block renders the component with the site’s real classes and markup, drawn by the same code as the other tabs and in the current language, with the email replaced by a placeholder. Hover, focus and the components’ own controls work as they do on the site; links inside a preview stay on this tab. Fixed and overlay components render in place inside their stage. “Show code” prints the markup of the preview above it.',
@@ -636,7 +636,7 @@ window.CONTENT = {
       'ds.m.s.demos': 'Demonstrações',
       'ds.icons.intro': 'Cada ícone é um SVG inline numa viewBox de 24px, desenhado com <code>stroke: currentColor</code> de 1,8–2px, pontas e junções arredondadas e sem preenchimento. Eles herdam a cor do texto ao redor e são marcados com <code>aria-hidden</code>, já que sempre há um rótulo visível ao lado.',
       'ds.icons.count': '29 ícones, reunidos do <code>index.html</code> e do conjunto de ícones do <code>app.js</code>, sem repetições.',
-      'ds.icons.brands': 'Os logos de ferramentas em Experiência são marcas do Simple Icons (CC0), guardadas em <code>assets/img/tools.svg</code> e desenhadas numa cor só, como estes ícones: um logo por marca, com as iniciais quando a marca não licencia o logo lá. Os nomes aparecem num tooltip.',
+      'ds.icons.brands': 'Os logos de ferramentas em Experiência são marcas, a maioria do Simple Icons (CC0), guardadas em <code>assets/img/tools.svg</code> e desenhadas numa cor só, como estes ícones, um logo por marca. Os nomes aparecem num tooltip.',
       'ds.escHint': 'Aperte <kbd>Esc</kbd> para fechar.',
       'ds.for': 'de',
       'ds.comp.intro': 'Cada bloco renderiza o componente com as classes e a marcação reais do site, desenhado pelo mesmo código das outras abas e no idioma atual, com o e-mail trocado por um marcador. Hover, foco e os controles do próprio componente funcionam como no site; links dentro de uma prévia ficam nesta aba. Componentes fixos e sobrepostos aparecem no lugar, dentro do seu palco. “Ver código” mostra a marcação da prévia acima.',
@@ -1323,8 +1323,8 @@ window.CONTENT = {
     { t: 'Where is Estela?', img: 'assets/img/side-where-is-estela.webp', fit: 'contain', url: 'https://panaisbouki.itch.io/onde-esta-estela', d: { en: 'Search a phone to find out what happened to Estela.', pt: 'Vasculhe um celular para descobrir o que aconteceu com a Estela.' } }
   ],
 
-  /* Tool logos for Experience: each tool name (English) -> a symbol in assets/img/tools.svg (Simple Icons, CC0),
-     one per brand, or { mono } initials when the brand doesn't license its logo there */
+  /* Tool logos for Experience: each tool name (English) -> a symbol in assets/img/tools.svg (sources in that file),
+     one per brand; { mono: 'Ab' } shows initials instead, for a tool without a logo yet */
   toolLogos: {
     'Figma': 'figma',
     'FigJam': 'figma',
@@ -1350,19 +1350,13 @@ window.CONTENT = {
     'Notion': 'notion',
     'Mixpanel': 'mixpanel',
     'ClickUp': 'clickup',
-    'Loom': 'loom',
+    'Loom': 'loom', 'Typeform': 'typeform',
     'Unity': 'unity',
     'Confluence': 'confluence',
     'Jira': 'jira',
     'Trello': 'trello',
     'Discord': 'discord',
-    'Excel': { mono: 'Ex' },
-    'Canva': { mono: 'Ca' },
-    'Slack': { mono: 'Sl' },
-    'ChatGPT': { mono: 'GPT' },
-    'C#': { mono: 'C#' },
-    'Machinations': { mono: 'Ma' },
-    'Typeform': { mono: 'Tf' }
+    'Excel': 'microsoftexcel', 'Canva': 'canva', 'Slack': 'slack', 'ChatGPT': 'openai', 'C#': 'csharp', 'Machinations': 'machinations'
   },
 
   /* ---------- Experience ----------

@@ -158,6 +158,7 @@
     return '<span class="' + cls + ' has-logo' + (x.logoFill ? ' is-fill' : '') + (x.logoWide ? ' is-wide' : '') + '" aria-hidden="true"><img src="' + x.logo + '" alt="" loading="lazy"></span>';
   }
   // the tools used in a job, as logos: one per brand (Figma, FigJam and Figma prototyping share Figma's), the names in a tooltip
+  var TOOLS_SPRITE = 'assets/img/tools.svg?v=2026-10-20m';   // bump when the sprite changes, or a cached copy misses new logos
   function toolsHTML(list) {
     if (!list || !list.length) return '';
     var tiles = [], byKey = {};
@@ -170,7 +171,7 @@
     return '<div class="tl-tools"><p class="label">' + esc(t('exp.tools')) + '</p><ul class="tool-logos">' + tiles.map(function (x) {
       var names = esc(x.names.join(', '));
       return '<li class="tool-logo' + (typeof x.logo === 'string' ? '' : ' is-mono') + '" data-tip="' + names + '">' +
-        (typeof x.logo === 'string' ? '<svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/img/tools.svg#' + x.logo + '"/></svg>' : '<span aria-hidden="true">' + esc(x.logo.mono) + '</span>') +
+        (typeof x.logo === 'string' ? '<svg viewBox="0 0 24 24" aria-hidden="true"><use href="' + TOOLS_SPRITE + '#' + x.logo + '"/></svg>' : '<span aria-hidden="true">' + esc(x.logo.mono) + '</span>') +
         '<span class="sr-only">' + names + '</span></li>';
     }).join('') + '</ul></div>';
   }

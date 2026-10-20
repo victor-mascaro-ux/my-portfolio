@@ -37,7 +37,7 @@ Craft details matter as much as content.
 - Case studies open in a sheet (`#case-<id>` deep links).
 - The **Design system** tab (`#system` in `index.html`, between Skills and Contact; parts link as `#ds-color`, `#ds-c-button`…) documents the design language. Token values, contrast and the type scale are read from `main.css` at runtime; the component previews are static copies of the live markup (ids stripped, email as a placeholder), so refresh a preview by hand when its component changes. Its own styles and script are `design-system.css` and `design-system.js`; app.js runs the tab itself and wires the previews of the compare slider, the film and the designer card tilt. Links inside a preview don't navigate. Opening the tab completes the Blueprint quest.
 - The CSS and JS links in `index.html` carry `?v=`; bump it whenever those files change, or a cached copy can pair a new page with old words (keys like `ds.ov.intro` on screen).
-- `assets/img/tools.svg` is a sprite of tool logos for Experience (Simple Icons 16.34.0, CC0; one per brand). `toolLogos` in `content.js` maps each tool name to a symbol, or to `{ mono }` initials when the brand has no free logo there; a new tool needs an entry (and its symbol added to the sprite).
+- `assets/img/tools.svg` is a sprite of one-colour tool logos for Experience, one per brand (sources listed at its top: Simple Icons, CC0, plus a few marks from the brands' own sites). `toolLogos` in `content.js` maps each tool name to a symbol, or to `{ mono }` initials as a stopgap; a new tool needs an entry and its symbol in the sprite.
 - `assets/brand/` holds the logo kit (see its README); the header shows the app icon, the designer card the primary logo.
 
 ## Checks before committing
