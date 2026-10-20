@@ -15,54 +15,18 @@
   function lang() { return (root.getAttribute('lang') || 'en').indexOf('pt') === 0 ? 'pt' : 'en'; }
   function t(key) { var ui = C.ui || {}, v = (ui[lang()] || {})[key]; return v === undefined ? ((ui.en || {})[key] || key) : v; }
 
-  /* ---------- tokens: names, groups and usage notes (values are read from the CSS) ---------- */
+  /* ---------- tokens by group (values are read from the CSS; each one's usage note is ds.tok.<name> in content.js) ---------- */
   var TOKENS = [
-    ['surfaces', 'paper', 'Page background, under the dot grid. Also the browser theme color.'],
-    ['surfaces', 'paper-2', 'Secondary ground: small badges on cards, quiet wells.'],
-    ['surfaces', 'surface', 'Cards, hero tabs, tool buttons, ghost button hover.'],
-    ['surfaces', 'surface-2', 'Chip fill and image wells behind case-card media.'],
-    ['surfaces', 'line', 'Default 1px borders on cards, tools, chips.'],
-    ['surfaces', 'line-2', 'Stronger borders: ghost buttons, hovered cards, the dashed underline track.'],
-    ['surfaces', 'dot', 'The 24px dot grid painted on the page background.'],
-    ['surfaces', 'frost', 'Header glass background.'],
-    ['surfaces', 'frost-strong', 'Mobile menu background (stronger glass).'],
-    ['text', 'ink', 'Primary text and the logo name.'],
-    ['text', 'ink-2', 'Secondary text: ledes, card taglines, chip text.'],
-    ['text', 'muted', 'Labels, eyebrows, nav links, captions.'],
-    ['accent', 'accent', 'Action and selection: primary buttons, links, the focus ring, the logo frame.'],
-    ['accent', 'accent-ink', 'Text and icons on accent.'],
-    ['accent', 'accent-soft', 'Metric chip fill; soft accent wells.'],
-    ['accent', 'card-hi', 'Designer card highlight (replaces gold inside the card); primary buttons in the contact band.'],
-    ['accent', 'card-hi-ink', 'Text on card-hi.'],
-    ['gold', 'gold', 'Reward and progress only: XP bar, eyebrow diamond, underline fill.'],
-    ['gold', 'gold-ink', 'Gold-family text on paper: level number, the Read case link.'],
-    ['gold', 'gold-soft', 'Soft gold wells.'],
-    ['gold', 'on-gold', 'Text on gold fills (level badge).'],
-    ['gold', 'note', 'Text selection background and sticky notes.'],
-    ['gold', 'note-edge', 'Edge of sticky notes.'],
-    ['gold', 'note-ink', 'Text on note.'],
-    ['gold', 'good-dot', 'Available status dot. A state color: keep it small.'],
-    ['deep', 'blue-deep', 'Deep bands: designer card, contact section, next-case band.'],
-    ['deep', 'blue-deep-2', 'Highlight side of deep-blue gradients.'],
-    ['deep', 'on-blue', 'Text on blue-deep.'],
-    ['deep', 'on-blue-2', 'Secondary text and labels on blue-deep.'],
-    ['deep', 'on-blue-line', 'Dashed dividers inside the designer card.'],
-    ['tones', 'tone-night', 'Case-card cover tone: night.'],
-    ['tones', 'tone-deep', 'Case-card cover tone: deep.'],
-    ['tones', 'tone-deep-2', 'Case-card cover tone: deep, lit side.'],
-    ['tones', 'tone-blue', 'Case-card cover tone: blue.'],
-    ['tones', 'tone-pale', 'Case-card cover tone: pale.'],
-    ['bands', 'band-1', 'Section band 1 (blue).'],
-    ['bands', 'band-2', 'Section band 2 (warm).'],
-    ['bands', 'band-3', 'Section band 3 (neutral).'],
-    ['bands', 'band-4', 'Section band 4 (sky).'],
-    ['effects', 'glow', 'Pointer glow on hovered case cards.'],
-    ['effects', 'scrim', 'Overlay behind sheets and the lightbox.'],
-    ['effects', 'toast-bg', 'Toast background (XP and achievement toasts).'],
-    ['effects', 'toast-fg', 'Toast text.'],
-    ['effects', 'logo-bg', 'Background behind employer logos in the career path and timeline.']
+    ['surfaces', ['paper', 'paper-2', 'surface', 'surface-2', 'line', 'line-2', 'dot', 'frost', 'frost-strong']],
+    ['text', ['ink', 'ink-2', 'muted']],
+    ['accent', ['accent', 'accent-ink', 'accent-soft', 'card-hi', 'card-hi-ink']],
+    ['gold', ['gold', 'gold-ink', 'gold-soft', 'on-gold', 'note', 'note-edge', 'note-ink', 'good-dot']],
+    ['deep', ['blue-deep', 'blue-deep-2', 'on-blue', 'on-blue-2', 'on-blue-line']],
+    ['tones', ['tone-night', 'tone-deep', 'tone-deep-2', 'tone-blue', 'tone-pale']],
+    ['bands', ['band-1', 'band-2', 'band-3', 'band-4']],
+    ['effects', ['glow', 'scrim', 'toast-bg', 'toast-fg', 'logo-bg']]
   ];
-  var NAMES = TOKENS.map(function (x) { return x[1]; });
+  var NAMES = [].concat.apply([], TOKENS.map(function (g) { return g[1]; }));
   // text pairs whose contrast is shown on the foreground's swatch and in the Accessibility table
   var PAIRS = [['ink', 'paper'], ['ink-2', 'paper'], ['muted', 'paper'], ['muted', 'surface'], ['accent', 'paper'], ['accent-ink', 'accent'],
     ['gold-ink', 'paper'], ['on-gold', 'gold'], ['on-blue', 'blue-deep'], ['on-blue-2', 'blue-deep'], ['card-hi-ink', 'card-hi'], ['toast-fg', 'toast-bg'], ['note-ink', 'note']];
@@ -134,22 +98,22 @@
 
   /* ---------- color section ---------- */
   var swatches = $('#dsSwatches');
+  var ON = function () { return '<span data-i18n="ds.on">' + t('ds.on') + '</span>'; };
   if (swatches) {
-    var groups = {}, order = [];
-    TOKENS.forEach(function (x) { if (!groups[x[0]]) { groups[x[0]] = []; order.push(x[0]); } groups[x[0]].push(x); });
-    swatches.innerHTML = order.map(function (g) {
+    swatches.innerHTML = TOKENS.map(function (grp) {
+      var g = grp[0];
       return '<div class="ds-swatch-group"><h4 class="ds-h3" data-i18n="ds.color.' + g + '">' + t('ds.color.' + g) + '</h4><div class="ds-swatches">' +
-        groups[g].map(function (x) {
-          var n = x[1], L = VALUES.light[n], D = VALUES.dark[n];
+        grp[1].map(function (n) {
+          var L = VALUES.light[n], D = VALUES.dark[n];
           var pairs = PAIRS.filter(function (p) { return p[0] === n; }).map(function (p) {
             var rl = ratio(L, VALUES.light[p[1]]), rd = ratio(D, VALUES.dark[p[1]]);
-            return '<span class="ds-ratio' + (Math.min(rl || 0, rd || 0) < 4.5 ? ' is-low' : '') + '" title="--' + n + ' on --' + p[1] + ' (light · dark)">on --' + p[1] + ' ' + fmtRatio(rl) + ' · ' + fmtRatio(rd) + '</span>';
+            return '<span class="ds-ratio' + (Math.min(rl || 0, rd || 0) < 4.5 ? ' is-low' : '') + '" title="--' + n + ' / --' + p[1] + ' (L · D)">' + ON() + ' --' + p[1] + ' ' + fmtRatio(rl) + ' · ' + fmtRatio(rd) + '</span>';
           }).join('');
           return '<article class="ds-swatch">' +
             '<div class="ds-chips" aria-hidden="true"><span class="ds-chip" data-theme="light" data-token="' + n + '"><span class="ds-chip-tag">L</span></span><span class="ds-chip" data-theme="dark" data-token="' + n + '"><span class="ds-chip-tag">D</span></span></div>' +
             '<div class="ds-swatch-body"><h5 class="ds-token">--' + n + '</h5>' +
             '<p class="ds-values"><span><span data-i18n="ds.light">' + t('ds.light') + '</span> <b>' + L + '</b></span><span><span data-i18n="ds.dark">' + t('ds.dark') + '</span> <b>' + D + '</b></span></p>' +
-            '<p class="ds-usage">' + x[2] + '</p>' + (pairs ? '<p class="ds-contrast">' + pairs + '</p>' : '') +
+            '<p class="ds-usage" data-i18n="ds.tok.' + n + '">' + t('ds.tok.' + n) + '</p>' + (pairs ? '<p class="ds-contrast">' + pairs + '</p>' : '') +
             '<button class="btn btn-ghost btn-small" type="button" data-copy="var(--' + n + ')"><span data-i18n="ds.copy">' + t('ds.copy') + '</span><span class="sr-only"> var(--' + n + ')</span></button></div></article>';
         }).join('') + '</div></div>';
     }).join('');
@@ -164,8 +128,9 @@
   if (ct) {
     ct.innerHTML = PAIRS.map(function (p) {
       var rl = ratio(VALUES.light[p[0]], VALUES.light[p[1]]), rd = ratio(VALUES.dark[p[0]], VALUES.dark[p[1]]);
-      var pass = function (r) { return r == null ? '–' : r >= 7 ? 'AAA' : r >= 4.5 ? 'AA' : r >= 3 ? 'AA large' : 'Fail'; };
-      return '<tr><td><code>--' + p[0] + '</code> on <code>--' + p[1] + '</code></td><td>' + fmtRatio(rl) + ' <span class="ds-note">' + pass(rl) + '</span></td><td>' + fmtRatio(rd) + ' <span class="ds-note">' + pass(rd) + '</span></td></tr>';
+      var word = function (k) { return '<span data-i18n="' + k + '">' + t(k) + '</span>'; };
+      var pass = function (r) { return r == null ? '–' : r >= 7 ? 'AAA' : r >= 4.5 ? 'AA' : r >= 3 ? word('ds.aaLarge') : word('ds.fail'); };
+      return '<tr><td><code>--' + p[0] + '</code> ' + ON() + ' <code>--' + p[1] + '</code></td><td>' + fmtRatio(rl) + ' <span class="ds-note">' + pass(rl) + '</span></td><td>' + fmtRatio(rd) + ' <span class="ds-note">' + pass(rd) + '</span></td></tr>';
     }).join('');
   }
 
@@ -259,16 +224,17 @@
       if (n.hasAttribute('style') && !n.getAttribute('style')) n.removeAttribute('style');
     });
     $$('[data-count]', el).forEach(function (n) { n.removeAttribute('data-count'); });
+    $$('[data-ds-live]', el).forEach(function (n) { n.removeAttribute('data-ds-live'); });
     $$('[loading]', el).forEach(function (i) { i.removeAttribute('loading'); });
     return el;
   }
+  function fillCode(d) {
+    var stage = $('.ds-stage', d.closest('.ds-comp')), clone = stripDs(stage.cloneNode(true));
+    $('code', d).textContent = pretty(clone, 0).replace(/\n$/, '');
+    d.setAttribute('data-filled', '1');
+  }
   $$('.ds-code', tab).forEach(function (d) {
-    d.addEventListener('toggle', function () {
-      if (!d.open || d.getAttribute('data-filled')) return;
-      var stage = $('.ds-stage', d.closest('.ds-comp')), clone = stripDs(stage.cloneNode(true));
-      $('code', d).textContent = pretty(clone, 0).replace(/\n$/, '');
-      d.setAttribute('data-filled', '1');
-    });
+    d.addEventListener('toggle', function () { if (d.open && !d.getAttribute('data-filled')) fillCode(d); });
   });
 
   /* ---------- table of contents: scrollspy, with a marker that slides to the current section ---------- */
@@ -297,8 +263,12 @@
   if (tocLinks[0]) setCurrent(tocLinks[0].getAttribute('href').slice(1));
   refresh();
 
-  // labels that aren't text follow the language switch too
+  // on a language switch app.js redraws the previews; the rail's label and any open code follow
   function relabel() { if (toc) toc.setAttribute('aria-label', t('ds.toc')); }
   relabel();
-  new MutationObserver(relabel).observe(root, { attributes: true, attributeFilter: ['lang'] });
+  new MutationObserver(function () {
+    relabel();
+    $$('.ds-code[data-filled]', tab).forEach(function (d) { if (d.open) fillCode(d); else d.removeAttribute('data-filled'); });
+    refresh();
+  }).observe(root, { attributes: true, attributeFilter: ['lang'] });
 })();

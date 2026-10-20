@@ -87,7 +87,7 @@
   /* company logos always sit on white, in both themes */
   --logo-bg: #FFFFFF;
   /* Work tab: one band per project section, all from the palette (blue, gold, slate, sky) */
-  --band-1: #E1EBF9; --band-2: #F7EFD7; --band-3: #E3E8F1; --band-4: #DCEFF9;
+  --band-1: #E1EBF9; --band-2: #E6E6F8; --band-3: #E3E8F1; --band-4: #DCEFF9;
   --card-glow: 0 0 44px -6px rgba(11, 99, 201, .42), 0 0 110px -20px rgba(11, 99, 201, .3);
   --scrim: rgba(4, 8, 22, .72);
   --glow: rgba(11, 99, 201, .10);
@@ -712,6 +712,7 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .tl-case:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--accent); }
 .tl-case:hover img { transform: scale(1.1); }
 .tl-case:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.tl-case > svg { width: 13px; height: 13px; flex: none; margin-left: -4px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .timeline > li.tl-flash { animation: tlFlash 1.6s var(--ease-out); }
 @keyframes tlFlash { 0%, 30% { background: color-mix(in srgb, var(--accent) 16%, transparent); } }
 

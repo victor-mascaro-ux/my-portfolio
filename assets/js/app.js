@@ -34,6 +34,11 @@
       var v = t(el.getAttribute('data-i18n'));
       if (typeof v === 'string') el.textContent = v;
     });
+    // a few strings carry inline markup (code, bold, a key); they come from content.js, never from visitors
+    $$('[data-i18n-html]').forEach(function (el) {
+      var v = t(el.getAttribute('data-i18n-html'));
+      if (typeof v === 'string') el.innerHTML = v;
+    });
     document.title = t('meta.title');
     var md = $('meta[name="description"]'); if (md) md.setAttribute('content', t('meta.desc'));
     $('#langCode').textContent = t('hud.langShort');
@@ -155,11 +160,14 @@
   function renderTimeline() {
     $('#timeline').innerHTML = C.experience.map(function (x, i) {
       var cases = (x.cases || []).map(caseById).filter(Boolean);
+      var games = (x.games || []).map(function (n) { return C.side.filter(function (s) { return s.t === n; })[0]; }).filter(Boolean);
       return '<li id="job-' + i + '"><span class="tl-when">' + esc(L(x.when)) + '</span>' +
         '<div><h3 class="tl-org">' + (x.logo ? logoTile(x, 'tl-logo') : '') + '<span>' + esc(x.org) + '</span></h3><p class="tl-role">' + esc(L(x.role)) + '</p><p class="tl-where">' + esc(L(x.where)) + '</p></div>' +
         '<div class="tl-main"><ul class="tl-points">' + x.points[lang].map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul>' +
-        (cases.length ? '<div class="tl-cases">' + cases.map(function (c) {
+        (cases.length || games.length ? '<div class="tl-cases">' + cases.map(function (c) {
           return '<a class="tl-case" href="#case-' + c.id + '" data-case="' + c.id + '">' + caseThumb(c, 'tl-thumb') + '<span>' + esc(L(c.title)) + '</span></a>';
+        }).join('') + games.map(function (g) {
+          return '<a class="tl-case" href="' + esc(g.url) + '" target="_blank" rel="noopener"><span class="tl-thumb' + (g.fit === 'contain' ? ' is-art' : '') + '"><img src="' + g.img + '" alt="" loading="lazy"></span><span>' + esc(g.t) + '</span>' + ICON.ext + '</a>';
         }).join('') + '</div>' : '') + '</div></li>';
     }).join('');
     // the career path: oldest job on the left, the current one on the right
@@ -236,6 +244,7 @@
 
   function renderAll() {
     renderLoadout(); renderWork(); renderProcess(); renderTimeline(); renderTree(); renderQuestLog(); updateXPHud(false);
+    renderSpecimens();
   }
 
   /* ---------- theme ---------- */
@@ -391,9 +400,12 @@
      a filled tile would read as the current page */
   function markTabNext() {
     if (!currentTab) return;
-    var id = currentTab, next = TABS[(TABS.indexOf(id) + 1) % TABS.length];
-    tabNext.hidden = id === 'home';
-    $$('.hero-tab', tabNext).forEach(function (a) {
+    tabNext.hidden = currentTab === 'home';
+    badgeTabs(tabNext, currentTab);
+  }
+  function badgeTabs(box, id) {
+    var next = TABS[(TABS.indexOf(id) + 1) % TABS.length];
+    $$('.hero-tab', box).forEach(function (a) {
       var tab = a.getAttribute('href').slice(1);
       a.classList.remove('is-primary');
       a.classList.toggle('is-next', tab === next);
@@ -505,11 +517,18 @@
 
   function renderSheet(id) {
     var c = caseById(id); if (!c) return;
-    var idx = caseIndex(id);
-    var next = C.cases[(idx + 1) % C.cases.length];
     var groupName = t('work.' + c.group + '.title');
     var inGroup = C.cases.filter(function (x) { return x.group === c.group; });
     $('#sheetCrumb').textContent = groupName + ' · ' + (inGroup.indexOf(c) + 1) + '/' + inGroup.length;
+    sheetBody.innerHTML = sheetHTML(c);
+    wireSheet();
+    $$('.metric-v', sheetBody).forEach(prepCount);
+    observeCounts(sheetBody, sheetPanel);
+  }
+
+  /* a case study's markup (the Design system tab draws its previews of the sheet's parts from it too) */
+  function sheetHTML(c) {
+    var next = C.cases[(caseIndex(c.id) + 1) % C.cases.length];
     var meta = c.meta, keys = ['role', 'when', 'platform', 'context'];
     var cover = '';
     if (c.art === 'fan' && c.cover) cover = '<div class="cs-cover art-fan">' + imgTag(c.cover, L(c.coverAlt)) + '</div>';
@@ -546,10 +565,7 @@
       '<div class="cs-end"><p class="label cs-end-label">' + esc(t('case.end')) + '</p>' +
         '<button type="button" class="next-case" data-goto="' + next.id + '"><span><span class="label">' + esc(t('case.next')) + '</span><strong>' + esc(L(next.title)) + '</strong></span>' + ICON.arrow + '</button>' +
       '</div>';
-    sheetBody.innerHTML = html;
-    wireSheet();
-    $$('.metric-v', sheetBody).forEach(prepCount);
-    observeCounts(sheetBody, sheetPanel);
+    return html;
   }
 
   function wireSheet() {
@@ -627,13 +643,88 @@
     range.addEventListener('change', function () { if (player) playAt(secs(frames[+range.value].t)); });
   }
 
-  /* the Design system tab's copies of the compare slider and the film work like the real ones */
-  $$('#system .compare').forEach(wireCompare);
-  $$('#system [data-film]').forEach(function (film) {
-    var frames = [];
-    C.cases.forEach(function (c) { (c.moves || []).forEach(function (m) { if (m.film && !frames.length) frames = m.film; }); });
-    if (frames.length) wireFilm(film, frames);
-  });
+  /* ---------- Design system tab: previews of the components, drawn by the same code in the current language ---------- */
+  function outer(el) { return el ? el.outerHTML : ''; }
+  function sheetPart(id, sel) { var box = document.createElement('div'); box.innerHTML = sheetHTML(caseById(id)); return $(sel, box); }
+  // menus in a preview show the Design system tab as the current page
+  function hereIsSystem(el) { $$('nav a[href^="#"]', el).forEach(function (a) { a.setAttribute('aria-current', a.getAttribute('href') === '#system' ? 'page' : 'false'); }); return el; }
+  var SPECIMEN = {
+    liveBtn: function () { return outer(sheetPart('advisor', '.cs-actions .btn')); },
+    tools: function () { return ['#langBtn', '#themeBtn', '#menuBtn', '#sheet .close-btn'].map(function (s) { return outer($(s)); }).join(''); },
+    xp: function () { return outer($('#xpBtn')); },
+    header: function () {
+      var h = $('#hud').cloneNode(true);
+      $$('.mobile-nav, .nav-ind', h).forEach(function (n) { n.remove(); });
+      return outer(hereIsSystem(h));
+    },
+    mobileNav: function () { return outer(hereIsSystem($('#mobileNav').cloneNode(true))); },
+    heroTabs: function () { var n = tabNext.cloneNode(true); badgeTabs(n, 'system'); return outer($('.hero .hero-tabs')) + outer(n); },
+    nextCase: function () { return outer(sheetPart('advisor', '.cs-end')); },
+    pullQuote: function () { return outer(sheetPart('advisor', '.cs-problem').closest('.cs-section')); },
+    career: function () { return outer($('#career')); },
+    chips: function () {
+      return '<div class="ds-stage-stack" data-ds-unwrap><ul class="chips">' + SPECIMEN.loadout() + '</ul>' +
+        '<div class="ds-stage-row" data-ds-unwrap>' + outer(sheetPart('advisor', '.cs-actions .chip-metric')) +
+          '<span class="td-status">' + esc(t('skills.done')) + '</span><span class="td-status is-progress">' + esc(t('skills.progress')) + '</span>' +
+          '<span class="metric-kind">' + esc(t('case.estimated')) + '</span><span class="metric-kind k-measured">' + esc(t('case.measured')) + '</span></div>' +
+        '<ul class="course-list">' + $$('#courseList .course').slice(0, 2).map(function (b) { return '<li>' + b.outerHTML + '</li>'; }).join('') + '</ul></div>';
+    },
+    metrics: function () { return outer(sheetPart('advisor', '.metrics')); },
+    skillTree: function () { var d = $('#treeDetail').cloneNode(true); d.style.position = 'static'; return outer($('#tree .branch')) + outer(d); },
+    timeline: function () { return outer($('#timeline > li')); },
+    caseCards: function () { return cardHTML(caseById('advisor')) + cardHTML(caseById('illuminati')); },
+    loadout: function () { return C.loadout[lang].map(function (x) { return '<li>' + esc(x) + '</li>'; }).join(''); },
+    process: function () { return $$('#processList > li').slice(0, 2).map(outer).join(''); },
+    side: function () { return $$('#sideList > li').slice(0, 3).map(outer).join(''); },
+    csHead: function () { return outer(sheetPart('advisor', '.cs-head')); },
+    csSection: function () {
+      var s = sheetPart('advisor', '.moves').closest('.cs-section');
+      $$('.move', s).slice(1).forEach(function (m) { m.remove(); });   // the first design move is enough
+      return outer(s);
+    },
+    compare: function () { return outer(sheetPart('betsie', '.compare-wrap')); },
+    film: function () { return outer(sheetPart('go-to-market', '.film')); },
+    questlog: function () { return outer($('#questlog')); },
+    toasts: function () {
+      var a = C.achievements.filter(function (x) { return x.id === 'reader'; })[0];
+      return '<div class="toast" role="status"><span class="medal" aria-hidden="true">' + ICON.star + '</span><span><span class="toast-k">' + esc(t('quest.unlocked')) + '</span>' +
+        '<span class="toast-t">' + esc(L(a.t)) + '  +' + a.xp + ' XP</span></span></div><div class="toast toast-plain" role="status">' + esc(t('contact.copied')) + '</div>';
+    },
+    footer: function () { return outer($('body > .footer')); }
+  };
+  // a preview is a copy: no ids, never a tab, headings under the component's own, landmarks named as previews, no email
+  function specimen(html, title, mail) {
+    var box = document.createElement('div'); box.innerHTML = html;
+    $$('*', box).forEach(function (n) {
+      ['id', 'aria-controls', 'aria-labelledby', 'aria-describedby', 'for', 'data-tab'].forEach(function (a) { n.removeAttribute(a); });
+      n.classList.remove('rv', 'in', 'enter', 'is-hint', 'is-flipping', 'is-scrolled', 'is-tilting', 'tl-flash', 'bump', 'level-up');
+      ['--rd', '--ed', '--i', '--sx', '--sy', '--mx', '--my'].forEach(function (p) { n.style.removeProperty(p); });
+      if (n.getAttribute('class') === '') n.removeAttribute('class');
+      if (n.getAttribute('style') === '') n.removeAttribute('style');
+      if (/^H[1-6]$/.test(n.tagName)) { n.setAttribute('aria-level', '6'); n.setAttribute('data-ds-level', '1'); }
+      if (n.tagName === 'IMG' && !n.hasAttribute('loading')) n.setAttribute('loading', 'lazy');
+      if (n.tagName === 'NAV' && n.hasAttribute('aria-label')) {
+        n.setAttribute('data-ds-label', n.getAttribute('aria-label'));
+        n.setAttribute('aria-label', t('ds.previewOf') + ' ' + title + ': ' + n.getAttribute('aria-label'));
+      }
+      if (n.getAttribute('role') === 'dialog') { n.setAttribute('aria-label', t('ds.previewOf') + ' ' + title); n.setAttribute('data-ds-rm', 'aria-label'); }
+    });
+    Array.prototype.forEach.call(box.children, function (n) { n.hidden = false; });   // a closed menu or quest log is shown open
+    return mail ? box.innerHTML.split(mail).join('name@example.com') : box.innerHTML;
+  }
+  function renderSpecimens() {
+    var tabEl = $('#system'); if (!tabEl) return;
+    var mail = ($('#mailAddress') || {}).textContent || '';
+    $$('[data-ds-live]', tabEl).forEach(function (box) {
+      var make = SPECIMEN[box.getAttribute('data-ds-live')]; if (!make) return;
+      var comp = box.closest('.ds-comp'), title = comp ? $('h5', comp).textContent : '';
+      box.innerHTML = specimen(make(), title, mail);
+    });
+    $$('.compare', tabEl).forEach(wireCompare);
+    var film = $('[data-film]', tabEl), frames = [];
+    (caseById('go-to-market').moves || []).forEach(function (m) { if (m.film) frames = m.film; });
+    if (film && frames.length) wireFilm(film, frames);
+  }
 
   function openCase(id, opts) {
     opts = opts || {};
