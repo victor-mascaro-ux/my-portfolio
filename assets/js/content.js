@@ -14,7 +14,7 @@ window.CONTENT = {
     github: 'https://github.com/victor-mascaro-ux',
     cv: { en: 'assets/cv/Victor-Mascaro-CV-EN.pdf', pt: 'assets/cv/Victor-Mascaro-CV-PT.pdf' },
     // bump whenever the PDFs are rebuilt: it changes the link, so browsers don't show an old saved copy
-    cvVersion: '2026-10-20f'
+    cvVersion: '2026-10-20g'
   },
 
   /* ---------- Interface strings ---------- */
@@ -53,7 +53,7 @@ window.CONTENT = {
       'short.title': 'In short',
       'short.1.v': '5 yrs', 'short.1.l': 'working in game and product design, since 2021',
       'short.2.v': '6', 'short.2.l': 'commercial games and apps I’ve worked on',
-      'short.3.v': '4', 'short.3.l': 'live-service mobile games at By Aliens',
+      'short.3.v': '15', 'short.3.l': 'games I made in university and at game jams',
       'short.4.v': '643', 'short.4.l': 'merged pull requests on the Knomee prototype, which I design and build with Claude Code',
 
       'work.eyebrow': 'Work',
@@ -155,7 +155,7 @@ window.CONTENT = {
       'short.title': 'Em resumo',
       'short.1.v': '5 anos', 'short.1.l': 'de experiência em game design e design de produto, desde 2021',
       'short.2.v': '6', 'short.2.l': 'jogos e apps comerciais em que trabalhei',
-      'short.3.v': '4', 'short.3.l': 'jogos mobile live-service na By Aliens',
+      'short.3.v': '15', 'short.3.l': 'jogos que fiz na faculdade e em game jams',
       'short.4.v': '643', 'short.4.l': 'pull requests mergeados no protótipo da Knomee, que eu desenho e desenvolvo com o Claude Code',
 
       'work.eyebrow': 'Trabalhos',
