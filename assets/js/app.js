@@ -662,17 +662,20 @@
   $('#questReset').addEventListener('click', function () {
     unlocked = {}; opened = {}; inspectedSkills = {}; store.del('vm-ach'); store.del('vm-opened'); renderQuestLog(); updateXPHud(false);
   });
-  $('#gameToggle').addEventListener('click', function () {
-    var off = gameOn(); root.classList.toggle('game-off', off); store.set('vm-game', off ? 'off' : 'on'); renderQuestLog();
-    if (off) setQuest(false);
+  function setGame(on) {
+    root.classList.toggle('game-off', !on); store.set('vm-game', on ? 'on' : 'off'); renderQuestLog();
+    if (!on) setQuest(false);
     renderGameFooter();
-  });
+  }
+  $('#gameToggle').addEventListener('click', function () { setGame(!gameOn()); });
+  // with XP off, the level's spot in the HUD holds the way back
+  $('#xpOn').addEventListener('click', function () { setGame(true); $('#xpBtn').focus(); });
   function renderGameFooter() {
     var holder = $('#gameBack');
     if (!gameOn()) {
       if (!holder) {
         holder = document.createElement('button'); holder.id = 'gameBack'; holder.type = 'button'; holder.className = 'btn btn-ghost btn-small';
-        holder.addEventListener('click', function () { root.classList.remove('game-off'); store.set('vm-game', 'on'); holder.remove(); renderQuestLog(); });
+        holder.addEventListener('click', function () { setGame(true); });
         $('.footer-end').insertBefore(holder, $('.footer-end a'));
       }
       holder.textContent = t('quest.show');
