@@ -505,10 +505,10 @@ kbd {
 .cc-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
 .chip-metric {
   display: inline-flex; align-items: center; gap: 7px; font-family: var(--f-mono); font-size: .74rem; font-weight: 650;
-  padding: 5px 10px; border-radius: 7px; background: var(--gold-soft); color: var(--gold-ink); border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+  padding: 5px 10px; border-radius: 7px; background: var(--accent-soft); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
 }
 .chip-metric::before { content: ""; width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex: none; }
-.cc-read { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-xs); font-weight: 650; color: var(--accent); }
+.cc-read { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-xs); font-weight: 650; color: var(--gold-ink); }
 .cc-read svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s var(--ease); }
 .case-card:hover .cc-read svg { transform: translateX(4px); }
 
@@ -571,6 +571,15 @@ kbd {
   font-size: var(--t-xs); color: var(--muted); padding-top: 12px; border-top: 1px solid var(--line); display: grid; gap: 4px;
 }
 .step-proof b { font-family: var(--f-mono); font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-ink); }
+/* each step shows the project it comes from, and links to it */
+.step-shot-link { display: block; margin-top: 4px; border-radius: var(--r); }
+.step-shot { display: block; aspect-ratio: 16 / 10; border-radius: var(--r); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--pic-shadow); background: var(--surface-2); }
+.step-shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease-out); }
+.step-shot.is-art img { object-fit: contain; padding: 6% 6% 0; }
+.process-list li:hover .step-shot img { transform: scale(1.05); }
+.step-see { display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; font-weight: 650; color: var(--accent); text-decoration: none; }
+.step-see svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s var(--ease-out); }
+.process-list li:hover .step-see svg, .step-see:focus-visible svg { transform: translateX(4px); }
 
 /* ---------- Experience ---------- */
 .timeline { border-top: 1px solid var(--line-2); }
@@ -584,6 +593,45 @@ kbd {
 .tl-points { display: grid; gap: 8px; font-size: var(--t-sm); color: var(--ink-2); }
 .tl-points li { all: unset; display: block; position: relative; padding-left: 20px; }
 .tl-points li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 7px; height: 7px; border: 1.5px solid var(--gold); transform: rotate(45deg); }
+.tl-main { display: grid; gap: 16px; align-content: start; min-width: 0; }
+/* the projects from each job, as small cards that open the case study */
+.tl-cases { display: flex; flex-wrap: wrap; gap: 10px; }
+.tl-case {
+  display: inline-flex; align-items: center; gap: 10px; padding: 5px 12px 5px 5px; border-radius: 10px; text-decoration: none;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-size: .8rem; font-weight: 650;
+  transition: transform .25s var(--ease-out), border-color .2s, color .2s;
+}
+.tl-thumb { display: block; width: 56px; height: 38px; border-radius: 6px; overflow: hidden; background: var(--surface-2); flex: none; }
+.tl-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s var(--ease-out); }
+.tl-thumb.is-art img { object-fit: contain; }
+.tl-case:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--accent); }
+.tl-case:hover img { transform: scale(1.1); }
+.tl-case:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.timeline > li.tl-flash { animation: tlFlash 1.6s var(--ease-out); }
+@keyframes tlFlash { 0%, 30% { background: color-mix(in srgb, var(--accent) 16%, transparent); } }
+
+/* Career path: one stop per job, oldest to newest, the current one glowing */
+.career { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin: 0 0 clamp(32px, 4vw, 48px); }
+.career::before, .career::after { content: ""; position: absolute; left: 10%; right: 10%; top: 25px; height: 3px; border-radius: 2px; }
+.career::before { background: repeating-linear-gradient(90deg, var(--line-2) 0 8px, transparent 8px 14px); }
+.career::after { background: linear-gradient(90deg, var(--gold), var(--accent)); transform-origin: left; }
+.career.rv { transform: none; }
+.career.rv::after { transform: scaleX(0); transition: transform 1.4s var(--ease-out) .15s; }
+.career.rv.in::after { transform: scaleX(1); }
+.career-stop { position: relative; display: grid; justify-items: center; align-content: start; gap: 6px; padding: 0 4px 6px; border: 0; background: none; color: inherit; font: inherit; text-align: center; cursor: pointer; border-radius: 12px; }
+.career-medal {
+  position: relative; z-index: 1; width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--surface); border: 2px solid var(--line-2); font-family: var(--f-display); font-weight: 800; font-size: 1rem; letter-spacing: -.02em;
+  transition: transform .3s var(--ease-pop), border-color .2s, background-color .2s, color .2s;
+}
+.career.rv .career-medal { transform: scale(.4); transition-delay: calc(.2s + var(--n, 0) * .2s); }
+.career.rv.in .career-medal { transform: none; }
+.career-stop:hover .career-medal, .career-stop:focus-visible .career-medal { transform: translateY(-4px) scale(1.08); border-color: var(--accent); transition-delay: 0s; }
+.career-stop:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.career-stop.is-now .career-medal { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); animation: nowPulse 2.4s ease-out infinite; }
+@keyframes nowPulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); } 70%, 100% { box-shadow: 0 0 0 14px transparent; } }
+.career-org { font-family: var(--f-display); font-weight: 680; font-size: var(--t-sm); line-height: 1.2; }
+.career-year { font-family: var(--f-mono); font-size: .7rem; color: var(--muted); }
 
 /* ---------- Skill tree ---------- */
 .tree-layout { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 28px; align-items: start; }
@@ -627,9 +675,11 @@ kbd {
 .td-meta b { color: var(--ink); font-weight: 700; }
 .td-block { display: grid; gap: 8px; }
 .td-extra { font-size: var(--t-xs); color: var(--muted); }
-.courses { margin-top: 32px; display: grid; gap: 12px; }
+.tree-col { display: grid; gap: 32px; min-width: 0; }
+.courses { display: grid; gap: 12px; }
 .course-list { display: flex; flex-wrap: wrap; gap: 8px; }
-.course-list li { font-size: .78rem; padding: 5px 10px; border-radius: 7px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); }
+.course-list li { display: contents; }
+.course { font: inherit; cursor: pointer; text-align: left; font-size: .78rem; padding: 5px 10px; border-radius: 7px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); }
 
 /* ---------- Contact ---------- */
 .contact { background: radial-gradient(90% 120% at 100% 0%, var(--blue-deep-2), var(--blue-deep) 60%); color: var(--on-blue); position: relative; overflow: hidden; }
@@ -898,6 +948,10 @@ main { overflow-x: clip; }
 /* Scroll reveal: transform only, so nothing waits invisible */
 .rv { transform: translateY(28px); transition: transform 1s var(--ease-out); transition-delay: var(--rd, 0s); }
 .rv.in { transform: none; }
+/* tab entrance: what's on screen rises in, one after another (enterTab in app.js) */
+.enter { animation: tabIn .6s var(--ease-out) var(--ed, 0ms) both; }
+.enter .eyebrow::before, .enter.eyebrow::before { animation: spinIn .8s var(--ease-pop) calc(var(--ed, 0ms) + 150ms) both; }
+@keyframes tabIn { from { opacity: 0; transform: translateY(22px); } }
 .rv.in .eyebrow::before, .eyebrow.in::before { animation: spinIn .8s var(--ease-pop) .15s both; }
 @keyframes spinIn { from { transform: rotate(-135deg) scale(.3); } }
 
@@ -975,8 +1029,10 @@ main { overflow-x: clip; }
 .tree-detail > * { animation: rise .45s var(--ease-out) both; }
 .tree-detail > *:nth-child(2) { animation-delay: .04s; } .tree-detail > *:nth-child(3) { animation-delay: .08s; }
 .tree-detail > *:nth-child(4) { animation-delay: .12s; } .tree-detail > *:nth-child(5) { animation-delay: .16s; } .tree-detail > *:nth-child(6) { animation-delay: .2s; }
-.course-list li, .side-card { transition: transform .25s var(--ease-out), border-color .25s, color .25s; }
-.course-list li:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--ink); }
+.course, .side-card { transition: transform .25s var(--ease-out), border-color .25s, color .25s, background-color .25s; }
+.course:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--ink); }
+.course[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+.course:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 a.side-card:hover { transform: translateY(-3px); border-color: var(--accent); }
 a.side-card:hover strong, a.side-card:hover svg { color: var(--accent); }
 a.side-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
@@ -1017,6 +1073,9 @@ a.side-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2p
   .hero-card-wrap { justify-content: flex-start; }
   .tree-layout { grid-template-columns: minmax(0, 1fr); }
   .tree-detail { position: static; }
+  /* one column: the details card sits right under the tree, the short courses after it */
+  .tree-col { display: contents; }
+  .tree { order: 1; } .tree-detail { order: 2; } .courses { order: 3; }
   .process-list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 40px; }
   .process-list::before { display: none; }
 }
@@ -1082,6 +1141,8 @@ a.side-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2p
   .hero-zone::before, .page-glow { display: none; }
   .hero-tab, .hero-tab strong svg { transition: none; }
   .lightbox, .lightbox img { animation: none; }
+  .career-stop.is-now .career-medal, .timeline > li.tl-flash { animation: none; }
+  .enter, .enter .eyebrow::before { animation: none; }
   .tool.is-hint { animation: none; }
   .film-play { transition: none; }
   .hero-tab:hover, .hero-tab:hover strong svg, a.side-card:hover { transform: none; }

@@ -41,6 +41,7 @@
     $('#menuBtn').setAttribute('aria-label', t('nav.menu'));
     $('#lbClose').setAttribute('aria-label', t('lightbox.close'));
     $('.hero-tabs').setAttribute('aria-label', t('hero.tabs'));
+    $('#career').setAttribute('aria-label', t('exp.path'));
     markTabNext();
     var cv = C.person.cv[lang];
     ['#cardCv', '#expCv', '#contactCv'].forEach(function (s) { var a = $(s); if (a) a.setAttribute('href', cv); });
@@ -130,20 +131,42 @@
     }).join('');
   }
 
+  function caseThumb(c, cls) {
+    return '<span class="' + cls + ' tone-' + c.tone + (c.art ? ' is-art' : '') + '"><img src="' + c.cover + '" alt="" loading="lazy"></span>';
+  }
   function renderProcess() {
     $('#processList').innerHTML = C.process.map(function (p, i) {
+      var c = caseById(p.case);
       return '<li><span class="step-node" aria-hidden="true">0' + (i + 1) + '</span>' +
+        (c ? '<a class="step-shot-link" href="#case-' + c.id + '" data-case="' + c.id + '" tabindex="-1" aria-hidden="true">' + caseThumb(c, 'step-shot') + '</a>' : '') +
         '<h3 class="step-title">' + esc(L(p.title)) + '</h3>' +
         '<p class="step-body">' + esc(L(p.body)) + '</p>' +
-        '<p class="step-proof"><b>' + esc(t('process.example')) + '</b>' + esc(L(p.proof)) + '</p></li>';
+        '<p class="step-proof"><b>' + esc(t('process.example')) + '</b>' + esc(L(p.proof)) +
+        (c ? '<a class="step-see" href="#case-' + c.id + '" data-case="' + c.id + '">' + esc(t('process.see')) + ': ' + esc(L(c.title)) + ICON.arrow + '</a>' : '') + '</p></li>';
     }).join('');
   }
 
   function renderTimeline() {
-    $('#timeline').innerHTML = C.experience.map(function (x) {
-      return '<li><span class="tl-when">' + esc(L(x.when)) + '</span>' +
+    $('#timeline').innerHTML = C.experience.map(function (x, i) {
+      var cases = (x.cases || []).map(caseById).filter(Boolean);
+      return '<li id="job-' + i + '"><span class="tl-when">' + esc(L(x.when)) + '</span>' +
         '<div><h3 class="tl-org">' + esc(x.org) + '</h3><p class="tl-role">' + esc(L(x.role)) + '</p><p class="tl-where">' + esc(L(x.where)) + '</p></div>' +
-        '<ul class="tl-points">' + x.points[lang].map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul></li>';
+        '<div class="tl-main"><ul class="tl-points">' + x.points[lang].map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul>' +
+        (cases.length ? '<div class="tl-cases">' + cases.map(function (c) {
+          return '<a class="tl-case" href="#case-' + c.id + '" data-case="' + c.id + '">' + caseThumb(c, 'tl-thumb') + '<span>' + esc(L(c.title)) + '</span></a>';
+        }).join('') + '</div>' : '') + '</div></li>';
+    }).join('');
+    // the career path: oldest job on the left, the current one on the right
+    var initials = function (org) { return org.split(/\s+/).map(function (w) { return w.charAt(0); }).join('').slice(0, 2).toUpperCase(); };
+    var start = function (x) { return +(/\d{4}/.exec(x.when.en) || [0])[0]; }, isNow = function (x) { return /now/.test(x.when.en); };
+    $('#career').innerHTML = C.experience.map(function (x, i) { return { x: x, i: i }; }).sort(function (a, b) {
+      return (start(a.x) - start(b.x)) || (isNow(a.x) - isNow(b.x)) || (b.i - a.i);
+    }).map(function (o, n) {
+      var now = isNow(o.x);
+      return '<button type="button" class="career-stop' + (now ? ' is-now' : '') + '" data-job="' + o.i + '" style="--n:' + n + '">' +
+        '<span class="career-medal" aria-hidden="true">' + initials(o.x.org) + '</span>' +
+        '<span class="career-org">' + esc(o.x.org) + '</span>' +
+        '<span class="career-year">' + esc(L(o.x.when)) + '</span></button>';
     }).join('');
   }
 
@@ -166,9 +189,22 @@
     });
     $('#tree').innerHTML = html;
     renderSkillDetail();
-    $('#courseList').innerHTML = C.courses.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('');
+    $('#courseList').innerHTML = C.courses.map(function (c, i) {
+      return '<li><button type="button" class="course" data-course="' + i + '" aria-pressed="' + (selectedSkill === 'course:' + i) + '">' + esc(c) + '</button></li>';
+    }).join('');
   }
   function renderSkillDetail() {
+    var cm = /^course:(\d+)$/.exec(selectedSkill);
+    if (cm) {
+      // a short course: "Name · School (Year)"
+      var raw = C.courses[+cm[1]], m = /^(.*) · (.*) \((\d{4})\)$/.exec(raw) || [raw, raw, '', ''];
+      $('#treeDetail').innerHTML =
+        '<span class="td-status">' + esc(t('skills.done')) + '</span>' +
+        '<h3 class="td-name">' + esc(m[1]) + '</h3>' +
+        '<p class="td-kind">' + esc(t('skills.short')) + (m[2] ? ' · ' + esc(m[2]) : '') + '</p>' +
+        (m[3] ? '<p class="td-meta"><span>' + esc(t('skills.year')) + ' <b>' + esc(m[3]) + '</b></span></p>' : '');
+      return;
+    }
     var s = C.skills.filter(function (x) { return x.id === selectedSkill; })[0];
     if (!s) { $('#treeDetail').innerHTML = '<p>' + esc(t('skills.select')) + '</p>'; return; }
     var when = typeof s.when === 'string' ? s.when : L(s.when);
@@ -259,6 +295,7 @@
     $$('.hud-nav a, .mobile-nav a').forEach(function (a) { a.setAttribute('aria-current', a.getAttribute('href') === '#' + id ? 'page' : 'false'); });
     moveNavInd();
     if (changed && !opts.keepScroll) window.scrollTo(0, 0);
+    if (changed && !(opts.initial && id === 'home')) enterTab(id);
   }
   /* the end-of-tab tiles say which one is next and which page you're on, in words:
      a filled tile would read as the current page */
@@ -723,14 +760,15 @@
     })(t0);
   }
 
-  /* Konami code */
-  var seq = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'], pos = 0;
+  /* the secret mission: download the CV, from the player card, Experience or Contact */
+  ['#cardCv', '#expCv', '#contactCv'].forEach(function (s) {
+    var cv = $(s); if (cv) cv.addEventListener('click', function () { unlock('secret'); confetti(); });
+  });
 
   /* ---------- skill tree interactions ---------- */
-  $('#tree').addEventListener('click', function (e) {
-    var b = e.target.closest('[data-skill]'); if (!b) return;
-    selectedSkill = b.getAttribute('data-skill');
-    $$('.node', $('#tree')).forEach(function (n) { n.setAttribute('aria-pressed', String(n === b)); });
+  function pickEducation(id, b) {
+    selectedSkill = id;
+    $$('.node, .course').forEach(function (n) { n.setAttribute('aria-pressed', String(n === b)); });
     renderSkillDetail();
     inspectedSkills[selectedSkill] = 1;
     if (Object.keys(inspectedSkills).length >= 3) unlock('climber');
@@ -740,6 +778,19 @@
     if (detail.getBoundingClientRect().top >= $('#tree').getBoundingClientRect().bottom - 1) {
       detail.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'nearest' });
     }
+  }
+  $('#tree').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-skill]'); if (b) pickEducation(b.getAttribute('data-skill'), b);
+  });
+  $('#courseList').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-course]'); if (b) pickEducation('course:' + b.getAttribute('data-course'), b);
+  });
+  // the career path jumps to a job and lights it up
+  $('#career').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-job]'); if (!b) return;
+    var li = $('#job-' + b.getAttribute('data-job'));
+    li.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'center' });
+    li.classList.remove('tl-flash'); void li.offsetWidth; li.classList.add('tl-flash');
   });
 
   /* ---------- contact ---------- */
@@ -768,10 +819,6 @@
   document.addEventListener('keydown', function (e) {
     var tag = (e.target.tagName || '').toLowerCase();
     var typing = tag === 'input' && e.target.type !== 'range' || tag === 'textarea' || e.target.isContentEditable;
-    // Konami
-    var k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
-    pos = (k === seq[pos]) ? pos + 1 : (k === seq[0] ? 1 : 0);
-    if (pos === seq.length) { pos = 0; unlock('secret'); confetti(); }
     if (e.key === 'Escape') {
       if (!lb.hidden) { closeLightbox(); return; }
       if (!ql.hidden) { setQuest(false); $('#xpBtn').focus(); return; }
@@ -852,6 +899,41 @@
     }
   }
 
+  /* Every tab opens with an entrance, like a page loading: what's on screen rises in, one
+     after another; what's further down rises in as it scrolls into view. The Process line
+     and the Education rings draw again. */
+  var ENTER = {
+    home: ['.hero-copy > *', '.hero-card-wrap', '.short-inner'],
+    work: ['#work .section-head', '#work .group-head', '#work .case-card', '#work .side-list li'],
+    process: ['#process .section-head', '#process .process-list li'],
+    experience: ['#experience .section-head', '#experience .timeline > li'],
+    skills: ['#skills .section-head', '#skills .tree-detail', '#skills .courses'],
+    contact: ['#contact .contact-inner > *']
+  };
+  function enterTab(id) {
+    if (reduceMotion.matches) return;
+    var els = [];
+    (ENTER[id] || []).concat(id === 'home' ? [] : ['#tabNext .hero-tab']).forEach(function (s) { els = els.concat($$(s)); });
+    var n = 0;
+    els.forEach(function (el) {
+      el.classList.remove('rv', 'in', 'enter'); el.style.removeProperty('--rd');
+      if (revealIO) revealIO.unobserve(el);
+      void el.offsetWidth;
+      if (el.getBoundingClientRect().top < innerHeight * .95) {
+        el.style.setProperty('--ed', Math.min(n++ * 60, 540) + 'ms'); el.classList.add('enter');
+        el.addEventListener('animationend', function done(e) {
+          if (e.animationName !== 'tabIn') return;
+          el.classList.remove('enter'); el.style.removeProperty('--ed'); el.removeEventListener('animationend', done);
+        });
+      } else if (revealIO) { el.classList.add('rv'); revealIO.observe(el); }
+      else el.classList.add('in');
+    });
+    ['#processList', '#tree', '#career'].forEach(function (s) {
+      var el = $(s); if (!el || !el.closest('[data-tab="' + id + '"]') || !revealIO) return;
+      el.classList.remove('in'); el.classList.add('rv'); void el.offsetWidth; revealIO.observe(el);
+    });
+  }
+
   function afterRender() {
     $$('.short-list strong').forEach(prepCount);
     observeCounts($('.short'));
@@ -891,7 +973,7 @@
   setTimeout(function () { root.classList.remove('intro'); }, 2600);
   renderGameFooter();
   onScrollHud();
-  showTab(tabFromHash(location.hash), { keepScroll: true });
+  showTab(tabFromHash(location.hash), { keepScroll: true, initial: true });
   var m0 = location.hash.match(/^#case-([\w-]+)$/);
   if (m0 && caseById(m0[1])) openCase(m0[1], { fromHash: true });
 

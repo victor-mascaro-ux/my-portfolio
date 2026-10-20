@@ -208,6 +208,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
         <span data-i18n="exp.cv">Full CV (PDF)</span></a>
     </header>
+    <nav class="career" id="career" aria-label="Career path"></nav>
     <ol class="timeline" id="timeline"></ol>
   </section>
 
@@ -219,12 +220,14 @@
       <p class="section-lede" data-i18n="skills.lede">Laid out as a skill tree, because I come from games. Click an item to see what it covered.</p>
     </header>
     <div class="tree-layout">
-      <div class="tree" id="tree" role="group" aria-label="Skill tree"></div>
+      <div class="tree-col">
+        <div class="tree" id="tree" role="group" aria-label="Skill tree"></div>
+        <div class="courses">
+          <h3 class="label" data-i18n="skills.more">Shorter courses</h3>
+          <ul class="course-list" id="courseList"></ul>
+        </div>
+      </div>
       <div class="tree-detail" id="treeDetail" aria-live="polite"></div>
-    </div>
-    <div class="courses">
-      <h3 class="label" data-i18n="skills.more">Shorter courses</h3>
-      <ul class="course-list" id="courseList"></ul>
     </div>
   </section>
 

@@ -71,18 +71,18 @@ window.CONTENT = {
       'process.eyebrow': 'Process',
       'process.title': 'How I work',
       'process.lede': 'Roughly the steps I follow on most projects.',
-      'process.example': 'Example',
+      'process.example': 'Example', 'process.see': 'See the project',
 
       'exp.eyebrow': 'Experience',
       'exp.title': 'Where I’ve worked',
-      'exp.cv': 'Full CV (PDF)',
+      'exp.cv': 'Full CV (PDF)', 'exp.path': 'Career path', 'exp.now': 'Now',
 
       'skills.eyebrow': 'Education',
       'skills.title': 'Education and courses',
       'skills.lede': 'Laid out as a skill tree, because I come from games. Click an item to see what it covered.',
       'skills.done': 'Completed', 'skills.progress': 'In progress', 'skills.grade': 'Final grade',
       'skills.core': 'What it covered', 'skills.certs': 'Courses',
-      'skills.more': 'Shorter courses',
+      'skills.more': 'Shorter courses', 'skills.short': 'Short course', 'skills.year': 'Year',
       'skills.select': 'Select an item to see the details.',
 
       'contact.eyebrow': 'Contact',
@@ -173,18 +173,18 @@ window.CONTENT = {
       'process.eyebrow': 'Processo',
       'process.title': 'Como eu trabalho',
       'process.lede': 'Os passos que costumo seguir na maioria dos projetos.',
-      'process.example': 'Na prática',
+      'process.example': 'Na prática', 'process.see': 'Ver o projeto',
 
       'exp.eyebrow': 'Experiência',
       'exp.title': 'Onde trabalhei',
-      'exp.cv': 'CV completo (PDF)',
+      'exp.cv': 'CV completo (PDF)', 'exp.path': 'Trajetória', 'exp.now': 'Agora',
 
       'skills.eyebrow': 'Formação',
       'skills.title': 'Formação e cursos',
       'skills.lede': 'Organizei como uma árvore de habilidades, já que venho dos games. Clique num item para ver o que estudei.',
       'skills.done': 'Concluído', 'skills.progress': 'Em andamento', 'skills.grade': 'Nota final',
       'skills.core': 'O que estudei', 'skills.certs': 'Disciplinas',
-      'skills.more': 'Cursos livres',
+      'skills.more': 'Cursos livres', 'skills.short': 'Curso livre', 'skills.year': 'Ano',
       'skills.select': 'Selecione um item para ver os detalhes.',
 
       'contact.eyebrow': 'Contato',
@@ -237,6 +237,7 @@ window.CONTENT = {
         en: 'Before drawing screens I try to understand what someone gets out of the product and what would make them use it again. Most of my design decisions start there.',
         pt: 'Antes de desenhar qualquer tela, tento entender o que a pessoa ganha com o produto e o que a faria voltar. A maioria das minhas decisões de design parte daí.'
       },
+      case: 'adventures',
       proof: { en: 'At Knomee, each adventure shows clients something about their own finances that they can then share with their advisor.', pt: 'Na Knomee, cada aventura mostra ao cliente algo sobre as próprias finanças, que ele pode compartilhar com o assessor.' }
     },
     {
@@ -245,6 +246,7 @@ window.CONTENT = {
         en: 'Static mockups don’t show timing, animation or how a flow feels after the tenth tap. When those details matter, I build the prototype in HTML or React, working with Claude Code.',
         pt: 'Mockups estáticos não mostram timing, animação nem a sensação de um fluxo depois do décimo toque. Quando esses detalhes importam, faço o protótipo em HTML ou React, junto com o Claude Code.'
       },
+      case: 'advisor',
       proof: { en: 'The Knomee prototype has 58 screens, all built with Claude Code, and was used for handoff, sales demos and user tests.', pt: 'O protótipo da Knomee tem 58 telas, todas construídas com o Claude Code, e foi usado em handoff, demos de vendas e testes com usuários.' }
     },
     {
@@ -253,6 +255,7 @@ window.CONTENT = {
         en: 'Feedback is more useful when it’s left on the screen it’s about. When the team needed a way to comment on coded prototypes, I built one.',
         pt: 'O feedback é mais útil quando fica direto na tela em questão. Quando o time precisou comentar protótipos em código, criei uma ferramenta para isso.'
       },
+      case: 'review-layer',
       proof: { en: 'Review Layer, the commenting tool I made, was used on five Knomee prototypes.', pt: 'O Review Layer, a ferramenta de comentários que criei, foi usado em cinco protótipos da Knomee.' }
     },
     {
@@ -261,6 +264,7 @@ window.CONTENT = {
         en: 'Working on live games taught me that launch is only the first version. After something ships, I look at how people use it and adjust.',
         pt: 'Trabalhar com jogos live me ensinou que o lançamento é só a primeira versão. Depois que algo vai ao ar, observo como as pessoas usam e ajusto.'
       },
+      case: 'smashing-four',
       proof: { en: 'On Smashing Four I rebalanced heroes based on performance data and player feedback.', pt: 'No Smashing Four, rebalanceei heróis com base em dados de desempenho e no feedback dos jogadores.' }
     }
   ],
@@ -716,7 +720,7 @@ window.CONTENT = {
   /* ---------- Experience ---------- */
   experience: [
     {
-      org: 'Knomee', when: { en: '2024 – now', pt: '2024 – atual' },
+      org: 'Knomee', cases: ['adventures', 'advisor', 'review-layer', 'go-to-market'], when: { en: '2024 – now', pt: '2024 – atual' },
       role: { en: 'UX & Gamification Designer', pt: 'Designer de UX e Gamificação' },
       where: { en: 'Fintech · San Francisco · Remote', pt: 'Fintech · San Francisco · Remoto' },
       points: {
@@ -725,7 +729,7 @@ window.CONTENT = {
       }
     },
     {
-      org: 'By Aliens', when: { en: '2022 – 2025', pt: '2022 – 2025' },
+      org: 'By Aliens', cases: ['smashing-four', 'auction-city', 'illuminati', 'idle-planes'], when: { en: '2022 – 2025', pt: '2022 – 2025' },
       role: { en: 'Game & UX Designer', pt: 'Game e UX Designer' },
       where: { en: 'Game studio · Dubai · Remote', pt: 'Estúdio de jogos · Dubai · Remoto' },
       points: {
@@ -734,7 +738,7 @@ window.CONTENT = {
       }
     },
     {
-      org: 'Betsie', when: { en: 'Jul – Nov 2024', pt: 'jul – nov 2024' },
+      org: 'Betsie', cases: ['betsie'], when: { en: 'Jul – Nov 2024', pt: 'jul – nov 2024' },
       role: { en: 'UX/Product Design Consultant', pt: 'Consultor de UX e Produto' },
       where: { en: 'Startup · San Francisco · Remote', pt: 'Startup · San Francisco · Remoto' },
       points: {
@@ -743,7 +747,7 @@ window.CONTENT = {
       }
     },
     {
-      org: 'Lumen Games', when: { en: '2021 – 2022', pt: '2021 – 2022' },
+      org: 'Lumen Games', cases: ['lumen'], when: { en: '2021 – 2022', pt: '2021 – 2022' },
       role: { en: 'Producer / Game Designer', pt: 'Produtor / Game Designer' },
       where: { en: 'Game studio · Aracaju · Remote', pt: 'Estúdio de jogos · Aracaju · Remoto' },
       points: {
@@ -819,8 +823,7 @@ window.CONTENT = {
       name: { en: 'UX Unicorn 2.0', pt: 'UX Unicorn 2.0' },
       kind: { en: 'Professional certificate · Leandro Rezende', pt: 'Certificado profissional · Leandro Rezende' },
       when: '2025 – 2026',
-      core: { en: ['UX research and usability testing', 'UX metrics (HEART, AARRR)', 'UX writing', 'Journey maps and service blueprints'], pt: ['Pesquisa de UX e testes de usabilidade', 'Métricas de UX (HEART, AARRR)', 'UX writing', 'Mapas de jornada e service blueprints'] },
-      extra: { en: ['Workshop facilitation', 'Front-end for designers'], pt: ['Facilitação de workshops', 'Front-end para designers'] }
+      core: { en: ['UX strategy', 'UX research', 'Journey mapping', 'Workshop facilitation', 'UX writing', 'UI design', 'Front-end'], pt: ['Estratégia de UX', 'Pesquisa de UX', 'Mapeamento de jornada', 'Facilitação de workshops', 'UX writing', 'UI design', 'Front-end'] }
     }
   ],
   branches: {
@@ -839,7 +842,7 @@ window.CONTENT = {
     { id: 'daynight', xp: 10, t: { en: 'Day and night', pt: 'Dia e noite' }, d: { en: 'Switched theme', pt: 'Trocou de tema' } },
     { id: 'climber', xp: 30, t: { en: 'Tree climber', pt: 'De galho em galho' }, d: { en: 'Opened three items in Education', pt: 'Abriu três itens em Formação' } },
     { id: 'party', xp: 100, t: { en: 'Party invite', pt: 'Convite para a party' }, d: { en: 'Copied my email or opened LinkedIn', pt: 'Copiou meu e-mail ou abriu o LinkedIn' } },
-    { id: 'secret', xp: 50, secret: true, t: { en: 'Old school', pt: 'Das antigas' }, d: { en: 'Entered the Konami code', pt: 'Digitou o código Konami' } }
+    { id: 'secret', xp: 50, secret: true, t: { en: 'Loot drop', pt: 'Item coletado' }, d: { en: 'Downloaded my CV', pt: 'Baixou meu CV' } }
   ],
   levels: [0, 50, 140, 260]
 };
