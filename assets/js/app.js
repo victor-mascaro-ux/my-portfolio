@@ -202,7 +202,7 @@
       // a short course: "Name · School (Year)", what it is, and what it covered
       var c = C.courses[+cm[1]], raw = c.label, m = /^(.*) · (.*) \((\d{4})\)$/.exec(raw) || [raw, raw, '', ''];
       $('#treeDetail').innerHTML =
-        '<span class="td-status">' + esc(t('skills.done')) + '</span>' +
+        '<span class="td-status' + (c.status === 'progress' ? ' is-progress' : '') + '">' + esc(c.status === 'progress' ? t('skills.progress') : t('skills.done')) + '</span>' +
         '<h3 class="td-name">' + esc(m[1]) + '</h3>' +
         '<p class="td-kind">' + esc(t('skills.short')) + (m[2] ? ' · ' + esc(m[2]) : '') + '</p>' +
         (m[3] ? '<p class="td-meta"><span>' + esc(t('skills.year')) + ' <b>' + esc(m[3]) + '</b></span></p>' : '') +
