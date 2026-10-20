@@ -67,6 +67,8 @@
         var el = document.createElement('span'); el.className = 'w'; el.style.setProperty('--wi', i++); el.textContent = w; span.appendChild(el);
       });
     });
+    // the closing period stays plain text (no underline, normal colour) and fades in after the last word
+    var dot = $('.hero-title .ht-dot'); if (dot) dot.style.setProperty('--wi', i);
   }
 
   /* ---------- icons ---------- */

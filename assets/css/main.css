@@ -347,7 +347,7 @@ kbd {
   .vm-brand__frame { padding: 5.5px 10.5px; }   /* 4px 9px inside the 1.5px line */
 }
 
-/* The header shows the favicon tile (the framed-name lockup above stays available for other uses) */
+/* The header shows the app icon: the favicon tile with the selection frame and cursor (the framed-name lockup above stays available for other uses) */
 img.brand-mark { display: block; background: none; box-shadow: none; }
 
 /* Hero: the primary logo above the eyebrow, in the colourway that matches the theme */
@@ -1068,6 +1068,9 @@ main { overflow-x: clip; }
 .intro .hero-logo { animation: rise .7s var(--ease-out) both; }
 .intro .hero .eyebrow { animation: rise .7s var(--ease-out) .05s both; }
 .intro .hero-title .w { animation: wordUp .95s var(--ease-out) both; animation-delay: calc(.12s + var(--wi, 0) * 55ms); }
+/* an inline span (not a word box), so it can never wrap onto a line of its own */
+.intro .hero-title .ht-dot { animation: dotIn .5s var(--ease-out) both; animation-delay: calc(.4s + var(--wi, 0) * 55ms); }
+@keyframes dotIn { from { opacity: 0; } }
 .intro .hero-lede { animation: rise .8s var(--ease-out) .6s both; }
 .intro .hero-tabs { animation: rise .8s var(--ease-out) .7s both; }
 .intro .hero-card-wrap { animation: deal 1.15s var(--ease-out) .3s both, float 7s ease-in-out 1.6s infinite; }
