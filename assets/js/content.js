@@ -10,7 +10,7 @@ window.CONTENT = {
   person: {
     name: 'Victor Mascaro',
     email: 'viktor.mascaro@gmail.com',
-    linkedin: 'https://www.linkedin.com/in/viktor-mascaro/',
+    linkedin: 'https://www.linkedin.com/in/victor-mascaro/',
     github: 'https://github.com/victor-mascaro-ux',
     cv: { en: 'assets/cv/Victor-Mascaro-CV-EN.pdf', pt: 'assets/cv/Victor-Mascaro-CV-PT.pdf' }
   },
