@@ -276,9 +276,82 @@ kbd {
   background: var(--accent); color: var(--accent-ink); font-family: var(--f-display); font-weight: 800; font-size: .86rem; letter-spacing: -.02em;
   box-shadow: inset 0 -3px 0 var(--gold);
 }
-.brand-text { display: grid; line-height: 1.15; }
-.brand-name { font-family: var(--f-display); font-weight: 650; font-size: 1.02rem; letter-spacing: -.01em; }
-.brand-role { font-size: var(--t-xs); font-weight: 500; color: var(--muted); }
+
+/* ---------- Logo · Selection (from the logo kit, assets/brand/README.md) ---------- */
+/* Header lockup (UI version): framed name + cursor, no tag (the four-part tag is too long for a 64px header).
+   Fixed 1.5px strokes so it stays crisp at 18px. */
+.vm-brand {
+  display: inline-flex;
+  align-items: center;           /* everything aligns to the vertical middle */
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.vm-brand__lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vm-brand__frame {
+  position: relative;
+  /* the 1.5px frame is an inset shadow, not a border: Chrome and Edge round a 1.5px border down to 1px.
+     Padding = the spec's 7px / 9px + the 1.5px line, so the frame keeps the same size */
+  padding: 8.5px 10.5px;         /* 7px measured from cap height and baseline, inside the line */
+  border: 0;
+  box-shadow: inset 0 0 0 1.5px var(--accent);
+  font-family: var(--f-display);
+  font-weight: 720;
+  font-variation-settings: 'opsz' 48;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  color: var(--ink);
+  text-box: trim-both cap alphabetic;   /* optical vertical centering */
+}
+
+/* Handles: SVG squares (crisp at any zoom), side = 5 x the 1.5px stroke, centered on each corner */
+.vm-brand__handle {
+  position: absolute;
+  width: 7.5px;
+  height: 7.5px;
+  overflow: visible;
+}
+.vm-brand__handle rect { fill: var(--paper); stroke: var(--accent); stroke-width: 1px; }
+/* measured from the frame's outer edge (no border box now): -3px centres each handle on the 1.5px line */
+.vm-brand__handle--tl { left: -3px;  top: -3px; }
+.vm-brand__handle--tr { right: -3px; top: -3px; }
+.vm-brand__handle--bl { left: -3px;  bottom: -3px; }
+.vm-brand__handle--br { right: -3px; bottom: -3px; }
+
+/* Cursor: always shown, tip on the bottom-right handle. On hover it nudges as if dragging the handle. */
+.vm-brand__cursor {
+  position: absolute;
+  left: calc(100% - 1.5px);      /* the inner edge of the line, as with the original border */
+  top: calc(100% - 1.5px);
+  width: 12px;
+  height: 16.5px;
+  margin: -0.375px 0 0 -0.375px;  /* tip exactly on the handle centre */
+  overflow: visible;
+  transition: transform var(--dur-2, .35s) var(--ease-pop, ease);
+  pointer-events: none;
+}
+.vm-brand:hover .vm-brand__cursor,
+.vm-brand:focus-visible .vm-brand__cursor { transform: translate(3px, 3px); }
+
+
+/* Browsers without text-box-trim (Firefox today): fall back to line-box padding */
+@supports not (text-box: trim-both cap alphabetic) {
+  .vm-brand__frame { padding: 5.5px 10.5px; }   /* 4px 9px inside the 1.5px line */
+}
+
+/* The header shows the app icon: the favicon tile with the selection frame and cursor (the framed-name lockup above stays available for other uses) */
+img.brand-mark { display: block; background: none; box-shadow: none; }
+
+/* Hero: the primary logo above the eyebrow, in the colourway that matches the theme */
+
 .hud-nav { display: flex; gap: 4px; margin-left: 8px; }
 .hud-nav a {
   position: relative; padding: 8px 12px; border-radius: 8px; text-decoration: none; color: var(--muted);
@@ -428,6 +501,9 @@ kbd {
 .pc-portrait img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); }
 .pc-id { display: grid; gap: 4px; margin-top: -2px; }
 .pc-name { font-size: 1.85rem; font-weight: 720; letter-spacing: -.03em; line-height: 1; color: var(--on-blue); }
+/* the logo stands in for the name, role and subtitle: the full width of the card, its own clear space trimmed by the file's margins */
+.pc-logo { margin: 2px 0 -4px; }
+.pc-logo img { display: block; width: 100%; height: auto; }
 .pc-class { display: grid; gap: 2px; font-weight: 600; font-size: var(--t-sm); }
 .pc-sub { color: var(--on-blue-2); font-weight: 500; font-size: var(--t-xs); }
 .pc-stats { margin: 0; display: grid; gap: 0; border-top: 1px dashed var(--on-blue-line); }
@@ -986,6 +1062,9 @@ main { overflow-x: clip; }
 .hero-title .w { display: inline-block; }
 .intro .hero .eyebrow { animation: rise .7s var(--ease-out) .05s both; }
 .intro .hero-title .w { animation: wordUp .95s var(--ease-out) both; animation-delay: calc(.12s + var(--wi, 0) * 55ms); }
+/* an inline span (not a word box), so it can never wrap onto a line of its own */
+.intro .hero-title .ht-dot { animation: dotIn .5s var(--ease-out) both; animation-delay: calc(.4s + var(--wi, 0) * 55ms); }
+@keyframes dotIn { from { opacity: 0; } }
 .intro .hero-lede { animation: rise .8s var(--ease-out) .6s both; }
 .intro .hero-tabs { animation: rise .8s var(--ease-out) .7s both; }
 .intro .hero-card-wrap { animation: deal 1.15s var(--ease-out) .3s both, float 7s ease-in-out 1.6s infinite; }
@@ -1171,7 +1250,6 @@ span.sep { display: inline; font-family: var(--f-mono); font-weight: 700; line-h
 }
 @media (max-width: 640px) {
   :root { --hud-h: 58px; }
-  .brand-text { display: none; }
   .hud-inner { gap: 12px; }
   .hud-tools { gap: 6px; }
   .xp-track { width: 44px; }
@@ -1206,6 +1284,8 @@ span.sep { display: inline; font-family: var(--f-mono); font-weight: 700; line-h
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .vm-brand__cursor { transition: none; }
+  .vm-brand:hover .vm-brand__cursor, .vm-brand:focus-visible .vm-brand__cursor { transform: none; }   /* no nudge at all */
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .xp-underline { animation: none; background-size: 100% .12em, 100% .12em; }

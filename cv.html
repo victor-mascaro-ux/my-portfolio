@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Victor Mascaro · CV</title>
 <meta name="robots" content="noindex">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/brand/favicon/favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/brand/favicon/favicon.svg" type="image/svg+xml">
 <style>
   /* Printable CV, rendered to PDF (A4). Content comes from assets/js/content.js. */
   @font-face { font-family: 'Bricolage Grotesque'; src: url('assets/fonts/bricolage-grotesque-latin-standard-normal.woff2') format('woff2'); font-weight: 200 800; font-stretch: 75% 100%; }
@@ -86,8 +87,8 @@
   function L(v) { return typeof v === 'string' ? v : (v[lang] || v.en); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); }
   var T = {
-    en: { title: 'UX/UI Designer', sub: 'Game systems, gamification & AI', sum: 'UX/UI designer based in São Paulo. I’ve worked on mobile games since 2021 and on Knomee, a fintech product for financial advisors, since 2024. Most of my work is on onboarding, progression and gamification. I design for AI and with it, and I build my prototypes in code with Claude Code.', exp: 'Experience', res: 'Highlights', edu: 'Education', links: 'Links', mail: 'Email', portfolio: 'Portfolio', tools: 'Tools & skills', langs: 'Languages', langsV: 'Portuguese (native) · English (professional)', loc: 'São Paulo, Brazil · UTC−3 · Remote', port: 'Portfolio with case studies' },
-    pt: { title: 'UX/UI Designer', sub: 'Sistemas de jogo, gamificação e IA', sum: 'UX/UI designer em São Paulo. Trabalho com jogos mobile desde 2021 e, desde 2024, na Knomee, uma fintech para assessores financeiros. Meu trabalho é sobretudo em onboarding, progressão e gamificação. Desenho para IA e com IA, e construo meus protótipos em código com o Claude Code.', exp: 'Experiência', res: 'Destaques', edu: 'Formação', links: 'Links', mail: 'E-mail', portfolio: 'Portfólio', tools: 'Ferramentas e habilidades', langs: 'Idiomas', langsV: 'Português (nativo) · Inglês (profissional)', loc: 'São Paulo, Brasil · UTC−3 · Remoto', port: 'Portfólio com cases' }
+    en: { title: 'UX/AI Designer', sub: 'Game systems, gamification & AI', sum: 'UX/AI designer based in São Paulo. I’ve worked on mobile games since 2021 and on Knomee, a fintech product for financial advisors, since 2024. Most of my work is on onboarding, progression and gamification. I design for AI and with it, and I build my prototypes in code with Claude Code.', exp: 'Experience', res: 'Highlights', edu: 'Education', links: 'Links', mail: 'Email', portfolio: 'Portfolio', tools: 'Tools & skills', langs: 'Languages', langsV: 'Portuguese (native) · English (professional)', loc: 'São Paulo, Brazil · UTC−3 · Remote', port: 'Portfolio with case studies' },
+    pt: { title: 'UX/AI Designer', sub: 'Sistemas de jogo, gamificação e IA', sum: 'UX/AI designer em São Paulo. Trabalho com jogos mobile desde 2021 e, desde 2024, na Knomee, uma fintech para assessores financeiros. Meu trabalho é sobretudo em onboarding, progressão e gamificação. Desenho para IA e com IA, e construo meus protótipos em código com o Claude Code.', exp: 'Experiência', res: 'Destaques', edu: 'Formação', links: 'Links', mail: 'E-mail', portfolio: 'Portfólio', tools: 'Ferramentas e habilidades', langs: 'Idiomas', langsV: 'Português (nativo) · Inglês (profissional)', loc: 'São Paulo, Brasil · UTC−3 · Remoto', port: 'Portfólio com cases' }
   }[lang];
   var site = 'victor-mascaro-ux.github.io/my-portfolio';
   var results = [
@@ -95,7 +96,7 @@
     ['58', { en: 'screens across advisor, firm and client views (Knomee)', pt: 'telas nas visões de assessor, empresa e cliente (Knomee)' }],
     ['5', { en: 'gamified Adventures in the Knomee client app', pt: 'Adventures gamificadas no app do cliente da Knomee' }],
     ['6', { en: 'commercial games and apps I’ve worked on', pt: 'jogos e apps comerciais em que trabalhei' }],
-    ['4', { en: 'live-service games at By Aliens', pt: 'jogos live-service na By Aliens' }]
+    ['15', { en: 'games I made in university and at game jams', pt: 'jogos que fiz na faculdade e em game jams' }]
   ];
   if (lang === 'pt') results.forEach(function (r) { r[0] = r[0].replace('.', ','); });
   var tools = { en: ['Figma', 'Prototyping in code', 'React + TypeScript', 'HTML / CSS / JS', 'Design systems', 'UX research', 'Game economy', 'Unity + C#', 'Claude Code', 'Claude Design'], pt: ['Figma', 'Prototipação em código', 'React + TypeScript', 'HTML / CSS / JS', 'Design systems', 'Pesquisa de UX', 'Economia de jogos', 'Unity + C#', 'Claude Code', 'Claude Design'] }[lang];

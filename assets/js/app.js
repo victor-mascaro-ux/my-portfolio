@@ -38,6 +38,7 @@
     var md = $('meta[name="description"]'); if (md) md.setAttribute('content', t('meta.desc'));
     $('#langCode').textContent = t('hud.langShort');
     $('#langBtn').setAttribute('aria-label', t('hud.lang'));
+    $('.brand').setAttribute('aria-label', t('brand.label'));
     $('#menuBtn').setAttribute('aria-label', t('nav.menu'));
     $('#lbClose').setAttribute('aria-label', t('lightbox.close'));
     $('.hero-tabs').setAttribute('aria-label', t('hero.tabs'));
@@ -66,6 +67,8 @@
         var el = document.createElement('span'); el.className = 'w'; el.style.setProperty('--wi', i++); el.textContent = w; span.appendChild(el);
       });
     });
+    // the closing period stays plain text (no underline, normal colour) and fades in after the last word
+    var dot = $('.hero-title .ht-dot'); if (dot) dot.style.setProperty('--wi', i);
   }
 
   /* ---------- icons ---------- */
@@ -269,6 +272,10 @@
       // the flag flips over and the code rolls in (restarted on every switch), and the text types itself in
       this.classList.remove('is-flipping'); void this.offsetWidth; this.classList.add('is-flipping');
       typeIn();
+      // the hero's gold underline draws again once the new words have typed in
+      $$('.hero-title .xp-underline').forEach(function (u) {
+        u.style.animation = 'none'; void u.offsetWidth; u.style.animation = 'xpfill 1.2s .45s var(--ease-out) forwards';
+      });
     }
     toast(t('toast.lang'));
     unlock('polyglot');

@@ -14,32 +14,32 @@ window.CONTENT = {
     github: 'https://github.com/victor-mascaro-ux',
     cv: { en: 'assets/cv/Victor-Mascaro-CV-EN.pdf', pt: 'assets/cv/Victor-Mascaro-CV-PT.pdf' },
     // bump whenever the PDFs are rebuilt: it changes the link, so browsers don't show an old saved copy
-    cvVersion: '2026-10-20e'
+    cvVersion: '2026-10-20g'
   },
 
   /* ---------- Interface strings ---------- */
   ui: {
     en: {
-      'meta.title': 'Victor Mascaro · UX/UI Designer',
-      'meta.desc': 'UX/UI designer in São Paulo with a background in game design. Currently working on Knomee, a fintech product for financial advisors.',
+      'meta.title': 'Victor Mascaro · UX/AI Designer',
+      'meta.desc': 'UX/AI designer in São Paulo with a background in game design. Currently working on Knomee, a fintech product for financial advisors.',
       'skip': 'Skip to content',
       'nav.work': 'Work', 'nav.process': 'Process', 'nav.experience': 'Experience', 'nav.skills': 'Education', 'nav.contact': 'Contact',
-      'brand.role': 'UX Designer',
+      'brand.label': 'Victor Mascaro: UX/AI, Gamification, Game Design. Back to top',
       'nav.menu': 'Menu', 'nav.close': 'Close menu',
       'hud.lang': 'EN, switch to Portuguese', 'hud.langShort': 'EN',
       'hud.themeDark': 'Switch to dark theme', 'hud.themeLight': 'Switch to light theme',
       'hud.xp': 'Quest log', 'hud.level': 'Lv',
 
       'hero.eyebrow': 'Victor Mascaro · São Paulo',
-      'hero.title.a': 'UX/UI designer',
-      'hero.title.s1': 'Specialized in ', 'hero.title.ai': 'AI UX', 'hero.title.s2': ', with a background in ',
-      'hero.title.b': 'game design.',
+      'hero.title.a': 'UX/AI designer',
+      'hero.title.s2': 'with a background in ',
+      'hero.title.b': 'game design',
       'hero.lede': 'Since 2024 I’ve designed Knomee, a fintech product for financial advisors and their clients, including its AI features, and I prototype it in code with AI. Before that I worked on mobile games like Smashing Four and Auction City.',
       'hero.tabs': 'Sections',
       'hero.tab.work': 'Knomee, Betsie and mobile games', 'hero.tab.process': 'How I work, step by step', 'hero.tab.experience': 'Where I’ve worked since 2021', 'hero.tab.skills': 'Degrees and courses', 'hero.tab.contact': 'Email, LinkedIn and CV',
 
       'card.rarity': 'Designer Card',
-      'card.class': 'UX/UI Designer',
+      'card.class': 'UX/AI Designer',
       'card.subclass': 'Gamification, game systems and AI',
       'card.level': 'Lv. 5',
       'card.levelHint': '5 years of work since 2021',
@@ -53,13 +53,13 @@ window.CONTENT = {
       'short.title': 'In short',
       'short.1.v': '5 yrs', 'short.1.l': 'working in game and product design, since 2021',
       'short.2.v': '6', 'short.2.l': 'commercial games and apps I’ve worked on',
-      'short.3.v': '4', 'short.3.l': 'live-service mobile games at By Aliens',
+      'short.3.v': '15', 'short.3.l': 'games I made in university and at game jams',
       'short.4.v': '643', 'short.4.l': 'merged pull requests on the Knomee prototype, which I design and build with Claude Code',
 
       'work.eyebrow': 'Work',
       'work.title': 'Selected projects',
       'work.lede': 'Each project has a short write-up: the context, what I did, and the result.',
-      'work.knomee.title': 'UX/UI',
+      'work.knomee.title': 'UX/AI',
       'work.knomee.meta': 'Knomee · 2024 to now',
       'work.knomee.lede': 'Knomee helps financial advisors get to know their clients before the first meeting. I work on both sides of the product: the app clients fill in and the dashboard advisors use. I design its AI features, like a voice shortcut in the client app, and build the prototype with AI.',
       'work.games.title': 'Mobile games',
@@ -122,26 +122,26 @@ window.CONTENT = {
       'toast.lang': 'Page in English', 'toast.theme': 'Theme changed'
     },
     pt: {
-      'meta.title': 'Victor Mascaro · UX/UI Designer',
-      'meta.desc': 'UX/UI designer em São Paulo, com background em game design. Hoje trabalho na Knomee, uma fintech para assessores financeiros.',
+      'meta.title': 'Victor Mascaro · UX/AI Designer',
+      'meta.desc': 'UX/AI designer em São Paulo, com background em game design. Hoje trabalho na Knomee, uma fintech para assessores financeiros.',
       'skip': 'Pular para o conteúdo',
       'nav.work': 'Trabalhos', 'nav.process': 'Processo', 'nav.experience': 'Experiência', 'nav.skills': 'Formação', 'nav.contact': 'Contato',
-      'brand.role': 'UX Designer',
+      'brand.label': 'Victor Mascaro: UX/AI, Gamificação, Game Design. Voltar ao início',
       'nav.menu': 'Menu', 'nav.close': 'Fechar menu',
       'hud.lang': 'PT, mudar para inglês', 'hud.langShort': 'PT',
       'hud.themeDark': 'Ativar tema escuro', 'hud.themeLight': 'Ativar tema claro',
       'hud.xp': 'Diário de missões', 'hud.level': 'Nv',
 
       'hero.eyebrow': 'Victor Mascaro · São Paulo',
-      'hero.title.a': 'UX/UI designer',
-      'hero.title.s1': 'Especializado em ', 'hero.title.ai': 'UX para IA', 'hero.title.s2': ', com background em ',
-      'hero.title.b': 'game design.',
+      'hero.title.a': 'UX/AI designer',
+      'hero.title.s2': 'com background em ',
+      'hero.title.b': 'game design',
       'hero.lede': 'Desde 2024 faço o design da Knomee, uma fintech para assessores financeiros e os clientes deles, incluindo as funcionalidades de IA, e prototipo em código com IA. Antes disso, trabalhei com jogos mobile como Smashing Four e Auction City.',
       'hero.tabs': 'Seções',
       'hero.tab.work': 'Knomee, Betsie e jogos mobile', 'hero.tab.process': 'Como eu trabalho, passo a passo', 'hero.tab.experience': 'Onde trabalhei desde 2021', 'hero.tab.skills': 'Graduação e cursos', 'hero.tab.contact': 'E-mail, LinkedIn e CV',
 
       'card.rarity': 'Ficha do designer',
-      'card.class': 'UX/UI Designer',
+      'card.class': 'UX/AI Designer',
       'card.subclass': 'Gamificação, sistemas de jogo e IA',
       'card.level': 'Nv. 5',
       'card.levelHint': '5 anos de carreira, desde 2021',
@@ -155,13 +155,13 @@ window.CONTENT = {
       'short.title': 'Em resumo',
       'short.1.v': '5 anos', 'short.1.l': 'de experiência em game design e design de produto, desde 2021',
       'short.2.v': '6', 'short.2.l': 'jogos e apps comerciais em que trabalhei',
-      'short.3.v': '4', 'short.3.l': 'jogos mobile live-service na By Aliens',
+      'short.3.v': '15', 'short.3.l': 'jogos que fiz na faculdade e em game jams',
       'short.4.v': '643', 'short.4.l': 'pull requests mergeados no protótipo da Knomee, que eu desenho e desenvolvo com o Claude Code',
 
       'work.eyebrow': 'Trabalhos',
       'work.title': 'Projetos selecionados',
       'work.lede': 'Cada projeto tem um resumo curto: o contexto, o que eu fiz e o resultado.',
-      'work.knomee.title': 'UX/UI',
+      'work.knomee.title': 'UX/AI',
       'work.knomee.meta': 'Knomee · 2024 até hoje',
       'work.knomee.lede': 'A Knomee ajuda assessores financeiros a conhecer os clientes antes da primeira reunião. Trabalho nos dois lados do produto: o app que o cliente preenche e o dashboard que o assessor usa. Desenho as funcionalidades de IA, como um atalho de voz no app do cliente, e construo o protótipo com IA.',
       'work.games.title': 'Jogos mobile',
@@ -285,7 +285,7 @@ window.CONTENT = {
       tagline: { en: 'Replacing a financial intake form with five short, game-like questionnaires.', pt: 'Troquei um formulário de cadastro financeiro por cinco questionários curtos, com cara de jogo.' },
       chip: { en: '5 adventures, 1 to 3 min each', pt: '5 aventuras, de 1 a 3 min cada' },
       meta: {
-        role: { en: 'UX/UI and gamification designer', pt: 'Designer de UX/UI e gamificação' },
+        role: { en: 'UX/AI and gamification designer', pt: 'Designer de UX/AI e gamificação' },
         when: { en: '2024 to 2026', pt: '2024 a 2026' },
         platform: { en: 'Mobile web, white-label', pt: 'Web mobile, white-label' },
         context: { en: 'Early-stage fintech, remote team', pt: 'Fintech em fase inicial, time remoto' }
@@ -785,7 +785,7 @@ window.CONTENT = {
       name: { en: 'Game Design', pt: 'Design de Games' },
       kind: { en: 'Bachelor’s · Universidade Anhembi Morumbi', pt: 'Bacharelado · Universidade Anhembi Morumbi' },
       when: '2019 – 2023', grade: '96',
-      core: { en: ['Game systems', 'Level design and narrative', 'Prototyping board and digital games', 'UX/UI design', 'Unity and C#', 'Teamwork and leadership'], pt: ['Sistemas de jogo', 'Level design e narrativa', 'Prototipação de jogos de tabuleiro e digitais', 'Design de UX/UI', 'Unity e C#', 'Trabalho em equipe e liderança'] },
+      core: { en: ['Game design and documentation', 'Analog game design', 'Level design and narrative', 'Rapid prototyping', 'Interface and interaction design', 'Game programming (2D and 3D)', 'Character design and art direction', 'Animation and audio', 'Serious and transmedia games', 'Game production and business'], pt: ['Design de games e documentação', 'Design de jogo analógico', 'Level design e narrativa', 'Prototipagem rápida', 'Design de interface e interação', 'Programação de jogos 2D e 3D', 'Design de personagens e direção de arte', 'Animação e áudio', 'Serious games e transmídia', 'Produção e negócios de games'] },
       extra: { en: ['Dean’s List (2019)', 'Student Ambassador (2020–2021)', 'Full scholarship, graduated with distinction'], pt: ['Dean’s List (2019)', 'Embaixador estudantil (2020–2021)', 'Bolsa integral, formado com distinção'] }
     },
     {
@@ -844,7 +844,7 @@ window.CONTENT = {
   },
   // the shorter courses are shown in these groups, in this order
   courseCats: [
-    { id: 'ux', name: { en: 'UX/UI and AI design', pt: 'Design de UX/UI e IA' } },
+    { id: 'ux', name: { en: 'UX/AI design', pt: 'Design de UX/AI' } },
     { id: 'games', name: { en: 'Game design and development', pt: 'Game design e desenvolvimento de jogos' } },
     { id: 'art', name: { en: 'Art and 3D', pt: 'Arte e 3D' } },
     { id: 'web', name: { en: 'Web development', pt: 'Desenvolvimento web' } }
