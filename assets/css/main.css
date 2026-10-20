@@ -1105,15 +1105,16 @@ a.side-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2p
 
 /* Theme switch: circular wipe from the toggle (View Transitions) */
 ::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
-/* Language switch: a focus pull. The page blurs out in one language and sharpens back in the other,
-   rising a touch as it lands; the header holds still while its flag flips over like a card. */
-.vt-lang .hud { view-transition-name: hud; }
-.vt-lang::view-transition-old(hud) { display: none; }
-.vt-lang::view-transition-new(hud) { animation: none; }
-.vt-lang::view-transition-old(root) { animation: langOut .3s ease-in both; }
-.vt-lang::view-transition-new(root) { animation: langIn .6s var(--ease-out) .1s both; }
-@keyframes langOut { to { opacity: 0; filter: blur(12px); transform: translateY(-8px); } }
-@keyframes langIn { from { opacity: 0; filter: blur(12px); transform: translateY(14px); } }
+/* Language switch: the text on screen types itself in again, top to bottom, in the new language.
+   The part not yet typed keeps its space (hidden), so nothing reflows; headings carry a caret.
+   The flag in the header flips over like a card. */
+.tw-off { visibility: hidden; }
+.tw-head .tw-on { position: relative; }
+.tw-head.is-typing .tw-on::after {
+  content: ""; position: absolute; right: -3px; top: .08em; bottom: .02em; width: 2px; border-radius: 1px;
+  background: var(--accent); animation: caretBlink .45s steps(1) infinite;
+}
+@keyframes caretBlink { 50% { opacity: 0; } }
 .lang-btn.is-flipping .lang-flag { animation: flagFlip .7s var(--ease-pop) both; }
 .lang-btn.is-flipping .lang-code { display: inline-block; animation: codeRoll .5s var(--ease-out) .12s both; }
 @keyframes flagFlip { from { transform: perspective(80px) rotateY(-180deg) scale(.8); } }

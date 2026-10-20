@@ -263,22 +263,88 @@
   $('#langBtn').addEventListener('click', function () {
     lang = lang === 'en' ? 'pt' : 'en';
     store.set('vm-lang', lang);
-    var btn = this;
-    var swap = function () {
-      applyI18n(); renderAll(); afterRender();
-      // the flag flips over and the code rolls in (restarted on every switch)
-      if (!reduceMotion.matches) { btn.classList.remove('is-flipping'); void btn.offsetWidth; btn.classList.add('is-flipping'); }
-    };
-    if (document.startViewTransition && !reduceMotion.matches) {
-      root.classList.add('vt-lang');
-      var vt = document.startViewTransition(swap);
-      var done = function () { root.classList.remove('vt-lang'); };
-      vt.finished.then(done, done);
-    } else swap();
+    applyI18n(); renderAll(); afterRender();
     if (sheet.current) renderSheet(sheet.current);
+    if (!reduceMotion.matches) {
+      // the flag flips over and the code rolls in (restarted on every switch), and the text types itself in
+      this.classList.remove('is-flipping'); void this.offsetWidth; this.classList.add('is-flipping');
+      typeIn();
+    }
     toast(t('toast.lang'));
     unlock('polyglot');
   });
+
+  /* Language switch: the text on screen types itself in again, top to bottom. Each block (a heading, a
+     paragraph, a button...) types as one stream, left to right, even when it's made of several pieces.
+     While a piece types it's a wrapper of the typed part and a hidden rest that keeps its space, so
+     nothing reflows; when done it goes back to plain text. Headings type slower and carry a caret. */
+  var typing = null;
+  function typeIn() {
+    if (typing) typing.finish();
+    var vh = innerHeight, groups = [], byBlock = new Map();
+    var blockOf = function (el) {
+      while (el.parentElement && el !== document.body && /^(inline|contents)/.test(getComputedStyle(el).display)) el = el.parentElement;
+      return el;
+    };
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    for (var n; (n = walker.nextNode());) {
+      var el = n.parentElement;
+      if (!n.nodeValue.trim() || !el || el.closest('script, style, svg, .toast, .short-list strong, [aria-hidden="true"]')) continue;
+      var r = el.getBoundingClientRect();
+      if (!r.width || r.bottom <= 0 || r.top >= vh) continue;
+      var block = blockOf(el), g = byBlock.get(block);
+      if (!g) {
+        var br = block.getBoundingClientRect();
+        g = { nodes: [], top: Math.round(br.top), left: br.left, head: !!block.closest('h1, h2, h3') };
+        byBlock.set(block, g); groups.push(g);
+      }
+      g.nodes.push(n);
+    }
+    if (!groups.length) return;
+    groups.sort(function (a, b) { return a.top - b.top || a.left - b.left; });
+    groups.forEach(function (g, gi) {
+      var total = 0;
+      g.parts = g.nodes.map(function (node) {
+        var full = node.nodeValue, w = document.createElement('span'), on = document.createElement('span'), off = document.createElement('span');
+        w.className = 'tw' + (g.head ? ' tw-head' : ''); on.className = 'tw-on'; off.className = 'tw-off'; off.textContent = full;
+        w.appendChild(on); w.appendChild(off);
+        node.parentNode.replaceChild(w, node);
+        var part = { w: w, on: on, off: off, full: full, from: total, k: 0 };
+        total += full.length;
+        return part;
+      });
+      g.total = total; g.K = -1;
+      g.delay = Math.min(gi * 22, 450);
+      g.dur = g.head ? Math.max(250, Math.min(total * 38, 800)) : Math.max(140, Math.min(total * 9, 650));
+    });
+    var t0 = performance.now(), raf = 0;
+    function restore(g) {
+      g.done = true;
+      g.parts.forEach(function (pt) { if (pt.w.parentNode) pt.w.parentNode.replaceChild(document.createTextNode(pt.full), pt.w); });
+    }
+    function frame(now) {
+      var busy = 0;
+      groups.forEach(function (g) {
+        if (g.done) return;
+        var p = (now - t0 - g.delay) / g.dur;
+        if (p >= 1) { restore(g); return; }
+        busy++;
+        if (p <= 0) return;
+        var K = Math.round(g.total * p);
+        if (K === g.K) return;
+        g.K = K;
+        g.parts.forEach(function (pt) {
+          var k = Math.max(0, Math.min(pt.full.length, K - pt.from));
+          if (k !== pt.k) { pt.k = k; pt.on.textContent = pt.full.slice(0, k); pt.off.textContent = pt.full.slice(k); }
+          // the caret sits on the piece being typed now
+          pt.w.classList.toggle('is-typing', K > pt.from && K <= pt.from + pt.full.length);
+        });
+      });
+      if (busy) raf = requestAnimationFrame(frame); else typing = null;
+    }
+    typing = { finish: function () { cancelAnimationFrame(raf); groups.forEach(function (g) { if (!g.done) restore(g); }); typing = null; } };
+    raf = requestAnimationFrame(frame);
+  }
 
   /* ---------- HUD: scrolled state, tabs, mobile menu ---------- */
   var hud = $('#hud');
