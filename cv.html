@@ -59,6 +59,7 @@
   .lnk svg { margin-top: .2mm; width: 3.4mm; height: 3.4mm; flex: none; fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
   .lnk:first-of-type { border-top: 0; }
   .lnk a { color: var(--accent); text-decoration: none; overflow-wrap: anywhere; }
+  .foot a { color: var(--accent); text-decoration: none; }
   .tags { display: flex; flex-wrap: wrap; gap: 1.2mm; }
   .tags li { font-size: 7.4pt; padding: .4mm 1.6mm; border: 1px solid var(--line); border-radius: 1.2mm; color: var(--ink-2); }
   :lang(pt-BR) body { font-size: 8.75pt; }
@@ -131,7 +132,7 @@
     '<div><h2 class="sec-t">' + T.langs + '</h2><ul class="langs">' + T.langsV.split(' · ').map(function (l, i) {
       return '<li><img src="assets/img/flags/' + ['br.webp', 'us.svg'][i] + '" alt="" width="20" height="14">' + esc(l) + '</li>';
     }).join('') + '</ul></div></div>' +
-    '<p class="foot"><span>' + T.port + ': ' + site + '</span><span>2026</span></p>';
+    '<p class="foot"><span>' + T.port + ': <a href="https://' + site + '">' + site + '</a></span><span>2026</span></p>';
   document.getElementById('cv').innerHTML = html;
 })();
 </script>

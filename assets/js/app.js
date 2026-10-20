@@ -263,11 +263,17 @@
   $('#langBtn').addEventListener('click', function () {
     lang = lang === 'en' ? 'pt' : 'en';
     store.set('vm-lang', lang);
-    var swap = function () { applyI18n(); renderAll(); afterRender(); };
+    var btn = this;
+    var swap = function () {
+      applyI18n(); renderAll(); afterRender();
+      // the flag flips over and the code rolls in (restarted on every switch)
+      if (!reduceMotion.matches) { btn.classList.remove('is-flipping'); void btn.offsetWidth; btn.classList.add('is-flipping'); }
+    };
     if (document.startViewTransition && !reduceMotion.matches) {
-      root.classList.add('vt-fade');
+      root.classList.add('vt-lang');
       var vt = document.startViewTransition(swap);
-      vt.finished.then(function () { root.classList.remove('vt-fade'); }, function () { root.classList.remove('vt-fade'); });
+      var done = function () { root.classList.remove('vt-lang'); };
+      vt.finished.then(done, done);
     } else swap();
     if (sheet.current) renderSheet(sheet.current);
     toast(t('toast.lang'));

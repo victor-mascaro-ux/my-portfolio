@@ -14,7 +14,7 @@ window.CONTENT = {
     github: 'https://github.com/victor-mascaro-ux',
     cv: { en: 'assets/cv/Victor-Mascaro-CV-EN.pdf', pt: 'assets/cv/Victor-Mascaro-CV-PT.pdf' },
     // bump whenever the PDFs are rebuilt: it changes the link, so browsers don't show an old saved copy
-    cvVersion: '2026-10-20c'
+    cvVersion: '2026-10-20d'
   },
 
   /* ---------- Interface strings ---------- */
@@ -102,7 +102,7 @@ window.CONTENT = {
       'case.close': 'Close', 'case.prev': 'Previous', 'case.next': 'Next project',
       'case.role': 'Role', 'case.when': 'When', 'case.platform': 'Platform', 'case.context': 'Context',
       'case.problem': 'Context', 'case.moves': 'What I did', 'case.outcome': 'Result', 'case.learned': 'Notes',
-      'case.live': 'Open the live version', 'case.proto': 'Open the Figma prototype', 'case.evolution': 'Earlier version',
+      'case.live': 'Open the live version', 'case.proto': 'Open the prototype', 'case.evolution': 'Earlier version',
       'case.before': 'Before', 'case.after': 'After', 'case.compare': 'Drag to compare before and after',
       'case.hint.click': 'Drag to compare, or click Before or After to see that version in full', 'case.hint.tap': 'Drag to compare, or tap Before or After to see that version in full',
       'case.hint.clickYear': 'Drag to compare, or click a year to see that version in full', 'case.hint.tapYear': 'Drag to compare, or tap a year to see that version in full',
@@ -204,7 +204,7 @@ window.CONTENT = {
       'case.close': 'Fechar', 'case.prev': 'Anterior', 'case.next': 'Próximo projeto',
       'case.role': 'Função', 'case.when': 'Período', 'case.platform': 'Plataforma', 'case.context': 'Contexto',
       'case.problem': 'Contexto', 'case.moves': 'O que eu fiz', 'case.outcome': 'Resultado', 'case.learned': 'Observações',
-      'case.live': 'Ver no ar', 'case.proto': 'Abrir o protótipo no Figma', 'case.evolution': 'Versão anterior',
+      'case.live': 'Ver no ar', 'case.proto': 'Abrir o protótipo', 'case.evolution': 'Versão anterior',
       'case.before': 'Antes', 'case.after': 'Depois', 'case.compare': 'Arraste para comparar o antes e o depois',
       'case.hint.click': 'Arraste para comparar, ou clique em Antes ou Depois para ver aquela versão inteira', 'case.hint.tap': 'Arraste para comparar, ou toque em Antes ou Depois para ver aquela versão inteira',
       'case.hint.clickYear': 'Arraste para comparar, ou clique em um ano para ver aquela versão inteira', 'case.hint.tapYear': 'Arraste para comparar, ou toque em um ano para ver aquela versão inteira',
@@ -532,7 +532,7 @@ window.CONTENT = {
       ],
       metrics: [],
       live: 'https://betsie.app/',
-      proto: 'https://www.figma.com/proto/8MOmXASKMPvxyHsxqQLLAq/Betsie?node-id=307-16894&p=f&viewport=1924%2C-817%2C0.04&t=4Rv06TfDS4N3NRT8-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=307%3A9932&show-proto-sidebar=1&page-id=0%3A1'
+      proto: 'https://victor-mascaro-ux.github.io/betsie/'
     },
     {
       id: 'smashing-four', group: 'games', layout: 'md', tone: 'deep', minutes: 2,
