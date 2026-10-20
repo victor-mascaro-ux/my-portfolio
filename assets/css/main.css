@@ -718,6 +718,9 @@ kbd {
 .td-extra { font-size: var(--t-xs); color: var(--muted); }
 .tree-col { display: grid; gap: 32px; min-width: 0; }
 .courses { display: grid; gap: 12px; }
+.course-groups { display: grid; gap: 18px; }
+.course-group { display: grid; gap: 8px; }
+.course-cat { font-size: .66rem; }
 .course-list { display: flex; flex-wrap: wrap; gap: 8px; }
 .course-list li { display: contents; }
 .course { font: inherit; cursor: pointer; text-align: left; font-size: .78rem; padding: 5px 10px; border-radius: 7px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); }

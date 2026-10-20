@@ -192,8 +192,10 @@
     });
     $('#tree').innerHTML = html;
     renderSkillDetail();
-    $('#courseList').innerHTML = C.courses.map(function (c, i) {
-      return '<li><button type="button" class="course" data-course="' + i + '" aria-pressed="' + (selectedSkill === 'course:' + i) + '">' + esc(c.label) + '</button></li>';
+    // shorter courses, grouped by topic (data-course keeps each course's place in C.courses)
+    $('#courseList').innerHTML = C.courseCats.map(function (cat) {
+      var items = C.courses.map(function (c, i) { return c.cat === cat.id ? '<li><button type="button" class="course" data-course="' + i + '" aria-pressed="' + (selectedSkill === 'course:' + i) + '">' + esc(c.label) + '</button></li>' : ''; }).join('');
+      return items ? '<div class="course-group"><h4 class="label course-cat">' + esc(L(cat.name)) + '</h4><ul class="course-list">' + items + '</ul></div>' : '';
     }).join('');
   }
   function renderSkillDetail() {
@@ -207,7 +209,7 @@
         '<p class="td-kind">' + esc(t('skills.short')) + (m[2] ? ' · ' + esc(m[2]) : '') + '</p>' +
         (m[3] ? '<p class="td-meta"><span>' + esc(t('skills.year')) + ' <b>' + esc(m[3]) + '</b></span></p>' : '') +
         (c.about ? '<p class="td-about">' + esc(L(c.about)) + '</p>' : '') +
-        (c.core ? '<div class="td-block"><p class="label">' + esc(t('skills.core')) + '</p><ul class="chips">' + c.core[lang].map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' : '');
+        (c.core ? '<div class="td-block"><p class="eyebrow">' + esc(t('skills.core')) + '</p><ul class="chips">' + c.core[lang].map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' : '');
       return;
     }
     var s = C.skills.filter(function (x) { return x.id === selectedSkill; })[0];
@@ -219,7 +221,7 @@
       '<h3 class="td-name">' + esc(L(s.name)) + '</h3>' +
       '<p class="td-kind">' + esc(L(s.kind)) + '</p>' +
       '<p class="td-meta"><span><b>' + esc(when) + '</b></span>' + (grade ? '<span>' + esc(t('skills.grade')) + ' <b>' + esc(grade) + '</b></span>' : '') + '</p>' +
-      '<div class="td-block"><p class="label">' + esc(t('skills.core')) + '</p><ul class="chips">' + s.core[lang].map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' +
+      '<div class="td-block"><p class="eyebrow">' + esc(t('skills.core')) + '</p><ul class="chips">' + s.core[lang].map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' +
       (s.extra ? '<p class="td-extra">' + esc(s.extra[lang].join(' · ')) + '</p>' : '');
   }
 
