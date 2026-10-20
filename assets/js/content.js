@@ -25,14 +25,12 @@ window.CONTENT = {
       'skip': 'Skip to content',
       'nav.work': 'Work', 'nav.process': 'Process', 'nav.experience': 'Experience', 'nav.skills': 'Education', 'nav.contact': 'Contact',
       'brand.label': 'Victor Mascaro: UX/AI, Gamification, Game Design. Back to top',
+      'nav.system': 'Design system', 'hero.tab.system': 'How this site is built',
       'nav.menu': 'Menu', 'nav.close': 'Close menu',
       'hud.lang': 'EN, switch to Portuguese', 'hud.langShort': 'EN',
-      // design system page (design-system/index.html)
+      // Design system tab (#system)
       'footer.ds': 'Design system',
-      'ds.meta.title': 'Design system · Victor Mascaro',
-      'ds.brandHome': 'Victor Mascaro: UX/AI, Gamification, Game Design. Back to the portfolio',
-      'ds.toc': 'On this page',
-      'ds.notifications': 'Notifications',
+      'ds.toc': 'Design system sections',
       'ds.eyebrow': 'Design system',
       'ds.title': 'How this site is built',
       'ds.lede': 'The logo, color, type, space, motion, icons and components behind this portfolio, rendered with the site’s own CSS.',
@@ -181,14 +179,12 @@ window.CONTENT = {
       'skip': 'Pular para o conteúdo',
       'nav.work': 'Trabalhos', 'nav.process': 'Processo', 'nav.experience': 'Experiência', 'nav.skills': 'Formação', 'nav.contact': 'Contato',
       'brand.label': 'Victor Mascaro: UX/AI, Gamificação, Game Design. Voltar ao início',
+      'nav.system': 'Design system', 'hero.tab.system': 'Como este site é construído',
       'nav.menu': 'Menu', 'nav.close': 'Fechar menu',
       'hud.lang': 'PT, mudar para inglês', 'hud.langShort': 'PT',
-      // página do design system (design-system/index.html)
+      // aba Design system (#system)
       'footer.ds': 'Design system',
-      'ds.meta.title': 'Design system · Victor Mascaro',
-      'ds.brandHome': 'Victor Mascaro: UX/AI, Gamificação, Game Design. Voltar ao portfólio',
-      'ds.toc': 'Nesta página',
-      'ds.notifications': 'Notificações',
+      'ds.toc': 'Seções do design system',
       'ds.eyebrow': 'Design system',
       'ds.title': 'Como este site é construído',
       'ds.lede': 'O logo, as cores, a tipografia, os espaços, o movimento, os ícones e os componentes deste portfólio, renderizados com o próprio CSS do site.',
@@ -1022,7 +1018,7 @@ window.CONTENT = {
     { id: 'daynight', xp: 10, t: { en: 'Day and night', pt: 'Dia e noite' }, d: { en: 'Switched theme', pt: 'Trocou de tema' } },
     { id: 'climber', xp: 30, t: { en: 'Tree climber', pt: 'De galho em galho' }, d: { en: 'Opened three items in Education', pt: 'Abriu três itens em Formação' } },
     { id: 'party', xp: 100, t: { en: 'Party invite', pt: 'Convite para a party' }, d: { en: 'Copied my email or opened LinkedIn', pt: 'Copiou meu e-mail ou abriu o LinkedIn' } },
-    { id: 'blueprint', xp: 30, t: { en: 'Blueprint', pt: 'Planta baixa' }, d: { en: 'Opened the design system', pt: 'Abriu o design system' } },
+    { id: 'blueprint', xp: 30, t: { en: 'Blueprint', pt: 'Planta baixa' }, d: { en: 'Opened the Design system tab', pt: 'Abriu a aba Design system' } },
     { id: 'secret', xp: 50, secret: true, t: { en: 'Loot drop', pt: 'Item coletado' }, d: { en: 'Downloaded my CV', pt: 'Baixou meu CV' } }
   ],
   levels: [0, 50, 140, 260]

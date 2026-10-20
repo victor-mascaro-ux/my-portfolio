@@ -364,7 +364,7 @@
   /* One section at a time. Home is the hero and In short; each other section is a
      tab with its own hash (#work, #process…), so links, Back and reloads land on it.
      A case study (#case-<id>) opens over the Work tab. */
-  var TABS = ['work', 'process', 'experience', 'skills', 'contact'];
+  var TABS = ['work', 'process', 'experience', 'skills', 'system', 'contact'];
   var currentTab = null;
   /* every tab ends with the hero's tiles; the next tab is the highlighted one */
   var tabNext = $('#tabNext');
@@ -372,6 +372,7 @@
   function tabFromHash(h) {
     var id = (h || '').replace(/^#/, '');
     if (/^case-/.test(id)) return 'work';
+    if (/^ds-/.test(id)) return 'system';
     return TABS.indexOf(id) >= 0 ? id : 'home';
   }
   function showTab(id, opts) {
@@ -380,10 +381,11 @@
     currentTab = id;
     $$('[data-tab]').forEach(function (p) { p.hidden = p.getAttribute('data-tab') !== id; });
     markTabNext();
-    $$('.hud-nav a, .mobile-nav a').forEach(function (a) { a.setAttribute('aria-current', a.getAttribute('href') === '#' + id ? 'page' : 'false'); });
+    $$('#hud .hud-nav a, #mobileNav a').forEach(function (a) { a.setAttribute('aria-current', a.getAttribute('href') === '#' + id ? 'page' : 'false'); });
     moveNavInd();
     if (changed && !opts.keepScroll) window.scrollTo(0, 0);
     if (changed && !(opts.initial && id === 'home')) enterTab(id);
+    if (id === 'system') unlock('blueprint');
   }
   /* the end-of-tab tiles say which one is next and which page you're on, in words:
      a filled tile would read as the current page */
@@ -416,16 +418,16 @@
     goToTab(href === '#top' ? 'home' : href.slice(1));
   });
   /* sliding nav indicator */
-  var navEl = $('.hud-nav'), navInd = document.createElement('span');
+  var navEl = $('#hud .hud-nav'), navInd = document.createElement('span');
   navInd.className = 'nav-ind'; navInd.setAttribute('aria-hidden', 'true'); navEl.appendChild(navInd);
   function moveNavInd(target) {
-    var a = target || $('.hud-nav a[aria-current="page"]');
+    var a = target || $('#hud .hud-nav a[aria-current="page"]');
     if (!a) { navInd.style.setProperty('--no', 0); return; }
     navInd.style.setProperty('--nx', (a.offsetLeft + 12) + 'px');
     navInd.style.setProperty('--nw', (a.offsetWidth - 24) + 'px');
     navInd.style.setProperty('--no', 1);
   }
-  $$('.hud-nav a').forEach(function (a) {
+  $$('#hud .hud-nav a').forEach(function (a) {
     a.addEventListener('mouseenter', function () { moveNavInd(a); });
     a.addEventListener('focus', function () { moveNavInd(a); });
   });
@@ -439,8 +441,7 @@
   $$('a', mobileNav).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
 
   /* ---------- player card tilt + holo ---------- */
-  var card = $('#playerCard');
-  if (card) {
+  $$('.player-card').forEach(function (card) {
     card.addEventListener('pointermove', function (e) {
       if (!finePointer.matches || reduceMotion.matches) return;
       var r = card.getBoundingClientRect();
@@ -456,7 +457,7 @@
       ['--rx', '--ry'].forEach(function (p) { card.style.setProperty(p, '0deg'); });
       card.style.setProperty('--hx', '50%'); card.style.setProperty('--hy', '50%');
     });
-  }
+  });
 
   /* ---------- case sheet ---------- */
   function hist(kind, state, url) { try { history[kind](state, '', url); return true; } catch (e) { return false; } }
@@ -552,62 +553,11 @@
   }
 
   function wireSheet() {
-    $$('.compare', sheetBody).forEach(function (cmp) {
-      var input = $('input', cmp), tagB = $('.cmp-tag.before', cmp), tagA = $('.cmp-tag.after', cmp);
-      function set(v, glide) {
-        v = Math.max(0, Math.min(100, v)); input.value = v;
-        cmp.classList.toggle('is-gliding', !!glide && !reduceMotion.matches);
-        cmp.style.setProperty('--pos', v + '%');
-        tagB.setAttribute('aria-pressed', String(v >= 100)); tagA.setAttribute('aria-pressed', String(v <= 0));
-      }
-      function follow(e) { var r = cmp.getBoundingClientRect(); set((e.clientX - r.left) / r.width * 100); }
-      input.addEventListener('input', function () { set(+input.value); });
-      // drag the divider with a mouse, a finger or a pen (vertical swipes still scroll on touch)
-      cmp.addEventListener('pointerdown', function (e) {
-        if (e.button > 0 || e.target.closest('.cmp-tag')) return;
-        cmp.setPointerCapture(e.pointerId); follow(e);
-      });
-      cmp.addEventListener('pointermove', function (e) { if (cmp.hasPointerCapture(e.pointerId)) follow(e); });
-      // the labels show one version whole: Before slides the divider all the way right, After all the way left
-      tagB.addEventListener('click', function () { set(100, true); });
-      tagA.addEventListener('click', function () { set(0, true); });
-    });
+    $$('.compare', sheetBody).forEach(wireCompare);
     $$('[data-film]', sheetBody).forEach(function (film) {
-      var c = caseById(sheet.current);
       var frames = [];
-      c.moves.forEach(function (m) { if (m.film) frames = m.film; });
-      var img = $('[data-film-img]', film), cap = $('[data-film-cap]', film), tt = $('[data-film-t]', film), range = $('[data-film-range]', film);
-      var btns = $$('.film-strip button', film);
-      function show(i) {
-        var f = frames[i];
-        if (!reduceMotion.matches) { img.classList.add('swap'); setTimeout(function () { img.src = f.src; img.classList.remove('swap'); }, 120); } else img.src = f.src;
-        img.alt = L(f.cap); cap.textContent = L(f.cap); tt.textContent = f.t; range.value = i;
-        btns.forEach(function (b, j) { b.setAttribute('aria-pressed', String(j === i)); });
-      }
-      /* The real video, from YouTube's privacy-enhanced domain. It loads only when someone
-         presses play or picks a frame, so nothing is fetched from YouTube before that.
-         Once it is playing, picking a frame jumps the video to that moment. */
-      var vid = film.getAttribute('data-video'), screen = $('.film-screen', film), player = null;
-      function secs(tm) { var p = tm.split(':'); return +p[0] * 60 + +p[1]; }
-      function send(func, args) { player.contentWindow.postMessage(JSON.stringify({ event: 'command', func: func, args: args || [] }), '*'); }
-      function playAt(s) {
-        if (!vid) return;
-        if (player) { send('seekTo', [s, true]); send('playVideo'); return; }
-        player = document.createElement('iframe');
-        player.className = 'film-video';
-        player.title = t('case.videoTitle');
-        player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-        player.allowFullscreen = true;
-        player.src = 'https://www.youtube-nocookie.com/embed/' + vid + '?autoplay=1&rel=0&playsinline=1&enablejsapi=1&start=' + s;
-        player.addEventListener('load', function () { player.contentWindow.postMessage(JSON.stringify({ event: 'listening' }), '*'); });
-        screen.appendChild(player);
-        film.classList.add('is-playing');
-      }
-      var playBtn = $('[data-film-play]', film);
-      if (playBtn) playBtn.addEventListener('click', function () { playAt(0); });
-      btns.forEach(function (b, i) { b.addEventListener('click', function () { show(i); playAt(secs(frames[i].t)); }); });
-      range.addEventListener('input', function () { show(+range.value); });
-      range.addEventListener('change', function () { if (player) playAt(secs(frames[+range.value].t)); });
+      caseById(sheet.current).moves.forEach(function (m) { if (m.film) frames = m.film; });
+      wireFilm(film, frames);
     });
     $$('[data-goto]', sheetBody).forEach(function (b) {
       b.addEventListener('click', function () { openCase(b.getAttribute('data-goto'), { replace: true }); });
@@ -620,6 +570,70 @@
       io.observe(end);
     }
   }
+
+  function wireCompare(cmp) {
+    var input = $('input', cmp), tagB = $('.cmp-tag.before', cmp), tagA = $('.cmp-tag.after', cmp);
+    function set(v, glide) {
+      v = Math.max(0, Math.min(100, v)); input.value = v;
+      cmp.classList.toggle('is-gliding', !!glide && !reduceMotion.matches);
+      cmp.style.setProperty('--pos', v + '%');
+      tagB.setAttribute('aria-pressed', String(v >= 100)); tagA.setAttribute('aria-pressed', String(v <= 0));
+    }
+    function follow(e) { var r = cmp.getBoundingClientRect(); set((e.clientX - r.left) / r.width * 100); }
+    input.addEventListener('input', function () { set(+input.value); });
+    // drag the divider with a mouse, a finger or a pen (vertical swipes still scroll on touch)
+    cmp.addEventListener('pointerdown', function (e) {
+      if (e.button > 0 || e.target.closest('.cmp-tag')) return;
+      cmp.setPointerCapture(e.pointerId); follow(e);
+    });
+    cmp.addEventListener('pointermove', function (e) { if (cmp.hasPointerCapture(e.pointerId)) follow(e); });
+    // the labels show one version whole: Before slides the divider all the way right, After all the way left
+    tagB.addEventListener('click', function () { set(100, true); });
+    tagA.addEventListener('click', function () { set(0, true); });
+  }
+
+  function wireFilm(film, frames) {
+    var img = $('[data-film-img]', film), cap = $('[data-film-cap]', film), tt = $('[data-film-t]', film), range = $('[data-film-range]', film);
+    var btns = $$('.film-strip button', film);
+    function show(i) {
+      var f = frames[i];
+      if (!reduceMotion.matches) { img.classList.add('swap'); setTimeout(function () { img.src = f.src; img.classList.remove('swap'); }, 120); } else img.src = f.src;
+      img.alt = L(f.cap); cap.textContent = L(f.cap); tt.textContent = f.t; range.value = i;
+      btns.forEach(function (b, j) { b.setAttribute('aria-pressed', String(j === i)); });
+    }
+    /* The real video, from YouTube's privacy-enhanced domain. It loads only when someone
+       presses play or picks a frame, so nothing is fetched from YouTube before that.
+       Once it is playing, picking a frame jumps the video to that moment. */
+    var vid = film.getAttribute('data-video'), screen = $('.film-screen', film), player = null;
+    function secs(tm) { var p = tm.split(':'); return +p[0] * 60 + +p[1]; }
+    function send(func, args) { player.contentWindow.postMessage(JSON.stringify({ event: 'command', func: func, args: args || [] }), '*'); }
+    function playAt(s) {
+      if (!vid) return;
+      if (player) { send('seekTo', [s, true]); send('playVideo'); return; }
+      player = document.createElement('iframe');
+      player.className = 'film-video';
+      player.title = t('case.videoTitle');
+      player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      player.allowFullscreen = true;
+      player.src = 'https://www.youtube-nocookie.com/embed/' + vid + '?autoplay=1&rel=0&playsinline=1&enablejsapi=1&start=' + s;
+      player.addEventListener('load', function () { player.contentWindow.postMessage(JSON.stringify({ event: 'listening' }), '*'); });
+      screen.appendChild(player);
+      film.classList.add('is-playing');
+    }
+    var playBtn = $('[data-film-play]', film);
+    if (playBtn) playBtn.addEventListener('click', function () { playAt(0); });
+    btns.forEach(function (b, i) { b.addEventListener('click', function () { show(i); playAt(secs(frames[i].t)); }); });
+    range.addEventListener('input', function () { show(+range.value); });
+    range.addEventListener('change', function () { if (player) playAt(secs(frames[+range.value].t)); });
+  }
+
+  /* the Design system tab's copies of the compare slider and the film work like the real ones */
+  $$('#system .compare').forEach(wireCompare);
+  $$('#system [data-film]').forEach(function (film) {
+    var frames = [];
+    C.cases.forEach(function (c) { (c.moves || []).forEach(function (m) { if (m.film && !frames.length) frames = m.film; }); });
+    if (frames.length) wireFilm(film, frames);
+  });
 
   function openCase(id, opts) {
     opts = opts || {};
@@ -661,6 +675,7 @@
   }
   window.addEventListener('popstate', function () {
     showTab(tabFromHash(location.hash));
+    if (/^#ds-/.test(location.hash)) { var ds = document.getElementById(location.hash.slice(1)); if (ds) ds.scrollIntoView(); }
     var m = location.hash.match(/^#case-([\w-]+)$/);
     if (m && caseById(m[1])) openCase(m[1], { fromHash: true });
     else hideSheet();
@@ -703,7 +718,7 @@
 
   /* ---------- case sheet reading progress ---------- */
   var sheetProg = document.createElement('span'); sheetProg.className = 'sheet-progress'; sheetProg.setAttribute('aria-hidden', 'true');
-  $('.sheet-bar').appendChild(sheetProg);
+  $('#sheet .sheet-bar').appendChild(sheetProg);
   sheetPanel.addEventListener('scroll', function () {
     var max = sheetPanel.scrollHeight - sheetPanel.clientHeight;
     sheetProg.style.setProperty('--read', max > 0 ? (sheetPanel.scrollTop / max).toFixed(3) : 0);
@@ -785,7 +800,7 @@
     else if (id === 'party') goToTab('contact');
     else if (id === 'polyglot') hint($('#langBtn'));
     else if (id === 'daynight') hint($('#themeBtn'));
-    else if (id === 'blueprint') location.href = 'design-system/';
+    else if (id === 'blueprint') goToTab('system');
     else if (id === 'secret') {
       // no words: bring the player card's Download CV button into view and make it pulse
       goToTab('home');
@@ -814,7 +829,7 @@
       if (!holder) {
         holder = document.createElement('button'); holder.id = 'gameBack'; holder.type = 'button'; holder.className = 'btn btn-ghost btn-small';
         holder.addEventListener('click', function () { setGame(true); });
-        $('.footer-end').insertBefore(holder, $('.footer-end a'));
+        var fe = $('body > .footer .footer-end'); fe.insertBefore(holder, fe.firstElementChild.nextSibling);
       }
       holder.textContent = t('quest.show');
     } else if (holder) holder.remove();
@@ -869,7 +884,7 @@
   /* ---------- skill tree interactions ---------- */
   function pickEducation(id, b) {
     selectedSkill = id;
-    $$('.node, .course').forEach(function (n) { n.setAttribute('aria-pressed', String(n === b)); });
+    $$('#tree .node, #courseList .course').forEach(function (n) { n.setAttribute('aria-pressed', String(n === b)); });
     renderSkillDetail();
     inspectedSkills[selectedSkill] = 1;
     if (Object.keys(inspectedSkills).length >= 3) unlock('climber');
@@ -1009,12 +1024,13 @@
     process: ['#process .section-head', '#process .process-list li'],
     experience: ['#experience .section-head', '#experience .timeline > li'],
     skills: ['#skills .section-head', '#skills .tree-detail', '#skills .courses'],
-    contact: ['#contact .contact-inner > *']
+    contact: ['#contact .contact-inner > *'],
+    system: ['#system > .section-head', '#system .ds-toc', '#system .ds-section > .group-head', '#system .ds-grid > *', '#system .ds-swatch', '#system .ds-scale-row', '#system .ds-curves > *', '#system .ds-demos > *', '#system .ds-icon', '#system .ds-comp', '#system .ds-say', '#system .ds-table-wrap']
   };
   function enterTab(id) {
     if (reduceMotion.matches) return;
     var els = [];
-    (ENTER[id] || []).concat(id === 'home' ? [] : ['#tabNext .hero-tab']).forEach(function (s) { els = els.concat($$(s)); });
+    (ENTER[id] || []).concat(id === 'home' ? [] : ['#tabNext .hero-tab']).forEach(function (s) { $$(s).forEach(function (el) { if (els.indexOf(el) < 0) els.push(el); }); });
     // on one column the player card sits above the tab cards: rise in top to bottom, as laid out
     if (id === 'home') els.sort(function (a, b) { return a.getBoundingClientRect().top - b.getBoundingClientRect().top; });
     var n = 0;
@@ -1038,8 +1054,10 @@
   }
 
   function afterRender() {
-    $$('.short-list strong').forEach(prepCount);
+    $$('.short .short-list strong').forEach(prepCount);
     observeCounts($('.short'));
+    $$('#system .metric-v').forEach(prepCount);
+    observeCounts($('#system'));
     setupReveal();
     moveNavInd();
   }
@@ -1106,6 +1124,7 @@
   renderGameFooter();
   onScrollHud();
   showTab(tabFromHash(location.hash), { keepScroll: true, initial: true });
+  if (/^#ds-/.test(location.hash)) { var ds0 = document.getElementById(location.hash.slice(1)); if (ds0) ds0.scrollIntoView(); }
   var m0 = location.hash.match(/^#case-([\w-]+)$/);
   if (m0 && caseById(m0[1])) openCase(m0[1], { fromHash: true });
 

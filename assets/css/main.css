@@ -356,7 +356,7 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .hud-nav a {
   position: relative; padding: 8px 12px; border-radius: 8px; text-decoration: none; color: var(--muted);
   font-size: var(--t-sm); font-weight: 550; transition: color .15s, background-color .15s;
-  display: inline-flex; align-items: center; gap: 7px;
+  display: inline-flex; align-items: center; gap: 7px; white-space: nowrap;
 }
 .nav-icon { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .hud-nav a[aria-current="page"] .nav-icon { color: var(--accent); }
@@ -1211,6 +1211,8 @@ span.sep { display: inline; font-family: var(--f-mono); font-weight: 700; line-h
 @keyframes codeRoll { from { opacity: 0; transform: translateY(80%); } }
 
 /* ---------- Responsive ---------- */
+/* six tabs: just above the menu breakpoint the nav drops its icons, so every label stays on one line */
+@media (min-width: 1101px) and (max-width: 1199px) { .hud-nav .nav-icon { display: none; } }
 @media (max-width: 1100px) {
   .hud-nav { display: none; }
   .menu-btn { display: inline-flex; }

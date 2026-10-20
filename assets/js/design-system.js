@@ -1,24 +1,23 @@
-/* Design system page (design-system/index.html).
-   Theme and language toggles, the table of contents, and the live specimens.
-   Every value shown is read from main.css at runtime, so the page can't drift
-   from the site. Works on its own: app.js isn't loaded on this page. */
+/* Design system tab (#system in index.html).
+   The live specimens: swatches, contrast, type scale, spacing, easing curves, demos, icon and
+   component code. Every value shown is read from main.css at runtime, so the tab can't drift
+   from the site. app.js runs the tabs, theme, language and toasts; this file only adds the
+   tab's own behaviour and defines no globals. */
 (function () {
   'use strict';
+  var tab = document.getElementById('system');
+  if (!tab) return;
   var root = document.documentElement;
-  var C = window.CONTENT || { ui: { en: {}, pt: {} }, achievements: [] };
+  var C = window.CONTENT || { ui: { en: {}, pt: {} } };
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
-  var store = {
-    get: function (k, d) { try { var v = localStorage.getItem(k); return v === null ? d : v; } catch (e) { return d; } },
-    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
-  };
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var lang = (root.getAttribute('lang') || 'en').indexOf('pt') === 0 ? 'pt' : 'en';
-  function t(key) { var ui = C.ui || {}, v = (ui[lang] || {})[key]; return v === undefined ? ((ui.en || {})[key] || key) : v; }
+  function lang() { return (root.getAttribute('lang') || 'en').indexOf('pt') === 0 ? 'pt' : 'en'; }
+  function t(key) { var ui = C.ui || {}, v = (ui[lang()] || {})[key]; return v === undefined ? ((ui.en || {})[key] || key) : v; }
 
   /* ---------- tokens: names, groups and usage notes (values are read from the CSS) ---------- */
   var TOKENS = [
-    ['surfaces', 'paper', 'Page background, under the dot grid. Also the browser theme colour.'],
+    ['surfaces', 'paper', 'Page background, under the dot grid. Also the browser theme color.'],
     ['surfaces', 'paper-2', 'Secondary ground: small badges on cards, quiet wells.'],
     ['surfaces', 'surface', 'Cards, hero tabs, tool buttons, ghost button hover.'],
     ['surfaces', 'surface-2', 'Chip fill and image wells behind case-card media.'],
@@ -42,7 +41,7 @@
     ['gold', 'note', 'Text selection background and sticky notes.'],
     ['gold', 'note-edge', 'Edge of sticky notes.'],
     ['gold', 'note-ink', 'Text on note.'],
-    ['gold', 'good-dot', 'Available status dot. A state colour: keep it small.'],
+    ['gold', 'good-dot', 'Available status dot. A state color: keep it small.'],
     ['deep', 'blue-deep', 'Deep bands: designer card, contact section, next-case band.'],
     ['deep', 'blue-deep-2', 'Highlight side of deep-blue gradients.'],
     ['deep', 'on-blue', 'Text on blue-deep.'],
@@ -64,7 +63,7 @@
     ['effects', 'logo-bg', 'Background behind employer logos in the career path and timeline.']
   ];
   var NAMES = TOKENS.map(function (x) { return x[1]; });
-  // text pairs whose contrast is shown on the swatch of the foreground colour and in the Accessibility table
+  // text pairs whose contrast is shown on the foreground's swatch and in the Accessibility table
   var PAIRS = [['ink', 'paper'], ['ink-2', 'paper'], ['muted', 'paper'], ['muted', 'surface'], ['accent', 'paper'], ['accent-ink', 'accent'],
     ['gold-ink', 'paper'], ['on-gold', 'gold'], ['on-blue', 'blue-deep'], ['on-blue-2', 'blue-deep'], ['card-hi-ink', 'card-hi'], ['toast-fg', 'toast-bg'], ['note-ink', 'note']];
 
@@ -80,12 +79,10 @@
   var VALUES = { light: readTheme('light', NAMES), dark: readTheme('dark', NAMES) };
 
   // a theme scope: an element that renders as one theme, whatever the page's theme is
-  function scope(el, theme, names) {
-    (names || NAMES).forEach(function (n) { el.style.setProperty('--' + n, VALUES[theme][n]); });
-  }
-  $$('.ds-scope[data-theme]').forEach(function (el) { scope(el, el.getAttribute('data-theme')); });
+  function scope(el, theme, names) { (names || NAMES).forEach(function (n) { el.style.setProperty('--' + n, VALUES[theme][n]); }); }
+  $$('.ds-scope[data-theme]', tab).forEach(function (el) { scope(el, el.getAttribute('data-theme')); });
 
-  /* ---------- colour maths for contrast ---------- */
+  /* ---------- color maths for contrast ---------- */
   function rgb(v) {
     v = String(v).trim();
     var m = /^#([0-9a-f]{3,8})$/i.exec(v);
@@ -97,40 +94,51 @@
   function ratio(fg, bg) { var a = rgb(fg), b = rgb(bg); if (!a || !b) return null; var l1 = lum(a), l2 = lum(b); return (Math.max(l1, l2) + .05) / (Math.min(l1, l2) + .05); }
   function fmtRatio(r) { return r == null ? '–' : (Math.round(r * 10) / 10).toFixed(1) + ':1'; }
 
-  /* ---------- copy + announce ---------- */
+  /* ---------- copy: the button says "Copied" for a moment, a toast shows it, the status region says it ---------- */
   var status = $('#dsStatus'), toasts = $('#toasts');
   function announce(msg) {
     if (status) { status.textContent = ''; setTimeout(function () { status.textContent = msg; }, 30); }
     if (!toasts) return;
-    var el = document.createElement('div'); el.className = 'toast toast-plain'; el.textContent = msg;
+    var el = document.createElement('div'); el.className = 'toast toast-plain'; el.setAttribute('aria-hidden', 'true'); el.textContent = msg;
     toasts.appendChild(el); if (toasts.children.length > 2) toasts.children[0].remove();
     setTimeout(function () { el.classList.add('out'); setTimeout(function () { el.remove(); }, 400); }, 2200);
   }
-  function copy(text, label) {
-    var done = function () { announce(t('ds.copied') + ': ' + (label || text)); };
+  function confirmButton(btn) {
+    var label = $('span', btn); if (!label) return;
+    var key = label.getAttribute('data-i18n') || btn._dsKey;
+    btn._dsKey = key;
+    btn.classList.remove('is-copied'); void btn.offsetWidth; btn.classList.add('is-copied');
+    label.removeAttribute('data-i18n'); label.textContent = t('ds.copied');
+    clearTimeout(btn._dsT);
+    btn._dsT = setTimeout(function () { btn.classList.remove('is-copied'); if (key) { label.setAttribute('data-i18n', key); label.textContent = t(key); } }, 1600);
+  }
+  function copy(text, label, btn) {
+    var done = function () { announce(t('ds.copied') + ': ' + (label || text)); if (btn) confirmButton(btn); };
     if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback); else fallback();
     function fallback() {
       var ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
       document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) {} ta.remove(); done();
     }
   }
-  document.addEventListener('click', function (e) {
+  tab.addEventListener('click', function (e) {
+    // previews are live for hover, focus and their own controls, but their links stay on this tab
+    var a = e.target.closest('a[href]');
+    if (a && a.closest('.ds-stage, .ds-demo-stage, .ds-focus-demo')) { e.preventDefault(); e.stopPropagation(); return; }
     var b = e.target.closest('[data-copy]');
-    if (b) { copy(b.getAttribute('data-copy'), b.getAttribute('data-copy-label')); return; }
+    if (b) { copy(b.getAttribute('data-copy'), b.getAttribute('data-copy-label'), b); return; }
     b = e.target.closest('[data-copy-svg]');
-    if (b) { var svg = $('svg', b.closest('.ds-icon')); copy(cleanSvg(svg), b.getAttribute('data-copy-svg')); return; }
+    if (b) { var c = $('svg', b.closest('.ds-icon')).cloneNode(true); c.removeAttribute('class'); c.setAttribute('aria-hidden', 'true'); copy(c.outerHTML, b.getAttribute('data-copy-svg'), b); return; }
     b = e.target.closest('[data-copy-code]');
-    if (b) { var pre = $('code', b.closest('.ds-code-body')); copy(pre.textContent, b.getAttribute('data-copy-code')); }
+    if (b) copy($('code', b.closest('.ds-code-body')).textContent, b.getAttribute('data-copy-code'), b);
   });
-  function cleanSvg(svg) { var c = svg.cloneNode(true); c.removeAttribute('class'); c.setAttribute('aria-hidden', 'true'); return c.outerHTML; }
 
-  /* ---------- colour section ---------- */
+  /* ---------- color section ---------- */
   var swatches = $('#dsSwatches');
   if (swatches) {
     var groups = {}, order = [];
     TOKENS.forEach(function (x) { if (!groups[x[0]]) { groups[x[0]] = []; order.push(x[0]); } groups[x[0]].push(x); });
     swatches.innerHTML = order.map(function (g) {
-      return '<div class="ds-swatch-group"><h3 class="ds-h3" data-i18n="ds.color.' + g + '">' + t('ds.color.' + g) + '</h3><div class="ds-swatches">' +
+      return '<div class="ds-swatch-group"><h4 class="ds-h3" data-i18n="ds.color.' + g + '">' + t('ds.color.' + g) + '</h4><div class="ds-swatches">' +
         groups[g].map(function (x) {
           var n = x[1], L = VALUES.light[n], D = VALUES.dark[n];
           var pairs = PAIRS.filter(function (p) { return p[0] === n; }).map(function (p) {
@@ -139,17 +147,15 @@
           }).join('');
           return '<article class="ds-swatch">' +
             '<div class="ds-chips" aria-hidden="true"><span class="ds-chip" data-theme="light" data-token="' + n + '"><span class="ds-chip-tag">L</span></span><span class="ds-chip" data-theme="dark" data-token="' + n + '"><span class="ds-chip-tag">D</span></span></div>' +
-            '<div class="ds-swatch-body"><h4 class="ds-token">--' + n + '</h4>' +
+            '<div class="ds-swatch-body"><h5 class="ds-token">--' + n + '</h5>' +
             '<p class="ds-values"><span><span data-i18n="ds.light">' + t('ds.light') + '</span> <b>' + L + '</b></span><span><span data-i18n="ds.dark">' + t('ds.dark') + '</span> <b>' + D + '</b></span></p>' +
             '<p class="ds-usage">' + x[2] + '</p>' + (pairs ? '<p class="ds-contrast">' + pairs + '</p>' : '') +
             '<button class="btn btn-ghost btn-small" type="button" data-copy="var(--' + n + ')"><span data-i18n="ds.copy">' + t('ds.copy') + '</span><span class="sr-only"> var(--' + n + ')</span></button></div></article>';
         }).join('') + '</div></div>';
     }).join('');
-    // each chip is its own theme scope: it carries that theme's value of the token, and its paper behind it
+    // each chip is its own theme scope: that theme's value of the token, with that theme's paper behind it
     $$('.ds-chip', swatches).forEach(function (c) {
-      var n = c.getAttribute('data-token'), th = c.getAttribute('data-theme');
-      scope(c, th, [n, 'paper', 'ink']); c.style.setProperty('--ds-c', 'var(--' + n + ')');
-      $('.ds-chip-tag', c).style.cssText = '';
+      var n = c.getAttribute('data-token'); scope(c, c.getAttribute('data-theme'), [n, 'paper', 'ink']); c.style.setProperty('--ds-c', 'var(--' + n + ')');
     });
   }
 
@@ -163,54 +169,62 @@
     }).join('');
   }
 
-  /* ---------- live token values (type, space, radius, shadow, motion) ---------- */
+  /* ---------- live values (type, space, radius, motion) and keyboard-reachable scroll areas ---------- */
   function fillValues() {
     var cs = getComputedStyle(root);
-    $$('[data-var]').forEach(function (el) { el.textContent = cs.getPropertyValue('--' + el.getAttribute('data-var')).trim(); });
-    $$('[data-px]').forEach(function (el) {
-      var probe = $(el.getAttribute('data-px')); if (probe) el.textContent = Math.round(parseFloat(getComputedStyle(probe).fontSize) * 10) / 10 + 'px';
-    });
-    $$('[data-size]').forEach(function (el) {
+    $$('[data-var]', tab).forEach(function (el) { el.textContent = cs.getPropertyValue('--' + el.getAttribute('data-var')).trim(); });
+    $$('[data-px]', tab).forEach(function (el) { var probe = $(el.getAttribute('data-px')); if (probe) el.textContent = Math.round(parseFloat(getComputedStyle(probe).fontSize) * 10) / 10 + 'px'; });
+    $$('[data-size]', tab).forEach(function (el) {
       var probe = document.createElement('div'); probe.style.cssText = 'position:absolute;visibility:hidden;width:var(--' + el.getAttribute('data-size') + ')';
       document.body.appendChild(probe); el.textContent = Math.round(probe.getBoundingClientRect().width) + 'px'; probe.remove();
     });
   }
   // a stage or table that scrolls sideways can be reached and scrolled with the keyboard
   function scrollables() {
-    $$('.ds-stage, .ds-table-wrap').forEach(function (el) {
-      if (el.scrollWidth > el.clientWidth + 1) el.setAttribute('tabindex', '0'); else el.removeAttribute('tabindex');
-    });
+    $$('.ds-stage, .ds-table-wrap', tab).forEach(function (el) { if (el.scrollWidth > el.clientWidth + 1) el.setAttribute('tabindex', '0'); else el.removeAttribute('tabindex'); });
   }
-  fillValues(); scrollables();
-  var rz; window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(function () { fillValues(); scrollables(); }, 150); });
+  function refresh() { fillValues(); if (!tab.hidden) { scrollables(); moveMarker(); } }
+  var rz; window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(refresh, 150); });
+  // the tab is hidden until it's opened, so measure again each time it's shown; a preview video stops when it's left
+  new MutationObserver(function () {
+    if (!tab.hidden) { refresh(); return; }
+    $$('.film-video', tab).forEach(function (f) { try { f.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'pauseVideo', args: [] }), '*'); } catch (e) {} });
+  }).observe(tab, { attributes: true, attributeFilter: ['hidden'] });
 
-  // easing curves drawn from the cubic-bezier() values in main.css
-  $$('.ds-curve[data-ease]').forEach(function (fig) {
-    var v = getComputedStyle(root).getPropertyValue('--' + fig.getAttribute('data-ease')).trim(), m = /cubic-bezier\(([^)]+)\)/.exec(v);
+  // easing curves drawn from the cubic-bezier() values in main.css; the ball under each one runs on that curve
+  $$('.ds-curve[data-ease]', tab).forEach(function (fig) {
+    var name = fig.getAttribute('data-ease'), v = getComputedStyle(root).getPropertyValue('--' + name).trim(), m = /cubic-bezier\(([^)]+)\)/.exec(v);
+    fig.style.setProperty('--ds-ease', 'var(--' + name + ')');
     if (!m) return;
     var p = m[1].split(',').map(parseFloat), W = 200, H = 140, pad = 20, X = function (x) { return pad + x * (W - 2 * pad); }, Y = function (y) { return H - pad - y * (H - 2 * pad - 20); };
     $('svg', fig).innerHTML = '<path class="ds-axis" d="M' + X(0) + ' ' + Y(0) + 'H' + X(1) + 'M' + X(0) + ' ' + Y(0) + 'V' + (pad - 10) + '" fill="none" stroke-width="1"/>' +
-      '<path d="M' + X(0) + ' ' + Y(0) + 'C' + X(p[0]) + ' ' + Y(p[1]) + ' ' + X(p[2]) + ' ' + Y(p[3]) + ' ' + X(1) + ' ' + Y(1) + '" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>';
+      '<path class="ds-line" pathLength="1" d="M' + X(0) + ' ' + Y(0) + 'C' + X(p[0]) + ' ' + Y(p[1]) + ' ' + X(p[2]) + ' ' + Y(p[3]) + ' ' + X(1) + ' ' + Y(1) + '" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>';
   });
+  // each curve draws itself, and the spacing bars grow, the first time they come into view
+  var drawn = $$('.ds-curve, .ds-space', tab);
+  if ('IntersectionObserver' in window) {
+    var drawIO = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('is-drawn'); drawIO.unobserve(x.target); } }); }, { threshold: .3 });
+    drawn.forEach(function (f) { drawIO.observe(f); });
+  } else drawn.forEach(function (f) { f.classList.add('is-drawn'); });
 
   /* ---------- motion demos ---------- */
-  document.addEventListener('click', function (e) {
+  tab.addEventListener('click', function (e) {
     var b = e.target.closest('[data-replay]'); if (!b) return;
-    var what = b.getAttribute('data-replay'), stage = b.closest('.ds-card');
+    var what = b.getAttribute('data-replay'), card = b.closest('.ds-card');
     if (what === 'lift') {
-      var tab = $('.hero-tab', stage); tab.classList.remove('is-lifted'); void tab.offsetWidth; tab.classList.add('is-lifted');
-      setTimeout(function () { tab.classList.remove('is-lifted'); }, 1400);
+      var ht = $('.hero-tab', card); ht.classList.remove('is-lifted'); void ht.offsetWidth; ht.classList.add('is-lifted');
+      setTimeout(function () { ht.classList.remove('is-lifted'); }, 1400);
     } else if (what === 'underline') {
-      var u = $('.xp-underline', stage); u.style.animation = 'none'; void u.offsetWidth; u.style.animation = 'xpfill 1.2s .1s var(--ease-out) forwards';
+      var u = $('.xp-underline', card); u.style.animation = 'none'; void u.offsetWidth; u.style.animation = 'xpfill 1.2s .1s var(--ease-out) forwards';
     } else if (what === 'toast') {
-      var box = $('.toasts', stage); box.innerHTML = '';
+      var box = $('.toasts', card); box.innerHTML = '';
       var el = document.createElement('div'); el.className = 'toast toast-plain'; el.textContent = t('ds.motion.toastText'); box.appendChild(el);
     }
   });
 
   /* ---------- component code: generated from the live preview, so the two never differ ---------- */
   var INLINE = /^(a|abbr|b|br|button|circle|code|defs|em|g|i|img|input|kbd|label|line|mark|path|polygon|polyline|rect|s|small|span|strong|sub|sup|svg|time|u|use|ellipse|clippath|lineargradient|stop)$/i;
-  function leaf(el) { return el.tagName.toLowerCase() === 'svg' || $$('*', el).every(function (d) { return INLINE.test(d.tagName); }) && INLINE.test(el.tagName); }
+  function leaf(el) { return el.tagName.toLowerCase() === 'svg' || ($$('*', el).every(function (d) { return INLINE.test(d.tagName); }) && INLINE.test(el.tagName)); }
   function pretty(node, depth) {
     var pad = new Array(depth + 1).join('  '), out = '';
     Array.prototype.forEach.call(node.childNodes, function (n) {
@@ -231,14 +245,24 @@
       while (d.firstChild) real.appendChild(d.firstChild);
       d.parentNode.replaceChild(real, d);
     });
+    $$('[data-ds-label]', el).forEach(function (n) { n.setAttribute('aria-label', n.getAttribute('data-ds-label')); n.removeAttribute('data-ds-label'); });
     $$('[data-ds-rm]', el).forEach(function (n) { n.getAttribute('data-ds-rm').split(' ').forEach(function (a) { n.removeAttribute(a); }); n.removeAttribute('data-ds-rm'); });
     // the stage's own layout wrappers aren't part of the component
     $$('[data-ds-unwrap]', el).forEach(function (w) { while (w.firstChild) w.parentNode.insertBefore(w.firstChild, w); w.remove(); });
-    $$('[data-ds-label]', el).forEach(function (n) { n.setAttribute('aria-label', n.getAttribute('data-ds-label')); n.removeAttribute('data-ds-label'); });
+    // nor is the state the page adds while you watch: entrances, word splits, pointer effects, count-ups, a playing video
+    $$('span.w', el).forEach(function (w) { w.replaceWith(document.createTextNode(w.textContent)); });
+    $$('.film-video', el).forEach(function (f) { f.remove(); });
+    $$('[class], [style]', el).forEach(function (n) {
+      n.classList.remove('rv', 'in', 'enter', 'is-tilting', 'is-gliding', 'is-playing', 'swap');
+      ['--rd', '--ed', '--wi', '--sx', '--sy', '--mx', '--my', '--rx', '--ry', '--hx', '--hy'].forEach(function (p) { n.style.removeProperty(p); });
+      if (n.hasAttribute('class') && !n.getAttribute('class')) n.removeAttribute('class');
+      if (n.hasAttribute('style') && !n.getAttribute('style')) n.removeAttribute('style');
+    });
+    $$('[data-count]', el).forEach(function (n) { n.removeAttribute('data-count'); });
     $$('[loading]', el).forEach(function (i) { i.removeAttribute('loading'); });
     return el;
   }
-  $$('.ds-code').forEach(function (d) {
+  $$('.ds-code', tab).forEach(function (d) {
     d.addEventListener('toggle', function () {
       if (!d.open || d.getAttribute('data-filled')) return;
       var stage = $('.ds-stage', d.closest('.ds-comp')), clone = stripDs(stage.cloneNode(true));
@@ -247,77 +271,34 @@
     });
   });
 
-  /* ---------- table of contents: scrollspy ---------- */
-  var tocLinks = $$('.ds-toc a'), byId = {};
+  /* ---------- table of contents: scrollspy, with a marker that slides to the current section ---------- */
+  var toc = $('.ds-toc', tab), tocList = $('.ds-toc ol', tab), tocLinks = $$('.ds-toc a', tab), byId = {}, current = null;
   tocLinks.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+  var marker = document.createElement('li'); marker.className = 'ds-toc-marker'; marker.setAttribute('aria-hidden', 'true');
+  if (tocList) tocList.appendChild(marker);
+  function moveMarker() {
+    var a = byId[current]; if (!a || !tocList) return;
+    var li = a.parentNode;
+    marker.style.setProperty('--mt', li.offsetTop + 'px'); marker.style.setProperty('--mh', li.offsetHeight + 'px');
+    marker.style.setProperty('--ml', li.offsetLeft + 'px'); marker.style.setProperty('--mw', li.offsetWidth + 'px');
+    marker.classList.add('is-on');
+  }
   function setCurrent(id) {
+    current = id;
     tocLinks.forEach(function (a) { if (a === byId[id]) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
-    var a = byId[id], ol = a && a.parentNode.parentNode;
-    if (ol && ol.scrollWidth > ol.clientWidth) ol.scrollTo({ left: a.offsetLeft - ol.clientWidth / 2 + a.offsetWidth / 2, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+    moveMarker();
+    var a = byId[id];
+    if (a && tocList.scrollWidth > tocList.clientWidth) tocList.scrollTo({ left: a.offsetLeft - tocList.clientWidth / 2 + a.offsetWidth / 2, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
   }
   if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) setCurrent(en.target.id); });
-    }, { rootMargin: '-35% 0px -60% 0px' });
-    $$('.ds-section[id]').forEach(function (s) { io.observe(s); });
+    var spy = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) setCurrent(en.target.id); }); }, { rootMargin: '-35% 0px -60% 0px' });
+    $$('.ds-section[id]', tab).forEach(function (s) { spy.observe(s); });
   }
   if (tocLinks[0]) setCurrent(tocLinks[0].getAttribute('href').slice(1));
+  refresh();
 
-  /* ---------- header: theme, language, menu, scrolled state ---------- */
-  function currentTheme() { var a = root.getAttribute('data-theme'); return a || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }
-  function updateThemeLabel() { var b = $('#themeBtn'); if (b) b.setAttribute('aria-label', currentTheme() === 'dark' ? t('hud.themeLight') : t('hud.themeDark')); }
-  var themeBtn = $('#themeBtn');
-  if (themeBtn) themeBtn.addEventListener('click', function () {
-    var next = currentTheme() === 'dark' ? 'light' : 'dark';
-    var apply = function () { root.setAttribute('data-theme', next); store.set('vm-theme', next); updateThemeLabel(); };
-    var r = this.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
-    if (document.startViewTransition && !reduceMotion.matches) {
-      var vt = document.startViewTransition(apply), rad = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
-      vt.ready.then(function () {
-        root.animate({ clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + rad + 'px at ' + x + 'px ' + y + 'px)'] },
-          { duration: 700, easing: 'cubic-bezier(.16, 1, .3, 1)', pseudoElement: '::view-transition-new(root)' });
-      }).catch(function () {});
-    } else apply();
-  });
-  function applyI18n() {
-    root.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
-    $$('[data-i18n]').forEach(function (el) { var v = t(el.getAttribute('data-i18n')); if (typeof v === 'string') el.textContent = v; });
-    document.title = t('ds.meta.title');
-    var code = $('#langCode'); if (code) code.textContent = t('hud.langShort');
-    var lb = $('#langBtn'); if (lb) lb.setAttribute('aria-label', t('hud.lang'));
-    var mb = $('#menuBtn'); if (mb) mb.setAttribute('aria-label', t('nav.menu'));
-    var br = $('#hud .brand'); if (br) br.setAttribute('aria-label', t('ds.brandHome'));
-    var toc = $('.ds-toc'); if (toc) toc.setAttribute('aria-label', t('ds.toc'));
-    if (toasts) toasts.setAttribute('aria-label', t('ds.notifications'));
-    updateThemeLabel();
-  }
-  var langBtn = $('#langBtn');
-  if (langBtn) langBtn.addEventListener('click', function () {
-    lang = lang === 'en' ? 'pt' : 'en'; store.set('vm-lang', lang); applyI18n();
-    if (!reduceMotion.matches) { this.classList.remove('is-flipping'); void this.offsetWidth; this.classList.add('is-flipping'); }
-  });
-  var menuBtn = $('#menuBtn'), mobileNav = $('#mobileNav');
-  function setMenu(open) { if (!menuBtn || !mobileNav) return; mobileNav.hidden = !open; menuBtn.setAttribute('aria-expanded', String(open)); }
-  if (menuBtn) menuBtn.addEventListener('click', function () { setMenu(mobileNav.hidden); });
-  if (mobileNav) mobileNav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && mobileNav && !mobileNav.hidden) { setMenu(false); menuBtn.focus(); } });
-  var hud = $('#hud');
-  var onScroll = function () { if (hud) hud.classList.toggle('is-scrolled', window.scrollY > 8); };
-  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
-  applyI18n();
-
-  /* ---------- the "Blueprint" mission: visiting this page completes it ---------- */
-  (function () {
-    var a = (C.achievements || []).filter(function (x) { return x.id === 'blueprint'; })[0]; if (!a) return;
-    var done = {}; try { done = JSON.parse(store.get('vm-ach', '{}')) || {}; } catch (e) {}
-    if (done.blueprint) return;
-    done.blueprint = Date.now(); store.set('vm-ach', JSON.stringify(done));
-    if (store.get('vm-game', 'on') === 'off' || !toasts) return;
-    var el = document.createElement('div'); el.className = 'toast';
-    el.innerHTML = '<span class="medal" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></span>' +
-      '<span><span class="toast-k"></span><span class="toast-t"></span></span>';
-    $('.toast-k', el).textContent = t('quest.unlocked');
-    $('.toast-t', el).textContent = (a.t[lang] || a.t.en) + '  +' + a.xp + ' XP';
-    setTimeout(function () { toasts.appendChild(el); setTimeout(function () { el.classList.add('out'); setTimeout(function () { el.remove(); }, 400); }, 3400); }, 900);
-  })();
+  // labels that aren't text follow the language switch too
+  function relabel() { if (toc) toc.setAttribute('aria-label', t('ds.toc')); }
+  relabel();
+  new MutationObserver(relabel).observe(root, { attributes: true, attributeFilter: ['lang'] });
 })();
