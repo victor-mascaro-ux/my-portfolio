@@ -717,9 +717,10 @@ kbd {
 .td-block { display: grid; gap: 8px; }
 .td-extra { font-size: var(--t-xs); color: var(--muted); }
 .tree-col { display: grid; gap: 32px; min-width: 0; }
-.courses { display: grid; gap: 12px; }
-.course-groups { display: grid; gap: 18px; }
-.course-group { display: grid; gap: 8px; }
+/* spacing steps up with the hierarchy: pill to pill 8, group label to pills 12, group to group 28, title to groups 22 */
+.courses { display: grid; gap: 22px; }
+.course-groups { display: grid; gap: 28px; }
+.course-group { display: grid; gap: 12px; }
 .course-cat { font-size: .66rem; }
 .course-list { display: flex; flex-wrap: wrap; gap: 8px; }
 .course-list li { display: contents; }
