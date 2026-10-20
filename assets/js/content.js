@@ -392,7 +392,8 @@ window.CONTENT = {
         },
         {
           title: { en: 'Segmentation', pt: 'Segmentação' },
-          body: { en: 'I rebuilt the prospect segmentation so every answer maps to a single segment, then tested it with generated data. The test found a bug that was quietly dropping some answers.', pt: 'Refiz a segmentação de prospects para cada resposta cair em um único segmento e testei com dados sintéticos. O teste revelou um bug que descartava algumas respostas sem ninguém perceber.' }
+          body: { en: 'I rebuilt the prospect segmentation so every answer maps to a single segment, then tested it with generated data. The test found a bug that was quietly dropping some answers.', pt: 'Refiz a segmentação de prospects para cada resposta cair em um único segmento e testei com dados sintéticos. O teste revelou um bug que descartava algumas respostas sem ninguém perceber.' },
+          img: ['assets/img/k-segmentation.webp'], kind: 'wide'
         }
       ],
       metrics: [
@@ -403,7 +404,7 @@ window.CONTENT = {
     },
     {
       id: 'review-layer', group: 'knomee', layout: 'md', tone: 'pale', minutes: 3,
-      cover: 'assets/img/k-overlay.webp', coverAlt: { en: 'A prototype with yellow comment pins and an open comment thread', pt: 'Um protótipo com pins de comentário amarelos e uma thread aberta' },
+      cover: 'assets/img/k-overlay.webp', coverAlt: { en: 'A Knomee prototype in comment mode, with an open thread signed by two reviewers', pt: 'Um protótipo da Knomee em modo de comentário, com uma thread aberta assinada por duas pessoas' },
       kicker: { en: 'Knomee · Internal tool', pt: 'Knomee · Ferramenta interna' },
       title: { en: 'Review Layer', pt: 'Review Layer' },
       tagline: { en: 'A commenting tool I built with Claude Code so the team could leave feedback directly on coded prototypes.', pt: 'Uma ferramenta de comentários que criei com o Claude Code para o time dar feedback direto nos protótipos em código.' },
@@ -426,15 +427,18 @@ window.CONTENT = {
         },
         {
           title: { en: 'Pins that stay in place', pt: 'Pins que não saem do lugar' },
-          body: { en: 'Comment pins are saved as a percentage of the screen, so they stay in the right spot at any window size.', pt: 'Os pins são salvos como porcentagem da tela, então ficam no lugar certo em qualquer tamanho de janela.' }
+          body: { en: 'Comment pins are saved as a percentage of the screen, so they stay in the right spot at any window size.', pt: 'Os pins são salvos como porcentagem da tela, então ficam no lugar certo em qualquer tamanho de janela.' },
+          img: ['assets/img/k-overlay-pins-wide.webp', 'assets/img/k-overlay-pins-narrow.webp'], kind: 'pair'
         },
         {
           title: { en: 'A neutral look', pt: 'Visual neutro' },
-          body: { en: 'It has its own neutral style and typeface so it doesn’t get mixed up with the product underneath. There are three themes to choose from.', pt: 'Ela tem estilo e fonte próprios, neutros, para não se confundir com o produto por baixo. Dá para escolher entre três temas.' }
+          body: { en: 'It has its own neutral style and typeface so it doesn’t get mixed up with the product underneath. There are three themes to choose from.', pt: 'Ela tem estilo e fonte próprios, neutros, para não se confundir com o produto por baixo. Dá para escolher entre três temas.' },
+          img: ['assets/img/k-overlay-rail.webp'], kind: 'wide'
         },
         {
           title: { en: 'Comments tied to screens', pt: 'Comentários ligados às telas' },
-          body: { en: 'Each comment belongs to the screen where it was left and can reopen that exact step of a flow. Every project keeps its own comments, and the tool warns you if two sites are sharing an ID by mistake.', pt: 'Cada comentário fica vinculado à tela onde foi deixado e pode reabrir exatamente aquele passo do fluxo. Cada projeto guarda os próprios comentários, e a ferramenta avisa se dois sites estiverem usando o mesmo ID por engano.' }
+          body: { en: 'Each comment belongs to the screen where it was left and can reopen that exact step of a flow. Every project keeps its own comments, and the tool warns you if two sites are sharing an ID by mistake.', pt: 'Cada comentário fica vinculado à tela onde foi deixado e pode reabrir exatamente aquele passo do fluxo. Cada projeto guarda os próprios comentários, e a ferramenta avisa se dois sites estiverem usando o mesmo ID por engano.' },
+          img: ['assets/img/k-overlay-rail-cards.webp'], kind: 'square'
         },
         {
           title: { en: 'Names on comments', pt: 'Nomes nos comentários' },
@@ -553,11 +557,13 @@ window.CONTENT = {
         },
         {
           title: { en: 'Rebalancing', pt: 'Rebalanceamento' },
-          body: { en: 'I adjusted stats (HP, damage, weight and speed) for heroes players weren’t picking, based on performance data and what players were saying. I also worked on the reward tiers for Hero Event 2.0.', pt: 'Ajustei atributos (HP, dano, peso e velocidade) de heróis pouco escolhidos, com base em dados de desempenho e no que os jogadores diziam. Também trabalhei nas faixas de recompensa do Hero Event 2.0.' }
+          body: { en: 'I adjusted stats (HP, damage, weight and speed) for heroes players weren’t picking, based on performance data and what players were saying. I also worked on the reward tiers for Hero Event 2.0.', pt: 'Ajustei atributos (HP, dano, peso e velocidade) de heróis pouco escolhidos, com base em dados de desempenho e no que os jogadores diziam. Também trabalhei nas faixas de recompensa do Hero Event 2.0.' },
+          img: ['assets/img/g-sf-heroes.webp'], kind: 'phones'
         },
         {
           title: { en: 'Live ops', pt: 'Live ops' },
-          body: { en: 'I set up events and the season pass, and kept the game’s news and in-game content up to date.', pt: 'Configurei os eventos e o passe de temporada, e mantive em dia as notícias e o conteúdo dentro do jogo.' }
+          body: { en: 'I set up events and the season pass, and kept the game’s news and in-game content up to date.', pt: 'Configurei os eventos e o passe de temporada, e mantive em dia as notícias e o conteúdo dentro do jogo.' },
+          img: ['assets/img/g-sf-arenas.webp'], kind: 'phones'
         }
       ],
       metrics: [],
@@ -678,8 +684,10 @@ window.CONTENT = {
         pt: 'Um estúdio pequeno precisava de alguém para gerenciar a produção de arte e tocar o jogo depois do lançamento.'
       },
       moves: [
-        { title: { en: 'Production', pt: 'Produção' }, body: { en: 'I managed art production, helped with the technical pipeline and wrote documentation for the team and partners.', pt: 'Cuidei da produção de arte, ajudei no pipeline técnico e escrevi a documentação para o time e os parceiros.' } },
-        { title: { en: 'Live operations', pt: 'Live ops' }, body: { en: 'I ran events, news and in-game content, designed retention and monetization events, and analysed playtests.', pt: 'Rodei eventos, notícias e conteúdo no jogo, criei eventos de retenção e monetização e analisei playtests.' } }
+        { title: { en: 'Production', pt: 'Produção' }, body: { en: 'I managed art production, helped with the technical pipeline and wrote documentation for the team and partners.', pt: 'Cuidei da produção de arte, ajudei no pipeline técnico e escrevi a documentação para o time e os parceiros.' },
+          img: ['assets/img/g-hemp-build.webp'], kind: 'wide' },
+        { title: { en: 'Live operations', pt: 'Live ops' }, body: { en: 'I ran events, news and in-game content, designed retention and monetization events, and analysed playtests.', pt: 'Rodei eventos, notícias e conteúdo no jogo, criei eventos de retenção e monetização e analisei playtests.' },
+          img: ['assets/img/g-hemp-dispensary.webp'], kind: 'wide' }
       ],
       metrics: [],
       live: 'https://apps.apple.com/us/app/hemp-paradise-420-weed-farm/id1541215176'

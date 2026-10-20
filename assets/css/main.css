@@ -78,9 +78,10 @@
   --shadow-sm: 0 1px 2px rgba(11, 21, 48, .06), 0 2px 8px rgba(11, 21, 48, .05);
   --shadow: 0 1px 2px rgba(11, 21, 48, .06), 0 12px 32px -8px rgba(11, 21, 48, .16);
   --shadow-lg: 0 2px 6px rgba(11, 21, 48, .08), 0 32px 64px -16px rgba(11, 21, 48, .30);
-  /* pictures: one corner radius; a soft shadow in light mode, a blue glow in dark mode */
-  --pic-shadow: 0 1px 2px rgba(11, 21, 48, .06), 0 10px 24px -6px rgba(11, 21, 48, .2);
-  --pic-drop: drop-shadow(0 10px 16px rgba(11, 21, 48, .2));
+  /* pictures: one corner radius and a blue glow (softer in light mode, stronger in dark) */
+  --pic-shadow: 0 0 0 1px rgba(11, 99, 201, .12), 0 0 28px -4px rgba(11, 99, 201, .4);
+  --pic-drop: drop-shadow(0 0 14px rgba(11, 99, 201, .4));
+  --lb-glow: drop-shadow(0 0 34px rgba(79, 195, 247, .55));
   /* the player card: light blue instead of gold (frame, level, portrait ring, CV button), and its neon glow */
   --card-hi: #4FC3F7; --card-hi-ink: #06122B;
   --card-glow: 0 0 44px -6px rgba(11, 99, 201, .42), 0 0 110px -20px rgba(11, 99, 201, .3);
@@ -144,7 +145,7 @@
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
     --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 14px 36px -10px rgba(0, 0, 0, .6);
     --shadow-lg: 0 2px 6px rgba(0, 0, 0, .4), 0 36px 72px -18px rgba(0, 0, 0, .75);
-    --pic-shadow: 0 0 0 1px rgba(79, 195, 247, .16), 0 0 30px -4px rgba(79, 195, 247, .34); --pic-drop: drop-shadow(0 0 14px rgba(79, 195, 247, .36)); --card-glow: 0 0 48px -4px rgba(79, 195, 247, .5), 0 0 130px -16px rgba(79, 195, 247, .38);
+    --pic-shadow: 0 0 0 1px rgba(79, 195, 247, .24), 0 0 36px -2px rgba(79, 195, 247, .5); --pic-drop: drop-shadow(0 0 16px rgba(79, 195, 247, .5)); --card-glow: 0 0 48px -4px rgba(79, 195, 247, .5), 0 0 130px -16px rgba(79, 195, 247, .38);
     --glow: rgba(79, 195, 247, .12);
     color-scheme: dark;
   }
@@ -165,7 +166,7 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
   --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 14px 36px -10px rgba(0, 0, 0, .6);
   --shadow-lg: 0 2px 6px rgba(0, 0, 0, .4), 0 36px 72px -18px rgba(0, 0, 0, .75);
-  --pic-shadow: 0 0 0 1px rgba(79, 195, 247, .16), 0 0 30px -4px rgba(79, 195, 247, .34); --pic-drop: drop-shadow(0 0 14px rgba(79, 195, 247, .36)); --card-glow: 0 0 48px -4px rgba(79, 195, 247, .5), 0 0 130px -16px rgba(79, 195, 247, .38);
+  --pic-shadow: 0 0 0 1px rgba(79, 195, 247, .24), 0 0 36px -2px rgba(79, 195, 247, .5); --pic-drop: drop-shadow(0 0 16px rgba(79, 195, 247, .5)); --card-glow: 0 0 48px -4px rgba(79, 195, 247, .5), 0 0 130px -16px rgba(79, 195, 247, .38);
   --glow: rgba(79, 195, 247, .12);
   color-scheme: dark;
 }
@@ -487,10 +488,10 @@ kbd {
 
 .case-card {
   position: relative; display: flex; flex-direction: column; min-width: 0; overflow: hidden;
-  border-radius: var(--r); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm);
+  border-radius: var(--r); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--pic-shadow);
   text-decoration: none; color: inherit; transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s;
 }
-.case-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--line-2); }
+.case-card:hover { transform: translateY(-4px); border-color: var(--line-2); }
 .case-card:focus-visible { outline-offset: 4px; border-radius: var(--r); }
 .cc-media { position: relative; overflow: hidden; aspect-ratio: 16 / 10; max-width: 100%; background: var(--surface-2); }
 .cc-media img { transition: transform .6s var(--ease); }
@@ -691,7 +692,7 @@ kbd {
 .cs-meta dd { margin: 0; font-size: var(--t-sm); font-weight: 600; }
 .cs-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .cs-cover { border-radius: var(--r); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--pic-shadow); }
-.cs-cover.frame { width: fit-content; }
+.cs-cover.frame { width: fit-content; margin-inline: auto; }
 .cs-cover img { width: 100%; }
 .cs-cover.art-fan { background: radial-gradient(90% 85% at 50% 100%, var(--tone-deep-2), var(--tone-deep) 72%); padding: 32px 0 0; }
 .cs-cover.art-fan img { width: min(760px, 92%); margin: 0 auto; }
@@ -738,7 +739,7 @@ kbd {
   animation: lbIn .25s var(--ease-out);
 }
 .lightbox[hidden] { display: none; }
-.lightbox img { max-width: min(100%, 1600px); max-height: calc(100dvh - 2 * clamp(16px, 4vw, 48px)); width: auto; height: auto; border-radius: var(--r); animation: lbZoom .3s var(--ease-out); }
+.lightbox img { max-width: min(100%, 1600px); max-height: calc(100dvh - 2 * clamp(16px, 4vw, 48px)); width: auto; height: auto; border-radius: var(--r); filter: var(--lb-glow); animation: lbZoom .3s var(--ease-out); }
 .lb-close {
   position: absolute; top: max(16px, env(safe-area-inset-top, 0px)); right: max(16px, env(safe-area-inset-right, 0px)); width: 42px; height: 42px;
   border-radius: 50%; display: grid; place-items: center; cursor: pointer; background: var(--surface); color: var(--ink); border: 1px solid var(--line);
