@@ -675,15 +675,16 @@ kbd {
 
 /* ---------- Skill tree ---------- */
 .tree-layout { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 28px; align-items: start; }
-.tree { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; position: relative; padding-top: 72px; }
+.tree { --tree-gap: 20px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--tree-gap); position: relative; padding-top: 72px; }
 .tree-root {
   position: absolute; top: 0; left: 50%; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 8px;
   padding: 8px 14px; border-radius: 10px; background: var(--accent); color: var(--accent-ink); font-family: var(--f-mono); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap;
 }
-.tree::before { content: ""; position: absolute; top: 30px; left: 50%; width: 2px; height: 20px; background: var(--line-2); }
-.tree::after { content: ""; position: absolute; top: 48px; left: calc(100% / 6); right: calc(100% / 6); height: 2px; background: var(--line-2); }
+.tree::before { content: ""; position: absolute; top: 30px; left: calc(50% - 1px); width: 2px; height: 20px; background: var(--line-2); }
+/* the bar runs from the first column's centre to the last one's (the gaps shift those centres outward) */
+.tree::after { content: ""; position: absolute; top: 48px; left: calc((100% - 2 * var(--tree-gap)) / 6 - 1px); right: calc((100% - 2 * var(--tree-gap)) / 6 - 1px); height: 2px; background: var(--line-2); }
 .branch { position: relative; display: grid; gap: 12px; align-content: start; }
-.branch::before { content: ""; position: absolute; top: -26px; left: 50%; width: 2px; height: 32px; background: var(--line-2); }
+.branch::before { content: ""; position: absolute; top: -24px; left: calc(50% - 1px); width: 2px; height: 30px; background: var(--line-2); }
 .branch-label { position: relative; text-align: center; padding: 6px 8px; border-radius: 8px; background: var(--paper-2); font-size: .66rem; }
 .node {
   position: relative; display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; align-items: center; width: 100%; text-align: left;
