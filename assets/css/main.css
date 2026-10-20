@@ -466,12 +466,14 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 }
 .player-card.is-tilting { transition: transform .08s linear; }
 .pc-holo {
-  /* foil frame (light blue on this card): the shimmer lives only in the card's 7px border ring */
+  /* chrome frame: polished metal with hard-edged reflections, its shadows tinted by the card's navy;
+     the shine lives only in the card's 6px border ring and slides as the card tilts */
+  --c-hi: #fff; --c-mid: color-mix(in srgb, #fff 62%, var(--blue-deep)); --c-lo: color-mix(in srgb, #fff 20%, var(--blue-deep));
   position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 2; padding: 6px;
   background: linear-gradient(115deg,
-    color-mix(in srgb, var(--gold) 55%, #000) 0%, color-mix(in srgb, var(--gold) 50%, #fff) 16%, var(--gold) 32%,
-    color-mix(in srgb, var(--gold) 22%, #fff) 48%, color-mix(in srgb, var(--gold) 80%, #000) 64%,
-    color-mix(in srgb, var(--gold) 50%, #fff) 80%, color-mix(in srgb, var(--gold) 55%, #000) 100%);
+    var(--c-lo) 0%, var(--c-mid) 7%, var(--c-hi) 11%, var(--c-mid) 15%, var(--c-lo) 24%,
+    var(--c-mid) 33%, var(--c-hi) 39%, var(--c-hi) 41%, var(--c-lo) 47%, var(--c-mid) 56%,
+    var(--c-lo) 64%, var(--c-mid) 72%, var(--c-hi) 78%, var(--c-mid) 84%, var(--c-lo) 100%);
   background-size: 300% 300%;
   background-position: var(--hx) var(--hy);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
