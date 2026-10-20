@@ -847,7 +847,30 @@ window.CONTENT = {
     behavior: { en: 'Behavior and learning', pt: 'Comportamento e aprendizagem' },
     strategy: { en: 'Strategy and research', pt: 'Estratégia e pesquisa' }
   },
-  courses: ['Figma UI UX Design Advanced · BYOL (2025)', 'Figma UI UX Design Essentials · BYOL (2025)', 'UX/UI Design · Gama Academy (2023)', 'Math for Video Games · GameDev.tv (2023)', 'Design Sprint Master · SETA (2021)', 'Level Design Masterclass · Udemy (2021)', '3D Unity + Multiplayer · Udemy (2022)'],
+  // shorter courses: label is "Name · School (Year)"; about and core come from each course's syllabus
+  courses: [
+    { label: 'Figma UI UX Design Advanced · BYOL (2025)',
+      about: { en: 'Advanced Figma: a full app built with components, variables, prototypes and developer handoff.', pt: 'Figma avançado: um app completo com componentes, variables, protótipos e handoff.' },
+      core: { en: ['Advanced Auto Layout', 'Design systems', 'Variables and theming', 'Advanced prototyping', 'Dev Mode handoff', 'Team libraries'], pt: ['Auto Layout avançado', 'Design systems', 'Variables e temas', 'Prototipagem avançada', 'Handoff com Dev Mode', 'Bibliotecas de equipe'] } },
+    { label: 'Figma UI UX Design Essentials · BYOL (2025)',
+      about: { en: 'Figma from the ground up: wireframes, UI components, interactive prototypes and handoff, through one project.', pt: 'Figma do zero: wireframes, componentes de UI, protótipos interativos e handoff, em um projeto prático.' },
+      core: { en: ['Low-fi wireframing', 'Type, color and icons', 'Components and variants', 'Auto Layout and constraints', 'Prototyping and micro-interactions', 'Developer handoff'], pt: ['Wireframes de baixa fidelidade', 'Tipografia, cor e ícones', 'Componentes e variantes', 'Auto Layout e constraints', 'Prototipagem e microinterações', 'Handoff para desenvolvedores'] } },
+    { label: 'UX/UI Design · Gama Academy (2023)',
+      about: { en: 'An online UX/UI program, from user research to a clickable Figma prototype.', pt: 'Formação online de UX/UI, da pesquisa com usuários ao protótipo navegável no Figma.' },
+      core: { en: ['UX fundamentals', 'UX research planning', 'Personas and empathy maps', 'Information architecture', 'Wireframes', 'Figma prototyping'], pt: ['Fundamentos de UX', 'Plano de pesquisa UX', 'Personas e mapa de empatia', 'Arquitetura da informação', 'Wireframes', 'Prototipagem no Figma'] } },
+    { label: 'Math for Video Games · GameDev.tv (2023)',
+      about: { en: 'Math for game development, taught through game problems like projectile paths, movement and loot drops.', pt: 'Matemática para desenvolvimento de jogos, ensinada com problemas de jogos como trajetórias, movimento e drops.' },
+      core: { en: ['Arithmetic and algebra', 'Angles and trigonometry', 'Vectors and matrices', 'Rotation and interpolation', 'Probability and statistics'], pt: ['Aritmética e álgebra', 'Ângulos e trigonometria', 'Vetores e matrizes', 'Rotação e interpolação', 'Probabilidade e estatística'] } },
+    { label: 'Design Sprint Master · SETA (2021)',
+      about: { en: 'The Design Sprint method: testing ideas with customers through quick prototypes.', pt: 'O método Design Sprint: validar ideias com clientes por meio de protótipos rápidos.' },
+      core: { en: ['Lean Design', 'Personas and interviews', 'Brainstorming and co-creation', 'User journey', 'MVP prototyping', 'Pivot or persevere'], pt: ['Lean Design', 'Personas e entrevistas', 'Brainstorming e cocriação', 'Jornada do usuário', 'Prototipagem de MVP', 'Pivotar ou perseverar'] } },
+    { label: 'Level Design Masterclass · Udemy (2021)',
+      about: { en: 'Level design from start to finish: planning, documenting and blocking out a 3D level.', pt: 'Level design do começo ao fim: planejar, documentar e montar um nível 3D.' },
+      core: { en: ['Level design workflow', 'Level design documents', 'Composition', 'Guiding the player', 'Greyboxing'], pt: ['Fluxo de level design', 'Documento de level design', 'Composição', 'Guiar o jogador', 'Greyboxing'] } },
+    { label: '3D Unity + Multiplayer · Udemy (2022)',
+      about: { en: 'Building a 3D game in Unity with online multiplayer.', pt: 'Desenvolvimento de um jogo 3D no Unity com multiplayer online.' },
+      core: { en: ['3D game development', 'Online multiplayer', 'Unity and C#'], pt: ['Desenvolvimento de jogos 3D', 'Multiplayer online', 'Unity e C#'] } }
+  ],
 
   /* ---------- Achievements (quest log) ---------- */
   achievements: [

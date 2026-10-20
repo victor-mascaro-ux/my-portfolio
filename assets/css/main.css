@@ -711,6 +711,7 @@ kbd {
 .td-status.is-progress { background: var(--accent-soft); color: var(--accent); }
 .td-name { font-size: 1.45rem; font-weight: 700; letter-spacing: -.02em; }
 .td-kind { color: var(--ink-2); font-size: var(--t-sm); }
+.td-about { color: var(--ink-2); font-size: var(--t-sm); line-height: 1.55; max-width: 38em; }
 .td-meta { display: flex; gap: 18px; flex-wrap: wrap; font-family: var(--f-mono); font-size: .74rem; color: var(--muted); }
 .td-meta b { color: var(--ink); font-weight: 700; }
 .td-block { display: grid; gap: 8px; }
@@ -1112,6 +1113,12 @@ a.side-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2p
   .menu-btn { display: inline-flex; }
   .hero { grid-template-columns: minmax(0, 1fr); }
   .hero-card-wrap { justify-content: flex-start; }
+  /* one column: the player card comes right after the intro, before the tab cards
+     (the copy block steps aside so its rows and the card share the hero's grid) */
+  .hero { gap: 28px; }
+  .hero-copy { display: contents; }
+  .hero-card-wrap { order: 1; }
+  .hero-tabs { order: 2; }
   .tree-layout { grid-template-columns: minmax(0, 1fr); }
   .tree-detail { position: static; }
   /* one column: the details card sits right under the tree, the short courses after it */

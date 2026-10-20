@@ -193,19 +193,21 @@
     $('#tree').innerHTML = html;
     renderSkillDetail();
     $('#courseList').innerHTML = C.courses.map(function (c, i) {
-      return '<li><button type="button" class="course" data-course="' + i + '" aria-pressed="' + (selectedSkill === 'course:' + i) + '">' + esc(c) + '</button></li>';
+      return '<li><button type="button" class="course" data-course="' + i + '" aria-pressed="' + (selectedSkill === 'course:' + i) + '">' + esc(c.label) + '</button></li>';
     }).join('');
   }
   function renderSkillDetail() {
     var cm = /^course:(\d+)$/.exec(selectedSkill);
     if (cm) {
-      // a short course: "Name · School (Year)"
-      var raw = C.courses[+cm[1]], m = /^(.*) · (.*) \((\d{4})\)$/.exec(raw) || [raw, raw, '', ''];
+      // a short course: "Name · School (Year)", what it is, and what it covered
+      var c = C.courses[+cm[1]], raw = c.label, m = /^(.*) · (.*) \((\d{4})\)$/.exec(raw) || [raw, raw, '', ''];
       $('#treeDetail').innerHTML =
         '<span class="td-status">' + esc(t('skills.done')) + '</span>' +
         '<h3 class="td-name">' + esc(m[1]) + '</h3>' +
         '<p class="td-kind">' + esc(t('skills.short')) + (m[2] ? ' · ' + esc(m[2]) : '') + '</p>' +
-        (m[3] ? '<p class="td-meta"><span>' + esc(t('skills.year')) + ' <b>' + esc(m[3]) + '</b></span></p>' : '');
+        (m[3] ? '<p class="td-meta"><span>' + esc(t('skills.year')) + ' <b>' + esc(m[3]) + '</b></span></p>' : '') +
+        (c.about ? '<p class="td-about">' + esc(L(c.about)) + '</p>' : '') +
+        (c.core ? '<div class="td-block"><p class="label">' + esc(t('skills.core')) + '</p><ul class="chips">' + c.core[lang].map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' : '');
       return;
     }
     var s = C.skills.filter(function (x) { return x.id === selectedSkill; })[0];
@@ -919,6 +921,8 @@
     if (reduceMotion.matches) return;
     var els = [];
     (ENTER[id] || []).concat(id === 'home' ? [] : ['#tabNext .hero-tab']).forEach(function (s) { els = els.concat($$(s)); });
+    // on one column the player card sits above the tab cards: rise in top to bottom, as laid out
+    if (id === 'home') els.sort(function (a, b) { return a.getBoundingClientRect().top - b.getBoundingClientRect().top; });
     var n = 0;
     els.forEach(function (el) {
       el.classList.remove('rv', 'in', 'enter'); el.style.removeProperty('--rd');
