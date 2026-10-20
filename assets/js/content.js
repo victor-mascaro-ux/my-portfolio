@@ -14,7 +14,7 @@ window.CONTENT = {
     github: 'https://github.com/victor-mascaro-ux',
     cv: { en: 'assets/cv/Victor-Mascaro-CV-EN.pdf', pt: 'assets/cv/Victor-Mascaro-CV-PT.pdf' },
     // bump whenever the PDFs are rebuilt: it changes the link, so browsers don't show an old saved copy
-    cvVersion: '2026-10-20g'
+    cvVersion: '2026-10-20k'
   },
 
   /* ---------- Interface strings ---------- */
@@ -254,11 +254,11 @@ window.CONTENT = {
       'ds.sum.pull-quote': 'Large display text inside case studies: the problem statement that opens each one.',
       'ds.sum.section-head': 'The opener of each tab (<code>.section-head</code>) and of each project group inside Work (<code>.group-head</code>).',
       'ds.sum.career-path': 'The level-map row of employers at the top of Experience; each stop jumps to its timeline row.',
-      'ds.sum.chips': 'Small tags: tool chips, metric chips, status badges and selectable course chips.',
+      'ds.sum.chips': 'Small tags: tool chips (on the designer card and under each job in Experience), metric chips, status badges and selectable course chips.',
       'ds.sum.metrics': 'Result tiles at the end of a case study.',
       'ds.sum.skill-tree': 'The Education skill tree: branches of course nodes and a detail panel for the selected one.',
       'ds.sum.stat-strip': 'The “In short” card under the hero: four headline numbers with a one-line explanation each.',
-      'ds.sum.timeline': 'One row per job in Experience: dates, company and role, then bullet points and cards for the related projects. A card can also open a game in a new tab, like Where is Estela? on the PROAC row.',
+      'ds.sum.timeline': 'One row per job in Experience: dates, company and role, then bullet points, cards for the related projects and the tools used there. A card can also open a game in a new tab, like Where is Estela? on the PROAC row. On phones the tools fold after eight, behind a “+N more” button.',
       'ds.sum.case-card': 'The project card in Work: cover, kicker, title, tagline, one metric chip and the read time.',
       'ds.sum.player-card': 'The hero’s trading-card profile in a chrome frame: level, portrait, the logo, stats, tools, status and the CV button. Move the pointer over it to tilt it; the frame’s reflections slide with the tilt.',
       'ds.sum.process-step': 'A numbered step in the Process tab, with a screenshot, an explanation and a linked example.',
@@ -374,6 +374,7 @@ window.CONTENT = {
       'exp.eyebrow': 'Experience',
       'exp.title': 'Where I’ve worked',
       'exp.cv': 'Full CV (PDF)', 'exp.path': 'Career path', 'exp.now': 'Now',
+      'exp.tools': 'Tools', 'exp.toolsMore': '+{n} more', 'exp.toolsLess': 'Show fewer',
 
       'skills.eyebrow': 'Education',
       'skills.title': 'Education and courses',
@@ -651,11 +652,11 @@ window.CONTENT = {
       'ds.sum.pull-quote': 'Texto grande dentro dos estudos de caso: a descrição do problema que abre cada um.',
       'ds.sum.section-head': 'A abertura de cada aba (<code>.section-head</code>) e de cada grupo de projetos em Trabalhos (<code>.group-head</code>).',
       'ds.sum.career-path': 'A trilha de fases com as empresas no topo de Experiência; cada parada leva à sua linha na linha do tempo.',
-      'ds.sum.chips': 'Etiquetas pequenas: chips de ferramentas, chips de métrica, selos de status e chips de curso selecionáveis.',
+      'ds.sum.chips': 'Etiquetas pequenas: chips de ferramentas (na ficha do designer e em cada emprego de Experiência), chips de métrica, selos de status e chips de curso selecionáveis.',
       'ds.sum.metrics': 'Blocos de resultado no fim de um estudo de caso.',
       'ds.sum.skill-tree': 'A árvore de habilidades de Formação: ramos de cursos e um painel com os detalhes do selecionado.',
       'ds.sum.stat-strip': 'O card “Em resumo” sob o hero: quatro números principais, cada um com uma explicação de uma linha.',
-      'ds.sum.timeline': 'Uma linha por emprego em Experiência: datas, empresa e cargo, depois tópicos e cards dos projetos relacionados. Um card também pode abrir um jogo numa nova aba, como o Where is Estela? na linha da PROAC.',
+      'ds.sum.timeline': 'Uma linha por emprego em Experiência: datas, empresa e cargo, depois tópicos, cards dos projetos relacionados e as ferramentas usadas ali. Um card também pode abrir um jogo numa nova aba, como o Where is Estela? na linha da PROAC. No celular, as ferramentas se recolhem depois de oito, atrás de um botão “+N mais”.',
       'ds.sum.case-card': 'O card de projeto em Trabalhos: capa, kicker, título, tagline, um chip de métrica e o tempo de leitura.',
       'ds.sum.player-card': 'O perfil do hero em forma de carta colecionável, numa moldura cromada: nível, retrato, o logo, atributos, ferramentas, status e o botão do CV. Passe o ponteiro por cima para inclinar; os reflexos da moldura deslizam junto.',
       'ds.sum.process-step': 'Uma etapa numerada da aba Processo, com uma tela, a explicação e um exemplo com link.',
@@ -771,6 +772,7 @@ window.CONTENT = {
       'exp.eyebrow': 'Experiência',
       'exp.title': 'Onde trabalhei',
       'exp.cv': 'CV completo (PDF)', 'exp.path': 'Trajetória', 'exp.now': 'Agora',
+      'exp.tools': 'Ferramentas', 'exp.toolsMore': '+{n} mais', 'exp.toolsLess': 'Mostrar menos',
 
       'skills.eyebrow': 'Formação',
       'skills.title': 'Formação e cursos',
@@ -1172,7 +1174,7 @@ window.CONTENT = {
       kicker: { en: 'By Aliens · Systems and UX', pt: 'By Aliens · Sistemas e UX' },
       title: { en: 'Auction City', pt: 'Auction City' },
       tagline: { en: 'A season pass, new tutorials and clearer auction results for a tycoon game.', pt: 'Um passe de temporada, novos tutoriais e resultados de leilão mais claros para um jogo tycoon.' },
-      chip: { en: 'Season pass and onboarding', pt: 'Passe de temporada e onboarding' },
+      chip: { en: 'Hunter Pass: best-selling SKU', pt: 'Hunter Pass: SKU mais vendido' },
       meta: {
         role: { en: 'Systems and UX designer, By Aliens', pt: 'Designer de sistemas e UX, By Aliens' },
         when: { en: '2024', pt: '2024' },
@@ -1186,7 +1188,7 @@ window.CONTENT = {
       moves: [
         {
           title: { en: 'Hunter Pass', pt: 'Hunter Pass' },
-          body: { en: 'A themed season pass with relic items that only show up in special auctions.', pt: 'Um passe de temporada temático com relíquias que só aparecem em leilões especiais.' },
+          body: { en: 'A themed season pass with relic items that only show up in special auctions. From its launch on, it was the game’s best-selling SKU.', pt: 'Um passe de temporada temático com relíquias que só aparecem em leilões especiais. Desde o lançamento, foi o SKU mais vendido do jogo.' },
           img: ['assets/img/g-ac-hunter-pass.webp'], kind: 'game'
         },
         {
@@ -1210,7 +1212,9 @@ window.CONTENT = {
           img: ['assets/img/g-ac-mystery-dock.webp', 'assets/img/g-ac-gacha-drop.webp', 'assets/img/g-ac-gacha-reveal.webp', 'assets/img/g-ac-gacha-rewards.webp'], kind: 'game'
         }
       ],
-      metrics: [],
+      metrics: [
+        { v: '#1', l: { en: 'best-selling SKU in the game, from the Hunter Pass launch on', pt: 'SKU mais vendido do jogo, desde o lançamento do Hunter Pass' }, kind: 'measured' }
+      ],
       live: 'https://apps.apple.com/br/app/auction-city-tycoon-simulator/id6446124916'
     },
     {
@@ -1318,12 +1322,14 @@ window.CONTENT = {
   ],
 
   /* ---------- Experience ----------
-     cases: case studies (open the sheet); games: titles from side (open the game in a new tab) */
+     cases: case studies (open the sheet); games: titles from side (open the game in a new tab);
+     tools: what I used there, as chips (a string, or { en, pt } when the name translates) */
   experience: [
     {
       org: 'Knomee', logo: 'assets/img/logos/knomee-mark.webp', cases: ['adventures', 'advisor', 'review-layer', 'go-to-market'], when: { en: '2024 – now', pt: '2024 – atual' },
       role: { en: 'UX & Gamification Designer', pt: 'Designer de UX e Gamificação' },
       where: { en: 'Fintech · San Francisco · Remote', pt: 'Fintech · San Francisco · Remoto' },
+      tools: ['Figma', 'FigJam', { en: 'Figma prototyping', pt: 'Protótipos no Figma' }, 'Miro', 'Claude', 'Claude Code', 'Claude Design', 'ElevenLabs', 'HTML / CSS / JS', 'React', 'TypeScript', 'Vite', { en: 'Git and GitHub', pt: 'Git e GitHub' }, 'GitHub Pages', 'Firebase', 'Excel', 'Google Docs', 'Notion', 'Canva', 'Google Forms', 'Typeform', 'Mixpanel', 'ClickUp', 'Slack', 'Google Workspace', 'Loom'],
       points: {
         en: ['Designed the client app’s Adventures, short questionnaires that build a Financial ID clients can share.', 'Designed the advisor dashboard: readiness scores, segmentation, alerts and conversation playbooks.', 'Designed an AI voice shortcut that turns what a client says into an in-app action.', 'Built the coded prototype with Claude Code, used for handoff, sales demos and user tests (643 merged pull requests).', 'Made the activation toolkit and the pitch deck, and built the product video in code with React and an AI voice-over.'],
         pt: ['Desenhei as Adventures do app do cliente, questionários curtos que montam um Financial ID compartilhável.', 'Desenhei o dashboard do assessor: scores de prontidão, segmentação, alertas e playbooks de conversa.', 'Desenhei um atalho de voz com IA que transforma a fala do cliente em ação.', 'Desenvolvi com o Claude Code o protótipo em código usado em handoff, demos de vendas e testes com usuários (643 pull requests mergeados).', 'Fiz o kit de ativação e o pitch deck, e construí o vídeo do produto em código, com React e locução gerada por IA.']
@@ -1333,15 +1339,17 @@ window.CONTENT = {
       org: 'By Aliens', logo: 'assets/img/logos/by-aliens-mark.webp', logoFill: true, cases: ['smashing-four', 'auction-city', 'illuminati', 'idle-planes'], when: { en: '2022 – 2025', pt: '2022 – 2025' },
       role: { en: 'Game & UX Designer', pt: 'Game e UX Designer' },
       where: { en: 'Game studio · Dubai · Remote', pt: 'Estúdio de jogos · Dubai · Remoto' },
+      tools: ['Figma', 'FigJam', { en: 'Figma prototyping', pt: 'Protótipos no Figma' }, 'Miro', 'ChatGPT', { en: 'Git and GitHub', pt: 'Git e GitHub' }, 'Unity', 'C#', 'Firebase', 'Google Sheets', 'Excel', 'Machinations', 'Google Docs', 'Confluence', 'Google Forms', 'Google Analytics', 'Google Play Console', 'Jira', 'Trello', 'Slack', 'Google Workspace'],
       points: {
-        en: ['Smashing Four: a new hero (Bloodbite), rebalancing, Hero Event 2.0 and live ops: events, season pass, news and in-game content.', 'Auction City: Hunter Pass season pass, new onboarding, Statues system and a gacha concept.', 'We Are Illuminati: a new late-game area (A.I.) with 10 situation cards, a clearer main screen, a side story with three endings, ads and in-app purchases.', 'Idle Planes: pacing, upgrade economy, UX reviews and three minigames.'],
-        pt: ['Smashing Four: um herói novo (Bloodbite), rebalanceamento, Hero Event 2.0 e live ops: eventos, passe de temporada, notícias e conteúdo no jogo.', 'Auction City: passe de temporada Hunter Pass, novo onboarding, sistema de Estátuas e um conceito de gacha.', 'We Are Illuminati: nova área de fim de jogo (A.I.) com 10 cards, tela principal mais clara, história paralela com três finais, anúncios e compras in-app.', 'Idle Planes: ritmo, economia de upgrades, revisões de UX e três minigames.']
+        en: ['Smashing Four: a new hero (Bloodbite), rebalancing, Hero Event 2.0 and live ops: events, season pass, news and in-game content.', 'Auction City: the Hunter Pass season pass, the best-selling SKU from its launch on; new onboarding, a Statues system and a gacha concept.', 'We Are Illuminati: a new late-game area (A.I.) with 10 situation cards, a clearer main screen, a side story with three endings, ads and in-app purchases.', 'Idle Planes: pacing, upgrade economy, UX reviews and three minigames.'],
+        pt: ['Smashing Four: um herói novo (Bloodbite), rebalanceamento, Hero Event 2.0 e live ops: eventos, passe de temporada, notícias e conteúdo no jogo.', 'Auction City: o passe de temporada Hunter Pass, o SKU mais vendido desde o lançamento; novo onboarding, sistema de Estátuas e um conceito de gacha.', 'We Are Illuminati: nova área de fim de jogo (A.I.) com 10 cards, tela principal mais clara, história paralela com três finais, anúncios e compras in-app.', 'Idle Planes: ritmo, economia de upgrades, revisões de UX e três minigames.']
       }
     },
     {
       org: 'Betsie', logo: 'assets/img/logos/betsie-mark.webp', cases: ['betsie'], when: { en: 'Jul – Nov 2024', pt: 'jul – nov 2024' },
       role: { en: 'UX/Product Design Consultant', pt: 'Consultor de UX e Produto' },
       where: { en: 'Startup · San Francisco · Remote', pt: 'Startup · San Francisco · Remoto' },
+      tools: ['Figma', 'FigJam', { en: 'Figma prototyping', pt: 'Protótipos no Figma' }, 'Miro', 'Slack', 'Google Workspace'],
       points: {
         en: ['Added gamification to a social betting app: onboarding, scoring and feedback.', 'Delivered a clickable prototype and a showcase video for the pitch.'],
         pt: ['Gamifiquei um app social de apostas: onboarding, pontuação e feedback.', 'Entreguei um protótipo navegável e um vídeo de apresentação para o pitch.']
@@ -1351,6 +1359,7 @@ window.CONTENT = {
       org: 'Lumen Games', logo: 'assets/img/logos/lumen-games-mark.webp', cases: ['lumen'], when: { en: '2021 – 2022', pt: '2021 – 2022' },
       role: { en: 'Producer / Game Designer', pt: 'Produtor / Game Designer' },
       where: { en: 'Game studio · Aracaju · Remote', pt: 'Estúdio de jogos · Aracaju · Remoto' },
+      tools: ['Figma', 'FigJam', { en: 'Figma prototyping', pt: 'Protótipos no Figma' }, 'Miro', 'Unity', 'C#', 'Firebase', 'Excel', 'Google Docs', 'Notion', 'Google Forms', 'Google Play Console', 'Jira', 'Trello', 'Slack', 'Google Workspace'],
       points: {
         en: ['Managed art production and the technical pipeline for Hemp Paradise.', 'Ran the live game: events, news and content. Designed retention and monetization events.', 'Analysed playtests and turned the findings into design changes.'],
         pt: ['Gerenciei a produção de arte e o pipeline técnico do Hemp Paradise.', 'Cuidei do live ops: eventos, notícias e conteúdo. Criei eventos de retenção e monetização.', 'Analisei playtests e transformei os insights em mudanças de design.']
@@ -1360,6 +1369,7 @@ window.CONTENT = {
       org: 'PROAC', logo: 'assets/img/logos/proac-mark.webp', logoWide: true, games: ['Where is Estela?'], when: { en: '2021 – 2022', pt: '2021 – 2022' },
       role: { en: 'Game Design Intern', pt: 'Estagiário de Game Design' },
       where: { en: 'Cultural grant · São Paulo · Remote', pt: 'Edital cultural · São Paulo · Remoto' },
+      tools: ['Figma', 'FigJam', { en: 'Figma prototyping', pt: 'Protótipos no Figma' }, 'Miro', { en: 'Git and GitHub', pt: 'Git e GitHub' }, 'Unity', 'C#', 'Trello', 'Discord', 'Google Workspace'],
       points: {
         en: ['Worked on systems and gameplay for an experimental mobile game funded by a São Paulo cultural grant.'],
         pt: ['Trabalhei nos sistemas e no gameplay de um jogo mobile experimental financiado por um edital cultural de São Paulo.']

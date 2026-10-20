@@ -690,7 +690,8 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 
 /* ---------- Experience ---------- */
 .timeline { border-top: 1px solid var(--line-2); }
-.timeline li {
+/* a job's row (only the rows: lists inside it, like its points and tool chips, keep their own layout) */
+.timeline > li {
   display: grid; grid-template-columns: 150px minmax(0, 280px) minmax(0, 1fr); gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--line);
 }
 .tl-when { font-family: var(--f-mono); font-size: var(--t-xs); font-weight: 600; color: var(--muted); padding-top: 6px; font-variant-numeric: tabular-nums; }
@@ -714,6 +715,17 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .tl-case:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--accent); }
 .tl-case:hover img { transform: scale(1.1); }
 .tl-case:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+/* the tools used in each job: quiet chips under the row; on phones the list folds after eight */
+.tl-tools { display: grid; gap: 8px; }
+.tl-tools .chips li { font-size: .72rem; padding: 2px 8px; }
+.tl-tools .chips li.tl-more-li { display: none; padding: 0; border: 0; background: none; }
+.tl-more { font: inherit; font-size: .72rem; font-weight: 650; padding: 2px 9px; border-radius: 6px; border: 1px dashed var(--line-2); background: transparent; color: var(--accent); cursor: pointer; transition: border-color var(--dur-1) var(--ease); }
+.tl-more:hover { border-color: var(--accent); }
+.tl-more:focus-visible { outline: 2.5px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 640px) {
+  .tl-tools .chips li.tl-more-li { display: block; }
+  .tl-tools:not(.is-open) .chips li.is-extra { display: none; }
+}
 .tl-case > svg { width: 13px; height: 13px; flex: none; margin-left: -4px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .timeline > li.tl-flash { animation: tlFlash 1.6s var(--ease-out); }
 @keyframes tlFlash { 0%, 30% { background: color-mix(in srgb, var(--accent) 16%, transparent); } }
@@ -1246,7 +1258,7 @@ span.sep { display: inline; font-family: var(--f-mono); font-weight: 700; line-h
   .short-list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 20px; }
   .short-list li:nth-child(3) { border-left: 0; padding-left: 0; }
   .short-list li:first-child { border-left: 0; padding-left: 0; }
-  .timeline li { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .timeline > li { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .tl-when { padding-top: 0; }
   .cs-section { grid-template-columns: minmax(0, 1fr); gap: 14px; }
   .cs-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }

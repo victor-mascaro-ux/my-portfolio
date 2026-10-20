@@ -157,6 +157,22 @@
   function logoTile(x, cls) {
     return '<span class="' + cls + ' has-logo' + (x.logoFill ? ' is-fill' : '') + (x.logoWide ? ' is-wide' : '') + '" aria-hidden="true"><img src="' + x.logo + '" alt="" loading="lazy"></span>';
   }
+  // the tools used in a job; past the first eight they fold behind a button on phones (CSS decides when)
+  var TOOLS_SHOWN = 8;
+  function toolsHTML(list) {
+    if (!list || !list.length) return '';
+    var more = list.length - TOOLS_SHOWN;
+    return '<div class="tl-tools"><p class="label">' + esc(t('exp.tools')) + '</p><ul class="chips">' +
+      list.map(function (k, n) { return '<li' + (n >= TOOLS_SHOWN ? ' class="is-extra"' : '') + '>' + esc(L(k)) + '</li>'; }).join('') +
+      (more > 0 ? '<li class="tl-more-li"><button type="button" class="tl-more" aria-expanded="false" data-more="' + more + '">' + esc(t('exp.toolsMore').replace('{n}', more)) + '</button></li>' : '') +
+      '</ul></div>';
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('.tl-more'); if (!b) return;
+    var box = b.closest('.tl-tools'), open = !box.classList.contains('is-open');
+    box.classList.toggle('is-open', open); b.setAttribute('aria-expanded', String(open));
+    b.textContent = open ? t('exp.toolsLess') : t('exp.toolsMore').replace('{n}', b.getAttribute('data-more'));
+  });
   function renderTimeline() {
     $('#timeline').innerHTML = C.experience.map(function (x, i) {
       var cases = (x.cases || []).map(caseById).filter(Boolean);
@@ -168,7 +184,7 @@
           return '<a class="tl-case" href="#case-' + c.id + '" data-case="' + c.id + '">' + caseThumb(c, 'tl-thumb') + '<span>' + esc(L(c.title)) + '</span></a>';
         }).join('') + games.map(function (g) {
           return '<a class="tl-case" href="' + esc(g.url) + '" target="_blank" rel="noopener"><span class="tl-thumb' + (g.fit === 'contain' ? ' is-art' : '') + '"><img src="' + g.img + '" alt="" loading="lazy"></span><span>' + esc(g.t) + '</span>' + ICON.ext + '</a>';
-        }).join('') + '</div>' : '') + '</div></li>';
+        }).join('') + '</div>' : '') + toolsHTML(x.tools) + '</div></li>';
     }).join('');
     // the career path: oldest job on the left, the current one on the right
     var initials = function (org) { return org.split(/\s+/).map(function (w) { return w.charAt(0); }).join('').slice(0, 2).toUpperCase(); };
