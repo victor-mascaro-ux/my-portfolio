@@ -34,6 +34,11 @@
       var v = t(el.getAttribute('data-i18n'));
       if (typeof v === 'string') el.textContent = v;
     });
+    // a few strings carry inline markup (code, bold, a key); they come from content.js, never from visitors
+    $$('[data-i18n-html]').forEach(function (el) {
+      var v = t(el.getAttribute('data-i18n-html'));
+      if (typeof v === 'string') el.innerHTML = v;
+    });
     document.title = t('meta.title');
     var md = $('meta[name="description"]'); if (md) md.setAttribute('content', t('meta.desc'));
     $('#langCode').textContent = t('hud.langShort');
@@ -155,11 +160,14 @@
   function renderTimeline() {
     $('#timeline').innerHTML = C.experience.map(function (x, i) {
       var cases = (x.cases || []).map(caseById).filter(Boolean);
+      var games = (x.games || []).map(function (n) { return C.side.filter(function (s) { return s.t === n; })[0]; }).filter(Boolean);
       return '<li id="job-' + i + '"><span class="tl-when">' + esc(L(x.when)) + '</span>' +
         '<div><h3 class="tl-org">' + (x.logo ? logoTile(x, 'tl-logo') : '') + '<span>' + esc(x.org) + '</span></h3><p class="tl-role">' + esc(L(x.role)) + '</p><p class="tl-where">' + esc(L(x.where)) + '</p></div>' +
         '<div class="tl-main"><ul class="tl-points">' + x.points[lang].map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul>' +
-        (cases.length ? '<div class="tl-cases">' + cases.map(function (c) {
+        (cases.length || games.length ? '<div class="tl-cases">' + cases.map(function (c) {
           return '<a class="tl-case" href="#case-' + c.id + '" data-case="' + c.id + '">' + caseThumb(c, 'tl-thumb') + '<span>' + esc(L(c.title)) + '</span></a>';
+        }).join('') + games.map(function (g) {
+          return '<a class="tl-case" href="' + esc(g.url) + '" target="_blank" rel="noopener"><span class="tl-thumb' + (g.fit === 'contain' ? ' is-art' : '') + '"><img src="' + g.img + '" alt="" loading="lazy"></span><span>' + esc(g.t) + '</span>' + ICON.ext + '</a>';
         }).join('') + '</div>' : '') + '</div></li>';
     }).join('');
     // the career path: oldest job on the left, the current one on the right
@@ -236,6 +244,7 @@
 
   function renderAll() {
     renderLoadout(); renderWork(); renderProcess(); renderTimeline(); renderTree(); renderQuestLog(); updateXPHud(false);
+    renderSpecimens();
   }
 
   /* ---------- theme ---------- */
@@ -364,7 +373,7 @@
   /* One section at a time. Home is the hero and In short; each other section is a
      tab with its own hash (#work, #process…), so links, Back and reloads land on it.
      A case study (#case-<id>) opens over the Work tab. */
-  var TABS = ['work', 'process', 'experience', 'skills', 'contact'];
+  var TABS = ['work', 'process', 'experience', 'skills', 'system', 'contact'];
   var currentTab = null;
   /* every tab ends with the hero's tiles; the next tab is the highlighted one */
   var tabNext = $('#tabNext');
@@ -372,6 +381,7 @@
   function tabFromHash(h) {
     var id = (h || '').replace(/^#/, '');
     if (/^case-/.test(id)) return 'work';
+    if (/^ds-/.test(id)) return 'system';
     return TABS.indexOf(id) >= 0 ? id : 'home';
   }
   function showTab(id, opts) {
@@ -380,18 +390,22 @@
     currentTab = id;
     $$('[data-tab]').forEach(function (p) { p.hidden = p.getAttribute('data-tab') !== id; });
     markTabNext();
-    $$('.hud-nav a, .mobile-nav a').forEach(function (a) { a.setAttribute('aria-current', a.getAttribute('href') === '#' + id ? 'page' : 'false'); });
+    $$('#hud .hud-nav a, #mobileNav a').forEach(function (a) { a.setAttribute('aria-current', a.getAttribute('href') === '#' + id ? 'page' : 'false'); });
     moveNavInd();
     if (changed && !opts.keepScroll) window.scrollTo(0, 0);
     if (changed && !(opts.initial && id === 'home')) enterTab(id);
+    if (id === 'system') unlock('blueprint');
   }
   /* the end-of-tab tiles say which one is next and which page you're on, in words:
      a filled tile would read as the current page */
   function markTabNext() {
     if (!currentTab) return;
-    var id = currentTab, next = TABS[(TABS.indexOf(id) + 1) % TABS.length];
-    tabNext.hidden = id === 'home';
-    $$('.hero-tab', tabNext).forEach(function (a) {
+    tabNext.hidden = currentTab === 'home';
+    badgeTabs(tabNext, currentTab);
+  }
+  function badgeTabs(box, id) {
+    var next = TABS[(TABS.indexOf(id) + 1) % TABS.length];
+    $$('.hero-tab', box).forEach(function (a) {
       var tab = a.getAttribute('href').slice(1);
       a.classList.remove('is-primary');
       a.classList.toggle('is-next', tab === next);
@@ -416,16 +430,16 @@
     goToTab(href === '#top' ? 'home' : href.slice(1));
   });
   /* sliding nav indicator */
-  var navEl = $('.hud-nav'), navInd = document.createElement('span');
+  var navEl = $('#hud .hud-nav'), navInd = document.createElement('span');
   navInd.className = 'nav-ind'; navInd.setAttribute('aria-hidden', 'true'); navEl.appendChild(navInd);
   function moveNavInd(target) {
-    var a = target || $('.hud-nav a[aria-current="page"]');
+    var a = target || $('#hud .hud-nav a[aria-current="page"]');
     if (!a) { navInd.style.setProperty('--no', 0); return; }
     navInd.style.setProperty('--nx', (a.offsetLeft + 12) + 'px');
     navInd.style.setProperty('--nw', (a.offsetWidth - 24) + 'px');
     navInd.style.setProperty('--no', 1);
   }
-  $$('.hud-nav a').forEach(function (a) {
+  $$('#hud .hud-nav a').forEach(function (a) {
     a.addEventListener('mouseenter', function () { moveNavInd(a); });
     a.addEventListener('focus', function () { moveNavInd(a); });
   });
@@ -439,8 +453,7 @@
   $$('a', mobileNav).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
 
   /* ---------- player card tilt + holo ---------- */
-  var card = $('#playerCard');
-  if (card) {
+  $$('.player-card').forEach(function (card) {
     card.addEventListener('pointermove', function (e) {
       if (!finePointer.matches || reduceMotion.matches) return;
       var r = card.getBoundingClientRect();
@@ -456,7 +469,7 @@
       ['--rx', '--ry'].forEach(function (p) { card.style.setProperty(p, '0deg'); });
       card.style.setProperty('--hx', '50%'); card.style.setProperty('--hy', '50%');
     });
-  }
+  });
 
   /* ---------- case sheet ---------- */
   function hist(kind, state, url) { try { history[kind](state, '', url); return true; } catch (e) { return false; } }
@@ -504,11 +517,18 @@
 
   function renderSheet(id) {
     var c = caseById(id); if (!c) return;
-    var idx = caseIndex(id);
-    var next = C.cases[(idx + 1) % C.cases.length];
     var groupName = t('work.' + c.group + '.title');
     var inGroup = C.cases.filter(function (x) { return x.group === c.group; });
     $('#sheetCrumb').textContent = groupName + ' · ' + (inGroup.indexOf(c) + 1) + '/' + inGroup.length;
+    sheetBody.innerHTML = sheetHTML(c);
+    wireSheet();
+    $$('.metric-v', sheetBody).forEach(prepCount);
+    observeCounts(sheetBody, sheetPanel);
+  }
+
+  /* a case study's markup (the Design system tab draws its previews of the sheet's parts from it too) */
+  function sheetHTML(c) {
+    var next = C.cases[(caseIndex(c.id) + 1) % C.cases.length];
     var meta = c.meta, keys = ['role', 'when', 'platform', 'context'];
     var cover = '';
     if (c.art === 'fan' && c.cover) cover = '<div class="cs-cover art-fan">' + imgTag(c.cover, L(c.coverAlt)) + '</div>';
@@ -545,69 +565,15 @@
       '<div class="cs-end"><p class="label cs-end-label">' + esc(t('case.end')) + '</p>' +
         '<button type="button" class="next-case" data-goto="' + next.id + '"><span><span class="label">' + esc(t('case.next')) + '</span><strong>' + esc(L(next.title)) + '</strong></span>' + ICON.arrow + '</button>' +
       '</div>';
-    sheetBody.innerHTML = html;
-    wireSheet();
-    $$('.metric-v', sheetBody).forEach(prepCount);
-    observeCounts(sheetBody, sheetPanel);
+    return html;
   }
 
   function wireSheet() {
-    $$('.compare', sheetBody).forEach(function (cmp) {
-      var input = $('input', cmp), tagB = $('.cmp-tag.before', cmp), tagA = $('.cmp-tag.after', cmp);
-      function set(v, glide) {
-        v = Math.max(0, Math.min(100, v)); input.value = v;
-        cmp.classList.toggle('is-gliding', !!glide && !reduceMotion.matches);
-        cmp.style.setProperty('--pos', v + '%');
-        tagB.setAttribute('aria-pressed', String(v >= 100)); tagA.setAttribute('aria-pressed', String(v <= 0));
-      }
-      function follow(e) { var r = cmp.getBoundingClientRect(); set((e.clientX - r.left) / r.width * 100); }
-      input.addEventListener('input', function () { set(+input.value); });
-      // drag the divider with a mouse, a finger or a pen (vertical swipes still scroll on touch)
-      cmp.addEventListener('pointerdown', function (e) {
-        if (e.button > 0 || e.target.closest('.cmp-tag')) return;
-        cmp.setPointerCapture(e.pointerId); follow(e);
-      });
-      cmp.addEventListener('pointermove', function (e) { if (cmp.hasPointerCapture(e.pointerId)) follow(e); });
-      // the labels show one version whole: Before slides the divider all the way right, After all the way left
-      tagB.addEventListener('click', function () { set(100, true); });
-      tagA.addEventListener('click', function () { set(0, true); });
-    });
+    $$('.compare', sheetBody).forEach(wireCompare);
     $$('[data-film]', sheetBody).forEach(function (film) {
-      var c = caseById(sheet.current);
       var frames = [];
-      c.moves.forEach(function (m) { if (m.film) frames = m.film; });
-      var img = $('[data-film-img]', film), cap = $('[data-film-cap]', film), tt = $('[data-film-t]', film), range = $('[data-film-range]', film);
-      var btns = $$('.film-strip button', film);
-      function show(i) {
-        var f = frames[i];
-        if (!reduceMotion.matches) { img.classList.add('swap'); setTimeout(function () { img.src = f.src; img.classList.remove('swap'); }, 120); } else img.src = f.src;
-        img.alt = L(f.cap); cap.textContent = L(f.cap); tt.textContent = f.t; range.value = i;
-        btns.forEach(function (b, j) { b.setAttribute('aria-pressed', String(j === i)); });
-      }
-      /* The real video, from YouTube's privacy-enhanced domain. It loads only when someone
-         presses play or picks a frame, so nothing is fetched from YouTube before that.
-         Once it is playing, picking a frame jumps the video to that moment. */
-      var vid = film.getAttribute('data-video'), screen = $('.film-screen', film), player = null;
-      function secs(tm) { var p = tm.split(':'); return +p[0] * 60 + +p[1]; }
-      function send(func, args) { player.contentWindow.postMessage(JSON.stringify({ event: 'command', func: func, args: args || [] }), '*'); }
-      function playAt(s) {
-        if (!vid) return;
-        if (player) { send('seekTo', [s, true]); send('playVideo'); return; }
-        player = document.createElement('iframe');
-        player.className = 'film-video';
-        player.title = t('case.videoTitle');
-        player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-        player.allowFullscreen = true;
-        player.src = 'https://www.youtube-nocookie.com/embed/' + vid + '?autoplay=1&rel=0&playsinline=1&enablejsapi=1&start=' + s;
-        player.addEventListener('load', function () { player.contentWindow.postMessage(JSON.stringify({ event: 'listening' }), '*'); });
-        screen.appendChild(player);
-        film.classList.add('is-playing');
-      }
-      var playBtn = $('[data-film-play]', film);
-      if (playBtn) playBtn.addEventListener('click', function () { playAt(0); });
-      btns.forEach(function (b, i) { b.addEventListener('click', function () { show(i); playAt(secs(frames[i].t)); }); });
-      range.addEventListener('input', function () { show(+range.value); });
-      range.addEventListener('change', function () { if (player) playAt(secs(frames[+range.value].t)); });
+      caseById(sheet.current).moves.forEach(function (m) { if (m.film) frames = m.film; });
+      wireFilm(film, frames);
     });
     $$('[data-goto]', sheetBody).forEach(function (b) {
       b.addEventListener('click', function () { openCase(b.getAttribute('data-goto'), { replace: true }); });
@@ -619,6 +585,145 @@
       }, { root: sheetPanel, threshold: .4 });
       io.observe(end);
     }
+  }
+
+  function wireCompare(cmp) {
+    var input = $('input', cmp), tagB = $('.cmp-tag.before', cmp), tagA = $('.cmp-tag.after', cmp);
+    function set(v, glide) {
+      v = Math.max(0, Math.min(100, v)); input.value = v;
+      cmp.classList.toggle('is-gliding', !!glide && !reduceMotion.matches);
+      cmp.style.setProperty('--pos', v + '%');
+      tagB.setAttribute('aria-pressed', String(v >= 100)); tagA.setAttribute('aria-pressed', String(v <= 0));
+    }
+    function follow(e) { var r = cmp.getBoundingClientRect(); set((e.clientX - r.left) / r.width * 100); }
+    input.addEventListener('input', function () { set(+input.value); });
+    // drag the divider with a mouse, a finger or a pen (vertical swipes still scroll on touch)
+    cmp.addEventListener('pointerdown', function (e) {
+      if (e.button > 0 || e.target.closest('.cmp-tag')) return;
+      cmp.setPointerCapture(e.pointerId); follow(e);
+    });
+    cmp.addEventListener('pointermove', function (e) { if (cmp.hasPointerCapture(e.pointerId)) follow(e); });
+    // the labels show one version whole: Before slides the divider all the way right, After all the way left
+    tagB.addEventListener('click', function () { set(100, true); });
+    tagA.addEventListener('click', function () { set(0, true); });
+  }
+
+  function wireFilm(film, frames) {
+    var img = $('[data-film-img]', film), cap = $('[data-film-cap]', film), tt = $('[data-film-t]', film), range = $('[data-film-range]', film);
+    var btns = $$('.film-strip button', film);
+    function show(i) {
+      var f = frames[i];
+      if (!reduceMotion.matches) { img.classList.add('swap'); setTimeout(function () { img.src = f.src; img.classList.remove('swap'); }, 120); } else img.src = f.src;
+      img.alt = L(f.cap); cap.textContent = L(f.cap); tt.textContent = f.t; range.value = i;
+      btns.forEach(function (b, j) { b.setAttribute('aria-pressed', String(j === i)); });
+    }
+    /* The real video, from YouTube's privacy-enhanced domain. It loads only when someone
+       presses play or picks a frame, so nothing is fetched from YouTube before that.
+       Once it is playing, picking a frame jumps the video to that moment. */
+    var vid = film.getAttribute('data-video'), screen = $('.film-screen', film), player = null;
+    function secs(tm) { var p = tm.split(':'); return +p[0] * 60 + +p[1]; }
+    function send(func, args) { player.contentWindow.postMessage(JSON.stringify({ event: 'command', func: func, args: args || [] }), '*'); }
+    function playAt(s) {
+      if (!vid) return;
+      if (player) { send('seekTo', [s, true]); send('playVideo'); return; }
+      player = document.createElement('iframe');
+      player.className = 'film-video';
+      player.title = t('case.videoTitle');
+      player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      player.allowFullscreen = true;
+      player.src = 'https://www.youtube-nocookie.com/embed/' + vid + '?autoplay=1&rel=0&playsinline=1&enablejsapi=1&start=' + s;
+      player.addEventListener('load', function () { player.contentWindow.postMessage(JSON.stringify({ event: 'listening' }), '*'); });
+      screen.appendChild(player);
+      film.classList.add('is-playing');
+    }
+    var playBtn = $('[data-film-play]', film);
+    if (playBtn) playBtn.addEventListener('click', function () { playAt(0); });
+    btns.forEach(function (b, i) { b.addEventListener('click', function () { show(i); playAt(secs(frames[i].t)); }); });
+    range.addEventListener('input', function () { show(+range.value); });
+    range.addEventListener('change', function () { if (player) playAt(secs(frames[+range.value].t)); });
+  }
+
+  /* ---------- Design system tab: previews of the components, drawn by the same code in the current language ---------- */
+  function outer(el) { return el ? el.outerHTML : ''; }
+  function sheetPart(id, sel) { var box = document.createElement('div'); box.innerHTML = sheetHTML(caseById(id)); return $(sel, box); }
+  // menus in a preview show the Design system tab as the current page
+  function hereIsSystem(el) { $$('nav a[href^="#"]', el).forEach(function (a) { a.setAttribute('aria-current', a.getAttribute('href') === '#system' ? 'page' : 'false'); }); return el; }
+  var SPECIMEN = {
+    liveBtn: function () { return outer(sheetPart('advisor', '.cs-actions .btn')); },
+    tools: function () { return ['#langBtn', '#themeBtn', '#menuBtn', '#sheet .close-btn'].map(function (s) { return outer($(s)); }).join(''); },
+    xp: function () { return outer($('#xpBtn')); },
+    header: function () {
+      var h = $('#hud').cloneNode(true);
+      $$('.mobile-nav, .nav-ind', h).forEach(function (n) { n.remove(); });
+      return outer(hereIsSystem(h));
+    },
+    mobileNav: function () { return outer(hereIsSystem($('#mobileNav').cloneNode(true))); },
+    heroTabs: function () { var n = tabNext.cloneNode(true); badgeTabs(n, 'system'); return outer($('.hero .hero-tabs')) + outer(n); },
+    nextCase: function () { return outer(sheetPart('advisor', '.cs-end')); },
+    pullQuote: function () { return outer(sheetPart('advisor', '.cs-problem').closest('.cs-section')); },
+    career: function () { return outer($('#career')); },
+    chips: function () {
+      return '<div class="ds-stage-stack" data-ds-unwrap><ul class="chips">' + SPECIMEN.loadout() + '</ul>' +
+        '<div class="ds-stage-row" data-ds-unwrap>' + outer(sheetPart('advisor', '.cs-actions .chip-metric')) +
+          '<span class="td-status">' + esc(t('skills.done')) + '</span><span class="td-status is-progress">' + esc(t('skills.progress')) + '</span>' +
+          '<span class="metric-kind">' + esc(t('case.estimated')) + '</span><span class="metric-kind k-measured">' + esc(t('case.measured')) + '</span></div>' +
+        '<ul class="course-list">' + $$('#courseList .course').slice(0, 2).map(function (b) { return '<li>' + b.outerHTML + '</li>'; }).join('') + '</ul></div>';
+    },
+    metrics: function () { return outer(sheetPart('advisor', '.metrics')); },
+    skillTree: function () { var d = $('#treeDetail').cloneNode(true); d.style.position = 'static'; return outer($('#tree .branch')) + outer(d); },
+    timeline: function () { return outer($('#timeline > li')); },
+    caseCards: function () { return cardHTML(caseById('advisor')) + cardHTML(caseById('illuminati')); },
+    loadout: function () { return C.loadout[lang].map(function (x) { return '<li>' + esc(x) + '</li>'; }).join(''); },
+    process: function () { return $$('#processList > li').slice(0, 2).map(outer).join(''); },
+    side: function () { return $$('#sideList > li').slice(0, 3).map(outer).join(''); },
+    csHead: function () { return outer(sheetPart('advisor', '.cs-head')); },
+    csSection: function () {
+      var s = sheetPart('advisor', '.moves').closest('.cs-section');
+      $$('.move', s).slice(1).forEach(function (m) { m.remove(); });   // the first design move is enough
+      return outer(s);
+    },
+    compare: function () { return outer(sheetPart('betsie', '.compare-wrap')); },
+    film: function () { return outer(sheetPart('go-to-market', '.film')); },
+    questlog: function () { return outer($('#questlog')); },
+    toasts: function () {
+      var a = C.achievements.filter(function (x) { return x.id === 'reader'; })[0];
+      return '<div class="toast" role="status"><span class="medal" aria-hidden="true">' + ICON.star + '</span><span><span class="toast-k">' + esc(t('quest.unlocked')) + '</span>' +
+        '<span class="toast-t">' + esc(L(a.t)) + '  +' + a.xp + ' XP</span></span></div><div class="toast toast-plain" role="status">' + esc(t('contact.copied')) + '</div>';
+    },
+    footer: function () { return outer($('body > .footer')); }
+  };
+  // a preview is a copy: no ids, never a tab, headings under the component's own, landmarks named as previews, no email
+  function specimen(html, title, mail) {
+    var box = document.createElement('div'); box.innerHTML = html;
+    $$('*', box).forEach(function (n) {
+      ['id', 'aria-controls', 'aria-labelledby', 'aria-describedby', 'for', 'data-tab'].forEach(function (a) { n.removeAttribute(a); });
+      n.classList.remove('rv', 'in', 'enter', 'is-hint', 'is-flipping', 'is-scrolled', 'is-tilting', 'tl-flash', 'bump', 'level-up');
+      ['--rd', '--ed', '--i', '--sx', '--sy', '--mx', '--my'].forEach(function (p) { n.style.removeProperty(p); });
+      if (n.getAttribute('class') === '') n.removeAttribute('class');
+      if (n.getAttribute('style') === '') n.removeAttribute('style');
+      if (/^H[1-6]$/.test(n.tagName)) { n.setAttribute('aria-level', '6'); n.setAttribute('data-ds-level', '1'); }
+      if (n.tagName === 'IMG' && !n.hasAttribute('loading')) n.setAttribute('loading', 'lazy');
+      if (n.tagName === 'NAV' && n.hasAttribute('aria-label')) {
+        n.setAttribute('data-ds-label', n.getAttribute('aria-label'));
+        n.setAttribute('aria-label', t('ds.previewOf') + ' ' + title + ': ' + n.getAttribute('aria-label'));
+      }
+      if (n.getAttribute('role') === 'dialog') { n.setAttribute('aria-label', t('ds.previewOf') + ' ' + title); n.setAttribute('data-ds-rm', 'aria-label'); }
+    });
+    Array.prototype.forEach.call(box.children, function (n) { n.hidden = false; });   // a closed menu or quest log is shown open
+    return mail ? box.innerHTML.split(mail).join('name@example.com') : box.innerHTML;
+  }
+  function renderSpecimens() {
+    var tabEl = $('#system'); if (!tabEl) return;
+    var mail = ($('#mailAddress') || {}).textContent || '';
+    $$('[data-ds-live]', tabEl).forEach(function (box) {
+      var make = SPECIMEN[box.getAttribute('data-ds-live')]; if (!make) return;
+      var comp = box.closest('.ds-comp'), title = comp ? $('h5', comp).textContent : '';
+      box.innerHTML = specimen(make(), title, mail);
+    });
+    $$('.compare', tabEl).forEach(wireCompare);
+    var film = $('[data-film]', tabEl), frames = [];
+    (caseById('go-to-market').moves || []).forEach(function (m) { if (m.film) frames = m.film; });
+    if (film && frames.length) wireFilm(film, frames);
   }
 
   function openCase(id, opts) {
@@ -661,6 +766,7 @@
   }
   window.addEventListener('popstate', function () {
     showTab(tabFromHash(location.hash));
+    if (/^#ds-/.test(location.hash)) { var ds = document.getElementById(location.hash.slice(1)); if (ds) ds.scrollIntoView(); }
     var m = location.hash.match(/^#case-([\w-]+)$/);
     if (m && caseById(m[1])) openCase(m[1], { fromHash: true });
     else hideSheet();
@@ -703,7 +809,7 @@
 
   /* ---------- case sheet reading progress ---------- */
   var sheetProg = document.createElement('span'); sheetProg.className = 'sheet-progress'; sheetProg.setAttribute('aria-hidden', 'true');
-  $('.sheet-bar').appendChild(sheetProg);
+  $('#sheet .sheet-bar').appendChild(sheetProg);
   sheetPanel.addEventListener('scroll', function () {
     var max = sheetPanel.scrollHeight - sheetPanel.clientHeight;
     sheetProg.style.setProperty('--read', max > 0 ? (sheetPanel.scrollTop / max).toFixed(3) : 0);
@@ -785,6 +891,7 @@
     else if (id === 'party') goToTab('contact');
     else if (id === 'polyglot') hint($('#langBtn'));
     else if (id === 'daynight') hint($('#themeBtn'));
+    else if (id === 'blueprint') goToTab('system');
     else if (id === 'secret') {
       // no words: bring the player card's Download CV button into view and make it pulse
       goToTab('home');
@@ -813,7 +920,7 @@
       if (!holder) {
         holder = document.createElement('button'); holder.id = 'gameBack'; holder.type = 'button'; holder.className = 'btn btn-ghost btn-small';
         holder.addEventListener('click', function () { setGame(true); });
-        $('.footer-end').insertBefore(holder, $('.footer-end a'));
+        var fe = $('body > .footer .footer-end'); fe.insertBefore(holder, fe.firstElementChild.nextSibling);
       }
       holder.textContent = t('quest.show');
     } else if (holder) holder.remove();
@@ -868,7 +975,7 @@
   /* ---------- skill tree interactions ---------- */
   function pickEducation(id, b) {
     selectedSkill = id;
-    $$('.node, .course').forEach(function (n) { n.setAttribute('aria-pressed', String(n === b)); });
+    $$('#tree .node, #courseList .course').forEach(function (n) { n.setAttribute('aria-pressed', String(n === b)); });
     renderSkillDetail();
     inspectedSkills[selectedSkill] = 1;
     if (Object.keys(inspectedSkills).length >= 3) unlock('climber');
@@ -1008,12 +1115,13 @@
     process: ['#process .section-head', '#process .process-list li'],
     experience: ['#experience .section-head', '#experience .timeline > li'],
     skills: ['#skills .section-head', '#skills .tree-detail', '#skills .courses'],
-    contact: ['#contact .contact-inner > *']
+    contact: ['#contact .contact-inner > *'],
+    system: ['#system > .section-head', '#system .ds-toc', '#system .ds-section > .group-head', '#system .ds-grid > *', '#system .ds-swatch', '#system .ds-scale-row', '#system .ds-curves > *', '#system .ds-demos > *', '#system .ds-icon', '#system .ds-comp', '#system .ds-say', '#system .ds-table-wrap']
   };
   function enterTab(id) {
     if (reduceMotion.matches) return;
     var els = [];
-    (ENTER[id] || []).concat(id === 'home' ? [] : ['#tabNext .hero-tab']).forEach(function (s) { els = els.concat($$(s)); });
+    (ENTER[id] || []).concat(id === 'home' ? [] : ['#tabNext .hero-tab']).forEach(function (s) { $$(s).forEach(function (el) { if (els.indexOf(el) < 0) els.push(el); }); });
     // on one column the player card sits above the tab cards: rise in top to bottom, as laid out
     if (id === 'home') els.sort(function (a, b) { return a.getBoundingClientRect().top - b.getBoundingClientRect().top; });
     var n = 0;
@@ -1037,8 +1145,10 @@
   }
 
   function afterRender() {
-    $$('.short-list strong').forEach(prepCount);
+    $$('.short .short-list strong').forEach(prepCount);
     observeCounts($('.short'));
+    $$('#system .metric-v').forEach(prepCount);
+    observeCounts($('#system'));
     setupReveal();
     moveNavInd();
   }
@@ -1105,6 +1215,7 @@
   renderGameFooter();
   onScrollHud();
   showTab(tabFromHash(location.hash), { keepScroll: true, initial: true });
+  if (/^#ds-/.test(location.hash)) { var ds0 = document.getElementById(location.hash.slice(1)); if (ds0) ds0.scrollIntoView(); }
   var m0 = location.hash.match(/^#case-([\w-]+)$/);
   if (m0 && caseById(m0[1])) openCase(m0[1], { fromHash: true });
 
