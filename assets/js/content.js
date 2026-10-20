@@ -785,7 +785,7 @@ window.CONTENT = {
       name: { en: 'Game Design', pt: 'Design de Games' },
       kind: { en: 'Bachelor’s · Universidade Anhembi Morumbi', pt: 'Bacharelado · Universidade Anhembi Morumbi' },
       when: '2019 – 2023', grade: '96',
-      core: { en: ['Game systems', 'Level design and narrative', 'Prototyping board and digital games', 'UX/UI design', 'Unity and C#', 'Teamwork and leadership'], pt: ['Sistemas de jogo', 'Level design e narrativa', 'Prototipação de jogos de tabuleiro e digitais', 'Design de UX/UI', 'Unity e C#', 'Trabalho em equipe e liderança'] },
+      core: { en: ['Game design and documentation', 'Analog game design', 'Level design and narrative', 'Rapid prototyping', 'Interface and interaction design', 'Game programming (2D and 3D)', 'Character design and art direction', 'Animation and audio', 'Serious and transmedia games', 'Game production and business'], pt: ['Design de games e documentação', 'Design de jogo analógico', 'Level design e narrativa', 'Prototipagem rápida', 'Design de interface e interação', 'Programação de jogos 2D e 3D', 'Design de personagens e direção de arte', 'Animação e áudio', 'Serious games e transmídia', 'Produção e negócios de games'] },
       extra: { en: ['Dean’s List (2019)', 'Student Ambassador (2020–2021)', 'Full scholarship, graduated with distinction'], pt: ['Dean’s List (2019)', 'Embaixador estudantil (2020–2021)', 'Bolsa integral, formado com distinção'] }
     },
     {

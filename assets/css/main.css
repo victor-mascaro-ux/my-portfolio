@@ -351,7 +351,7 @@ kbd {
 img.brand-mark { display: block; background: none; box-shadow: none; }
 
 /* Hero: the primary logo above the eyebrow, in the colourway that matches the theme */
-.hero-logo img { display: block; width: min(100%, 380px); height: auto; }
+.hero-logo img { display: block; width: min(100%, 600px); height: auto; }
 .hero-logo .on-dark { display: none; }
 :root[data-theme="dark"] .hero-logo .on-light { display: none; }
 :root[data-theme="dark"] .hero-logo .on-dark { display: block; }

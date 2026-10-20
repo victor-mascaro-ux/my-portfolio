@@ -272,6 +272,10 @@
       // the flag flips over and the code rolls in (restarted on every switch), and the text types itself in
       this.classList.remove('is-flipping'); void this.offsetWidth; this.classList.add('is-flipping');
       typeIn();
+      // the hero's gold underline draws again once the new words have typed in
+      $$('.hero-title .xp-underline').forEach(function (u) {
+        u.style.animation = 'none'; void u.offsetWidth; u.style.animation = 'xpfill 1.2s .45s var(--ease-out) forwards';
+      });
     }
     toast(t('toast.lang'));
     unlock('polyglot');
