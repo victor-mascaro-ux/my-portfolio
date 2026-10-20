@@ -157,22 +157,45 @@
   function logoTile(x, cls) {
     return '<span class="' + cls + ' has-logo' + (x.logoFill ? ' is-fill' : '') + (x.logoWide ? ' is-wide' : '') + '" aria-hidden="true"><img src="' + x.logo + '" alt="" loading="lazy"></span>';
   }
-  // the tools used in a job; past the first eight they fold behind a button on phones (CSS decides when)
-  var TOOLS_SHOWN = 8;
+  // the tools used in a job, as logos: one per brand (Figma, FigJam and Figma prototyping share Figma's), the names in a tooltip
   function toolsHTML(list) {
     if (!list || !list.length) return '';
-    var more = list.length - TOOLS_SHOWN;
-    return '<div class="tl-tools"><p class="label">' + esc(t('exp.tools')) + '</p><ul class="chips">' +
-      list.map(function (k, n) { return '<li' + (n >= TOOLS_SHOWN ? ' class="is-extra"' : '') + '>' + esc(L(k)) + '</li>'; }).join('') +
-      (more > 0 ? '<li class="tl-more-li"><button type="button" class="tl-more" aria-expanded="false" data-more="' + more + '">' + esc(t('exp.toolsMore').replace('{n}', more)) + '</button></li>' : '') +
-      '</ul></div>';
+    var tiles = [], byKey = {};
+    list.forEach(function (k) {
+      var name = L(k), logo = C.toolLogos[typeof k === 'string' ? k : k.en] || { mono: name.slice(0, 2) };
+      var key = typeof logo === 'string' ? logo : 'mono:' + logo.mono;
+      if (byKey[key]) { byKey[key].names.push(name); return; }
+      tiles.push(byKey[key] = { logo: logo, names: [name] });
+    });
+    return '<div class="tl-tools"><p class="label">' + esc(t('exp.tools')) + '</p><ul class="tool-logos">' + tiles.map(function (x) {
+      var names = esc(x.names.join(', '));
+      return '<li class="tool-logo' + (typeof x.logo === 'string' ? '' : ' is-mono') + '" data-tip="' + names + '">' +
+        (typeof x.logo === 'string' ? '<svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/img/tools.svg#' + x.logo + '"/></svg>' : '<span aria-hidden="true">' + esc(x.logo.mono) + '</span>') +
+        '<span class="sr-only">' + names + '</span></li>';
+    }).join('') + '</ul></div>';
   }
-  document.addEventListener('click', function (e) {
-    var b = e.target.closest('.tl-more'); if (!b) return;
-    var box = b.closest('.tl-tools'), open = !box.classList.contains('is-open');
-    box.classList.toggle('is-open', open); b.setAttribute('aria-expanded', String(open));
-    b.textContent = open ? t('exp.toolsLess') : t('exp.toolsMore').replace('{n}', b.getAttribute('data-more'));
+  /* one shared tooltip for the logos, kept inside the screen: on hover, or for a moment after a tap */
+  var toolTip = document.createElement('div'), tipFor = null, tipTimer = 0;
+  toolTip.className = 'tool-tip'; toolTip.setAttribute('aria-hidden', 'true'); document.body.appendChild(toolTip);
+  function showTip(el) {
+    if (tipFor && tipFor !== el) tipFor.classList.remove('is-tip');
+    tipFor = el; el.classList.add('is-tip'); toolTip.textContent = el.getAttribute('data-tip');
+    var r = el.getBoundingClientRect(), w = toolTip.offsetWidth;
+    toolTip.style.left = Math.max(8, Math.min(innerWidth - w - 8, r.left + r.width / 2 - w / 2)) + 'px';
+    toolTip.style.top = (r.top - toolTip.offsetHeight - 8) + 'px';
+    toolTip.classList.add('is-on');
+  }
+  function hideTip() { if (tipFor) tipFor.classList.remove('is-tip'); tipFor = null; toolTip.classList.remove('is-on'); }
+  document.addEventListener('pointerover', function (e) { var el = e.target.closest && e.target.closest('.tool-logo'); if (el && e.pointerType !== 'touch') showTip(el); });
+  // (a finger lifting also sends pointerout; a tap's tooltip stays up for its own moment)
+  document.addEventListener('pointerout', function (e) { var el = e.target.closest && e.target.closest('.tool-logo'); if (el && e.pointerType !== 'touch' && !el.contains(e.relatedTarget)) hideTip(); });
+  document.addEventListener('pointerup', function (e) {
+    if (e.pointerType !== 'touch') return;
+    var el = e.target.closest('.tool-logo'); clearTimeout(tipTimer);
+    if (!el) { hideTip(); return; }
+    showTip(el); tipTimer = setTimeout(hideTip, 1800);
   });
+  window.addEventListener('scroll', hideTip, { passive: true });
   function renderTimeline() {
     $('#timeline').innerHTML = C.experience.map(function (x, i) {
       var cases = (x.cases || []).map(caseById).filter(Boolean);
