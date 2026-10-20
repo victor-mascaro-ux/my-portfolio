@@ -14,7 +14,7 @@ window.CONTENT = {
     github: 'https://github.com/victor-mascaro-ux',
     cv: { en: 'assets/cv/Victor-Mascaro-CV-EN.pdf', pt: 'assets/cv/Victor-Mascaro-CV-PT.pdf' },
     // bump whenever the PDFs are rebuilt: it changes the link, so browsers don't show an old saved copy
-    cvVersion: '2026-10-20b'
+    cvVersion: '2026-10-20c'
   },
 
   /* ---------- Interface strings ---------- */
@@ -609,13 +609,18 @@ window.CONTENT = {
         },
         {
           title: { en: 'Auction results', pt: 'Resultado dos leilões' },
-          body: { en: 'The end of each auction now shows the cost, the value and the partial result before the final reveal.', pt: 'O fim de cada leilão agora mostra o custo, o valor e o resultado parcial antes da revelação final.' },
+          body: { en: 'I made the value of each item clearer and showed how it compared to what you spent. It recreates the suspense of auction TV shows, where bidders examine what they won and check its value against what they paid.', pt: 'Deixei mais claro o valor de cada item e como ele se compara ao que você gastou. Isso recria o suspense dos programas de leilão na TV, em que os compradores examinam o que arremataram e conferem o valor contra o que pagaram.' },
           img: ['assets/img/g-ac-auction-end.webp', 'assets/img/g-ac-collect.webp'], kind: 'game'
         },
         {
-          title: { en: 'Statues and a gacha concept', pt: 'Estátuas e um conceito de gacha' },
-          body: { en: 'Statues are permanent buildings you earn at milestones. For the gacha, I came up with a lighthouse that calls a drifting ship, which drops containers.', pt: 'As Estátuas são construções permanentes que você ganha ao atingir marcos do jogo. Para o gacha, pensei num farol que chama um navio à deriva, que solta contêineres.' },
-          img: ['assets/img/g-ac-statue.webp', 'assets/img/g-ac-mystery-dock.webp'], kind: 'game'
+          title: { en: 'Statues', pt: 'Estátuas' },
+          body: { en: 'Statues reward completed collections. I also added a metagame layer: statues wear down over time and cost soft currency to repair, which gave the game a new soft-currency sink and helped with inflation.', pt: 'As Estátuas recompensam coleções completas. Também adicionei uma camada de metagame: as estátuas se desgastam com o tempo e custam moeda soft para reparar, o que deu ao jogo um novo escoadouro de moeda soft e ajudou a controlar a inflação.' },
+          img: ['assets/img/g-ac-statue.webp'], kind: 'wide'
+        },
+        {
+          title: { en: 'Gacha concept', pt: 'Conceito de gacha' },
+          body: { en: 'For the gacha, I came up with a lighthouse that calls a drifting ship, which drops containers. It was another soft-currency sink. The screens show the Mystery Dock, a container drop, an item reveal and the rewards.', pt: 'Para o gacha, pensei num farol que chama um navio à deriva, que solta contêineres. Foi mais um escoadouro de moeda soft. As telas mostram o Mystery Dock, a entrega de um contêiner, a revelação de um item e as recompensas.' },
+          img: ['assets/img/g-ac-mystery-dock.webp', 'assets/img/g-ac-gacha-drop.webp', 'assets/img/g-ac-gacha-reveal.webp', 'assets/img/g-ac-gacha-rewards.webp'], kind: 'game'
         }
       ],
       metrics: [],
@@ -626,7 +631,7 @@ window.CONTENT = {
       cover: 'assets/img/g-wai-key-art.webp', coverAlt: { en: 'We Are Illuminati key art: a triangle-headed Illuminati agent and a man in a suit on either side of the game logo', pt: 'Arte do We Are Illuminati: um agente Illuminati com cabeça de triângulo e um homem de terno, um de cada lado do logo do jogo' },
       kicker: { en: 'By Aliens · Game design', pt: 'By Aliens · Game design' },
       title: { en: 'We Are Illuminati', pt: 'We Are Illuminati' },
-      tagline: { en: 'A new layout, a side story with three endings and a rewarded ad that fits the story.', pt: 'Um novo layout, uma história paralela com três finais e um anúncio com recompensa que faz parte da trama.' },
+      tagline: { en: 'A new late-game area, a clearer main screen, a side story with three endings and a rewarded ad that fits the story.', pt: 'Uma nova área para o fim de jogo, uma tela principal mais clara, uma história paralela com três finais e um anúncio com recompensa que faz parte da trama.' },
       chip: { en: '3 endings', pt: '3 finais' },
       meta: {
         role: { en: 'Game and UX designer, By Aliens', pt: 'Game e UX designer, By Aliens' },
@@ -639,11 +644,13 @@ window.CONTENT = {
         pt: 'As sessões no mid-game estavam ficando mais curtas, os boosters idle eram difíceis de entender e os anúncios com recompensa pareciam interrupções.'
       },
       moves: [
-        { title: { en: 'Main screen', pt: 'Tela principal' }, body: { en: 'I redesigned the main screen, made the managers and multipliers easier to understand, and added visible collectibles and a new area with more progression.', pt: 'Redesenhei a tela principal, deixei os gerentes e multiplicadores mais fáceis de entender e adicionei colecionáveis à vista e uma nova área com mais progressão.' },
+        { title: { en: 'Main screen', pt: 'Tela principal' }, body: { en: 'I redesigned the main screen. I took out the buttons that sat in front of the cards and showed each card’s clones, managers and upgrades beside it instead, so players could see what was boosting and automating each one.', pt: 'Redesenhei a tela principal. Tirei os botões que ficavam na frente dos cards e passei a mostrar os clones, gerentes e upgrades de cada card ao lado dele, para o jogador ver o que estava turbinando e automatizando cada um.' },
           compare: ['assets/img/g-wai-main-before.webp', 'assets/img/g-wai-main-after.webp'] },
-        { title: { en: 'Side story', pt: 'História paralela' }, body: { en: 'A side story with three endings, decided by what the player does, that runs alongside the idle loop.', pt: 'Uma história paralela com três finais, que dependem do que o jogador faz, rodando junto com o loop idle.' },
+        { title: { en: 'A new area for late-game players', pt: 'Uma nova área para o fim de jogo' }, body: { en: 'Players who had finished the four existing areas had nothing left to do, so I created a fifth one, A.I. I wrote its 10 situation cards and designed the clones, managers and upgrades that go with them. Clones are collectible characters that multiply a card’s income, managers automate a card, and upgrades multiply it further.', pt: 'Quem já tinha terminado as quatro áreas não tinha mais o que fazer, então criei uma quinta, A.I. Escrevi os 10 cards de situação e desenhei os clones, gerentes e upgrades de cada um. Clones são personagens colecionáveis que multiplicam a renda de um card, gerentes automatizam um card e upgrades multiplicam ainda mais.' },
+          img: ['assets/img/g-wai-areas.webp'], kind: 'wide' },
+        { title: { en: 'Side story', pt: 'História paralela' }, body: { en: 'A side story with three endings, decided by what the player does. It’s a metagame layer I created to stimulate the main idle loop, so the game isn’t boring between collections.', pt: 'Uma história paralela com três finais, que dependem do que o jogador faz. É uma camada de metagame que criei para estimular o loop idle principal, para o jogo não ficar chato entre uma coleta e outra.' },
           img: ['assets/img/g-wai-side-story.webp'], kind: 'game' },
-        { title: { en: 'Neila the Chrononaut', pt: 'Neila, a Crononauta' }, body: { en: 'A rewarded ad presented by Neila, a time-travelling character who brings random resources.', pt: 'Um anúncio com recompensa apresentado pela Neila, uma personagem que viaja no tempo e traz recursos aleatórios.' },
+        { title: { en: 'Neila the Chrononaut', pt: 'Neila, a Crononauta' }, body: { en: 'The growth team asked for a new rewarded-ad placement. I turned it into a game feature: Neila, a time-travelling character, shows up and brings random resources in exchange for watching an ad.', pt: 'O time de growth pediu um novo posicionamento de anúncio com recompensa. Transformei isso numa feature do jogo: a Neila, uma personagem que viaja no tempo, aparece e traz recursos aleatórios em troca de assistir a um anúncio.' },
           img: ['assets/img/g-wai-neila.webp'], kind: 'game' }
       ],
       metrics: []
@@ -670,7 +677,7 @@ window.CONTENT = {
           img: ['assets/img/g-ip-build.webp', 'assets/img/g-ip-legendary.webp'], kind: 'phones' },
         { title: { en: 'UX reviews', pt: 'Revisões de UX' }, body: { en: 'Screen-by-screen reviews pointing out where goals and rewards weren’t clear to the player.', pt: 'Revisões tela a tela apontando onde os objetivos e as recompensas não estavam claros para o jogador.' },
           img: ['assets/img/g-ip-daily-reward.webp'], kind: 'phones' },
-        { title: { en: 'Minigames', pt: 'Minigames' }, body: { en: 'Three minigames that give players something to do between collections.', pt: 'Três minigames para o jogador ter o que fazer entre uma coleta e outra.' },
+        { title: { en: 'Minigames', pt: 'Minigames' }, body: { en: 'Three endless-arcade minigames, built as a side loop that feeds the idle layer and is fed by it, so the idle game isn’t boring. Upgrading a plane in the idle layer makes it stronger in the minigames, so players get further and earn more soft currency, which goes back into the idle layer.', pt: 'Três minigames de arcade infinito, pensados como um loop paralelo que alimenta a camada idle e é alimentado por ela, para o idle não ficar chato. Melhorar um avião na camada idle deixa ele mais forte nos minigames, então o jogador vai mais longe e ganha mais moeda soft, que volta para a camada idle.' },
           img: ['assets/img/g-ip-combat.webp'], kind: 'phones' }
       ],
       metrics: [],
@@ -739,8 +746,8 @@ window.CONTENT = {
       role: { en: 'Game & UX Designer', pt: 'Game e UX Designer' },
       where: { en: 'Game studio · Dubai · Remote', pt: 'Estúdio de jogos · Dubai · Remoto' },
       points: {
-        en: ['Smashing Four: a new hero (Bloodbite), rebalancing, Hero Event 2.0 and live ops: events, season pass, news and in-game content.', 'Auction City: Hunter Pass season pass, new onboarding, Statues system and a gacha concept.', 'We Are Illuminati: new layout, a side story with three endings, ads and in-app purchases.', 'Idle Planes: pacing, upgrade economy, UX reviews and three minigames.'],
-        pt: ['Smashing Four: um herói novo (Bloodbite), rebalanceamento, Hero Event 2.0 e live ops: eventos, passe de temporada, notícias e conteúdo no jogo.', 'Auction City: passe de temporada Hunter Pass, novo onboarding, sistema de Estátuas e um conceito de gacha.', 'We Are Illuminati: novo layout, uma história paralela com três finais, anúncios e compras in-app.', 'Idle Planes: ritmo, economia de upgrades, revisões de UX e três minigames.']
+        en: ['Smashing Four: a new hero (Bloodbite), rebalancing, Hero Event 2.0 and live ops: events, season pass, news and in-game content.', 'Auction City: Hunter Pass season pass, new onboarding, Statues system and a gacha concept.', 'We Are Illuminati: a new late-game area (A.I.) with 10 situation cards, a clearer main screen, a side story with three endings, ads and in-app purchases.', 'Idle Planes: pacing, upgrade economy, UX reviews and three minigames.'],
+        pt: ['Smashing Four: um herói novo (Bloodbite), rebalanceamento, Hero Event 2.0 e live ops: eventos, passe de temporada, notícias e conteúdo no jogo.', 'Auction City: passe de temporada Hunter Pass, novo onboarding, sistema de Estátuas e um conceito de gacha.', 'We Are Illuminati: nova área de fim de jogo (A.I.) com 10 cards, tela principal mais clara, história paralela com três finais, anúncios e compras in-app.', 'Idle Planes: ritmo, economia de upgrades, revisões de UX e três minigames.']
       }
     },
     {
