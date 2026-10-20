@@ -96,11 +96,9 @@
     var media = '';
     if (c.art === 'fan') {
       media = '<div class="cc-media"><img src="' + c.cover + '" alt="' + esc(L(c.coverAlt)) + '" loading="lazy" width="1100" height="1027"></div>';
-    } else if (c.group === 'knomee' && c.cover) {
-      media = '<div class="cc-media"><div class="shot"><img src="' + c.cover + '" alt="' + esc(L(c.coverAlt)) + '" loading="lazy" width="1600" height="1000"></div></div>';
     } else if (c.cover) {
-      // the same inset as the Knomee cards; the picture fills its frame so game art isn't cut off
-      media = '<div class="cc-media"><div class="shot fill"><img src="' + c.cover + '" alt="' + esc(L(c.coverAlt)) + '" loading="lazy"></div></div>';
+      // the picture fills the whole picture area, edge to edge
+      media = '<div class="cc-media cover"><img src="' + c.cover + '" alt="' + esc(L(c.coverAlt)) + '" loading="lazy"></div>';
     } else if (c.emblem) {
       media = '<div class="cc-media"><div class="emblem">' + EMBLEM[c.emblem] + '</div></div>';
     }
