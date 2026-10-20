@@ -43,10 +43,9 @@
   scroll-margin-top: calc(var(--hud-h) + 24px);
 }
 .ds-section + .ds-section { margin-top: 28px; }
-.ds-section:nth-of-type(4n + 1) { --band: var(--band-1); }
-.ds-section:nth-of-type(4n + 2) { --band: var(--band-2); }
-.ds-section:nth-of-type(4n + 3) { --band: var(--band-3); }
-.ds-section:nth-of-type(4n + 4) { --band: var(--band-4); }
+.ds-section:nth-of-type(3n + 1) { --band: var(--band-1); }
+.ds-section:nth-of-type(3n + 2) { --band: var(--band-3); }
+.ds-section:nth-of-type(3n + 3) { --band: var(--band-4); }
 @media (max-width: 1099px) { .ds-section { scroll-margin-top: calc(var(--hud-h) + 64px); padding-inline: clamp(16px, 4vw, 32px); } }
 .ds-section > .group-head { margin-bottom: clamp(20px, 3vw, 32px); }
 .ds-sub + .ds-sub { margin-top: clamp(32px, 4vw, 48px); }
@@ -120,7 +119,7 @@
 /* ---------- typography ---------- */
 .ds-family { display: grid; gap: 10px; }
 .ds-card .ds-family-sample { font-size: clamp(1.8rem, 1.2rem + 2vw, 2.6rem); line-height: 1.1; color: var(--ink); overflow-wrap: anywhere; }
-.ds-weights { display: flex; flex-wrap: wrap; gap: 6px 14px; color: var(--ink-2); font-size: var(--t-sm); }
+.ds-weights { display: grid; gap: 4px; color: var(--ink-2); font-size: var(--t-sm); }
 .ds-scale-row { display: grid; grid-template-columns: minmax(150px, 210px) minmax(0, 1fr); gap: 8px 24px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--line); }
 .ds-scale-row:last-child { border-bottom: 0; }
 .ds-scale-meta { display: grid; gap: 3px; font-family: var(--f-mono); font-size: .72rem; color: var(--muted); }
@@ -181,11 +180,12 @@
 .ds-stage-stack { display: grid; gap: 20px; }
 /* fixed, sticky and overlay components render in place inside their stage */
 .ds-stage .hud { position: relative; top: auto; z-index: auto; }
+.ds-stage.is-wide > .hud { min-width: var(--maxw); }
 .ds-stage .questlog, .ds-stage .toasts, .ds-stage .sheet-bar { position: relative; inset: auto; top: auto; right: auto; bottom: auto; left: auto; z-index: auto; transform: none; }
 .ds-stage .questlog { width: min(100%, 380px); max-height: none; }
 .ds-stage .toasts { justify-items: start; pointer-events: auto; }
 .ds-stage .mobile-nav { position: relative; inset: auto; top: auto; display: grid; max-width: 420px; }
-.ds-stage .menu-btn { display: inline-flex; }
+.ds-stage-row > .menu-btn { display: inline-flex; }
 .ds-stage .player-card { margin-inline: auto; }
 .ds-stage .tab-next { margin-top: 0; padding-bottom: 0; }
 .ds-stage .branch::before { display: none; }   /* one branch on its own: no connector up to the tree's root */

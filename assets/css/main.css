@@ -82,12 +82,12 @@
   --pic-shadow: 0 0 0 1px rgba(11, 99, 201, .12), 0 0 28px -4px rgba(11, 99, 201, .4);
   --pic-drop: drop-shadow(0 0 14px rgba(11, 99, 201, .4));
   --lb-glow: drop-shadow(0 0 34px rgba(79, 195, 247, .55));
-  /* the player card: light blue instead of gold (frame, level, portrait ring, CV button), and its neon glow */
+  /* the player card: light blue instead of gold (level, portrait ring, CV button; its frame is chrome), and its neon glow */
   --card-hi: #4FC3F7; --card-hi-ink: #06122B;
   /* company logos always sit on white, in both themes */
   --logo-bg: #FFFFFF;
-  /* Work tab: one band per project section, all from the palette (blue, gold, slate, sky) */
-  --band-1: #E1EBF9; --band-2: #E6E6F8; --band-3: #E3E8F1; --band-4: #DCEFF9;
+  /* Work tab: one band per project section, all from the palette (blue, the page itself, slate, sky) */
+  --band-1: #E1EBF9; --band-2: var(--paper); --band-3: #E3E8F1; --band-4: #DCEFF9;
   --card-glow: 0 0 44px -6px rgba(11, 99, 201, .42), 0 0 110px -20px rgba(11, 99, 201, .3);
   --scrim: rgba(4, 8, 22, .72);
   --glow: rgba(11, 99, 201, .10);
@@ -151,7 +151,7 @@
     --shadow-lg: 0 2px 6px rgba(0, 0, 0, .4), 0 36px 72px -18px rgba(0, 0, 0, .75);
     --pic-shadow: 0 0 0 1px rgba(79, 195, 247, .24), 0 0 36px -2px rgba(79, 195, 247, .5); --pic-drop: drop-shadow(0 0 16px rgba(79, 195, 247, .5)); --card-glow: 0 0 48px -4px rgba(79, 195, 247, .5), 0 0 130px -16px rgba(79, 195, 247, .38);
     --glow: rgba(79, 195, 247, .12);
-    --band-1: #0F2350; --band-2: #1D2130; --band-3: #070E25; --band-4: #0E2A44;
+    --band-1: #0F2350; --band-2: var(--paper); --band-3: #070E25; --band-4: #0E2A44;
     color-scheme: dark;
   }
 }
@@ -173,7 +173,7 @@
   --shadow-lg: 0 2px 6px rgba(0, 0, 0, .4), 0 36px 72px -18px rgba(0, 0, 0, .75);
   --pic-shadow: 0 0 0 1px rgba(79, 195, 247, .24), 0 0 36px -2px rgba(79, 195, 247, .5); --pic-drop: drop-shadow(0 0 16px rgba(79, 195, 247, .5)); --card-glow: 0 0 48px -4px rgba(79, 195, 247, .5), 0 0 130px -16px rgba(79, 195, 247, .38);
   --glow: rgba(79, 195, 247, .12);
-  --band-1: #0F2350; --band-2: #1D2130; --band-3: #070E25; --band-4: #0E2A44;
+  --band-1: #0F2350; --band-2: var(--paper); --band-3: #070E25; --band-4: #0E2A44;
   color-scheme: dark;
 }
 
@@ -376,7 +376,7 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
   border: 1px solid var(--line); background: var(--surface); cursor: pointer; transition: border-color .18s;
 }
 .xp-btn:hover { border-color: var(--gold); }
-.xp-level { font-family: var(--f-mono); font-size: .74rem; font-weight: 700; color: var(--gold-ink); letter-spacing: .02em; }
+.xp-level { font-family: var(--f-mono); font-size: .74rem; font-weight: 700; color: var(--gold-ink); letter-spacing: .02em; white-space: nowrap; }
 .xp-track {
   position: relative; width: 72px; height: 8px; border-radius: 4px; overflow: hidden;
   background: repeating-linear-gradient(90deg, var(--line) 0 calc(20% - 2px), transparent calc(20% - 2px) 20%);

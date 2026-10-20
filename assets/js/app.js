@@ -671,7 +671,10 @@
     },
     metrics: function () { return outer(sheetPart('advisor', '.metrics')); },
     skillTree: function () { var d = $('#treeDetail').cloneNode(true); d.style.position = 'static'; return outer($('#tree .branch')) + outer(d); },
-    timeline: function () { return outer($('#timeline > li')); },
+    timeline: function () {
+      var rows = $$('#timeline > li'), game = rows.filter(function (li) { return $('.tl-case[target]', li); })[0];
+      return outer(rows[0]) + (game && game !== rows[0] ? outer(game) : '');
+    },
     caseCards: function () { return cardHTML(caseById('advisor')) + cardHTML(caseById('illuminati')); },
     loadout: function () { return C.loadout[lang].map(function (x) { return '<li>' + esc(x) + '</li>'; }).join(''); },
     process: function () { return $$('#processList > li').slice(0, 2).map(outer).join(''); },
