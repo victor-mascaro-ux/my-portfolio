@@ -98,7 +98,7 @@
   --f-display: 'Bricolage Grotesque', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
   --f-body: 'Instrument Sans', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
   --f-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
-  --t-hero: clamp(2.35rem, 1.2rem + 4.4vw, 4.75rem);
+  --t-hero: clamp(2.6rem, 1.3rem + 5vw, 5.6rem);
   --t-h2: clamp(2rem, 1.25rem + 2.9vw, 3.35rem);
   --t-h3: clamp(1.3rem, 1.1rem + .8vw, 1.7rem);
   --t-lg: clamp(1.0625rem, 1rem + .3vw, 1.25rem);
@@ -327,11 +327,11 @@ kbd {
   padding-top: clamp(40px, 7vw, 96px); padding-bottom: clamp(40px, 6vw, 80px);
 }
 .hero-copy { display: grid; gap: 28px; min-width: 0; }
-.hero-title {
-  font-size: var(--t-hero); font-weight: 700; line-height: 1; letter-spacing: -.03em;
-  font-variation-settings: "opsz" 96; max-width: 15ch;
-}
-:lang(pt-BR) .hero-title { max-width: 15ch; }
+/* The role is the headline; AI and game design come second, both in the accent */
+.hero-title { display: grid; gap: .35em; font-weight: 700; letter-spacing: -.03em; font-variation-settings: "opsz" 96; }
+.ht-main { font-size: var(--t-hero); line-height: .95; }
+.ht-sub { font-size: clamp(1.35rem, .9rem + 1.8vw, 2.4rem); line-height: 1.15; font-weight: 650; letter-spacing: -.02em; color: var(--ink-2); max-width: 28ch; font-variation-settings: "opsz" 48; }
+.ht-hl { color: var(--accent); }
 .xp-underline {
   color: var(--accent); padding-bottom: .08em;
   background-image:
@@ -1012,7 +1012,6 @@ a.side-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2p
   .menu-btn { display: inline-flex; }
   .hero { grid-template-columns: minmax(0, 1fr); }
   .hero-card-wrap { justify-content: flex-start; }
-  .hero-title { max-width: 16ch; }
   .tree-layout { grid-template-columns: minmax(0, 1fr); }
   .tree-detail { position: static; }
   .process-list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 40px; }

@@ -28,9 +28,10 @@ window.CONTENT = {
       'hud.xp': 'Quest log', 'hud.level': 'Lv',
 
       'hero.eyebrow': 'Victor Mascaro · São Paulo',
-      'hero.title.a': 'UX/UI designer with a background in ',
+      'hero.title.a': 'UX/UI designer',
+      'hero.title.s1': 'Specialized in ', 'hero.title.ai': 'AI', 'hero.title.s2': ', with a background in ',
       'hero.title.b': 'game design.',
-      'hero.lede': 'For the last two years I’ve been designing Knomee, a fintech product for financial advisors and their clients. I design for AI and with it, from a voice shortcut in the client app to the prototypes I build in code with Claude Code. Before that I worked on mobile games like Smashing Four and Auction City, mostly on progression, events and onboarding.',
+      'hero.lede': 'Since 2024 I’ve designed Knomee, a fintech product for financial advisors and their clients, including its AI features, and I prototype it in code with AI. Before that I worked on mobile games like Smashing Four and Auction City.',
       'hero.tabs': 'Sections',
       'hero.tab.work': 'Knomee, Betsie and mobile games', 'hero.tab.process': 'How I work, step by step', 'hero.tab.experience': 'Where I’ve worked since 2021', 'hero.tab.skills': 'Degrees and courses', 'hero.tab.contact': 'Email, LinkedIn and CV',
 
@@ -129,9 +130,10 @@ window.CONTENT = {
       'hud.xp': 'Diário de missões', 'hud.level': 'Nv',
 
       'hero.eyebrow': 'Victor Mascaro · São Paulo',
-      'hero.title.a': 'UX/UI designer com background em ',
+      'hero.title.a': 'UX/UI designer',
+      'hero.title.s1': 'Especializado em ', 'hero.title.ai': 'IA', 'hero.title.s2': ', com background em ',
       'hero.title.b': 'game design.',
-      'hero.lede': 'Há dois anos faço o design da Knomee, uma fintech para assessores financeiros e os clientes deles. Desenho para IA e com IA, de um atalho de voz no app do cliente aos protótipos que construo em código com o Claude Code. Antes disso, trabalhei com jogos mobile como Smashing Four e Auction City, principalmente em progressão, eventos e onboarding.',
+      'hero.lede': 'Desde 2024 faço o design da Knomee, uma fintech para assessores financeiros e os clientes deles, incluindo as funcionalidades de IA, e prototipo em código com IA. Antes disso, trabalhei com jogos mobile como Smashing Four e Auction City.',
       'hero.tabs': 'Seções',
       'hero.tab.work': 'Knomee, Betsie e jogos mobile', 'hero.tab.process': 'Como eu trabalho, passo a passo', 'hero.tab.experience': 'Onde trabalhei desde 2021', 'hero.tab.skills': 'Graduação e cursos', 'hero.tab.contact': 'E-mail, LinkedIn e CV',
 
