@@ -32,7 +32,7 @@ window.CONTENT = {
 
       'hero.eyebrow': 'Victor Mascaro · São Paulo',
       'hero.title.a': 'UX/AI designer',
-      'hero.title.s2': 'With a background in ',
+      'hero.title.s2': 'with a background in ',
       'hero.title.b': 'game design',
       'hero.lede': 'Since 2024 I’ve designed Knomee, a fintech product for financial advisors and their clients, including its AI features, and I prototype it in code with AI. Before that I worked on mobile games like Smashing Four and Auction City.',
       'hero.tabs': 'Sections',
@@ -134,7 +134,7 @@ window.CONTENT = {
 
       'hero.eyebrow': 'Victor Mascaro · São Paulo',
       'hero.title.a': 'UX/AI designer',
-      'hero.title.s2': 'Com background em ',
+      'hero.title.s2': 'com background em ',
       'hero.title.b': 'game design',
       'hero.lede': 'Desde 2024 faço o design da Knomee, uma fintech para assessores financeiros e os clientes deles, incluindo as funcionalidades de IA, e prototipo em código com IA. Antes disso, trabalhei com jogos mobile como Smashing Four e Auction City.',
       'hero.tabs': 'Seções',
