@@ -314,8 +314,8 @@
         return part;
       });
       g.total = total; g.K = -1;
-      g.delay = Math.min(gi * 22, 450);
-      g.dur = g.head ? Math.max(250, Math.min(total * 38, 800)) : Math.max(140, Math.min(total * 9, 650));
+      g.delay = Math.min(gi * 14, 280);
+      g.dur = g.head ? Math.max(180, Math.min(total * 24, 520)) : Math.max(100, Math.min(total * 6, 420));
     });
     var t0 = performance.now(), raf = 0;
     function restore(g) {
