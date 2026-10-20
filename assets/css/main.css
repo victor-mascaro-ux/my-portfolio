@@ -335,7 +335,6 @@ kbd {
 .hero-title { display: grid; gap: .35em; font-weight: 700; letter-spacing: -.03em; font-variation-settings: "opsz" 96; }
 .ht-main { font-size: var(--t-hero); line-height: .95; }
 .ht-sub { font-size: clamp(1.35rem, .9rem + 1.8vw, 2.4rem); line-height: 1.15; font-weight: 650; letter-spacing: -.02em; color: var(--ink-2); max-width: 28ch; font-variation-settings: "opsz" 48; }
-.ht-hl { color: var(--accent); }
 .xp-underline {
   color: var(--accent); padding-bottom: .08em;
   background-image:
