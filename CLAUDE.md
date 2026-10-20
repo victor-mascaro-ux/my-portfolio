@@ -33,6 +33,8 @@ Craft details matter as much as content.
 - `app.js` → renderers + behaviour. Sections are labelled in comments.
 - `main.css` → tokens, then components top to bottom in page order.
 - Case studies open in a sheet (`#case-<id>` deep links).
+- `design-system/index.html` documents the design language (linked from the footer only). Token values, contrast and the type scale are read from `main.css` at runtime; the component previews are copies of the live markup, so refresh a preview when its component changes. Its own styles and script are `design-system.css` and `design-system.js` (app.js isn't loaded there).
+- `assets/brand/` holds the logo kit (see its README); the header shows the app icon, the designer card the primary logo.
 
 ## Checks before committing
 

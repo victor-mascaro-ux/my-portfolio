@@ -447,7 +447,7 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .hero-tab:hover strong svg { transform: translateX(3px); }
 .hero-tab:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 .hero-tab.is-primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-.hero-tab.is-primary > span { color: var(--accent-ink); opacity: .82; }
+.hero-tab.is-primary > span { color: var(--accent-ink); opacity: .9; }   /* .9 keeps the second line above 4.5:1 */
 
 /* Player card */
 .hero-card-wrap { display: flex; justify-content: flex-end; perspective: 1100px; min-width: 0; }
@@ -835,6 +835,7 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .colophon { max-width: 52em; }
 .footer-end { grid-column: 1 / -1; display: flex; justify-content: space-between; gap: 16px; padding-top: 20px; border-top: 1px solid var(--line); }
 .footer-end a { color: var(--ink); font-weight: 600; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 
 /* ---------- Case sheet ---------- */
 .sheet { position: fixed; inset: 0; z-index: 80; display: grid; }

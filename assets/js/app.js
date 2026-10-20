@@ -785,6 +785,7 @@
     else if (id === 'party') goToTab('contact');
     else if (id === 'polyglot') hint($('#langBtn'));
     else if (id === 'daynight') hint($('#themeBtn'));
+    else if (id === 'blueprint') location.href = 'design-system/';
     else if (id === 'secret') {
       // no words: bring the player card's Download CV button into view and make it pulse
       goToTab('home');
