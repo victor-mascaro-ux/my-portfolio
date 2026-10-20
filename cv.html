@@ -51,10 +51,9 @@
   .edu:first-child { border-top: 0; }
   .edu b { display: block; font-size: 8.8pt; line-height: 1.3; }
   .edu span { display: block; font-size: 7.8pt; color: var(--muted); }
-  .lnk { padding: 1mm 0; border-top: 1px solid var(--line); font-size: 7.8pt; line-height: 1.4; color: var(--muted); }
+  .lnk { padding: .8mm 0; border-top: 1px solid var(--line); font-size: 8pt; line-height: 1.35; }
   .lnk:first-of-type { border-top: 0; }
-  .lnk b { color: var(--ink); font-weight: 650; }
-  .lnk a { color: var(--accent); text-decoration: none; }
+  .lnk a { color: var(--accent); text-decoration: none; overflow-wrap: anywhere; }
   .tags { display: flex; flex-wrap: wrap; gap: 1.2mm; }
   .tags li { font-size: 7.4pt; padding: .4mm 1.6mm; border: 1px solid var(--line); border-radius: 1.2mm; color: var(--ink-2); }
   :lang(pt-BR) body { font-size: 8.75pt; }
@@ -79,8 +78,8 @@
   function L(v) { return typeof v === 'string' ? v : (v[lang] || v.en); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); }
   var T = {
-    en: { title: 'UX/UI Designer', sub: 'Game systems, gamification & AI', sum: 'UX/UI designer based in São Paulo. I’ve worked on mobile games since 2021 and on Knomee, a fintech product for financial advisors, since 2024. Most of my work is on onboarding, progression and gamification. I design for AI and with it, and I build my prototypes in code with Claude Code.', exp: 'Experience', res: 'Highlights', edu: 'Education', links: 'Links', lnkWork: 'Knomee and Betsie', proto: 'Knomee prototype', kit: 'Activation toolkit', video: 'Product video', store: 'App Store', tools: 'Tools & skills', langs: 'Languages', langsV: 'Portuguese (native) · English (professional)', loc: 'São Paulo, Brazil · UTC−3 · Remote', port: 'Portfolio with case studies' },
-    pt: { title: 'UX/UI Designer', sub: 'Sistemas de jogo, gamificação e IA', sum: 'UX/UI designer em São Paulo. Trabalho com jogos mobile desde 2021 e, desde 2024, na Knomee, uma fintech para assessores financeiros. Meu trabalho é sobretudo em onboarding, progressão e gamificação. Desenho para IA e com IA, e construo meus protótipos em código com o Claude Code.', exp: 'Experiência', res: 'Destaques', edu: 'Formação', links: 'Links', lnkWork: 'Knomee e Betsie', proto: 'Protótipo da Knomee', kit: 'Kit de ativação', video: 'Vídeo do produto', store: 'App Store', tools: 'Ferramentas e habilidades', langs: 'Idiomas', langsV: 'Português (nativo) · Inglês (profissional)', loc: 'São Paulo, Brasil · UTC−3 · Remoto', port: 'Portfólio com cases' }
+    en: { title: 'UX/UI Designer', sub: 'Game systems, gamification & AI', sum: 'UX/UI designer based in São Paulo. I’ve worked on mobile games since 2021 and on Knomee, a fintech product for financial advisors, since 2024. Most of my work is on onboarding, progression and gamification. I design for AI and with it, and I build my prototypes in code with Claude Code.', exp: 'Experience', res: 'Highlights', edu: 'Education', links: 'Links', mail: 'Email', portfolio: 'Portfolio', tools: 'Tools & skills', langs: 'Languages', langsV: 'Portuguese (native) · English (professional)', loc: 'São Paulo, Brazil · UTC−3 · Remote', port: 'Portfolio with case studies' },
+    pt: { title: 'UX/UI Designer', sub: 'Sistemas de jogo, gamificação e IA', sum: 'UX/UI designer em São Paulo. Trabalho com jogos mobile desde 2021 e, desde 2024, na Knomee, uma fintech para assessores financeiros. Meu trabalho é sobretudo em onboarding, progressão e gamificação. Desenho para IA e com IA, e construo meus protótipos em código com o Claude Code.', exp: 'Experiência', res: 'Destaques', edu: 'Formação', links: 'Links', mail: 'E-mail', portfolio: 'Portfólio', tools: 'Ferramentas e habilidades', langs: 'Idiomas', langsV: 'Português (nativo) · Inglês (profissional)', loc: 'São Paulo, Brasil · UTC−3 · Remoto', port: 'Portfólio com cases' }
   }[lang];
   var site = 'victor-mascaro-ux.github.io/my-portfolio';
   var results = [
@@ -98,17 +97,14 @@
     return '<div class="edu"><b>' + esc(L(s.name)) + '</b><span>' + esc(L(s.kind)) + ' · ' + esc(when) + '</span></div>';
   }).join('') + (inProgress.length ? '<div class="edu"><b>' + (lang === 'pt' ? 'Cursando (2025 –)' : 'In progress (2025 –)') + '</b><span>' +
     inProgress.map(function (s) { return esc(L(s.name)); }).join(' · ') + '</span></div>' : '');
-  // Project links, taken from the case studies so the CV and the site always agree.
-  // Two compact lines (a label, then its links) so the section fits beside Experience.
-  var byId = function (id) { return C.cases.filter(function (c) { return c.id === id; })[0]; };
-  var a = function (u, text) { return '<a href="' + u + '">' + esc(text) + '</a>'; };
-  var vid = byId('go-to-market').moves.filter(function (m) { return m.video; })[0].video;
-  var line = function (label, items) { return '<p class="lnk"><b>' + esc(label) + '</b> ' + items.map(function (x) { return a(x[1], x[0]); }).join(' · ') + '</p>'; };
-  var links = line(T.lnkWork, [[T.proto, byId('advisor').live], [T.kit, byId('go-to-market').live], [T.video, 'https://youtu.be/' + vid], ['Betsie', byId('betsie').live]]) +
-    line(T.store, [['Smashing Four', byId('smashing-four').live], ['Auction City', byId('auction-city').live], ['Idle Planes', byId('idle-planes').live], ['Hemp Paradise', byId('lumen').live]]);
+  // Links: email, LinkedIn and portfolio, each a label and the clickable address
+  var linkRow = function (label, href, text) { return '<p class="lnk"><a href="' + href + '" aria-label="' + esc(label) + '">' + esc(text) + '</a></p>'; };
+  var links = linkRow(T.mail, 'mailto:' + C.person.email, C.person.email) +
+    linkRow('LinkedIn', C.person.linkedin, C.person.linkedin.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')) +
+    linkRow(T.portfolio, 'https://' + site, site);
   var html =
     '<header class="head"><div><h1 class="name">Victor Mascaro</h1><p class="role">' + T.title + ' <span>· ' + T.sub + '</span></p></div>' +
-    '<p class="contact"><a href="mailto:' + C.person.email + '">' + C.person.email + '</a><br><a href="' + C.person.linkedin + '">linkedin.com/in/victor-mascaro</a><br><a href="https://' + site + '">' + site + '</a><br>' + T.loc + '</p></header>' +
+    '<p class="contact">' + T.loc + '</p></header>' +
     '<p class="summary">' + esc(T.sum) + '</p>' +
     '<div class="grid"><section><h2 class="sec-t">' + T.exp + '</h2>' +
     C.experience.map(function (x) {
