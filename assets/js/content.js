@@ -24,6 +24,7 @@ window.CONTENT = {
       'meta.desc': 'UX/UI designer in São Paulo with a background in game design. Currently working on Knomee, a fintech product for financial advisors.',
       'skip': 'Skip to content',
       'nav.work': 'Work', 'nav.process': 'Process', 'nav.experience': 'Experience', 'nav.skills': 'Education', 'nav.contact': 'Contact',
+      'brand.role': 'UX Designer',
       'nav.menu': 'Menu', 'nav.close': 'Close menu',
       'hud.lang': 'EN, switch to Portuguese', 'hud.langShort': 'EN',
       'hud.themeDark': 'Switch to dark theme', 'hud.themeLight': 'Switch to light theme',
@@ -57,7 +58,7 @@ window.CONTENT = {
 
       'work.eyebrow': 'Work',
       'work.title': 'Selected projects',
-      'work.lede': 'Each project has a short write-up: the context, what I did, and the result when there is one I can share.',
+      'work.lede': 'Each project has a short write-up: the context, what I did, and the result.',
       'work.knomee.title': 'UX/UI',
       'work.knomee.meta': 'Knomee · 2024 to now',
       'work.knomee.lede': 'Knomee helps financial advisors get to know their clients before the first meeting. I work on both sides of the product: the app clients fill in and the dashboard advisors use. I design its AI features, like a voice shortcut in the client app, and build the prototype with AI.',
@@ -81,7 +82,7 @@ window.CONTENT = {
 
       'skills.eyebrow': 'Education',
       'skills.title': 'Education and courses',
-      'skills.lede': 'Laid out as a skill tree, because I come from games. Click an item to see what it covered.',
+      'skills.lede': 'A degree in game design, then postgraduate studies in behavior, UX strategy and AI. That’s where the gamification, research and AI in my projects come from. Click an item to see what it covered.',
       'skills.done': 'Completed', 'skills.progress': 'In progress', 'skills.grade': 'Final grade',
       'skills.core': 'What it covered', 'skills.certs': 'Courses',
       'skills.more': 'Shorter courses', 'skills.short': 'Short course', 'skills.year': 'Year',
@@ -128,6 +129,7 @@ window.CONTENT = {
       'meta.desc': 'UX/UI designer em São Paulo, com background em game design. Hoje trabalho na Knomee, uma fintech para assessores financeiros.',
       'skip': 'Pular para o conteúdo',
       'nav.work': 'Trabalhos', 'nav.process': 'Processo', 'nav.experience': 'Experiência', 'nav.skills': 'Formação', 'nav.contact': 'Contato',
+      'brand.role': 'UX Designer',
       'nav.menu': 'Menu', 'nav.close': 'Fechar menu',
       'hud.lang': 'PT, mudar para inglês', 'hud.langShort': 'PT',
       'hud.themeDark': 'Ativar tema escuro', 'hud.themeLight': 'Ativar tema claro',
@@ -161,7 +163,7 @@ window.CONTENT = {
 
       'work.eyebrow': 'Trabalhos',
       'work.title': 'Projetos selecionados',
-      'work.lede': 'Cada projeto tem um resumo curto: o contexto, o que eu fiz e o resultado, quando posso compartilhar.',
+      'work.lede': 'Cada projeto tem um resumo curto: o contexto, o que eu fiz e o resultado.',
       'work.knomee.title': 'UX/UI',
       'work.knomee.meta': 'Knomee · 2024 até hoje',
       'work.knomee.lede': 'A Knomee ajuda assessores financeiros a conhecer os clientes antes da primeira reunião. Trabalho nos dois lados do produto: o app que o cliente preenche e o dashboard que o assessor usa. Desenho as funcionalidades de IA, como um atalho de voz no app do cliente, e construo o protótipo com IA.',
@@ -185,7 +187,7 @@ window.CONTENT = {
 
       'skills.eyebrow': 'Formação',
       'skills.title': 'Formação e cursos',
-      'skills.lede': 'Organizei como uma árvore de habilidades, já que venho dos games. Clique num item para ver o que estudei.',
+      'skills.lede': 'Graduação em game design, depois pós-graduações em comportamento, estratégia de UX e IA. É daí que vêm a gamificação, a pesquisa e a IA dos meus projetos. Clique num item para ver o que estudei.',
       'skills.done': 'Concluído', 'skills.progress': 'Em andamento', 'skills.grade': 'Nota final',
       'skills.core': 'O que estudei', 'skills.certs': 'Disciplinas',
       'skills.more': 'Cursos livres', 'skills.short': 'Curso livre', 'skills.year': 'Ano',
@@ -770,7 +772,7 @@ window.CONTENT = {
       }
     },
     {
-      org: 'PROAC', logo: 'assets/img/logos/proac-mark.webp', when: { en: '2021 – 2022', pt: '2021 – 2022' },
+      org: 'PROAC', logo: 'assets/img/logos/proac-mark.webp', logoWide: true, when: { en: '2021 – 2022', pt: '2021 – 2022' },
       role: { en: 'Game Design Intern', pt: 'Estagiário de Game Design' },
       where: { en: 'Cultural grant · São Paulo · Remote', pt: 'Edital cultural · São Paulo · Remoto' },
       points: {

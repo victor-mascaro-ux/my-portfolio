@@ -147,7 +147,7 @@
 
   // company logos sit on a white tile, so dark, red and black marks read on light and dark themes alike
   function logoTile(x, cls) {
-    return '<span class="' + cls + ' has-logo' + (x.logoFill ? ' is-fill' : '') + '" aria-hidden="true"><img src="' + x.logo + '" alt="" loading="lazy"></span>';
+    return '<span class="' + cls + ' has-logo' + (x.logoFill ? ' is-fill' : '') + (x.logoWide ? ' is-wide' : '') + '" aria-hidden="true"><img src="' + x.logo + '" alt="" loading="lazy"></span>';
   }
   function renderTimeline() {
     $('#timeline').innerHTML = C.experience.map(function (x, i) {

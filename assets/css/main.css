@@ -86,6 +86,8 @@
   --card-hi: #4FC3F7; --card-hi-ink: #06122B;
   /* company logos always sit on white, in both themes */
   --logo-bg: #FFFFFF;
+  /* Work tab: one band per project section, all from the palette (blue, gold, slate, sky) */
+  --band-1: #E1EBF9; --band-2: #F7EFD7; --band-3: #E3E8F1; --band-4: #DCEFF9;
   --card-glow: 0 0 44px -6px rgba(11, 99, 201, .42), 0 0 110px -20px rgba(11, 99, 201, .3);
   --scrim: rgba(4, 8, 22, .72);
   --glow: rgba(11, 99, 201, .10);
@@ -149,6 +151,7 @@
     --shadow-lg: 0 2px 6px rgba(0, 0, 0, .4), 0 36px 72px -18px rgba(0, 0, 0, .75);
     --pic-shadow: 0 0 0 1px rgba(79, 195, 247, .24), 0 0 36px -2px rgba(79, 195, 247, .5); --pic-drop: drop-shadow(0 0 16px rgba(79, 195, 247, .5)); --card-glow: 0 0 48px -4px rgba(79, 195, 247, .5), 0 0 130px -16px rgba(79, 195, 247, .38);
     --glow: rgba(79, 195, 247, .12);
+    --band-1: #0F2350; --band-2: #1D2130; --band-3: #070E25; --band-4: #0E2A44;
     color-scheme: dark;
   }
 }
@@ -170,6 +173,7 @@
   --shadow-lg: 0 2px 6px rgba(0, 0, 0, .4), 0 36px 72px -18px rgba(0, 0, 0, .75);
   --pic-shadow: 0 0 0 1px rgba(79, 195, 247, .24), 0 0 36px -2px rgba(79, 195, 247, .5); --pic-drop: drop-shadow(0 0 16px rgba(79, 195, 247, .5)); --card-glow: 0 0 48px -4px rgba(79, 195, 247, .5), 0 0 130px -16px rgba(79, 195, 247, .38);
   --glow: rgba(79, 195, 247, .12);
+  --band-1: #0F2350; --band-2: #1D2130; --band-3: #070E25; --band-4: #0E2A44;
   color-scheme: dark;
 }
 
@@ -272,7 +276,9 @@ kbd {
   background: var(--accent); color: var(--accent-ink); font-family: var(--f-display); font-weight: 800; font-size: .86rem; letter-spacing: -.02em;
   box-shadow: inset 0 -3px 0 var(--gold);
 }
+.brand-text { display: grid; line-height: 1.15; }
 .brand-name { font-family: var(--f-display); font-weight: 650; font-size: 1.02rem; letter-spacing: -.01em; }
+.brand-role { font-size: var(--t-xs); font-weight: 500; color: var(--muted); }
 .hud-nav { display: flex; gap: 4px; margin-left: 8px; }
 .hud-nav a {
   position: relative; padding: 8px 12px; border-radius: 8px; text-decoration: none; color: var(--muted);
@@ -487,7 +493,12 @@ kbd {
 .section-lede { color: var(--ink-2); font-size: var(--t-lg); max-width: 36em; line-height: 1.55; }
 
 /* ---------- Work ---------- */
-.work-group + .work-group { margin-top: clamp(56px, 7vw, 96px); }
+/* each project section sits on its own full-width band (the shadow paints it past the column; the clip stops it spilling up or down) */
+.work-group { padding-block: clamp(40px, 5vw, 72px); background: var(--band); box-shadow: 0 0 0 100vmax var(--band); clip-path: inset(0 -100vmax); }
+.work-group:nth-of-type(1) { --band: var(--band-1); }
+.work-group:nth-of-type(2) { --band: var(--band-2); }
+.work-group:nth-of-type(3) { --band: var(--band-3); }
+.work-group:nth-of-type(4) { --band: var(--band-4); }
 .group-head { display: grid; gap: 8px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line-2); }
 .group-title { font-size: var(--t-h3); font-weight: 680; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
 /* section icon: a soft blue tile, centred on the title's line */
@@ -649,6 +660,11 @@ kbd {
 .career-medal.has-logo, .tl-logo { background: var(--logo-bg); overflow: hidden; }
 .career-medal.has-logo img, .tl-logo img { width: 100%; height: 100%; object-fit: contain; padding: 18%; }
 .career-medal.is-fill img, .tl-logo.is-fill img { object-fit: cover; padding: 0; }
+/* a logo that fills its tile needs no white backing: it showed as pale slivers at the rounded corners */
+.career-medal.is-fill { background: var(--surface); }
+.tl-logo.is-fill { background: none; border: 0; }
+/* wide, short marks get a thinner margin so they read as large as the square ones */
+.career-medal.is-wide img, .tl-logo.is-wide img { padding: 6%; }
 .career-stop.is-now .career-medal.has-logo { background: var(--logo-bg); border-color: var(--accent); }
 .tl-org { display: flex; align-items: center; gap: 12px; }
 .tl-logo { display: block; width: 40px; height: 40px; border-radius: 10px; flex: none; border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
@@ -1125,7 +1141,7 @@ a.side-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2p
 }
 @media (max-width: 640px) {
   :root { --hud-h: 58px; }
-  .brand-name { display: none; }
+  .brand-text { display: none; }
   .hud-inner { gap: 12px; }
   .hud-tools { gap: 6px; }
   .xp-track { width: 44px; }
