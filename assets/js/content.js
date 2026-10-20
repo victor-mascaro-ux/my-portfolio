@@ -907,7 +907,7 @@ window.CONTENT = {
         {
           title: { en: 'Inputs that fit the question', pt: 'Inputs que combinam com a pergunta' },
           body: { en: 'The Confidence slider has a sun that gets brighter as you drag it. Future You asks people to place their plans on a timeline and ends with a postcard to their future self.', pt: 'O slider do Confidence tem um sol que brilha mais conforme você arrasta. O Future You pede para a pessoa colocar os planos numa linha do tempo e termina com um cartão-postal para o eu do futuro.' },
-          img: ['assets/img/k-conf-slider.webp', 'assets/img/k-fy-orb.webp', 'assets/img/k-fy-road.webp'], kind: 'phones'
+          img: ['assets/img/k-conf-slider.webp', 'assets/img/k-fy-orb.webp', 'assets/img/k-fy-road.webp', 'assets/img/k-fy-postcard.webp'], kind: 'phones'
         },
         {
           title: { en: 'A voice shortcut powered by AI', pt: 'Um atalho de voz com IA' },
