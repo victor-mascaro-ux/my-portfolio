@@ -104,7 +104,7 @@ window.CONTENT = {
       'case.close': 'Close', 'case.prev': 'Previous', 'case.next': 'Next project',
       'case.role': 'Role', 'case.when': 'When', 'case.platform': 'Platform', 'case.context': 'Context',
       'case.problem': 'Context', 'case.moves': 'What I did', 'case.outcome': 'Result', 'case.learned': 'Notes',
-      'case.live': 'Open the live version', 'case.evolution': 'Earlier version',
+      'case.live': 'Open the live version', 'case.proto': 'Open the Figma prototype', 'case.evolution': 'Earlier version',
       'case.before': 'Before', 'case.after': 'After', 'case.compare': 'Drag to compare before and after',
       'case.hint.click': 'Drag to compare, or click Before or After to see that version in full', 'case.hint.tap': 'Drag to compare, or tap Before or After to see that version in full',
       'case.hint.clickYear': 'Drag to compare, or click a year to see that version in full', 'case.hint.tapYear': 'Drag to compare, or tap a year to see that version in full',
@@ -208,7 +208,7 @@ window.CONTENT = {
       'case.close': 'Fechar', 'case.prev': 'Anterior', 'case.next': 'Próximo projeto',
       'case.role': 'Função', 'case.when': 'Período', 'case.platform': 'Plataforma', 'case.context': 'Contexto',
       'case.problem': 'Contexto', 'case.moves': 'O que eu fiz', 'case.outcome': 'Resultado', 'case.learned': 'Observações',
-      'case.live': 'Ver no ar', 'case.evolution': 'Versão anterior',
+      'case.live': 'Ver no ar', 'case.proto': 'Abrir o protótipo no Figma', 'case.evolution': 'Versão anterior',
       'case.before': 'Antes', 'case.after': 'Depois', 'case.compare': 'Arraste para comparar o antes e o depois',
       'case.hint.click': 'Arraste para comparar, ou clique em Antes ou Depois para ver aquela versão inteira', 'case.hint.tap': 'Arraste para comparar, ou toque em Antes ou Depois para ver aquela versão inteira',
       'case.hint.clickYear': 'Arraste para comparar, ou clique em um ano para ver aquela versão inteira', 'case.hint.tapYear': 'Arraste para comparar, ou toque em um ano para ver aquela versão inteira',
@@ -535,7 +535,8 @@ window.CONTENT = {
           compare: ['assets/img/betsie-live.webp', 'assets/img/betsie-on.webp'] }
       ],
       metrics: [],
-      live: 'https://betsie.app/'
+      live: 'https://betsie.app/',
+      proto: 'https://www.figma.com/proto/8MOmXASKMPvxyHsxqQLLAq/Betsie?node-id=307-16894&p=f&viewport=1924%2C-817%2C0.04&t=4Rv06TfDS4N3NRT8-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=307%3A9932&show-proto-sidebar=1&page-id=0%3A1'
     },
     {
       id: 'smashing-four', group: 'games', layout: 'md', tone: 'deep', minutes: 2,
@@ -644,10 +645,10 @@ window.CONTENT = {
         pt: 'As sessões no mid-game estavam ficando mais curtas, os boosters idle eram difíceis de entender e os anúncios com recompensa pareciam interrupções.'
       },
       moves: [
-        { title: { en: 'Main screen', pt: 'Tela principal' }, body: { en: 'I redesigned the main screen. I took out the buttons that sat in front of the cards and showed each card’s clones, managers and upgrades beside it instead, so players could see what was boosting and automating each one.', pt: 'Redesenhei a tela principal. Tirei os botões que ficavam na frente dos cards e passei a mostrar os clones, gerentes e upgrades de cada card ao lado dele, para o jogador ver o que estava turbinando e automatizando cada um.' },
+        { title: { en: 'Main screen', pt: 'Tela principal' }, body: { en: 'I redesigned the main screen. I resized the cards so the buttons no longer sat in front of them, and showed each card’s clones, managers and upgrades beside it, so players could see what was boosting and automating each one.', pt: 'Redesenhei a tela principal. Redimensionei os cards para os botões não ficarem mais na frente deles e passei a mostrar os clones, gerentes e upgrades de cada card ao lado dele, para o jogador ver o que estava turbinando e automatizando cada um.' },
           compare: ['assets/img/g-wai-main-before.webp', 'assets/img/g-wai-main-after.webp'] },
         { title: { en: 'A new area for late-game players', pt: 'Uma nova área para o fim de jogo' }, body: { en: 'Players who had finished the four existing areas had nothing left to do, so I created a fifth one, A.I. I wrote its 10 situation cards and designed the clones, managers and upgrades that go with them. Clones are collectible characters that multiply a card’s income, managers automate a card, and upgrades multiply it further.', pt: 'Quem já tinha terminado as quatro áreas não tinha mais o que fazer, então criei uma quinta, A.I. Escrevi os 10 cards de situação e desenhei os clones, gerentes e upgrades de cada um. Clones são personagens colecionáveis que multiplicam a renda de um card, gerentes automatizam um card e upgrades multiplicam ainda mais.' },
-          img: ['assets/img/g-wai-areas.webp'], kind: 'wide' },
+          img: ['assets/img/g-wai-ai-area.webp'], kind: 'phones' },
         { title: { en: 'Side story', pt: 'História paralela' }, body: { en: 'A side story with three endings, decided by what the player does. It’s a metagame layer I created to stimulate the main idle loop, so the game isn’t boring between collections.', pt: 'Uma história paralela com três finais, que dependem do que o jogador faz. É uma camada de metagame que criei para estimular o loop idle principal, para o jogo não ficar chato entre uma coleta e outra.' },
           img: ['assets/img/g-wai-side-story.webp'], kind: 'game' },
         { title: { en: 'Neila the Chrononaut', pt: 'Neila, a Crononauta' }, body: { en: 'The growth team asked for a new rewarded-ad placement. I turned it into a game feature: Neila, a time-travelling character, shows up and brings random resources in exchange for watching an ad.', pt: 'O time de growth pediu um novo posicionamento de anúncio com recompensa. Transformei isso numa feature do jogo: a Neila, uma personagem que viaja no tempo, aparece e traz recursos aleatórios em troca de assistir a um anúncio.' },

@@ -99,7 +99,8 @@
     } else if (c.group === 'knomee' && c.cover) {
       media = '<div class="cc-media"><div class="shot"><img src="' + c.cover + '" alt="' + esc(L(c.coverAlt)) + '" loading="lazy" width="1600" height="1000"></div></div>';
     } else if (c.cover) {
-      media = '<div class="cc-media cover"><img src="' + c.cover + '" alt="' + esc(L(c.coverAlt)) + '" loading="lazy"></div>';
+      // the same inset as the Knomee cards; the picture fills its frame so game art isn't cut off
+      media = '<div class="cc-media"><div class="shot fill"><img src="' + c.cover + '" alt="' + esc(L(c.coverAlt)) + '" loading="lazy"></div></div>';
     } else if (c.emblem) {
       media = '<div class="cc-media"><div class="emblem">' + EMBLEM[c.emblem] + '</div></div>';
     }
@@ -436,6 +437,7 @@
         '<div class="cs-actions">' +
           (c.chip ? '<span class="chip-metric">' + esc(L(c.chip)) + '</span>' : '') +
           (c.live ? '<a class="btn btn-ghost btn-small" href="' + c.live + '" target="_blank" rel="noopener">' + esc(t('case.live')) + ICON.ext + '</a>' : '') +
+          (c.proto ? '<a class="btn btn-ghost btn-small" href="' + esc(c.proto) + '" target="_blank" rel="noopener">' + esc(t('case.proto')) + ICON.ext + '</a>' : '') +
         '</div>' +
       '</div>' +
       cover +

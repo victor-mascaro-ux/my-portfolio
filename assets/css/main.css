@@ -478,6 +478,14 @@ kbd {
 .work-group + .work-group { margin-top: clamp(56px, 7vw, 96px); }
 .group-head { display: grid; gap: 8px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line-2); }
 .group-title { font-size: var(--t-h3); font-weight: 680; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
+/* section icon: a soft blue tile, centred on the title's line */
+.group-icon {
+  align-self: center; position: relative; top: -.14em; display: grid; place-items: center; width: 1.45em; height: 1.45em; margin-right: -2px; border-radius: .38em; flex: none;
+  background: var(--accent-soft); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  transition: transform .35s var(--ease-pop);
+}
+.group-icon svg { width: .9em; height: .9em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.group-head:hover .group-icon { transform: rotate(-8deg) scale(1.08); }
 .group-meta { font-family: var(--f-mono); font-size: var(--t-label); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .group-lede { color: var(--ink-2); max-width: 44em; font-size: var(--t-sm); }
 
@@ -486,7 +494,9 @@ kbd {
 .grid-knomee > [data-layout="md"] { grid-column: 8 / span 5; }
 .grid-knomee > [data-layout="lg-wide"] { grid-column: 1 / -1; }
 .grid-games > [data-layout="md"] { grid-column: span 6; }
-.grid-games > [data-layout="sm"] { grid-column: span 4; }
+/* two cards per row at most, so the pictures stay readable; a lone last card takes the full row */
+.grid-games > [data-layout="sm"] { grid-column: span 6; }
+.grid-games > [data-layout]:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .grid-gamification > [data-layout] { grid-column: 1 / -1; }
 
 .case-card {
@@ -508,7 +518,8 @@ kbd {
   display: inline-flex; align-items: center; gap: 7px; font-family: var(--f-mono); font-size: .74rem; font-weight: 650;
   padding: 5px 10px; border-radius: 7px; background: var(--accent-soft); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
 }
-.chip-metric::before { content: ""; width: 6px; height: 6px; background: var(--accent); transform: rotate(45deg); flex: none; }
+/* centred on the capitals and digits the chip text starts with */
+.chip-metric::before { content: ""; width: 6px; height: 6px; background: var(--accent); transform: rotate(45deg); flex: none; position: relative; top: -.11em; }
 .cc-read { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-xs); font-weight: 650; color: var(--gold-ink); }
 .cc-read svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s var(--ease); }
 .case-card:hover .cc-read svg { transform: translateX(4px); }
@@ -525,8 +536,10 @@ kbd {
   box-shadow: 0 0 0 1px rgba(11, 18, 32, .12), 0 24px 48px -16px rgba(11, 18, 32, .45);
 }
 .cc-media .shot img { width: 100%; }
+.cc-media .shot.fill { width: auto; right: -8%; bottom: -8%; }
+.cc-media .shot.fill img { height: 100%; object-fit: cover; }
 .cc-media.cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.grid-games [data-layout="md"] .cc-media.cover { aspect-ratio: 16 / 9; }
+.grid-games [data-layout="md"] .cc-media { aspect-ratio: 16 / 9; }
 [data-layout="lg"] .cc-media { aspect-ratio: auto; flex: 1; min-height: 420px; display: grid; place-items: center; }
 .art-fan[data-layout="lg"] .cc-media img { margin: 0 auto; }
 [data-layout="lg"] .cc-body { flex: none; }
@@ -1144,6 +1157,7 @@ a.side-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2p
   .hero-zone::before, .page-glow { display: none; }
   .hero-tab, .hero-tab strong svg { transition: none; }
   .lightbox, .lightbox img { animation: none; }
+  .group-head:hover .group-icon { transform: none; }
   .move-media.phones img:hover, .move-media .frame:hover, .cs-cover:hover, .compare:hover, .film-screen:hover, .step-shot-link:hover .step-shot { transform: none; }
   .career-stop.is-now .career-medal, .timeline > li.tl-flash { animation: none; }
   .enter, .enter .eyebrow::before { animation: none; }
