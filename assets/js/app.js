@@ -38,6 +38,7 @@
     var md = $('meta[name="description"]'); if (md) md.setAttribute('content', t('meta.desc'));
     $('#langCode').textContent = t('hud.langShort');
     $('#langBtn').setAttribute('aria-label', t('hud.lang'));
+    $('.brand').setAttribute('aria-label', t('brand.label'));
     $('#menuBtn').setAttribute('aria-label', t('nav.menu'));
     $('#lbClose').setAttribute('aria-label', t('lightbox.close'));
     $('.hero-tabs').setAttribute('aria-label', t('hero.tabs'));

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-39 -27 246.39 182.94" width="246.39" height="182.94" role="img" aria-label="VM">
+<title>VM</title>
+
+<g transform="translate(-24 -12)">
+<path d="M10 -2.5L190.2 -2.5 M10 126.5L190.2 126.5 M-2.5 10L-2.5 114 M202.7 10L202.7 114" fill="none" stroke="#FFFFFF" stroke-width="5"/>
+<rect x="-12.5" y="-12.5" width="20" height="20" fill="none" stroke="#FFFFFF" stroke-width="5"/>
+<rect x="192.7" y="-12.5" width="20" height="20" fill="none" stroke="#FFFFFF" stroke-width="5"/>
+<rect x="-12.5" y="116.5" width="20" height="20" fill="none" stroke="#FFFFFF" stroke-width="5"/>
+<rect x="192.7" y="116.5" width="20" height="20" fill="none" stroke="#FFFFFF" stroke-width="5"/>
+</g>
+<path d="M23.557142857142875 83.0 2.357142857142872 17.0H19.957142857142873L34.071428571428584 69.54285714285714H35.05714285714287L49.04285714285716 17.0H66.52857142857145L45.32857142857145 83.0ZM71.30000000000001 83.0V17.0H95.48571428571431L111.15714285714287 64.24285714285713H111.52857142857145L126.84285714285716 17.0H149.84285714285716V83.0H134.67142857142858L135.24285714285716 33.357142857142854H134.4714285714286L117.11428571428574 83.0H103.54285714285716L86.50000000000001 33.357142857142854H85.72857142857144L86.30000000000001 83.0Z" fill="#FFFFFF"/>
+<path d="M1.5 1.5 L1.5 17 L5.6 13.4 L8.4 19.8 L11 18.7 L8.3 12.5 L13.8 12.5 Z" transform="translate(175.51 111.31) scale(2.12)" fill="#FFFFFF" stroke="#0B1530" stroke-width="1.4" stroke-linejoin="round"/>
+</svg>

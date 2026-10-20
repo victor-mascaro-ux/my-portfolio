@@ -20,18 +20,18 @@ window.CONTENT = {
   /* ---------- Interface strings ---------- */
   ui: {
     en: {
-      'meta.title': 'Victor Mascaro · UX/UI Designer',
+      'meta.title': 'Victor Mascaro · UX/AI Designer',
       'meta.desc': 'UX/UI designer in São Paulo with a background in game design. Currently working on Knomee, a fintech product for financial advisors.',
       'skip': 'Skip to content',
       'nav.work': 'Work', 'nav.process': 'Process', 'nav.experience': 'Experience', 'nav.skills': 'Education', 'nav.contact': 'Contact',
-      'brand.role': 'UX Designer',
+      'brand.label': 'Victor Mascaro: UX/AI, Gamification, Game Design. Back to top',
       'nav.menu': 'Menu', 'nav.close': 'Close menu',
       'hud.lang': 'EN, switch to Portuguese', 'hud.langShort': 'EN',
       'hud.themeDark': 'Switch to dark theme', 'hud.themeLight': 'Switch to light theme',
       'hud.xp': 'Quest log', 'hud.level': 'Lv',
 
       'hero.eyebrow': 'Victor Mascaro · São Paulo',
-      'hero.title.a': 'UX/UI designer',
+      'hero.title.a': 'UX/AI designer',
       'hero.title.s1': 'Specialized in ', 'hero.title.ai': 'AI UX', 'hero.title.s2': ', with a background in ',
       'hero.title.b': 'game design.',
       'hero.lede': 'Since 2024 I’ve designed Knomee, a fintech product for financial advisors and their clients, including its AI features, and I prototype it in code with AI. Before that I worked on mobile games like Smashing Four and Auction City.',
@@ -122,18 +122,18 @@ window.CONTENT = {
       'toast.lang': 'Page in English', 'toast.theme': 'Theme changed'
     },
     pt: {
-      'meta.title': 'Victor Mascaro · UX/UI Designer',
+      'meta.title': 'Victor Mascaro · UX/AI Designer',
       'meta.desc': 'UX/UI designer em São Paulo, com background em game design. Hoje trabalho na Knomee, uma fintech para assessores financeiros.',
       'skip': 'Pular para o conteúdo',
       'nav.work': 'Trabalhos', 'nav.process': 'Processo', 'nav.experience': 'Experiência', 'nav.skills': 'Formação', 'nav.contact': 'Contato',
-      'brand.role': 'UX Designer',
+      'brand.label': 'Victor Mascaro: UX/IA, Gamificação, Game Design. Voltar ao início',
       'nav.menu': 'Menu', 'nav.close': 'Fechar menu',
       'hud.lang': 'PT, mudar para inglês', 'hud.langShort': 'PT',
       'hud.themeDark': 'Ativar tema escuro', 'hud.themeLight': 'Ativar tema claro',
       'hud.xp': 'Diário de missões', 'hud.level': 'Nv',
 
       'hero.eyebrow': 'Victor Mascaro · São Paulo',
-      'hero.title.a': 'UX/UI designer',
+      'hero.title.a': 'UX/AI designer',
       'hero.title.s1': 'Especializado em ', 'hero.title.ai': 'UX para IA', 'hero.title.s2': ', com background em ',
       'hero.title.b': 'game design.',
       'hero.lede': 'Desde 2024 faço o design da Knomee, uma fintech para assessores financeiros e os clientes deles, incluindo as funcionalidades de IA, e prototipo em código com IA. Antes disso, trabalhei com jogos mobile como Smashing Four e Auction City.',
