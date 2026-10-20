@@ -850,12 +850,12 @@ window.CONTENT = {
   // shorter courses, newest first: label is "Name · School (Year)"; about and core come from each course's own page.
   // status 'progress' = not finished (for Udemy, from the progress Udemy shows); no status = completed
   courses: [
-    { label: 'UI Academy · Hotmart (2026)', status: 'progress',
-      about: { en: 'Interface design from first principles: typography, color, components and style guides, then websites, apps and dashboards.', pt: 'Design de interfaces a partir dos princípios: tipografia, cores, componentes e style guides, depois websites, apps e dashboards.' },
-      core: { en: ['Design principles', 'Typography', 'Color', 'Components', 'Style guides', 'Cognitive biases in design', 'AI in UI design'], pt: ['Princípios de design', 'Tipografia', 'Cores', 'Componentes', 'Style guides', 'Vieses no design', 'IA no UI design'] } },
     { label: 'Claude Design Fundamentals · Udemy (2026)', status: 'progress',
       about: { en: 'Using Claude and Claude Design for visual work: prompts, wireframes, moodboards, brand assets and UX writing.', pt: 'Claude e Claude Design no trabalho visual: prompts, wireframes, moodboards, identidade visual e UX writing.' },
       core: { en: ['Visual prompting', 'Wireframes and moodboards', 'Brand identity and design tokens', 'UX writing and microcopy', 'AI design ethics'], pt: ['Prompts visuais', 'Wireframes e moodboards', 'Identidade visual e design tokens', 'UX writing e microcopy', 'Ética no design com IA'] } },
+    { label: 'UI Academy · Hotmart (2025)',
+      about: { en: 'Interface design from first principles: typography, color, components and style guides, then websites, apps and dashboards.', pt: 'Design de interfaces a partir dos princípios: tipografia, cores, componentes e style guides, depois websites, apps e dashboards.' },
+      core: { en: ['Design principles', 'Typography', 'Color', 'Components', 'Style guides', 'Cognitive biases in design', 'AI in UI design'], pt: ['Princípios de design', 'Tipografia', 'Cores', 'Componentes', 'Style guides', 'Vieses no design', 'IA no UI design'] } },
     { label: 'Figma UI UX Design Advanced · BYOL (2025)',
       about: { en: 'Advanced Figma: a full app built with components, variables, prototypes and developer handoff.', pt: 'Figma avançado: um app completo com componentes, variables, protótipos e handoff.' },
       core: { en: ['Advanced Auto Layout', 'Design systems', 'Variables and theming', 'Advanced prototyping', 'Dev Mode handoff', 'Team libraries'], pt: ['Auto Layout avançado', 'Design systems', 'Variables e temas', 'Prototipagem avançada', 'Handoff com Dev Mode', 'Bibliotecas de equipe'] } },
