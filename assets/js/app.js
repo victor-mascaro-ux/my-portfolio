@@ -1051,7 +1051,36 @@
   }, { passive: true });
   document.addEventListener('pointerleave', function () { if (magActive) { magActive.style.setProperty('--mx', '0px'); magActive.style.setProperty('--my', '0px'); magActive = null; } });
 
+  /* Separators: renders write plain " · "; this swaps each one for a bigger, roomier dot as the text
+     appears, wherever it is (renders, language switch, case sheet, course cards, toasts). */
+  // every " · " becomes a span, so the dot and its spaces can be drawn bigger (the text stays " · ")
+  function sepify(rootNode) {
+    var walker = document.createTreeWalker(rootNode, NodeFilter.SHOW_TEXT), hits = [];
+    for (var n; (n = walker.nextNode());) {
+      var el = n.parentElement;
+      if (n.nodeValue.indexOf(' \u00b7 ') >= 0 && el && !el.closest('script, style, textarea, .tw, .sep')) hits.push(n);
+    }
+    hits.forEach(function (n) {
+      var frag = document.createDocumentFragment();
+      n.nodeValue.split(' \u00b7 ').forEach(function (part, i) {
+        if (i) { var s = document.createElement('span'); s.className = 'sep'; s.textContent = ' \u00b7 '; frag.appendChild(s); }
+        if (part) frag.appendChild(document.createTextNode(part));
+      });
+      n.parentNode.replaceChild(frag, n);
+    });
+  }
+  new MutationObserver(function (muts) {
+    muts.forEach(function (m) {
+      if (m.type === 'characterData') { if (m.target.parentNode && m.target.nodeValue.indexOf(' \u00b7 ') >= 0) sepify(m.target.parentNode); return; }
+      m.addedNodes.forEach(function (a) {
+        if (a.nodeType === 1) sepify(a);
+        else if (a.nodeType === 3 && a.parentNode && a.nodeValue.indexOf(' \u00b7 ') >= 0) sepify(a.parentNode);
+      });
+    });
+  }).observe(document.body, { childList: true, subtree: true, characterData: true });
+
   /* ---------- boot ---------- */
+  sepify(document.body);
   applyI18n();
   renderAll();
   afterRender();

@@ -1105,6 +1105,10 @@ a.side-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2p
 
 /* Theme switch: circular wipe from the toggle (View Transitions) */
 ::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+/* Separators ( · ) use the mono font's dot: round, a size bigger and centred on the text, with wider spaces.
+   line-height 0 keeps lines as they were */
+span.sep { display: inline; font-family: var(--f-mono); font-weight: 700; line-height: 0; word-spacing: -.12em; }
+
 /* Language switch: the text on screen types itself in again, top to bottom, in the new language.
    The part not yet typed keeps its space (hidden), so nothing reflows; headings carry a caret.
    The flag in the header flips over like a card. */

@@ -60,6 +60,8 @@
   .lnk:first-of-type { border-top: 0; }
   .lnk a { color: var(--accent); text-decoration: none; overflow-wrap: anywhere; }
   .foot a { color: var(--accent); text-decoration: none; }
+  /* the CV's columns are narrow: the dot keeps a little less air than on the site so lines don't wrap */
+  span.sep { display: inline; font-family: 'JetBrains Mono', monospace; font-weight: 700; line-height: 0; word-spacing: -.26em; }
   .tags { display: flex; flex-wrap: wrap; gap: 1.2mm; }
   .tags li { font-size: 7.4pt; padding: .4mm 1.6mm; border: 1px solid var(--line); border-radius: 1.2mm; color: var(--ink-2); }
   :lang(pt-BR) body { font-size: 8.75pt; }
@@ -116,13 +118,13 @@
     linkRow('linkedin', 'LinkedIn', C.person.linkedin, C.person.linkedin.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')) +
     linkRow('web', T.portfolio, 'https://' + site, site);
   var html =
-    '<header class="head"><div><h1 class="name">Victor Mascaro</h1><p class="role">' + T.title + ' <span>· ' + T.sub + '</span></p></div>' +
+    '<header class="head"><div><h1 class="name">Victor Mascaro</h1><p class="role">' + T.title + '<span> · ' + T.sub + '</span></p></div>' +
     '<p class="contact">' + T.loc + '</p></header>' +
     '<p class="summary">' + esc(T.sum) + '</p>' +
     '<div class="grid"><section><h2 class="sec-t">' + T.exp + '</h2>' +
     C.experience.map(function (x) {
       return '<article class="job"><div class="job-h"><h3 class="job-org">' + esc(x.org) + '</h3><span class="job-when">' + esc(L(x.when)) + '</span></div>' +
-        '<p class="job-role">' + esc(L(x.role)) + ' <span>· ' + esc(L(x.where)) + '</span></p>' +
+        '<p class="job-role">' + esc(L(x.role)) + '<span> · ' + esc(L(x.where)) + '</span></p>' +
         '<ul>' + x.points[lang].map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul></article>';
     }).join('') + '</section>' +
     '<aside class="side"><div class="block"><h2 class="sec-t">' + T.res + '</h2>' + results.map(function (r) { return '<div class="metric"><b>' + r[0] + '</b><span>' + esc(L(r[1])) + '</span></div>'; }).join('') + '</div>' +
@@ -134,6 +136,24 @@
     }).join('') + '</ul></div></div>' +
     '<p class="foot"><span>' + T.port + ': <a href="https://' + site + '">' + site + '</a></span><span>2026</span></p>';
   document.getElementById('cv').innerHTML = html;
+
+  // every " · " becomes a span, so the dot and its spaces can be drawn bigger (the text stays " · ")
+  function sepify(rootNode) {
+    var walker = document.createTreeWalker(rootNode, NodeFilter.SHOW_TEXT), hits = [];
+    for (var n; (n = walker.nextNode());) {
+      var el = n.parentElement;
+      if (n.nodeValue.indexOf(' \u00b7 ') >= 0 && el && !el.closest('script, style, textarea, .tw, .sep')) hits.push(n);
+    }
+    hits.forEach(function (n) {
+      var frag = document.createDocumentFragment();
+      n.nodeValue.split(' \u00b7 ').forEach(function (part, i) {
+        if (i) { var s = document.createElement('span'); s.className = 'sep'; s.textContent = ' \u00b7 '; frag.appendChild(s); }
+        if (part) frag.appendChild(document.createTextNode(part));
+      });
+      n.parentNode.replaceChild(frag, n);
+    });
+  }
+  sepify(document.getElementById('cv'));
 })();
 </script>
 </body>
