@@ -714,14 +714,16 @@ kbd {
 .td-about { color: var(--ink-2); font-size: var(--t-sm); line-height: 1.55; max-width: 38em; }
 .td-meta { display: flex; gap: 18px; flex-wrap: wrap; font-family: var(--f-mono); font-size: .74rem; color: var(--muted); }
 .td-meta b { color: var(--ink); font-weight: 700; }
-.td-block { display: grid; gap: 8px; }
+/* "What it covered" sits a step apart from the facts above it */
+.td-block { display: grid; gap: 10px; margin-top: 10px; }
 .td-extra { font-size: var(--t-xs); color: var(--muted); }
 .tree-col { display: grid; gap: 32px; min-width: 0; }
 /* spacing steps up with the hierarchy: pill to pill 8, group label to pills 12, group to group 28, title to groups 22 */
 .courses { display: grid; gap: 22px; }
 .course-groups { display: grid; gap: 28px; }
 .course-group { display: grid; gap: 12px; }
-.course-cat { font-size: .66rem; }
+.course-cat { font-size: .66rem; display: flex; align-items: center; gap: 7px; }
+.course-cat svg { width: 14px; height: 14px; flex: none; fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; position: relative; top: -.05em; }
 .course-list { display: flex; flex-wrap: wrap; gap: 8px; }
 .course-list li { display: contents; }
 .course { font: inherit; cursor: pointer; text-align: left; font-size: .78rem; padding: 5px 10px; border-radius: 7px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); }
@@ -752,11 +754,8 @@ kbd {
 
 /* ---------- Footer ---------- */
 .footer { background: var(--paper); border-top: 1px solid var(--line); }
-.footer-inner { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px 48px; padding-top: 40px; padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px)); font-size: var(--t-xs); color: var(--muted); }
+.footer-inner { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px 48px; padding-top: 40px; padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px)); font-size: var(--t-xs); color: var(--muted); }
 .colophon { max-width: 52em; }
-.patch { display: grid; gap: 8px; }
-.patch ul { display: flex; flex-wrap: wrap; gap: 6px 14px; }
-.patch li::before { content: "+ "; color: var(--accent); font-family: var(--f-mono); font-weight: 700; }
 .footer-end { grid-column: 1 / -1; display: flex; justify-content: space-between; gap: 16px; padding-top: 20px; border-top: 1px solid var(--line); }
 .footer-end a { color: var(--ink); font-weight: 600; }
 

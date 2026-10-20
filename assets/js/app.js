@@ -193,9 +193,15 @@
     $('#tree').innerHTML = html;
     renderSkillDetail();
     // shorter courses, grouped by topic (data-course keeps each course's place in C.courses)
+    var CAT_ICON = {
+      ux: '<rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M3 8.5h18M6.5 6.2h.01M9 6.2h.01"/><path d="m12.5 11.5 5 1.9-2.1.9-.9 2.1z"/>',
+      games: '<path d="M7.5 7h9a4.5 4.5 0 0 1 4.4 5.4l-.9 4.3a2.3 2.3 0 0 1-3.9 1.1L14 15.5h-4l-2.1 2.3a2.3 2.3 0 0 1-3.9-1.1l-.9-4.3A4.5 4.5 0 0 1 7.5 7z"/><path d="M8 10v3M6.5 11.5h3"/><path d="M15.5 10.5h.01M17 12.5h.01"/>',
+      art: '<path d="M12 3.5a8.5 8.5 0 1 0 0 17c1.2 0 1.8-.9 1.4-1.9-.5-1.2.3-2.4 1.6-2.4h1.8a3.7 3.7 0 0 0 3.7-3.7C20.5 7.6 16.7 3.5 12 3.5z"/><path d="M7.8 11h.01M10.5 7.6h.01M14.8 7.8h.01"/>',
+      web: '<path d="m8.5 8-4 4 4 4M15.5 8l4 4-4 4M13.5 5.5l-3 13"/>'
+    };
     $('#courseList').innerHTML = C.courseCats.map(function (cat) {
       var items = C.courses.map(function (c, i) { return c.cat === cat.id ? '<li><button type="button" class="course" data-course="' + i + '" aria-pressed="' + (selectedSkill === 'course:' + i) + '">' + esc(c.label) + '</button></li>' : ''; }).join('');
-      return items ? '<div class="course-group"><h4 class="label course-cat">' + esc(L(cat.name)) + '</h4><ul class="course-list">' + items + '</ul></div>' : '';
+      return items ? '<div class="course-group"><h4 class="label course-cat">' + (CAT_ICON[cat.id] ? '<svg viewBox="0 0 24 24" aria-hidden="true">' + CAT_ICON[cat.id] + '</svg>' : '') + '<span>' + esc(L(cat.name)) + '</span></h4><ul class="course-list">' + items + '</ul></div>' : '';
     }).join('');
   }
   function renderSkillDetail() {
@@ -225,12 +231,8 @@
       (s.extra ? '<p class="td-extra">' + esc(s.extra[lang].join(' · ')) + '</p>' : '');
   }
 
-  function renderPatch() {
-    $('#patchList').innerHTML = t('footer.patch.items').map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('');
-  }
-
   function renderAll() {
-    renderLoadout(); renderWork(); renderProcess(); renderTimeline(); renderTree(); renderPatch(); renderQuestLog(); updateXPHud(false);
+    renderLoadout(); renderWork(); renderProcess(); renderTimeline(); renderTree(); renderQuestLog(); updateXPHud(false);
   }
 
   /* ---------- theme ---------- */

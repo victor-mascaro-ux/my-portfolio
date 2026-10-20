@@ -97,9 +97,6 @@ window.CONTENT = {
       'contact.where': 'Based in São Paulo (UTC−3). I’ve worked with teams in Brazil, the US and the UAE.',
 
       'footer.colophon': 'I designed and built this site with help from Claude Code. It’s plain HTML, CSS and JavaScript on GitHub Pages, with no cookies or tracking.',
-      'footer.patch': 'Changelog',
-      'footer.patch.v': 'v1.3 · October 2026',
-      'footer.patch.items': ['New colors', 'Rewrote the copy', 'Animations', 'Quest log', 'Portuguese version'],
       'footer.top': 'Back to home', 'tabs.more': 'Keep exploring', 'tabs.next': 'Next', 'tabs.here': 'You’re here',
 
       'case.close': 'Close', 'case.prev': 'Previous', 'case.next': 'Next project',
@@ -202,9 +199,6 @@ window.CONTENT = {
       'contact.where': 'Estou em São Paulo (UTC−3) e já trabalhei com times do Brasil, dos EUA e dos Emirados Árabes.',
 
       'footer.colophon': 'Desenhei e desenvolvi este site com a ajuda do Claude Code. É HTML, CSS e JavaScript puro no GitHub Pages, sem cookies nem rastreamento.',
-      'footer.patch': 'Patch notes',
-      'footer.patch.v': 'v1.3 · outubro de 2026',
-      'footer.patch.items': ['Novas cores', 'Textos reescritos', 'Animações', 'Diário de missões', 'Versão em português'],
       'footer.top': 'Voltar ao início', 'tabs.more': 'Continue explorando', 'tabs.next': 'Próximo', 'tabs.here': 'Você está aqui',
 
       'case.close': 'Fechar', 'case.prev': 'Anterior', 'case.next': 'Próximo projeto',
@@ -852,7 +846,8 @@ window.CONTENT = {
   courseCats: [
     { id: 'ux', name: { en: 'UX/UI and AI design', pt: 'Design de UX/UI e IA' } },
     { id: 'games', name: { en: 'Game design and development', pt: 'Game design e desenvolvimento de jogos' } },
-    { id: 'art', name: { en: 'Art, 3D and web', pt: 'Arte, 3D e web' } }
+    { id: 'art', name: { en: 'Art and 3D', pt: 'Arte e 3D' } },
+    { id: 'web', name: { en: 'Web development', pt: 'Desenvolvimento web' } }
   ],
   // shorter courses, newest first: label is "Name · School (Year)"; about and core come from each course's own page.
   // status 'progress' = not finished (for Udemy, from the progress Udemy shows); no status = completed
@@ -899,7 +894,7 @@ window.CONTENT = {
     { label: '2D Mobile Game Development with Unity · Udemy (2020)', cat: 'games',
       about: { en: 'Made with Unity Technologies: a complete 2D mobile game in Unity and C#, from tilemaps to ads and publishing.', pt: 'Feito com a Unity Technologies: um jogo mobile 2D completo na Unity com C#, dos tilemaps aos anúncios e à publicação.' },
       core: { en: ['Unity Tilemap', 'Intermediate C# patterns', '2D animation', 'Modular systems', 'Unity Ads monetization', 'Mobile publishing'], pt: ['Tilemap da Unity', 'Padrões de C# intermediário', 'Animação 2D', 'Sistemas modulares', 'Monetização com Unity Ads', 'Publicação mobile'] } },
-    { label: 'The Complete Web Development Course · Udemy (2020)', cat: 'art',
+    { label: 'The Complete Web Development Course · Udemy (2020)', cat: 'web',
       about: { en: 'Front-end and back-end web development, from HTML and CSS to JavaScript, Node.js and mobile apps.', pt: 'Desenvolvimento web front-end e back-end, do HTML e CSS ao JavaScript, Node.js e apps mobile.' },
       core: { en: ['HTML5 and CSS3', 'Flexbox, Grid and Sass', 'JavaScript and jQuery', 'Responsive design with Bootstrap', 'Node.js, PHP and AJAX', 'Mobile apps'], pt: ['HTML5 e CSS3', 'Flexbox, Grid e Sass', 'JavaScript e jQuery', 'Design responsivo com Bootstrap', 'Node.js, PHP e AJAX', 'Apps mobile'] } },
     { label: 'The Ultimate Digital Painting Course · Udemy (2020)', cat: 'art',
