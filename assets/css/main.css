@@ -84,6 +84,8 @@
   --lb-glow: drop-shadow(0 0 34px rgba(79, 195, 247, .55));
   /* the player card: light blue instead of gold (frame, level, portrait ring, CV button), and its neon glow */
   --card-hi: #4FC3F7; --card-hi-ink: #06122B;
+  /* company logos always sit on white, in both themes */
+  --logo-bg: #FFFFFF;
   --card-glow: 0 0 44px -6px rgba(11, 99, 201, .42), 0 0 110px -20px rgba(11, 99, 201, .3);
   --scrim: rgba(4, 8, 22, .72);
   --glow: rgba(11, 99, 201, .10);
@@ -644,6 +646,12 @@ kbd {
 .career.rv.in .career-medal { transform: none; }
 .career-stop:hover .career-medal, .career-stop:focus-visible .career-medal { transform: translateY(-4px) scale(1.08); border-color: var(--accent); transition-delay: 0s; }
 .career-stop:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.career-medal.has-logo, .tl-logo { background: var(--logo-bg); overflow: hidden; }
+.career-medal.has-logo img, .tl-logo img { width: 100%; height: 100%; object-fit: contain; padding: 18%; }
+.career-medal.is-fill img, .tl-logo.is-fill img { object-fit: cover; padding: 0; }
+.career-stop.is-now .career-medal.has-logo { background: var(--logo-bg); border-color: var(--accent); }
+.tl-org { display: flex; align-items: center; gap: 12px; }
+.tl-logo { display: block; width: 40px; height: 40px; border-radius: 10px; flex: none; border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
 .career-stop.is-now .career-medal { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); animation: nowPulse 2.4s ease-out infinite; }
 @keyframes nowPulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); } 70%, 100% { box-shadow: 0 0 0 14px transparent; } }
 .career-org { font-family: var(--f-display); font-weight: 680; font-size: var(--t-sm); line-height: 1.2; }

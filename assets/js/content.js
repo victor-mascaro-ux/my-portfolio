@@ -734,7 +734,7 @@ window.CONTENT = {
   /* ---------- Experience ---------- */
   experience: [
     {
-      org: 'Knomee', cases: ['adventures', 'advisor', 'review-layer', 'go-to-market'], when: { en: '2024 – now', pt: '2024 – atual' },
+      org: 'Knomee', logo: 'assets/img/logos/knomee-mark.webp', cases: ['adventures', 'advisor', 'review-layer', 'go-to-market'], when: { en: '2024 – now', pt: '2024 – atual' },
       role: { en: 'UX & Gamification Designer', pt: 'Designer de UX e Gamificação' },
       where: { en: 'Fintech · San Francisco · Remote', pt: 'Fintech · San Francisco · Remoto' },
       points: {
@@ -743,7 +743,7 @@ window.CONTENT = {
       }
     },
     {
-      org: 'By Aliens', cases: ['smashing-four', 'auction-city', 'illuminati', 'idle-planes'], when: { en: '2022 – 2025', pt: '2022 – 2025' },
+      org: 'By Aliens', logo: 'assets/img/logos/by-aliens-mark.webp', logoFill: true, cases: ['smashing-four', 'auction-city', 'illuminati', 'idle-planes'], when: { en: '2022 – 2025', pt: '2022 – 2025' },
       role: { en: 'Game & UX Designer', pt: 'Game e UX Designer' },
       where: { en: 'Game studio · Dubai · Remote', pt: 'Estúdio de jogos · Dubai · Remoto' },
       points: {
@@ -752,7 +752,7 @@ window.CONTENT = {
       }
     },
     {
-      org: 'Betsie', cases: ['betsie'], when: { en: 'Jul – Nov 2024', pt: 'jul – nov 2024' },
+      org: 'Betsie', logo: 'assets/img/logos/betsie-mark.webp', cases: ['betsie'], when: { en: 'Jul – Nov 2024', pt: 'jul – nov 2024' },
       role: { en: 'UX/Product Design Consultant', pt: 'Consultor de UX e Produto' },
       where: { en: 'Startup · San Francisco · Remote', pt: 'Startup · San Francisco · Remoto' },
       points: {
@@ -761,7 +761,7 @@ window.CONTENT = {
       }
     },
     {
-      org: 'Lumen Games', cases: ['lumen'], when: { en: '2021 – 2022', pt: '2021 – 2022' },
+      org: 'Lumen Games', logo: 'assets/img/logos/lumen-games-mark.webp', cases: ['lumen'], when: { en: '2021 – 2022', pt: '2021 – 2022' },
       role: { en: 'Producer / Game Designer', pt: 'Produtor / Game Designer' },
       where: { en: 'Game studio · Aracaju · Remote', pt: 'Estúdio de jogos · Aracaju · Remoto' },
       points: {
@@ -770,7 +770,7 @@ window.CONTENT = {
       }
     },
     {
-      org: 'PROAC', when: { en: '2021 – 2022', pt: '2021 – 2022' },
+      org: 'PROAC', logo: 'assets/img/logos/proac-mark.webp', when: { en: '2021 – 2022', pt: '2021 – 2022' },
       role: { en: 'Game Design Intern', pt: 'Estagiário de Game Design' },
       where: { en: 'Cultural grant · São Paulo · Remote', pt: 'Edital cultural · São Paulo · Remoto' },
       points: {

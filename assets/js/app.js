@@ -145,11 +145,15 @@
     }).join('');
   }
 
+  // company logos sit on a white tile, so dark, red and black marks read on light and dark themes alike
+  function logoTile(x, cls) {
+    return '<span class="' + cls + ' has-logo' + (x.logoFill ? ' is-fill' : '') + '" aria-hidden="true"><img src="' + x.logo + '" alt="" loading="lazy"></span>';
+  }
   function renderTimeline() {
     $('#timeline').innerHTML = C.experience.map(function (x, i) {
       var cases = (x.cases || []).map(caseById).filter(Boolean);
       return '<li id="job-' + i + '"><span class="tl-when">' + esc(L(x.when)) + '</span>' +
-        '<div><h3 class="tl-org">' + esc(x.org) + '</h3><p class="tl-role">' + esc(L(x.role)) + '</p><p class="tl-where">' + esc(L(x.where)) + '</p></div>' +
+        '<div><h3 class="tl-org">' + (x.logo ? logoTile(x, 'tl-logo') : '') + '<span>' + esc(x.org) + '</span></h3><p class="tl-role">' + esc(L(x.role)) + '</p><p class="tl-where">' + esc(L(x.where)) + '</p></div>' +
         '<div class="tl-main"><ul class="tl-points">' + x.points[lang].map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul>' +
         (cases.length ? '<div class="tl-cases">' + cases.map(function (c) {
           return '<a class="tl-case" href="#case-' + c.id + '" data-case="' + c.id + '">' + caseThumb(c, 'tl-thumb') + '<span>' + esc(L(c.title)) + '</span></a>';
@@ -163,7 +167,7 @@
     }).map(function (o, n) {
       var now = isNow(o.x);
       return '<button type="button" class="career-stop' + (now ? ' is-now' : '') + '" data-job="' + o.i + '" style="--n:' + n + '">' +
-        '<span class="career-medal" aria-hidden="true">' + initials(o.x.org) + '</span>' +
+        (o.x.logo ? logoTile(o.x, 'career-medal') : '<span class="career-medal" aria-hidden="true">' + initials(o.x.org) + '</span>') +
         '<span class="career-org">' + esc(o.x.org) + '</span>' +
         '<span class="career-year">' + esc(L(o.x.when)) + '</span></button>';
     }).join('');
