@@ -387,7 +387,7 @@ window.CONTENT = {
       'lab.offer.lede': 'Bring me a problem. I’ll research it, design the experience and build the real digital solution with AI, end to end.',
       'lab.offer.s1.t': 'You bring the problem', 'lab.offer.s1.d': 'A call or an email is enough to start.',
       'lab.offer.s2.t': 'I research it', 'lab.offer.s2.d': 'Who has the problem, why it happens and what already exists.',
-      'lab.offer.s3.t': 'You get the real solution', 'lab.offer.s3.d': 'A digital product, designed and built end to end with AI.',
+      'lab.offer.s3.t': 'You get the real solution', 'lab.offer.s3.d': 'A digital product, designed and built end to end.',
       'lab.offer.note': 'Remote, in English or Portuguese.',
       'lab.offer.ai': 'AI',
 
@@ -809,7 +809,7 @@ window.CONTENT = {
       'lab.offer.lede': 'Me traga um problema. Eu pesquiso, desenho a experiência e construo com IA a solução digital de verdade, do início ao fim.',
       'lab.offer.s1.t': 'Você traz o problema', 'lab.offer.s1.d': 'Uma ligação ou um e-mail já basta para começar.',
       'lab.offer.s2.t': 'Eu pesquiso', 'lab.offer.s2.d': 'Quem tem o problema, por que ele acontece e o que já existe.',
-      'lab.offer.s3.t': 'Você recebe a solução de verdade', 'lab.offer.s3.d': 'Um produto digital, desenhado e construído do início ao fim com IA.',
+      'lab.offer.s3.t': 'Você recebe a solução de verdade', 'lab.offer.s3.d': 'Um produto digital, desenhado e construído do início ao fim.',
       'lab.offer.note': 'Remoto, em português ou inglês.',
       'lab.offer.ai': 'IA',
 
