@@ -578,7 +578,7 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .hero-tab[data-badge]::before { content: attr(data-badge); visibility: visible; }
 .hero-tab.is-next::before { background: var(--accent); color: var(--accent-ink); }   /* the pill stays blue; the outline is gold */
 .hero-tab[aria-current="page"]:hover { transform: none; border-color: var(--line-2); }
-.section-head { display: grid; gap: 14px; margin-bottom: clamp(36px, 5vw, 56px); max-width: 760px; }
+.section-head { display: grid; gap: 14px; margin-bottom: clamp(36px, 5vw, 56px); }   /* title and lede run the full page width */
 .section-head-row { max-width: none; display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
 .section-head-row > div { display: grid; gap: 14px; }
 .section-title { font-size: var(--t-h2); font-weight: 700; letter-spacing: -.032em; font-variation-settings: "opsz" 72; display: flex; align-items: flex-start; gap: .3em; }
@@ -591,7 +591,7 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .section-title > .title-icon { top: .025em; }
 .title-icon svg { width: .58em; height: .58em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .contact .title-icon { background: color-mix(in srgb, var(--card-hi) 16%, transparent); color: var(--card-hi); border-color: color-mix(in srgb, var(--card-hi) 40%, transparent); }
-.section-lede { color: var(--ink-2); font-size: var(--t-lg); max-width: 36em; line-height: 1.55; }
+.section-lede { color: var(--ink-2); font-size: var(--t-lg); line-height: 1.55; }
 
 /* ---------- Work ---------- */
 /* each project section sits on its own full-width band (the shadow paints it past the column; the clip stops it spilling up or down) */
@@ -1065,6 +1065,8 @@ button.ql-item:focus-visible { outline: 3px solid var(--accent); outline-offset:
 /* a mission that points at a HUD button makes it pulse for a moment */
 .tool.is-hint { border-color: var(--accent); animation: hintPulse .8s ease-in-out 3; }
 @keyframes hintPulse { 50% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 35%, transparent); } }
+/* the Lab mission points at a prototype card the same way */
+.case-card.is-hint { outline: 2px solid var(--accent); outline-offset: 3px; animation: hintPulse .8s ease-in-out 3; }
 /* the secret mission's hint: the Download CV button sends out rings and its arrow bobs (inside the card, --gold is the card's light blue) */
 .btn.is-hint { outline: 2px solid var(--gold); outline-offset: 3px; animation: hintRing 1s ease-out 3; }
 .btn.is-hint svg { animation: hintBob .25s ease-in-out 12 alternate; }
@@ -1374,7 +1376,7 @@ span.sep { display: inline; font-family: var(--f-mono); font-weight: 700; line-h
   .career-stop.is-now .career-medal, .timeline > li.tl-flash { animation: none; }
   .lang-btn.is-flipping .lang-flag, .lang-btn.is-flipping .lang-code { animation: none; }
   .enter, .enter .eyebrow::before { animation: none; }
-  .tool.is-hint, .btn.is-hint, .btn.is-hint svg { animation: none; }
+  .tool.is-hint, .btn.is-hint, .btn.is-hint svg, .case-card.is-hint { animation: none; }
   .film-play { transition: none; }
   .hero-tab:hover, .hero-tab:hover strong svg, a.side-card:hover { transform: none; }
   .work-jump a:hover, .work-jump a:hover .wj-icon { transform: none; }

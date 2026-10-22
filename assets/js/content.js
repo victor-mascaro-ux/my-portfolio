@@ -27,7 +27,7 @@ window.CONTENT = {
       'nav.work': 'Projects', 'nav.process': 'Process', 'nav.experience': 'Experience', 'nav.skills': 'Education', 'nav.contact': 'Contact',
       'brand.label': 'Victor Mascaro: UX/AI, Gamification, Game Design. Back to top',
       'nav.system': 'Design system', 'hero.tab.system': 'How this site is built',
-      'nav.lab': 'Lab', 'hero.tab.lab': 'Design solutions I created on my own',
+      'nav.lab': 'Lab', 'hero.tab.lab': 'Design solutions I create on my own',
       'nav.menu': 'Menu', 'nav.close': 'Close menu',
       'hud.lang': 'EN, switch to Portuguese', 'hud.langShort': 'EN',
       // Design system tab (#system)
@@ -255,7 +255,7 @@ window.CONTENT = {
       'ds.sum.eyebrow': 'Mono labels: <code>.eyebrow</code> above section titles and <code>.label</code> for small headings and metadata.',
       'ds.sum.hero-title': 'The hero headline block: eyebrow, two-level title with the XP underline, and the lede.',
       'ds.sum.pull-quote': 'Large display text inside case studies: the problem statement that opens each one.',
-      'ds.sum.section-head': 'The opener of each tab (<code>.section-head</code>) and of each project group inside Projects (<code>.group-head</code>). The Projects head also carries shortcuts to its groups, each with its icon and project count. A title’s icon sits beside its first line, so a title that wraps keeps it at the top.',
+      'ds.sum.section-head': 'The opener of each tab (<code>.section-head</code>) and of each project group inside Projects (<code>.group-head</code>). The Projects head also carries shortcuts to its groups, each with its icon and project count. A title’s icon sits beside its first line, so a title that wraps keeps it at the top. Title and lede run the full page width.',
       'ds.sum.career-path': 'The level-map row of employers at the top of Experience; each stop jumps to its timeline row.',
       'ds.sum.chips': 'Small tags: tool chips on the designer card, metric chips, status badges and selectable course chips.',
       'ds.sum.metrics': 'Result tiles at the end of a case study.',
@@ -355,8 +355,8 @@ window.CONTENT = {
       'short.4.v': '643', 'short.4.l': 'merged pull requests on the Knomee prototype, which I design and build with Claude Code',
 
       'work.eyebrow': 'Projects',
-      'work.title': 'Selected projects', 'work.jump': 'Project sections',
-      'work.lede': 'Each project has a short write-up: the context, what I did, and the result.',
+      'work.title': 'Professional projects', 'work.jump': 'Project sections',
+      'work.lede': 'Work I did for companies and studios, and projects from my game design degree. Each one has a short write-up: the context, what I did, and the result. My own prototypes are in the Lab.',
       'work.knomee.title': 'UX/AI',
       'work.knomee.meta': 'Knomee · 2024 to now',
       'work.knomee.lede': 'Knomee helps financial advisors get to know their clients before the first meeting. I work on both sides of the product: the app clients fill in and the dashboard advisors use. I design its AI features, like a voice shortcut in the client app, and build the prototype with AI.',
@@ -371,8 +371,8 @@ window.CONTENT = {
       'work.read': 'Read', 'work.min': 'min', 'work.open': 'Read',
 
       'lab.eyebrow': 'Lab',
-      'lab.title': 'Design solutions I created on my own',
-      'lab.lede': 'Ideas I design and build end to end, outside client work. Each one is a working prototype that runs in your browser.',
+      'lab.title': 'Design solutions I create on my own',
+      'lab.lede': 'Each one starts from a real-world problem I researched. I design and build the solution end to end, outside client work, as a working prototype that runs in your browser.',
       'lab.try': 'Try it',
 
       'process.eyebrow': 'Process',
@@ -433,7 +433,7 @@ window.CONTENT = {
       'nav.work': 'Projetos', 'nav.process': 'Processo', 'nav.experience': 'Experiência', 'nav.skills': 'Formação', 'nav.contact': 'Contato',
       'brand.label': 'Victor Mascaro: UX/AI, Gamificação, Game Design. Voltar ao início',
       'nav.system': 'Design system', 'hero.tab.system': 'Como este site é construído',
-      'nav.lab': 'Lab', 'hero.tab.lab': 'Soluções de design que criei por conta própria',
+      'nav.lab': 'Lab', 'hero.tab.lab': 'Soluções de design que crio por conta própria',
       'nav.menu': 'Menu', 'nav.close': 'Fechar menu',
       'hud.lang': 'PT, mudar para inglês', 'hud.langShort': 'PT',
       // aba Design system (#system)
@@ -661,7 +661,7 @@ window.CONTENT = {
       'ds.sum.eyebrow': 'Rótulos mono: <code>.eyebrow</code> acima dos títulos de seção e <code>.label</code> para títulos pequenos e metadados.',
       'ds.sum.hero-title': 'O bloco do título do hero: eyebrow, título em dois níveis com o sublinhado de XP e o texto de abertura.',
       'ds.sum.pull-quote': 'Texto grande dentro dos estudos de caso: a descrição do problema que abre cada um.',
-      'ds.sum.section-head': 'A abertura de cada aba (<code>.section-head</code>) e de cada grupo de projetos em Projetos (<code>.group-head</code>). A abertura de Projetos também traz atalhos para os grupos, cada um com o ícone e o número de projetos. O ícone do título fica ao lado da primeira linha, então um título que quebra em duas linhas o mantém no topo.',
+      'ds.sum.section-head': 'A abertura de cada aba (<code>.section-head</code>) e de cada grupo de projetos em Projetos (<code>.group-head</code>). A abertura de Projetos também traz atalhos para os grupos, cada um com o ícone e o número de projetos. O ícone do título fica ao lado da primeira linha, então um título que quebra em duas linhas o mantém no topo. Título e texto de abertura ocupam toda a largura da página.',
       'ds.sum.career-path': 'A trilha de fases com as empresas no topo de Experiência; cada parada leva à sua linha na linha do tempo.',
       'ds.sum.chips': 'Etiquetas pequenas: chips de ferramentas na ficha do designer, chips de métrica, selos de status e chips de curso selecionáveis.',
       'ds.sum.metrics': 'Blocos de resultado no fim de um estudo de caso.',
@@ -761,8 +761,8 @@ window.CONTENT = {
       'short.4.v': '643', 'short.4.l': 'pull requests mergeados no protótipo da Knomee, que eu desenho e desenvolvo com o Claude Code',
 
       'work.eyebrow': 'Projetos',
-      'work.title': 'Projetos selecionados', 'work.jump': 'Seções de projetos',
-      'work.lede': 'Cada projeto tem um resumo curto: o contexto, o que eu fiz e o resultado.',
+      'work.title': 'Projetos profissionais', 'work.jump': 'Seções de projetos',
+      'work.lede': 'Trabalhos que fiz para empresas e estúdios, e projetos da minha graduação em game design. Cada um tem um resumo curto: o contexto, o que eu fiz e o resultado. Meus protótipos próprios estão no Lab.',
       'work.knomee.title': 'UX/AI',
       'work.knomee.meta': 'Knomee · 2024 até hoje',
       'work.knomee.lede': 'A Knomee ajuda assessores financeiros a conhecer os clientes antes da primeira reunião. Trabalho nos dois lados do produto: o app que o cliente preenche e o dashboard que o assessor usa. Desenho as funcionalidades de IA, como um atalho de voz no app do cliente, e construo o protótipo com IA.',
@@ -777,8 +777,8 @@ window.CONTENT = {
       'work.read': 'Ler', 'work.min': 'min', 'work.open': 'Ler',
 
       'lab.eyebrow': 'Lab',
-      'lab.title': 'Soluções de design que criei por conta própria',
-      'lab.lede': 'Ideias que desenho e construo do início ao fim, fora dos projetos para clientes. Cada uma é um protótipo funcional que roda no seu navegador.',
+      'lab.title': 'Soluções de design que crio por conta própria',
+      'lab.lede': 'Cada um parte de um problema real que eu pesquisei. Desenho e construo a solução do início ao fim, fora dos projetos para clientes, como um protótipo funcional que roda no seu navegador.',
       'lab.try': 'Testar',
 
       'process.eyebrow': 'Processo',
@@ -1578,10 +1578,11 @@ window.CONTENT = {
     { id: 'scout', xp: 10, t: { en: 'First steps', pt: 'Primeiros passos' }, d: { en: 'Scrolled past the top of the page', pt: 'Passou do topo da página' } },
     { id: 'reader', xp: 40, t: { en: 'Case closed', pt: 'Caso encerrado' }, d: { en: 'Read a project to the end', pt: 'Leu um projeto até o fim' } },
     { id: 'completionist', xp: 80, t: { en: 'Main quest', pt: 'Missão principal' }, d: { en: 'Opened all four Knomee projects', pt: 'Abriu os quatro projetos da Knomee' } },
+    { id: 'fieldtest', xp: 40, t: { en: 'Field test', pt: 'Teste de campo' }, d: { en: 'Tried a prototype from the Lab', pt: 'Testou um protótipo do Lab' } },
     { id: 'polyglot', xp: 20, t: { en: 'Bilingual', pt: 'Bilíngue' }, d: { en: 'Switched language', pt: 'Trocou de idioma' } },
     { id: 'daynight', xp: 10, t: { en: 'Day and night', pt: 'Dia e noite' }, d: { en: 'Switched theme', pt: 'Trocou de tema' } },
     { id: 'climber', xp: 30, t: { en: 'Tree climber', pt: 'De galho em galho' }, d: { en: 'Opened three items in Education', pt: 'Abriu três itens em Formação' } },
-    { id: 'party', xp: 100, t: { en: 'Party invite', pt: 'Convite para a party' }, d: { en: 'Copied my email or opened LinkedIn', pt: 'Copiou meu e-mail ou abriu o LinkedIn' } },
+    { id: 'party', xp: 100, t: { en: 'Party invite', pt: 'Convite para a festa' }, d: { en: 'Copied my email or opened LinkedIn', pt: 'Copiou meu e-mail ou abriu o LinkedIn' } },
     { id: 'blueprint', xp: 30, t: { en: 'Blueprint', pt: 'Planta baixa' }, d: { en: 'Opened the Design system tab', pt: 'Abriu a aba Design system' } },
     { id: 'secret', xp: 50, secret: true, t: { en: 'Loot drop', pt: 'Item coletado' }, d: { en: 'Downloaded my CV', pt: 'Baixou meu CV' } }
   ],

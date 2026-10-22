@@ -978,6 +978,15 @@
     else if (id === 'polyglot') hint($('#langBtn'));
     else if (id === 'daynight') hint($('#themeBtn'));
     else if (id === 'blueprint') goToTab('system');
+    else if (id === 'fieldtest') {
+      // the Lab tab, with its first prototype card pulsing
+      goToTab('lab');
+      setTimeout(function () {
+        var card = $('#gridLab .case-card'); if (!card) return;
+        card.scrollIntoView({ block: 'center', behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+        setTimeout(function () { hint(card); }, reduceMotion.matches ? 0 : 500);
+      }, 60);
+    }
     else if (id === 'secret') {
       // no words: bring the player card's Download CV button into view and make it pulse
       goToTab('home');
@@ -1107,6 +1116,10 @@
     } catch (e) { fallback(); }
   });
   document.addEventListener('click', function (e) { if (e.target.closest('#linkedin, [data-social="linkedin"]')) unlock('party'); });
+  // opening a prototype from the Lab, with a click or a middle click
+  ['click', 'auxclick'].forEach(function (type) {
+    document.addEventListener(type, function (e) { if (e.target.closest('#gridLab .case-card')) unlock('fieldtest'); });
+  });
 
   /* ---------- keyboard ---------- */
   document.addEventListener('keydown', function (e) {
