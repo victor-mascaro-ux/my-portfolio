@@ -51,5 +51,5 @@ Craft details matter as much as content.
 2. Desktop 1440px and phone 390px, light and dark, EN and PT.
 3. Open each case study; Esc and the browser Back button both close it.
 4. No horizontal scroll at 390px; no console errors.
-5. Images: WebP, ≤1600px wide, `alt` text in both languages where possible.
+5. Images: WebP, ≤1600px wide, `alt` text in both languages where possible. Phone screens from the Knomee prototype get the plain dark frame: run `scripts/reframe-phone.js` on the 560×1154 capture. Desktop screens in a case stack one above the other (`kind: 'pair'` or `'wide'`).
 6. If CV content changed, rebuild the PDFs (`scripts/build-cv.js`) and bump `cvVersion` in content.js (and the `?v=` on the CV links in index.html), so browsers fetch the new file instead of a saved copy.

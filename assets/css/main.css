@@ -1037,7 +1037,7 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .move-media.phones img { width: clamp(150px, 26vw, 250px); border-radius: var(--r); filter: var(--pic-drop); }
 .frame { border-radius: var(--r); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--pic-shadow); background: var(--surface); }
 .move-media.wide .frame { width: 100%; }
-.move-media.pair .frame { flex: 1 1 300px; min-width: 0; }
+.move-media.pair .frame { width: 100%; }   /* desktop screens stack, one above the other */
 .move-media.game .frame { flex: 1 1 280px; min-width: 0; max-width: 520px; }
 .move-media.square .frame { width: min(360px, 100%); }
 .evolution { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
