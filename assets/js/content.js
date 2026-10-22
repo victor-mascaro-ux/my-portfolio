@@ -15,7 +15,7 @@ window.CONTENT = {
     github: 'https://github.com/victor-mascaro-ux',
     cv: { en: 'assets/cv/Victor-Mascaro-CV-EN.pdf', pt: 'assets/cv/Victor-Mascaro-CV-PT.pdf' },
     // bump whenever the PDFs are rebuilt: it changes the link, so browsers don't show an old saved copy
-    cvVersion: '2026-10-22c'
+    cvVersion: '2026-10-22d'
   },
 
   /* ---------- Interface strings ---------- */
