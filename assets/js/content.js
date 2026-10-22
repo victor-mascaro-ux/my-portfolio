@@ -276,7 +276,7 @@ window.CONTENT = {
       'ds.sum.skill-tree': 'The Education skill tree: branches of course nodes and a detail panel for the selected one.',
       'ds.sum.stat-strip': 'The “In short” card under the hero: four headline numbers with a one-line explanation each.',
       'ds.sum.timeline': 'One row per job in Experience: dates, company and role, then bullet points, cards for the related projects and the tools used there, as logos whose names show on hover or on a tap. A card can also open a game in a new tab, like Where is Estela? on the PROAC row.',
-      'ds.sum.case-card': 'The project card in Projects: cover, kicker, title, tagline, one metric chip and the read time. In Lab the same card opens the prototype in a new tab, so its footer says Try it with the external-link icon; Lab cards sit two per row on desktop and stack on smaller screens. Every Lab card follows one template: the tagline states the problem, then what the prototype does about it, and the chip gives the time it takes to try and how it runs, like “About 3 min · guided”.',
+      'ds.sum.case-card': 'The project card in Projects: cover, kicker (the company, then what the project is, like “Knomee · Client app”), title (the project’s name), tagline, one metric chip and the read time. In Lab the same card opens the prototype in a new tab, so its footer says Try it with the external-link icon; Lab cards sit two per row on desktop and stack on smaller screens. Every Lab card follows one template: the kicker starts with “Personal project”, the tagline states the problem, then what the prototype does about it, and the chip gives the time it takes to try and how it runs, like “About 3 min · guided”.',
       'ds.sum.player-card': 'The trading-card profile in a chrome frame, on Home and in Contact: level, portrait, the logo, stats, tools, status, the CV button and LinkedIn and GitHub. Move the pointer over it to tilt it; the frame’s reflections slide with the tilt.',
       'ds.sum.process-step': 'A numbered step in the Process tab, with a screenshot, an explanation and a linked example. The screenshot is the linked project’s cover unless the step sets its own, so neighbouring steps don’t repeat a look.',
       'ds.sum.side-card': 'Small external-link cards for side projects and game jams.',
@@ -706,7 +706,7 @@ window.CONTENT = {
       'ds.sum.skill-tree': 'A árvore de habilidades de Formação: ramos de cursos e um painel com os detalhes do selecionado.',
       'ds.sum.stat-strip': 'O card “Em resumo” sob o hero: quatro números principais, cada um com uma explicação de uma linha.',
       'ds.sum.timeline': 'Uma linha por emprego em Experiência: datas, empresa e cargo, depois tópicos, cards dos projetos relacionados e as ferramentas usadas ali, como logos cujos nomes aparecem no hover ou ao tocar. Um card também pode abrir um jogo numa nova aba, como o Where is Estela? na linha da PROAC.',
-      'ds.sum.case-card': 'O card de projeto em Projetos: capa, kicker, título, tagline, um chip de métrica e o tempo de leitura. No Lab, o mesmo card abre o protótipo numa nova aba, por isso o rodapé diz Testar, com o ícone de link externo; os cards do Lab ficam dois por linha no desktop e um embaixo do outro em telas menores. Todo card do Lab segue um modelo: a tagline diz o problema e depois o que o protótipo faz a respeito, e o chip mostra quanto tempo leva para testar e como ele funciona, como “Cerca de 3 min · guiado”.',
+      'ds.sum.case-card': 'O card de projeto em Projetos: capa, kicker (a empresa e depois o que é o projeto, como “Knomee · App do cliente”), título (o nome do projeto), tagline, um chip de métrica e o tempo de leitura. No Lab, o mesmo card abre o protótipo numa nova aba, por isso o rodapé diz Testar, com o ícone de link externo; os cards do Lab ficam dois por linha no desktop e um embaixo do outro em telas menores. Todo card do Lab segue um modelo: o kicker começa com “Projeto pessoal”, a tagline diz o problema e depois o que o protótipo faz a respeito, e o chip mostra quanto tempo leva para testar e como ele funciona, como “Cerca de 3 min · guiado”.',
       'ds.sum.player-card': 'O perfil em forma de carta colecionável, numa moldura cromada, no início e em Contato: nível, retrato, o logo, atributos, ferramentas, status, o botão do CV e LinkedIn e GitHub. Passe o ponteiro por cima para inclinar; os reflexos da moldura deslizam junto.',
       'ds.sum.process-step': 'Uma etapa numerada da aba Processo, com uma tela, a explicação e um exemplo com link. A tela é a capa do projeto do link, a menos que a etapa defina a sua, para etapas vizinhas não repetirem o mesmo visual.',
       'ds.sum.side-card': 'Cards pequenos com link externo, para projetos paralelos e game jams.',
@@ -1167,9 +1167,9 @@ window.CONTENT = {
     {
       id: 'betsie', group: 'gamification', layout: 'lg-wide', tone: 'deep', minutes: 1,
       cover: 'assets/img/card-betsie.webp', coverAlt: { en: 'Four Betsie app screens: starting a bet, a pending bet, a live bet and the bet details', pt: 'Quatro telas do app Betsie: criar uma aposta, aposta pendente, aposta no ar e os detalhes da aposta' },
-      kicker: { en: 'Startup · Consulting', pt: 'Startup · Consultoria' },
+      kicker: { en: 'Betsie · Social betting app', pt: 'Betsie · App social de apostas' },
       title: { en: 'Betsie', pt: 'Betsie' },
-      tagline: { en: 'UI redesign and gamification for a social betting app, ready for the pitch.', pt: 'Redesign de UI e gamificação para um app social de apostas, pronto para o pitch.' },
+      tagline: { en: 'UI redesign and gamification for an early-stage startup, ready for the pitch.', pt: 'Redesign de UI e gamificação para uma startup em estágio inicial, pronto para o pitch.' },
       chip: { en: 'Clickable prototype', pt: 'Protótipo navegável' },
       meta: {
         role: { en: 'UX and product design consultant', pt: 'Consultor de UX e produto' },
@@ -1342,9 +1342,9 @@ window.CONTENT = {
     {
       id: 'lumen', group: 'games', layout: 'sm', tone: 'night', minutes: 1,
       cover: 'assets/img/g-hemp-paradise.webp', coverAlt: { en: 'Island farming game with waterfalls and wooden bridges', pt: 'Jogo de fazenda numa ilha com cachoeiras e pontes de madeira' },
-      kicker: { en: 'Studio · Production and live ops', pt: 'Estúdio · Produção e live ops' },
-      title: { en: 'Lumen Games', pt: 'Lumen Games' },
-      tagline: { en: 'Producer and game designer on Hemp Paradise, a live mobile game.', pt: 'Produtor e game designer no Hemp Paradise, um jogo mobile live.' },
+      kicker: { en: 'Lumen Games · Production and live ops', pt: 'Lumen Games · Produção e live ops' },
+      title: { en: 'Hemp Paradise', pt: 'Hemp Paradise' },
+      tagline: { en: 'Producer and game designer on a live mobile farming game.', pt: 'Produtor e game designer de um jogo mobile live de fazenda.' },
       chip: { en: 'Live ops', pt: 'Live ops' },
       meta: {
         role: { en: 'Producer and game designer', pt: 'Produtor e game designer' },
@@ -1374,7 +1374,7 @@ window.CONTENT = {
     {
       id: 'backpocket', url: 'https://victor-mascaro-ux.github.io/backpocket/', layout: 'md', tone: 'deep',
       cover: 'assets/img/card-backpocket.webp', coverAlt: { en: 'Three Backpocket screens: the October report, a smudged fuel total with two readings to pick from, and a client dinner offering the guests’ names from the calendar', pt: 'Três telas do Backpocket: o relatório de outubro, um total de combustível borrado com duas leituras para escolher e um jantar com cliente sugerindo os nomes dos convidados a partir da agenda' },
-      kicker: { en: 'Prototype 01 · UX/AI', pt: 'Protótipo 01 · UX/AI' },
+      kicker: { en: 'Personal project · Expense reports', pt: 'Projeto pessoal · Reembolsos' },
       title: { en: 'Backpocket', pt: 'Backpocket' },
       tagline: { en: 'Half of workers in a 2023 survey don’t file expense reports for money they’re owed, and the top complaint is the paperwork. Here, the report fills itself in from a photo of the receipt, asks only about what it isn’t sure of, and checks the expense policy for you.', pt: 'Metade dos profissionais numa pesquisa de 2023 não pede o reembolso de despesas que a empresa deve a eles, e a maior reclamação é a papelada. Aqui, o relatório se preenche sozinho a partir da foto do recibo, só pergunta sobre o que não tem certeza e confere a política de despesas por você.' },
       chip: { en: 'About 3 min · guided', pt: 'Cerca de 3 min · guiado' }
@@ -1382,7 +1382,7 @@ window.CONTENT = {
     {
       id: 'firstweek', url: 'https://victor-mascaro-ux.github.io/firstweek/', layout: 'md', tone: 'blue',
       cover: 'assets/img/card-firstweek.webp', coverAlt: { en: 'Firstweek on two laptops: the People team’s first-week plan with the source of a step open, and the new hire’s answer about vacation days, where two documents disagree and the newer one is used', pt: 'O Firstweek em dois notebooks: o plano da primeira semana do time de Pessoas com a fonte de uma etapa aberta, e a resposta sobre férias para quem acabou de chegar, em que dois documentos discordam e o mais novo é usado' },
-      kicker: { en: 'Prototype 02 · UX/AI', pt: 'Protótipo 02 · UX/AI' },
+      kicker: { en: 'Personal project · Employee onboarding', pt: 'Projeto pessoal · Onboarding de RH' },
       title: { en: 'Firstweek', pt: 'Firstweek' },
       tagline: { en: '47% of digital workers in a 2023 survey struggle to find the information they need to do their jobs. Here, the AI drafts a new hire’s first week from the company’s documents and answers only from them, with the source, or hands the question to a person.', pt: '47% dos profissionais digitais numa pesquisa de 2023 têm dificuldade para encontrar as informações de que precisam para trabalhar. Aqui, a IA monta a primeira semana de quem chega a partir dos documentos da empresa e responde só com base neles, com a fonte, ou passa a pergunta para uma pessoa.' },
       chip: { en: 'About 3 min · guided', pt: 'Cerca de 3 min · guiado' }
