@@ -1084,6 +1084,7 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .compare img { width: 100%; display: block; pointer-events: none; }
 .compare .cmp-after { position: absolute; inset: 0; clip-path: inset(0 0 0 var(--pos)); }
 .compare .cmp-after img { height: 100%; object-fit: cover; }
+.compare .cmp-clip { position: absolute; inset: 0; pointer-events: none; }
 .compare .cmp-line { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; margin-left: -1.5px; background: var(--accent); box-shadow: 0 0 0 1px rgba(0, 0, 0, .25); pointer-events: none; }
 .compare .cmp-knob { position: absolute; top: 50%; left: var(--pos); pointer-events: none; transform: translate(-50%, -50%); }
 .compare .cmp-knob::after { content: "⟷"; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); font-size: 16px; font-weight: 700; box-shadow: 0 4px 12px rgba(0, 0, 0, .35); }
@@ -1098,17 +1099,12 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .compare.is-gliding .cmp-line, .compare.is-gliding .cmp-knob { transition: left .45s var(--ease-out); }
 .cmp-tag.before { left: 10px; } .cmp-tag.after { right: 10px; }
 .compare-wrap { display: grid; gap: 8px; justify-items: start; }
-/* Phone screens: both pictures carry the same grey phone frame, so the box gives way to the phone's own
-   shape and glow. The frame (phone-frame.webp, the same one) also lies over the divider: the line runs in front
-   of the screen and behind the frame, and the knob stays on top. */
-.compare.is-phone { border: 0; border-radius: 0; overflow: visible; box-shadow: none; filter: var(--pic-drop); }
-.compare.is-phone { margin-top: 32px; }
-/* the divider and the reveal cross the screen (25px in from each side of the 560px frame) and go 3px under
-   the frame at each end, so at either end the line is hidden; --p is the position as a fraction */
-.compare.is-phone .cmp-line, .compare.is-phone .cmp-knob { left: calc(4.46% - 3px + (91.07% + 6px) * var(--p)); }
-.compare.is-phone .cmp-line { top: 2.2%; bottom: 2.2%; }
-.compare.is-phone .cmp-after { clip-path: inset(0 0 0 calc(4.46% - 3px + (91.07% + 6px) * var(--p))); }
-.compare.is-phone .cmp-frame { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+/* Phone screens: no frame and no border, just the screen with a phone's rounded corners (70px on a 510px-wide
+   screen), the way the phone pictures show them; the divider is clipped to the same rounded shape, so it never
+   shows past a corner, and the knob stays on top */
+.compare.is-phone { border: 0; border-radius: 0; overflow: visible; box-shadow: none; filter: var(--pic-drop); margin-top: 32px; --round: 13.7% / 6.34%; }
+.compare.is-phone > img, .compare.is-phone .cmp-after img { border-radius: var(--round); }
+.compare.is-phone .cmp-clip { clip-path: inset(0 round var(--round)); }
 /* the year tags sit above the phone, over its corners, so they never cover the app's own bar */
 .compare.is-phone .cmp-tag { top: -30px; }
 .compare.is-phone .cmp-tag.before { left: 0; } .compare.is-phone .cmp-tag.after { right: 0; }
