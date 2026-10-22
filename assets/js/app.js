@@ -526,6 +526,11 @@
   }
   menuBtn.addEventListener('click', function () { setMenu(mobileNav.hidden); });
   $$('a', mobileNav).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  // a tap anywhere outside the open menu closes it (a click, not pointerdown, so starting a scroll doesn't)
+  document.addEventListener('click', function (e) {
+    if (mobileNav.hidden || mobileNav.contains(e.target) || menuBtn.contains(e.target)) return;
+    setMenu(false);
+  });
 
   /* ---------- player card tilt + holo ---------- */
   function tiltCard(card) {
