@@ -875,7 +875,7 @@ window.CONTENT = {
   /* ---------- Process ---------- */
   process: [
     {
-      title: { en: 'Understand why people come back', pt: 'Entender por que as pessoas voltam' },
+      title: { en: 'Give real value', pt: 'Entregar valor de verdade' },
       body: {
         en: 'Before drawing screens I try to understand what someone gets out of the product and what would make them use it again. Most of my design decisions start there.',
         pt: 'Antes de desenhar qualquer tela, tento entender o que a pessoa ganha com o produto e o que a faria voltar. A maioria das minhas decisões de design parte daí.'
