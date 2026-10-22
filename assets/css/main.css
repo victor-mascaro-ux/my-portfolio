@@ -575,11 +575,14 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .section-head { display: grid; gap: 14px; margin-bottom: clamp(36px, 5vw, 56px); max-width: 760px; }
 .section-head-row { max-width: none; display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
 .section-head-row > div { display: grid; gap: 14px; }
-.section-title { font-size: var(--t-h2); font-weight: 700; letter-spacing: -.032em; font-variation-settings: "opsz" 72; display: flex; align-items: center; gap: .3em; }
+.section-title { font-size: var(--t-h2); font-weight: 700; letter-spacing: -.032em; font-variation-settings: "opsz" 72; display: flex; align-items: flex-start; gap: .3em; }
 .title-icon {
   position: relative; top: -.04em; display: grid; place-items: center; width: .95em; height: .95em; border-radius: .22em; flex: none;
   background: var(--accent-soft); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
 }
+/* beside the first line of a section title, so one that wraps keeps it at the top; .025em puts its
+   centre .04em above the line's middle, where it sat when titles were centred on one line */
+.section-title > .title-icon { top: .025em; }
 .title-icon svg { width: .58em; height: .58em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .contact .title-icon { background: color-mix(in srgb, var(--card-hi) 16%, transparent); color: var(--card-hi); border-color: color-mix(in srgb, var(--card-hi) 40%, transparent); }
 .section-lede { color: var(--ink-2); font-size: var(--t-lg); max-width: 36em; line-height: 1.55; }

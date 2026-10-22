@@ -237,7 +237,7 @@ window.CONTENT = {
       'ds.m.s.easing': 'Easing',
       'ds.m.s.durations': 'Durations',
       'ds.m.s.demos': 'Demos',
-      'ds.icons.intro': 'Every icon is an inline SVG on a 24px viewBox, drawn with <code>stroke: currentColor</code> at 1.8–2px with round caps and joins, and no fill. They take the color of the text around them and are marked <code>aria-hidden</code>, since a visible label always sits next to them.',
+      'ds.icons.intro': 'Every icon is an inline SVG on a 24px viewBox, drawn with <code>stroke: currentColor</code> at 1.8–2px with round caps and joins, and no fill. They take the color of the text around them and are marked <code>aria-hidden</code>, since a visible label always sits next to them. Next to text, an icon sits on the first line, never centered on the whole block: the row aligns to the top and the icon moves down by half the difference between the line height and its size.',
       'ds.icons.count': '30 icons, collected from <code>index.html</code> and the icon set in <code>app.js</code>, without duplicates.',
       'ds.icons.brands': 'The tool logos in Experience are brand marks, mostly from Simple Icons (CC0), kept in <code>assets/img/tools.svg</code> and drawn in one color like these icons, one logo per brand. Their names show in a tooltip.',
       'ds.escHint': 'Press <kbd>Esc</kbd> to close.',
@@ -255,7 +255,7 @@ window.CONTENT = {
       'ds.sum.eyebrow': 'Mono labels: <code>.eyebrow</code> above section titles and <code>.label</code> for small headings and metadata.',
       'ds.sum.hero-title': 'The hero headline block: eyebrow, two-level title with the XP underline, and the lede.',
       'ds.sum.pull-quote': 'Large display text inside case studies: the problem statement that opens each one.',
-      'ds.sum.section-head': 'The opener of each tab (<code>.section-head</code>) and of each project group inside Projects (<code>.group-head</code>). The Projects head also carries shortcuts to its groups, each with its icon and project count.',
+      'ds.sum.section-head': 'The opener of each tab (<code>.section-head</code>) and of each project group inside Projects (<code>.group-head</code>). The Projects head also carries shortcuts to its groups, each with its icon and project count. A title’s icon sits beside its first line, so a title that wraps keeps it at the top.',
       'ds.sum.career-path': 'The level-map row of employers at the top of Experience; each stop jumps to its timeline row.',
       'ds.sum.chips': 'Small tags: tool chips on the designer card, metric chips, status badges and selectable course chips.',
       'ds.sum.metrics': 'Result tiles at the end of a case study.',
@@ -264,7 +264,7 @@ window.CONTENT = {
       'ds.sum.timeline': 'One row per job in Experience: dates, company and role, then bullet points, cards for the related projects and the tools used there, as logos whose names show on hover or on a tap. A card can also open a game in a new tab, like Where is Estela? on the PROAC row.',
       'ds.sum.case-card': 'The project card in Projects: cover, kicker, title, tagline, one metric chip and the read time. In Lab the same card opens the prototype in a new tab, so its footer says Try it with the external-link icon.',
       'ds.sum.player-card': 'The trading-card profile in a chrome frame, on Home and in Contact: level, portrait, the logo, stats, tools, status, the CV button and LinkedIn and GitHub. Move the pointer over it to tilt it; the frame’s reflections slide with the tilt.',
-      'ds.sum.process-step': 'A numbered step in the Process tab, with a screenshot, an explanation and a linked example.',
+      'ds.sum.process-step': 'A numbered step in the Process tab, with a screenshot, an explanation and a linked example. The screenshot is the linked project’s cover unless the step sets its own, so neighbouring steps don’t repeat a look.',
       'ds.sum.side-card': 'Small external-link cards for side projects and game jams.',
       'ds.sum.case-study-head': 'The top of a case study sheet: eyebrow, title, tagline, a four-column meta table and actions.',
       'ds.sum.case-section': 'A labelled section of a case study, usually a list of design moves with screenshots.',
@@ -371,7 +371,7 @@ window.CONTENT = {
       'work.read': 'Read', 'work.min': 'min', 'work.open': 'Read',
 
       'lab.eyebrow': 'Lab',
-      'lab.title': 'Prototypes I build on my own',
+      'lab.title': 'Design solutions I created on my own',
       'lab.lede': 'Ideas I design and build end to end, outside client work. Each one is a working prototype that runs in your browser.',
       'lab.try': 'Try it',
 
@@ -643,7 +643,7 @@ window.CONTENT = {
       'ds.m.s.easing': 'Easing',
       'ds.m.s.durations': 'Durações',
       'ds.m.s.demos': 'Demonstrações',
-      'ds.icons.intro': 'Cada ícone é um SVG inline numa viewBox de 24px, desenhado com <code>stroke: currentColor</code> de 1,8–2px, pontas e junções arredondadas e sem preenchimento. Eles herdam a cor do texto ao redor e são marcados com <code>aria-hidden</code>, já que sempre há um rótulo visível ao lado.',
+      'ds.icons.intro': 'Cada ícone é um SVG inline numa viewBox de 24px, desenhado com <code>stroke: currentColor</code> de 1,8–2px, pontas e junções arredondadas e sem preenchimento. Eles herdam a cor do texto ao redor e são marcados com <code>aria-hidden</code>, já que sempre há um rótulo visível ao lado. Ao lado de um texto, o ícone fica na primeira linha, nunca centralizado no bloco todo: a linha se alinha ao topo e o ícone desce metade da diferença entre a altura da linha e o tamanho dele.',
       'ds.icons.count': '30 ícones, reunidos do <code>index.html</code> e do conjunto de ícones do <code>app.js</code>, sem repetições.',
       'ds.icons.brands': 'Os logos de ferramentas em Experiência são marcas, a maioria do Simple Icons (CC0), guardadas em <code>assets/img/tools.svg</code> e desenhadas numa cor só, como estes ícones, um logo por marca. Os nomes aparecem num tooltip.',
       'ds.escHint': 'Aperte <kbd>Esc</kbd> para fechar.',
@@ -661,7 +661,7 @@ window.CONTENT = {
       'ds.sum.eyebrow': 'Rótulos mono: <code>.eyebrow</code> acima dos títulos de seção e <code>.label</code> para títulos pequenos e metadados.',
       'ds.sum.hero-title': 'O bloco do título do hero: eyebrow, título em dois níveis com o sublinhado de XP e o texto de abertura.',
       'ds.sum.pull-quote': 'Texto grande dentro dos estudos de caso: a descrição do problema que abre cada um.',
-      'ds.sum.section-head': 'A abertura de cada aba (<code>.section-head</code>) e de cada grupo de projetos em Projetos (<code>.group-head</code>). A abertura de Projetos também traz atalhos para os grupos, cada um com o ícone e o número de projetos.',
+      'ds.sum.section-head': 'A abertura de cada aba (<code>.section-head</code>) e de cada grupo de projetos em Projetos (<code>.group-head</code>). A abertura de Projetos também traz atalhos para os grupos, cada um com o ícone e o número de projetos. O ícone do título fica ao lado da primeira linha, então um título que quebra em duas linhas o mantém no topo.',
       'ds.sum.career-path': 'A trilha de fases com as empresas no topo de Experiência; cada parada leva à sua linha na linha do tempo.',
       'ds.sum.chips': 'Etiquetas pequenas: chips de ferramentas na ficha do designer, chips de métrica, selos de status e chips de curso selecionáveis.',
       'ds.sum.metrics': 'Blocos de resultado no fim de um estudo de caso.',
@@ -670,7 +670,7 @@ window.CONTENT = {
       'ds.sum.timeline': 'Uma linha por emprego em Experiência: datas, empresa e cargo, depois tópicos, cards dos projetos relacionados e as ferramentas usadas ali, como logos cujos nomes aparecem no hover ou ao tocar. Um card também pode abrir um jogo numa nova aba, como o Where is Estela? na linha da PROAC.',
       'ds.sum.case-card': 'O card de projeto em Projetos: capa, kicker, título, tagline, um chip de métrica e o tempo de leitura. No Lab, o mesmo card abre o protótipo numa nova aba, por isso o rodapé diz Testar, com o ícone de link externo.',
       'ds.sum.player-card': 'O perfil em forma de carta colecionável, numa moldura cromada, no início e em Contato: nível, retrato, o logo, atributos, ferramentas, status, o botão do CV e LinkedIn e GitHub. Passe o ponteiro por cima para inclinar; os reflexos da moldura deslizam junto.',
-      'ds.sum.process-step': 'Uma etapa numerada da aba Processo, com uma tela, a explicação e um exemplo com link.',
+      'ds.sum.process-step': 'Uma etapa numerada da aba Processo, com uma tela, a explicação e um exemplo com link. A tela é a capa do projeto do link, a menos que a etapa defina a sua, para etapas vizinhas não repetirem o mesmo visual.',
       'ds.sum.side-card': 'Cards pequenos com link externo, para projetos paralelos e game jams.',
       'ds.sum.case-study-head': 'O topo do painel de um estudo de caso: eyebrow, título, tagline, uma tabela de quatro colunas e ações.',
       'ds.sum.case-section': 'Uma seção com rótulo de um estudo de caso, em geral uma lista de decisões de design com telas.',
@@ -777,7 +777,7 @@ window.CONTENT = {
       'work.read': 'Ler', 'work.min': 'min', 'work.open': 'Ler',
 
       'lab.eyebrow': 'Lab',
-      'lab.title': 'Protótipos que faço por conta própria',
+      'lab.title': 'Soluções de design que criei por conta própria',
       'lab.lede': 'Ideias que desenho e construo do início ao fim, fora dos projetos para clientes. Cada uma é um protótipo funcional que roda no seu navegador.',
       'lab.try': 'Testar',
 
@@ -857,7 +857,7 @@ window.CONTENT = {
         en: 'Static mockups don’t show timing, animation or how a flow feels after the tenth tap. When those details matter, I build the prototype in HTML or React, working with Claude Code.',
         pt: 'Mockups estáticos não mostram timing, animação nem a sensação de um fluxo depois do décimo toque. Quando esses detalhes importam, faço o protótipo em HTML ou React, junto com o Claude Code.'
       },
-      case: 'advisor',
+      case: 'advisor', shot: 'assets/img/step-prototype.webp',   // the voice shortcut flow; the Advisor cover is a dashboard like step 3's
       proof: { en: 'The Knomee prototype has 58 screens, all built with Claude Code, and was used for handoff, sales demos and user tests.', pt: 'O protótipo da Knomee tem 58 telas, todas construídas com o Claude Code, e foi usado em handoff, demos de vendas e testes com usuários.' }
     },
     {

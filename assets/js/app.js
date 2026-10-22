@@ -161,14 +161,15 @@
     $('#gridLab').innerHTML = C.lab.map(labCardHTML).join('');
   }
 
-  function caseThumb(c, cls) {
-    return '<span class="' + cls + ' tone-' + c.tone + (c.art ? ' is-art' : '') + '"><img src="' + c.cover + '" alt="" loading="lazy"></span>';
+  /* shot: an image of its own instead of the case's cover (a Process step can show a different screen) */
+  function caseThumb(c, cls, shot) {
+    return '<span class="' + cls + ' tone-' + c.tone + (c.art && !shot ? ' is-art' : '') + '"><img src="' + (shot || c.cover) + '" alt="" loading="lazy"></span>';
   }
   function renderProcess() {
     $('#processList').innerHTML = C.process.map(function (p, i) {
       var c = caseById(p.case);
       return '<li><span class="step-node" aria-hidden="true">0' + (i + 1) + '</span>' +
-        (c ? '<a class="step-shot-link" href="#case-' + c.id + '" data-case="' + c.id + '" tabindex="-1" aria-hidden="true">' + caseThumb(c, 'step-shot') + '</a>' : '') +
+        (c ? '<a class="step-shot-link" href="#case-' + c.id + '" data-case="' + c.id + '" tabindex="-1" aria-hidden="true">' + caseThumb(c, 'step-shot', p.shot) + '</a>' : '') +
         '<h3 class="step-title">' + esc(L(p.title)) + '</h3>' +
         '<p class="step-body">' + esc(L(p.body)) + '</p>' +
         '<p class="step-proof"><b>' + esc(t('process.example')) + '</b>' + esc(L(p.proof)) +
