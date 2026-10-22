@@ -889,7 +889,7 @@ window.CONTENT = {
         en: 'Static mockups don’t show timing, animation or how a flow feels after the tenth tap. When those details matter, I build the prototype in HTML or React, working with Claude Code.',
         pt: 'Mockups estáticos não mostram timing, animação nem a sensação de um fluxo depois do décimo toque. Quando esses detalhes importam, faço o protótipo em HTML ou React, junto com o Claude Code.'
       },
-      case: 'advisor', shot: 'assets/img/step-prototype.webp',   // the voice shortcut flow; the Advisor cover is a dashboard like step 3's
+      case: 'advisor', shot: 'assets/img/k-site-customization.webp',   // Settings: Site Customization, with the landing page preview
       proof: { en: 'The Knomee prototype has 58 screens, all built with Claude Code, and was used for handoff, sales demos and user tests.', pt: 'O protótipo da Knomee tem 58 telas, todas construídas com o Claude Code, e foi usado em handoff, demos de vendas e testes com usuários.' }
     },
     {
