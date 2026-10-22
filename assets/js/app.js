@@ -529,6 +529,16 @@
     a.addEventListener('focus', function () { moveNavInd(a); });
   });
   navEl.addEventListener('mouseleave', function () { moveNavInd(); });
+  /* keep the line under the current tab when the links change size: a window resize, the icons hiding
+     at 1101-1199px, a language switch, late fonts. It jumps there (no slide) so it never trails behind. */
+  function snapNavInd() {
+    navInd.style.transition = 'none'; moveNavInd(); void navInd.offsetWidth; navInd.style.transition = '';
+  }
+  if ('ResizeObserver' in window) {
+    var navRO = new ResizeObserver(snapNavInd);
+    $$('#hud .hud-nav a').forEach(function (a) { navRO.observe(a); });
+  }
+  window.addEventListener('resize', snapNavInd, { passive: true });
   var menuBtn = $('#menuBtn'), mobileNav = $('#mobileNav');
   function setMenu(open) {
     mobileNav.hidden = !open; menuBtn.setAttribute('aria-expanded', String(open));
