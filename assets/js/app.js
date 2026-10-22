@@ -210,11 +210,13 @@
           return '<a class="tl-case" href="' + esc(g.url) + '" target="_blank" rel="noopener"><span class="tl-thumb' + (g.fit === 'contain' ? ' is-art' : '') + '"><img src="' + g.img + '" alt="" loading="lazy"></span><span>' + esc(g.t) + '</span>' + ICON.ext + '</a>';
         }).join('') + '</div>' : '') + toolsHTML(x.tools) + '</div></li>';
     }).join('');
-    // the career path: oldest job on the left, the current one on the right
+    // the career path: oldest job on the left (by start month), the current one always on the right
     var initials = function (org) { return org.split(/\s+/).map(function (w) { return w.charAt(0); }).join('').slice(0, 2).toUpperCase(); };
-    var start = function (x) { return +(/\d{4}/.exec(x.when.en) || [0])[0]; }, isNow = function (x) { return /now/.test(x.when.en); };
+    var MONTHS = 'JanFebMarAprMayJunJulAugSepOctNovDec';
+    var start = function (x) { var m = /(?:([A-Z][a-z]{2}) )?(\d{4})/.exec(x.when.en); return m ? +m[2] * 12 + (m[1] ? MONTHS.indexOf(m[1]) / 3 : 0) : 0; };
+    var isNow = function (x) { return /now/.test(x.when.en); };
     $('#career').innerHTML = C.experience.map(function (x, i) { return { x: x, i: i }; }).sort(function (a, b) {
-      return (start(a.x) - start(b.x)) || (isNow(a.x) - isNow(b.x)) || (b.i - a.i);
+      return (isNow(a.x) - isNow(b.x)) || (start(a.x) - start(b.x)) || (b.i - a.i);
     }).map(function (o, n) {
       var now = isNow(o.x);
       return '<button type="button" class="career-stop' + (now ? ' is-now' : '') + '" data-job="' + o.i + '" style="--n:' + n + '">' +

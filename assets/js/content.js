@@ -10,11 +10,12 @@ window.CONTENT = {
   person: {
     name: 'Victor Mascaro',
     email: 'viktor.mascaro@gmail.com',
+    phone: '+55 11 969-428-552',
     linkedin: 'https://www.linkedin.com/in/victor-mascaro/',
     github: 'https://github.com/victor-mascaro-ux',
     cv: { en: 'assets/cv/Victor-Mascaro-CV-EN.pdf', pt: 'assets/cv/Victor-Mascaro-CV-PT.pdf' },
     // bump whenever the PDFs are rebuilt: it changes the link, so browsers don't show an old saved copy
-    cvVersion: '2026-10-20k'
+    cvVersion: '2026-10-22a'
   },
 
   /* ---------- Interface strings ---------- */
@@ -1364,7 +1365,7 @@ window.CONTENT = {
      tools: what I used there, shown as logos via toolLogos (a string, or { en, pt } when the name translates) */
   experience: [
     {
-      org: 'Knomee', logo: 'assets/img/logos/knomee-mark.webp', cases: ['adventures', 'advisor', 'review-layer', 'go-to-market'], when: { en: '2024 – now', pt: '2024 – atual' },
+      org: 'Knomee', logo: 'assets/img/logos/knomee-mark.webp', cases: ['adventures', 'advisor', 'review-layer', 'go-to-market'], when: { en: 'Jun 2024 – now', pt: 'jun 2024 – atual' },
       role: { en: 'UX & Gamification Designer', pt: 'Designer de UX e Gamificação' },
       where: { en: 'Fintech · San Francisco · Remote', pt: 'Fintech · San Francisco · Remoto' },
       tools: ['Figma', 'FigJam', { en: 'Figma prototyping', pt: 'Protótipos no Figma' }, 'Miro', 'Claude', 'Claude Code', 'Claude Design', 'ElevenLabs', 'HTML / CSS / JS', 'React', 'TypeScript', 'Vite', { en: 'Git and GitHub', pt: 'Git e GitHub' }, 'GitHub Pages', 'Firebase', 'Excel', 'Google Docs', 'Notion', 'Canva', 'Google Forms', 'Typeform', 'Mixpanel', 'ClickUp', 'Slack', 'Google Workspace', 'Loom'],
@@ -1374,17 +1375,17 @@ window.CONTENT = {
       }
     },
     {
-      org: 'By Aliens', logo: 'assets/img/logos/by-aliens-mark.webp', logoFill: true, cases: ['smashing-four', 'auction-city', 'illuminati', 'idle-planes'], when: { en: '2022 – 2025', pt: '2022 – 2025' },
+      org: 'By Aliens', logo: 'assets/img/logos/by-aliens-mark.webp', logoFill: true, cases: ['smashing-four', 'auction-city', 'illuminati', 'idle-planes'], when: { en: 'Jul 2022 – May 2025', pt: 'jul 2022 – mai 2025' },
       role: { en: 'Game & UX Designer', pt: 'Game e UX Designer' },
       where: { en: 'Game studio · Dubai · Remote', pt: 'Estúdio de jogos · Dubai · Remoto' },
       tools: ['Figma', 'FigJam', { en: 'Figma prototyping', pt: 'Protótipos no Figma' }, 'Miro', 'ChatGPT', { en: 'Git and GitHub', pt: 'Git e GitHub' }, 'Unity', 'C#', 'Firebase', 'Google Sheets', 'Excel', 'Machinations', 'Google Docs', 'Confluence', 'Google Forms', 'Google Analytics', 'Google Play Console', 'Jira', 'Trello', 'Slack', 'Google Workspace'],
       points: {
-        en: ['Smashing Four: a new hero (Bloodbite), rebalancing, Hero Event 2.0 and live ops: events, season pass, news and in-game content.', 'Auction City: the Hunter Pass season pass, the best-selling SKU from its launch on; new onboarding, a Statues system and a gacha concept.', 'We Are Illuminati: a new late-game area (A.I.) with 10 situation cards, a clearer main screen, a side story with three endings, ads and in-app purchases.', 'Idle Planes: pacing, upgrade economy, UX reviews and three minigames.'],
-        pt: ['Smashing Four: um herói novo (Bloodbite), rebalanceamento, Hero Event 2.0 e live ops: eventos, passe de temporada, notícias e conteúdo no jogo.', 'Auction City: o passe de temporada Hunter Pass, o SKU mais vendido desde o lançamento; novo onboarding, sistema de Estátuas e um conceito de gacha.', 'We Are Illuminati: nova área de fim de jogo (A.I.) com 10 cards, tela principal mais clara, história paralela com três finais, anúncios e compras in-app.', 'Idle Planes: ritmo, economia de upgrades, revisões de UX e três minigames.']
+        en: ['Smashing Four: designed a new hero (Bloodbite), redesigned Hero Event 2.0, rebalanced underused heroes from player data, and ran live ops: events, season pass, news and in-game content.', 'Auction City: designed the Hunter Pass season pass, the best-selling SKU from its launch on; rewrote the onboarding; designed a Statues system and a gacha concept.', 'We Are Illuminati: created a late-game area (A.I.) with 10 situation cards, redesigned the main screen, wrote a side story with three endings, and designed ads and in-app purchases.', 'Idle Planes: tuned pacing and the upgrade economy, ran UX reviews and designed three minigames.'],
+        pt: ['Smashing Four: desenhei um herói novo (Bloodbite), redesenhei o Hero Event 2.0, rebalanceei heróis pouco usados com base em dados dos jogadores e cuidei do live ops: eventos, passe de temporada, notícias e conteúdo no jogo.', 'Auction City: desenhei o passe de temporada Hunter Pass, o SKU mais vendido desde o lançamento; reescrevi o onboarding; desenhei um sistema de Estátuas e um conceito de gacha.', 'We Are Illuminati: criei uma área de fim de jogo (A.I.) com 10 cards de situação, redesenhei a tela principal, escrevi uma história paralela com três finais e desenhei anúncios e compras in-app.', 'Idle Planes: ajustei o ritmo e a economia de upgrades, fiz revisões de UX e desenhei três minigames.']
       }
     },
     {
-      org: 'Betsie', logo: 'assets/img/logos/betsie-mark.webp', cases: ['betsie'], when: { en: 'Jul – Nov 2024', pt: 'jul – nov 2024' },
+      org: 'Betsie', logo: 'assets/img/logos/betsie-mark.webp', cases: ['betsie'], when: { en: 'Jul 2024 – Nov 2024', pt: 'jul 2024 – nov 2024' },
       role: { en: 'UX/Product Design Consultant', pt: 'Consultor de UX e Produto' },
       where: { en: 'Startup · San Francisco · Remote', pt: 'Startup · San Francisco · Remoto' },
       tools: ['Figma', 'FigJam', { en: 'Figma prototyping', pt: 'Protótipos no Figma' }, 'Miro', 'Slack', 'Google Workspace'],
@@ -1394,7 +1395,7 @@ window.CONTENT = {
       }
     },
     {
-      org: 'Lumen Games', logo: 'assets/img/logos/lumen-games-mark.webp', cases: ['lumen'], when: { en: '2021 – 2022', pt: '2021 – 2022' },
+      org: 'Lumen Games', logo: 'assets/img/logos/lumen-games-mark.webp', cases: ['lumen'], when: { en: 'May 2021 – Jul 2022', pt: 'mai 2021 – jul 2022' },
       role: { en: 'Producer / Game Designer', pt: 'Produtor / Game Designer' },
       where: { en: 'Game studio · Aracaju · Remote', pt: 'Estúdio de jogos · Aracaju · Remoto' },
       tools: ['Figma', 'FigJam', { en: 'Figma prototyping', pt: 'Protótipos no Figma' }, 'Miro', 'Unity', 'C#', 'Firebase', 'Excel', 'Google Docs', 'Notion', 'Google Forms', 'Google Play Console', 'Jira', 'Trello', 'Slack', 'Google Workspace'],
@@ -1404,7 +1405,7 @@ window.CONTENT = {
       }
     },
     {
-      org: 'PROAC', logo: 'assets/img/logos/proac-mark.webp', logoWide: true, games: ['Where is Estela?'], when: { en: '2021 – 2022', pt: '2021 – 2022' },
+      org: 'PROAC', logo: 'assets/img/logos/proac-mark.webp', logoWide: true, games: ['Where is Estela?'], when: { en: 'Aug 2021 – Aug 2022', pt: 'ago 2021 – ago 2022' },
       role: { en: 'Game Design Intern', pt: 'Estagiário de Game Design' },
       where: { en: 'Cultural grant · São Paulo · Remote', pt: 'Edital cultural · São Paulo · Remoto' },
       tools: ['Figma', 'FigJam', { en: 'Figma prototyping', pt: 'Protótipos no Figma' }, 'Miro', { en: 'Git and GitHub', pt: 'Git e GitHub' }, 'Unity', 'C#', 'Trello', 'Discord', 'Google Workspace'],
@@ -1423,7 +1424,7 @@ window.CONTENT = {
       id: 'gamedesign', branch: 'foundation', status: 'done',
       name: { en: 'Game Design', pt: 'Design de Games' },
       kind: { en: 'Bachelor’s · Universidade Anhembi Morumbi', pt: 'Bacharelado · Universidade Anhembi Morumbi' },
-      when: '2019 – 2023', grade: '96',
+      when: { en: 'Aug 2019 – Jul 2023', pt: 'ago 2019 – jul 2023' }, grade: '96',
       core: { en: ['Game design and documentation', 'Analog game design', 'Level design and narrative', 'Rapid prototyping', 'Interface and interaction design', 'Game programming (2D and 3D)', 'Character design and art direction', 'Animation and audio', 'Serious and transmedia games', 'Game production and business'], pt: ['Design de games e documentação', 'Design de jogo analógico', 'Level design e narrativa', 'Prototipagem rápida', 'Design de interface e interação', 'Programação de jogos 2D e 3D', 'Design de personagens e direção de arte', 'Animação e áudio', 'Serious games e transmídia', 'Produção e negócios de games'] },
       extra: { en: ['Dean’s List (2019)', 'Student Ambassador (2020–2021)', 'Full scholarship, graduated with distinction'], pt: ['Dean’s List (2019)', 'Embaixador estudantil (2020–2021)', 'Bolsa integral, formado com distinção'] }
     },
@@ -1431,7 +1432,7 @@ window.CONTENT = {
       id: 'theatre', branch: 'foundation', status: 'done',
       name: { en: 'Theatre', pt: 'Teatro' },
       kind: { en: 'Technical course · Senac São Paulo', pt: 'Curso técnico · Senac São Paulo' },
-      when: '2015 – 2016', grade: { en: 'Great', pt: 'Ótimo' },
+      when: { en: 'Mar 2015 – Nov 2016', pt: 'mar 2015 – nov 2016' }, grade: { en: 'Great', pt: 'Ótimo' },
       core: { en: ['Stage presence', 'Communication', 'Improvisation', 'Storytelling'], pt: ['Presença de palco', 'Comunicação', 'Improvisação', 'Storytelling'] },
       extra: { en: ['Acting, musical theatre, stage direction and public speaking'], pt: ['Atuação, teatro musical, direção cênica e oratória'] }
     },
@@ -1439,7 +1440,7 @@ window.CONTENT = {
       id: 'gamification', branch: 'behavior', status: 'done',
       name: { en: 'Games and Gamification in Education', pt: 'Games e Gamificação na Educação' },
       kind: { en: 'Postgraduate · UNINTER', pt: 'Pós-graduação · UNINTER' },
-      when: '2023 – 2024', grade: '100',
+      when: { en: 'Aug 2023 – May 2024', pt: 'ago 2023 – mai 2024' }, grade: '100',
       core: { en: ['Habit loops', 'Motivation theory', 'Reward systems', 'Behavior design'], pt: ['Loops de hábito', 'Teoria da motivação', 'Sistemas de recompensa', 'Design comportamental'] },
       extra: { en: ['UX for games', 'Gamified interfaces', 'Design for engagement'], pt: ['UX para jogos', 'Interfaces gamificadas', 'Design para engajamento'] }
     },
@@ -1447,7 +1448,7 @@ window.CONTENT = {
       id: 'neuro', branch: 'behavior', status: 'done',
       name: { en: 'Neuroeducation', pt: 'Neuroeducação' },
       kind: { en: 'Postgraduate · UNINTER', pt: 'Pós-graduação · UNINTER' },
-      when: '2023 – 2024', grade: '100',
+      when: { en: 'Aug 2023 – May 2024', pt: 'ago 2023 – mai 2024' }, grade: '100',
       core: { en: ['Learning psychology', 'Cognitive design', 'Emotional engagement', 'Educational UX'], pt: ['Psicologia da aprendizagem', 'Design cognitivo', 'Engajamento emocional', 'UX educacional'] },
       extra: { en: ['Cognitive neuroscience', 'Learning motivation'], pt: ['Neurociência cognitiva', 'Motivação na aprendizagem'] }
     },
@@ -1455,7 +1456,7 @@ window.CONTENT = {
       id: 'mba-ux', branch: 'strategy', status: 'done',
       name: { en: 'MBA in Strategic Management in UX Design', pt: 'MBA em Gestão Estratégica em UX Design' },
       kind: { en: 'Postgraduate · UNINTER', pt: 'Pós-graduação · UNINTER' },
-      when: '2025 – 2026',
+      when: { en: 'May 2025 – Feb 2026', pt: 'mai 2025 – fev 2026' },
       core: { en: ['UX leadership and business strategy', 'Research-based product development', 'Information architecture and usability', 'Agile design delivery'], pt: ['Liderança de UX e estratégia de negócio', 'Desenvolvimento de produto orientado por pesquisa', 'Arquitetura da informação e usabilidade', 'Entrega ágil de design'] },
       extra: { en: ['UX metrics and UXOps', 'Neuromarketing', 'Design thinking'], pt: ['Métricas de UX e UXOps', 'Neuromarketing', 'Design thinking'] }
     },
@@ -1463,7 +1464,7 @@ window.CONTENT = {
       id: 'mba-ai', branch: 'strategy', status: 'done',
       name: { en: 'MBA in AI-Oriented Innovation and UX', pt: 'MBA em Inovação Orientada por IA e UX' },
       kind: { en: 'Postgraduate · UNIFAST', pt: 'Pós-graduação · UNIFAST' },
-      when: '2025 – 2026',
+      when: { en: 'May 2025 – Oct 2026', pt: 'mai 2025 – out 2026' },
       core: { en: ['UX research and discovery with AI', 'AI agents and automation', 'ResearchOps and DesignOps', 'Cognitive biases and decision design'], pt: ['Pesquisa e discovery de UX com IA', 'Agentes de IA e automação', 'ResearchOps e DesignOps', 'Vieses cognitivos e design de decisão'] },
       extra: { en: ['Data visualization and statistics', 'Working as a one-person UX team'], pt: ['Visualização de dados e estatística', 'Atuar como um time de UX de uma pessoa só'] }
     },
@@ -1471,7 +1472,7 @@ window.CONTENT = {
       id: 'unicorn', branch: 'strategy', status: 'done',
       name: { en: 'UX Unicorn 2.0', pt: 'UX Unicorn 2.0' },
       kind: { en: 'Professional certificate · Leandro Rezende', pt: 'Certificado profissional · Leandro Rezende' },
-      when: '2025 – 2026',
+      when: { en: 'May 2025 – Oct 2026', pt: 'mai 2025 – out 2026' },
       core: { en: ['UX strategy', 'UX research', 'Journey mapping', 'Workshop facilitation', 'UX writing', 'UI design', 'Front-end'], pt: ['Estratégia de UX', 'Pesquisa de UX', 'Mapeamento de jornada', 'Facilitação de workshops', 'UX writing', 'UI design', 'Front-end'] },
       extra: { en: ['Usability', 'Prototyping', 'Product management'], pt: ['Usabilidade', 'Prototipação', 'Gestão de produto'] }
     }
