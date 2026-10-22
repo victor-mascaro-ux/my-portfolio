@@ -281,8 +281,8 @@ window.CONTENT = {
       'ds.sum.process-step': 'A numbered step in the Process tab, with a screenshot, an explanation and a linked example. The screenshot is the linked project’s cover unless the step sets its own, so neighbouring steps don’t repeat a look.',
       'ds.sum.side-card': 'Small external-link cards for side projects and game jams.',
       'ds.sum.case-study-head': 'The top of a case study sheet: eyebrow, title, tagline, a four-column meta table and actions.',
-      'ds.sum.case-section': 'A labelled section of a case study, usually a list of design moves with screenshots: phone screens side by side in a plain dark frame, desktop screens one above the other.',
-      'ds.sum.compare': 'A before-and-after slider for case study pictures. Drag the divider, or press Before or After.',
+      'ds.sum.case-section': 'A labelled section of a case study, usually a list of design moves with screenshots: phone screens side by side in a grey phone frame, desktop screens one above the other.',
+      'ds.sum.compare': 'A before-and-after slider for case study pictures. Drag the divider, or press Before or After. Phone screens share one grey phone frame, so only the screen changes; the divider and the tags stay on the screen.',
       'ds.sum.film': 'A storyboard of a video: pick a frame, or press play to load the video from YouTube’s privacy-enhanced domain.',
       'ds.sum.quest-log': 'The XP game panel: level, progress bar and the list of quests a visitor can complete.',
       'ds.sum.sheet-bar': 'The sticky bar on top of a case study sheet, with breadcrumb, previous and next, close and reading progress.',
@@ -711,8 +711,8 @@ window.CONTENT = {
       'ds.sum.process-step': 'Uma etapa numerada da aba Processo, com uma tela, a explicação e um exemplo com link. A tela é a capa do projeto do link, a menos que a etapa defina a sua, para etapas vizinhas não repetirem o mesmo visual.',
       'ds.sum.side-card': 'Cards pequenos com link externo, para projetos paralelos e game jams.',
       'ds.sum.case-study-head': 'O topo do painel de um estudo de caso: eyebrow, título, tagline, uma tabela de quatro colunas e ações.',
-      'ds.sum.case-section': 'Uma seção com rótulo de um estudo de caso, em geral uma lista de decisões de design com telas: telas de celular lado a lado numa moldura escura simples, telas de desktop uma embaixo da outra.',
-      'ds.sum.compare': 'Um comparador de antes e depois para as imagens dos estudos de caso. Arraste o divisor ou aperte Antes ou Depois.',
+      'ds.sum.case-section': 'Uma seção com rótulo de um estudo de caso, em geral uma lista de decisões de design com telas: telas de celular lado a lado numa moldura cinza de celular, telas de desktop uma embaixo da outra.',
+      'ds.sum.compare': 'Um comparador de antes e depois para as imagens dos estudos de caso. Arraste o divisor ou aperte Antes ou Depois. Telas de celular dividem a mesma moldura cinza de celular, então só a tela muda; o divisor e as etiquetas ficam na tela.',
       'ds.sum.film': 'O storyboard de um vídeo: escolha um quadro ou aperte play para carregar o vídeo pelo domínio com privacidade reforçada do YouTube.',
       'ds.sum.quest-log': 'O painel do jogo de XP: nível, barra de progresso e a lista de missões que o visitante pode completar.',
       'ds.sum.sheet-bar': 'A barra fixa no topo do painel de um estudo de caso, com a trilha, anterior e próximo, fechar e o progresso de leitura.',
@@ -991,7 +991,7 @@ window.CONTENT = {
       evolution: {
         title: { en: '2024 and 2026', pt: '2024 e 2026' },
         body: { en: 'The 2024 version was built around levels and locked tiles. In 2026 I reorganised it around what each adventure gives back to the person filling it in.', pt: 'A versão de 2024 era baseada em níveis e blocos bloqueados. Em 2026, reorganizei tudo em torno do que cada aventura devolve para quem preenche.' },
-        tags: ['2024', '2026'],
+        tags: ['2024', '2026'], phones: true,
         compare: [['assets/img/k-evo-2024-levels.webp', 'assets/img/k-evo-2026-adventures.webp'], ['assets/img/k-evo-2024-tasks.webp', 'assets/img/k-evo-2026-knomee-sheet.webp']]
       },
       metrics: [
@@ -1183,9 +1183,9 @@ window.CONTENT = {
       },
       moves: [
         { title: { en: 'Redesign and gamification', pt: 'Redesign e gamificação' }, body: { en: 'I redesigned the UI and added onboarding, scoring and feedback that help users learn how the app works.', pt: 'Refiz a UI e adicionei onboarding, pontuação e feedback que ajudam o usuário a entender como o app funciona.' },
-          compare: ['assets/img/betsie-start.webp', 'assets/img/betsie-pending.webp'] },
+          compare: ['assets/img/betsie-start.webp', 'assets/img/betsie-pending.webp'], phone: true },
         { title: { en: 'Prototype and video', pt: 'Protótipo e vídeo' }, body: { en: 'I delivered a clickable prototype and a showcase video they could use with investors and developers.', pt: 'Entreguei um protótipo navegável e um vídeo de apresentação para eles usarem com investidores e desenvolvedores.' },
-          compare: ['assets/img/betsie-live.webp', 'assets/img/betsie-on.webp'] }
+          compare: ['assets/img/betsie-live.webp', 'assets/img/betsie-on.webp'], phone: true }
       ],
       metrics: [],
       live: 'https://betsie.app/',

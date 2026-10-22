@@ -590,7 +590,7 @@
   function moveMedia(m, c) {
     if (m.compare) {
       var tb = m.tags ? m.tags[0] : t('case.before'), ta = m.tags ? m.tags[1] : t('case.after');
-      return '<div class="compare-wrap"><div class="compare" style="--pos:50%">' +
+      return '<div class="compare-wrap"><div class="compare' + (m.phone ? ' is-phone' : '') + '" style="--pos:50%">' +
         imgTag(m.compare[0], tb + ': ' + L(m.title)) +
         '<div class="cmp-after">' + imgTag(m.compare[1], ta + ': ' + L(m.title)) + '</div>' +
         '<input type="range" min="0" max="100" value="50" aria-label="' + esc(t('case.compare')) + '">' +
@@ -656,7 +656,7 @@
         }).join('') +
       '</div></section>' +
       (c.evolution ? '<section class="cs-section"><h3 class="label">' + esc(t('case.evolution')) + '</h3><div class="move"><h4 class="move-title">' + esc(L(c.evolution.title)) + '</h4><p class="move-body">' + esc(L(c.evolution.body)) + '</p>' +
-        '<div class="evolution">' + c.evolution.compare.map(function (pair) { return moveMedia({ compare: pair, tags: c.evolution.tags, title: c.evolution.title, noHint: true }); }).join('') + '</div>' + compareHint(true) + '</div></section>' : '') +
+        '<div class="evolution">' + c.evolution.compare.map(function (pair) { return moveMedia({ compare: pair, tags: c.evolution.tags, title: c.evolution.title, phone: c.evolution.phones, noHint: true }); }).join('') + '</div>' + compareHint(true) + '</div></section>' : '') +
       (c.metrics && c.metrics.length ? '<section class="cs-section"><h3 class="label">' + esc(t('case.outcome')) + '</h3><div class="metrics">' +
         c.metrics.map(function (m) {
           return '<div class="metric"><span class="metric-v">' + esc(m.v) + '</span><span class="metric-l">' + esc(L(m.l)) + '</span>' +

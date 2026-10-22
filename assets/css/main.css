@@ -1097,6 +1097,12 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .compare.is-gliding .cmp-line { transition: left .45s var(--ease-out); }
 .cmp-tag.before { left: 10px; } .cmp-tag.after { right: 10px; }
 .compare-wrap { display: grid; gap: 8px; justify-items: start; }
+/* Phone screens: both pictures carry the same grey phone frame, so the box gives way to the phone's own
+   shape and glow, and the divider and the tags stay on the screen (inset 25/1154 of the height, 25/560 of the width) */
+.compare.is-phone { border: 0; border-radius: 0; overflow: visible; box-shadow: none; filter: var(--pic-drop); }
+.compare.is-phone .cmp-line { top: 2.2%; bottom: 2.2%; }
+.compare.is-phone .cmp-tag { top: calc(2.2% + 8px); }
+.compare.is-phone .cmp-tag.before { left: calc(4.5% + 6px); } .compare.is-phone .cmp-tag.after { right: calc(4.5% + 6px); }
 .compare-hint { font-size: .74rem; color: var(--muted); font-family: var(--f-mono); }
 
 /* film scrubber */
