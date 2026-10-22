@@ -371,7 +371,7 @@ window.CONTENT = {
 
       'work.eyebrow': 'Projects',
       'work.title': 'Professional projects', 'work.jump': 'Project sections',
-      'work.lede': 'Work I did for companies and studios, and projects from my game design degree. Each one has a short write-up: the context, what I did, and the result. My own prototypes are in the Lab.',
+      'work.lede': 'Work I did for companies and studios, and projects from my game design degree. Each one has a short write-up: the context, what I did, and the result.',
       'work.knomee.title': 'UX/AI',
       'work.knomee.meta': 'Knomee · 2024 to now',
       'work.knomee.lede': 'Knomee helps financial advisors get to know their clients before the first meeting. I work on both sides of the product: the app clients fill in and the dashboard advisors use. I design its AI features, like a voice shortcut in the client app, and build the prototype with AI.',
@@ -801,7 +801,7 @@ window.CONTENT = {
 
       'work.eyebrow': 'Projetos',
       'work.title': 'Projetos profissionais', 'work.jump': 'Seções de projetos',
-      'work.lede': 'Trabalhos que fiz para empresas e estúdios, e projetos da minha graduação em game design. Cada um tem um resumo curto: o contexto, o que eu fiz e o resultado. Meus protótipos próprios estão no Lab.',
+      'work.lede': 'Trabalhos que fiz para empresas e estúdios, e projetos da minha graduação em game design. Cada um tem um resumo curto: o contexto, o que eu fiz e o resultado.',
       'work.knomee.title': 'UX/AI',
       'work.knomee.meta': 'Knomee · 2024 até hoje',
       'work.knomee.lede': 'A Knomee ajuda assessores financeiros a conhecer os clientes antes da primeira reunião. Trabalho nos dois lados do produto: o app que o cliente preenche e o dashboard que o assessor usa. Desenho as funcionalidades de IA, como um atalho de voz no app do cliente, e construo o protótipo com IA.',
