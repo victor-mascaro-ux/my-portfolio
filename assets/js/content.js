@@ -372,7 +372,7 @@ window.CONTENT = {
 
       'lab.eyebrow': 'Lab',
       'lab.title': 'Design solutions I create on my own',
-      'lab.lede': 'Each one starts from a real-world problem I researched. I design and build the solution end to end, outside client work, as a working prototype that runs in your browser.',
+      'lab.lede': 'Digital products with AI, each built around a real-world problem I researched. I design and build them end to end, outside client work, as working prototypes that run in your browser.',
       'lab.try': 'Try it',
 
       'process.eyebrow': 'Process',
@@ -778,7 +778,7 @@ window.CONTENT = {
 
       'lab.eyebrow': 'Lab',
       'lab.title': 'Soluções de design que crio por conta própria',
-      'lab.lede': 'Cada um parte de um problema real que eu pesquisei. Desenho e construo a solução do início ao fim, fora dos projetos para clientes, como um protótipo funcional que roda no seu navegador.',
+      'lab.lede': 'Produtos digitais com IA, cada um construído em torno de um problema real que eu pesquisei. Desenho e construo do início ao fim, fora dos projetos para clientes, como protótipos funcionais que rodam no seu navegador.',
       'lab.try': 'Testar',
 
       'process.eyebrow': 'Processo',
