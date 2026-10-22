@@ -276,7 +276,7 @@ window.CONTENT = {
       'ds.sum.skill-tree': 'The Education skill tree: branches of course nodes and a detail panel for the selected one.',
       'ds.sum.stat-strip': 'The “In short” card under the hero: four headline numbers with a one-line explanation each.',
       'ds.sum.timeline': 'One row per job in Experience: dates, company and role, then bullet points, cards for the related projects and the tools used there, as logos whose names show on hover or on a tap. A card can also open a game in a new tab, like Where is Estela? on the PROAC row.',
-      'ds.sum.case-card': 'The project card in Projects: cover, kicker, title, tagline, one metric chip and the read time. In Lab the same card opens the prototype in a new tab, so its footer says Try it with the external-link icon. Every Lab card follows one template: the tagline states the problem, then what the prototype does about it, and the chip gives the time it takes to try and how it runs, like “About 3 min · guided”.',
+      'ds.sum.case-card': 'The project card in Projects: cover, kicker, title, tagline, one metric chip and the read time. In Lab the same card opens the prototype in a new tab, so its footer says Try it with the external-link icon; Lab cards sit two per row on desktop and stack on smaller screens. Every Lab card follows one template: the tagline states the problem, then what the prototype does about it, and the chip gives the time it takes to try and how it runs, like “About 3 min · guided”.',
       'ds.sum.player-card': 'The trading-card profile in a chrome frame, on Home and in Contact: level, portrait, the logo, stats, tools, status, the CV button and LinkedIn and GitHub. Move the pointer over it to tilt it; the frame’s reflections slide with the tilt.',
       'ds.sum.process-step': 'A numbered step in the Process tab, with a screenshot, an explanation and a linked example. The screenshot is the linked project’s cover unless the step sets its own, so neighbouring steps don’t repeat a look.',
       'ds.sum.side-card': 'Small external-link cards for side projects and game jams.',
@@ -706,7 +706,7 @@ window.CONTENT = {
       'ds.sum.skill-tree': 'A árvore de habilidades de Formação: ramos de cursos e um painel com os detalhes do selecionado.',
       'ds.sum.stat-strip': 'O card “Em resumo” sob o hero: quatro números principais, cada um com uma explicação de uma linha.',
       'ds.sum.timeline': 'Uma linha por emprego em Experiência: datas, empresa e cargo, depois tópicos, cards dos projetos relacionados e as ferramentas usadas ali, como logos cujos nomes aparecem no hover ou ao tocar. Um card também pode abrir um jogo numa nova aba, como o Where is Estela? na linha da PROAC.',
-      'ds.sum.case-card': 'O card de projeto em Projetos: capa, kicker, título, tagline, um chip de métrica e o tempo de leitura. No Lab, o mesmo card abre o protótipo numa nova aba, por isso o rodapé diz Testar, com o ícone de link externo. Todo card do Lab segue um modelo: a tagline diz o problema e depois o que o protótipo faz a respeito, e o chip mostra quanto tempo leva para testar e como ele funciona, como “Cerca de 3 min · guiado”.',
+      'ds.sum.case-card': 'O card de projeto em Projetos: capa, kicker, título, tagline, um chip de métrica e o tempo de leitura. No Lab, o mesmo card abre o protótipo numa nova aba, por isso o rodapé diz Testar, com o ícone de link externo; os cards do Lab ficam dois por linha no desktop e um embaixo do outro em telas menores. Todo card do Lab segue um modelo: a tagline diz o problema e depois o que o protótipo faz a respeito, e o chip mostra quanto tempo leva para testar e como ele funciona, como “Cerca de 3 min · guiado”.',
       'ds.sum.player-card': 'O perfil em forma de carta colecionável, numa moldura cromada, no início e em Contato: nível, retrato, o logo, atributos, ferramentas, status, o botão do CV e LinkedIn e GitHub. Passe o ponteiro por cima para inclinar; os reflexos da moldura deslizam junto.',
       'ds.sum.process-step': 'Uma etapa numerada da aba Processo, com uma tela, a explicação e um exemplo com link. A tela é a capa do projeto do link, a menos que a etapa defina a sua, para etapas vizinhas não repetirem o mesmo visual.',
       'ds.sum.side-card': 'Cards pequenos com link externo, para projetos paralelos e game jams.',
@@ -1372,7 +1372,7 @@ window.CONTENT = {
   */
   lab: [
     {
-      id: 'backpocket', url: 'https://victor-mascaro-ux.github.io/backpocket/', layout: 'lg-wide', tone: 'deep',
+      id: 'backpocket', url: 'https://victor-mascaro-ux.github.io/backpocket/', layout: 'md', tone: 'deep',
       cover: 'assets/img/card-backpocket.webp', coverAlt: { en: 'Three Backpocket screens: the October report, a smudged fuel total with two readings to pick from, and a client dinner offering the guests’ names from the calendar', pt: 'Três telas do Backpocket: o relatório de outubro, um total de combustível borrado com duas leituras para escolher e um jantar com cliente sugerindo os nomes dos convidados a partir da agenda' },
       kicker: { en: 'Prototype 01 · UX/AI', pt: 'Protótipo 01 · UX/AI' },
       title: { en: 'Backpocket', pt: 'Backpocket' },
@@ -1380,7 +1380,7 @@ window.CONTENT = {
       chip: { en: 'About 3 min · guided', pt: 'Cerca de 3 min · guiado' }
     },
     {
-      id: 'firstweek', url: 'https://victor-mascaro-ux.github.io/firstweek/', layout: 'lg-wide', tone: 'blue',
+      id: 'firstweek', url: 'https://victor-mascaro-ux.github.io/firstweek/', layout: 'md', tone: 'blue',
       cover: 'assets/img/card-firstweek.webp', coverAlt: { en: 'Firstweek on two laptops: the People team’s first-week plan with the source of a step open, and the new hire’s answer about vacation days, where two documents disagree and the newer one is used', pt: 'O Firstweek em dois notebooks: o plano da primeira semana do time de Pessoas com a fonte de uma etapa aberta, e a resposta sobre férias para quem acabou de chegar, em que dois documentos discordam e o mais novo é usado' },
       kicker: { en: 'Prototype 02 · UX/AI', pt: 'Protótipo 02 · UX/AI' },
       title: { en: 'Firstweek', pt: 'Firstweek' },

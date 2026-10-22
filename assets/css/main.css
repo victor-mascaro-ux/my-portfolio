@@ -645,11 +645,11 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .grid-knomee > [data-layout="lg"] { grid-column: 1 / span 7; grid-row: span 2; }
 .grid-knomee > [data-layout="md"] { grid-column: 8 / span 5; }
 .grid-knomee > [data-layout="lg-wide"] { grid-column: 1 / -1; }
-.grid-games > [data-layout="md"] { grid-column: span 6; }
+.grid-games > [data-layout="md"], .grid-lab > [data-layout="md"] { grid-column: span 6; }
 /* two cards per row at most, so the pictures stay readable; a lone last card takes the full row */
 .grid-games > [data-layout="sm"] { grid-column: span 6; }
-.grid-games > [data-layout]:last-child:nth-child(odd) { grid-column: 1 / -1; }
-.grid-gamification > [data-layout], .grid-lab > [data-layout] { grid-column: 1 / -1; }
+.grid-games > [data-layout]:last-child:nth-child(odd), .grid-lab > [data-layout]:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.grid-gamification > [data-layout] { grid-column: 1 / -1; }
 /* Lab offer: the invite to ask for a custom solution. A band with the Contact colours (light, or deep blue in the dark theme), with three steps,
    and a blueprint phone that builds itself when it scrolls into view (app.js adds is-ready, then is-building) */
 .lab-offer {
@@ -759,7 +759,7 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .tone-blue .cc-media { background: linear-gradient(160deg, color-mix(in srgb, var(--tone-blue) 75%, #fff), var(--tone-blue) 55%, var(--tone-deep)); }
 .tone-paper .cc-media { background: var(--accent-soft); }
 .cc-media.cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.grid-games [data-layout="md"] .cc-media { aspect-ratio: 16 / 9; }
+.grid-games [data-layout="md"] .cc-media, .grid-lab [data-layout="md"] .cc-media { aspect-ratio: 16 / 9; }
 [data-layout="lg"] .cc-media { aspect-ratio: auto; flex: 1; min-height: 420px; display: grid; place-items: center; }
 .art-fan[data-layout="lg"] .cc-media img { margin: 0 auto; }
 [data-layout="lg"] .cc-body { flex: none; }
@@ -1391,7 +1391,7 @@ span.sep { display: inline; font-family: var(--f-mono); font-weight: 700; line-h
 }
 @media (max-width: 900px) {
   .grid-knomee > [data-layout] { grid-column: 1 / -1 !important; grid-row: auto !important; }
-  .grid-games > [data-layout] { grid-column: 1 / -1; }
+  .grid-games > [data-layout], .grid-lab > [data-layout] { grid-column: 1 / -1; }   /* stacked */
   [data-layout="lg"] .cc-media { min-height: 0; aspect-ratio: 16 / 12; }
   [data-layout="lg-wide"] { grid-template-columns: minmax(0, 1fr); }
   [data-layout="lg-wide"] .cc-body { order: 0; padding: 20px 22px 22px; }
