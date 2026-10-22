@@ -22,8 +22,10 @@ const FRAME = 'assets/img/k-adventures.webp';
       x.drawImage(fr, 0, 0);
       x.save(); x.beginPath(); x.roundRect(X, Y, SW, SH, R); x.clip(); x.clearRect(0, 0, W, H);
       x.fillStyle = '#fff'; x.fillRect(X, Y, SW, SH);
-      const k = Math.max(SW / sc.naturalWidth, SH / sc.naturalHeight), w = sc.naturalWidth * k, h = sc.naturalHeight * k;
-      x.drawImage(sc, X + (SW - w) / 2, Y + (SH - h) / 2, w, h);
+      // screenshots often carry a 1–3px border (a selection outline) that would show along the frame: trim 4px
+      const T = 4, iw = sc.naturalWidth - T * 2, ih = sc.naturalHeight - T * 2;
+      const k = Math.max(SW / iw, SH / ih), w = iw * k, h = ih * k;
+      x.drawImage(sc, T, T, iw, ih, X + (SW - w) / 2, Y + (SH - h) / 2, w, h);
       x.restore();
       return c.toDataURL('image/webp', 0.9);
     }, { frame: uri(FRAME), screen: uri(f) });

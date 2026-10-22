@@ -15,7 +15,9 @@ window.CONTENT = {
     github: 'https://github.com/victor-mascaro-ux',
     cv: { en: 'assets/cv/Victor-Mascaro-CV-EN.pdf', pt: 'assets/cv/Victor-Mascaro-CV-PT.pdf' },
     // bump whenever the PDFs are rebuilt: it changes the link, so browsers don't show an old saved copy
-    cvVersion: '2026-10-22e'
+    cvVersion: '2026-10-22e',
+    // bump when a picture in assets/img changes under the same name: it changes every picture's link
+    imgVersion: '2026-10-22a'
   },
 
   /* ---------- Interface strings ---------- */
@@ -282,7 +284,7 @@ window.CONTENT = {
       'ds.sum.side-card': 'Small external-link cards for side projects and game jams.',
       'ds.sum.case-study-head': 'The top of a case study sheet: eyebrow, title, tagline, a four-column meta table and actions.',
       'ds.sum.case-section': 'A labelled section of a case study, usually a list of design moves with screenshots: phone screens side by side in a grey phone frame, desktop screens one above the other.',
-      'ds.sum.compare': 'A before-and-after slider for case study pictures. Drag the divider, or press Before or After. Phone screens share one grey phone frame, so only the screen changes; the divider and the tags stay on the screen.',
+      'ds.sum.compare': 'A before-and-after slider for case study pictures. Drag the divider, or press Before or After. Phone screens share one grey phone frame, so only the screen changes: the divider travels across the screen only, and the tags sit above the phone.',
       'ds.sum.film': 'A storyboard of a video: pick a frame, or press play to load the video from YouTube’s privacy-enhanced domain.',
       'ds.sum.quest-log': 'The XP game panel: level, progress bar and the list of quests a visitor can complete.',
       'ds.sum.sheet-bar': 'The sticky bar on top of a case study sheet, with breadcrumb, previous and next, close and reading progress.',
@@ -712,7 +714,7 @@ window.CONTENT = {
       'ds.sum.side-card': 'Cards pequenos com link externo, para projetos paralelos e game jams.',
       'ds.sum.case-study-head': 'O topo do painel de um estudo de caso: eyebrow, título, tagline, uma tabela de quatro colunas e ações.',
       'ds.sum.case-section': 'Uma seção com rótulo de um estudo de caso, em geral uma lista de decisões de design com telas: telas de celular lado a lado numa moldura cinza de celular, telas de desktop uma embaixo da outra.',
-      'ds.sum.compare': 'Um comparador de antes e depois para as imagens dos estudos de caso. Arraste o divisor ou aperte Antes ou Depois. Telas de celular dividem a mesma moldura cinza de celular, então só a tela muda; o divisor e as etiquetas ficam na tela.',
+      'ds.sum.compare': 'Um comparador de antes e depois para as imagens dos estudos de caso. Arraste o divisor ou aperte Antes ou Depois. Telas de celular dividem a mesma moldura cinza de celular, então só a tela muda: o divisor percorre só a tela, e as etiquetas ficam acima do celular.',
       'ds.sum.film': 'O storyboard de um vídeo: escolha um quadro ou aperte play para carregar o vídeo pelo domínio com privacidade reforçada do YouTube.',
       'ds.sum.quest-log': 'O painel do jogo de XP: nível, barra de progresso e a lista de missões que o visitante pode completar.',
       'ds.sum.sheet-bar': 'A barra fixa no topo do painel de um estudo de caso, com a trilha, anterior e próximo, fechar e o progresso de leitura.',

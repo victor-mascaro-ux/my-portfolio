@@ -105,10 +105,10 @@
   function cardHTML(c, i) {
     var media = '';
     if (c.art === 'fan') {
-      media = '<div class="cc-media"><img src="' + c.cover + '" alt="' + esc(L(c.coverAlt)) + '" loading="lazy" width="1100" height="1027"></div>';
+      media = '<div class="cc-media"><img src="' + asset(c.cover) + '" alt="' + esc(L(c.coverAlt)) + '" loading="lazy" width="1100" height="1027"></div>';
     } else if (c.cover) {
       // the picture fills the whole picture area, edge to edge
-      media = '<div class="cc-media cover"><img src="' + c.cover + '" alt="' + esc(L(c.coverAlt)) + '" loading="lazy"></div>';
+      media = '<div class="cc-media cover"><img src="' + asset(c.cover) + '" alt="' + esc(L(c.coverAlt)) + '" loading="lazy"></div>';
     } else if (c.emblem) {
       media = '<div class="cc-media"><div class="emblem">' + EMBLEM[c.emblem] + '</div></div>';
     }
@@ -137,7 +137,7 @@
     $('#sideList').innerHTML = C.side.map(function (s) {
       var tag = s.url ? 'a href="' + esc(s.url) + '" target="_blank" rel="noopener"' : 'div';
       return '<li><' + tag + ' class="side-card">' +
-        (s.img ? '<span class="side-media' + (s.fit === 'contain' ? ' is-contain' : '') + '"><img src="' + s.img + '" alt="" loading="lazy"></span>' : '') +
+        (s.img ? '<span class="side-media' + (s.fit === 'contain' ? ' is-contain' : '') + '"><img src="' + asset(s.img) + '" alt="" loading="lazy"></span>' : '') +
         '<span class="side-text"><strong>' + esc(s.t) + (s.url ? ICON.ext : '') + '</strong><span>' + esc(L(s.d)) + '</span></span>' +
         '</' + (s.url ? 'a' : 'div') + '></li>';
     }).join('');
@@ -147,7 +147,7 @@
      h3, since the Lab tab has no group heading above its cards. */
   function labCardHTML(p) {
     return '<a class="case-card tone-' + p.tone + '" href="' + esc(p.url) + '" target="_blank" rel="noopener" data-layout="' + p.layout + '">' +
-      '<div class="cc-media cover"><img src="' + p.cover + '" alt="' + esc(L(p.coverAlt)) + '" loading="lazy"></div>' +
+      '<div class="cc-media cover"><img src="' + asset(p.cover) + '" alt="' + esc(L(p.coverAlt)) + '" loading="lazy"></div>' +
       '<div class="cc-body">' +
         '<p class="cc-kicker label">' + esc(L(p.kicker)) + '</p>' +
         '<h3 class="cc-title">' + esc(L(p.title)) + '</h3>' +
@@ -164,7 +164,7 @@
 
   /* shot: an image of its own instead of the case's cover (a Process step can show a different screen) */
   function caseThumb(c, cls, shot) {
-    return '<span class="' + cls + ' tone-' + c.tone + (c.art && !shot ? ' is-art' : '') + '"><img src="' + (shot || c.cover) + '" alt="" loading="lazy"></span>';
+    return '<span class="' + cls + ' tone-' + c.tone + (c.art && !shot ? ' is-art' : '') + '"><img src="' + asset(shot || c.cover) + '" alt="" loading="lazy"></span>';
   }
   function renderProcess() {
     $('#processList').innerHTML = C.process.map(function (p, i) {
@@ -180,7 +180,7 @@
 
   // company logos sit on a white tile, so dark, red and black marks read on light and dark themes alike
   function logoTile(x, cls) {
-    return '<span class="' + cls + ' has-logo' + (x.logoFill ? ' is-fill' : '') + (x.logoWide ? ' is-wide' : '') + '" aria-hidden="true"><img src="' + x.logo + '" alt="" loading="lazy"></span>';
+    return '<span class="' + cls + ' has-logo' + (x.logoFill ? ' is-fill' : '') + (x.logoWide ? ' is-wide' : '') + '" aria-hidden="true"><img src="' + asset(x.logo) + '" alt="" loading="lazy"></span>';
   }
   // the tools used in a job, as logos: one per brand (Figma, FigJam and Figma prototyping share Figma's), the names in a tooltip
   var TOOLS_SPRITE = 'assets/img/tools.svg?v=2026-10-20m';   // bump when the sprite changes, or a cached copy misses new logos
@@ -232,7 +232,7 @@
         (cases.length || games.length ? '<div class="tl-cases">' + cases.map(function (c) {
           return '<a class="tl-case" href="#case-' + c.id + '" data-case="' + c.id + '">' + caseThumb(c, 'tl-thumb') + '<span>' + esc(L(c.title)) + '</span></a>';
         }).join('') + games.map(function (g) {
-          return '<a class="tl-case" href="' + esc(g.url) + '" target="_blank" rel="noopener"><span class="tl-thumb' + (g.fit === 'contain' ? ' is-art' : '') + '"><img src="' + g.img + '" alt="" loading="lazy"></span><span>' + esc(g.t) + '</span>' + ICON.ext + '</a>';
+          return '<a class="tl-case" href="' + esc(g.url) + '" target="_blank" rel="noopener"><span class="tl-thumb' + (g.fit === 'contain' ? ' is-art' : '') + '"><img src="' + asset(g.img) + '" alt="" loading="lazy"></span><span>' + esc(g.t) + '</span>' + ICON.ext + '</a>';
         }).join('') + '</div>' : '') + toolsHTML(x.tools) + '</div></li>';
     }).join('');
     // the career path: oldest job on the left (by start month), the current one always on the right
@@ -581,8 +581,11 @@
   function caseById(id) { return C.cases.filter(function (c) { return c.id === id; })[0]; }
   function caseIndex(id) { for (var i = 0; i < C.cases.length; i++) if (C.cases[i].id === id) return i; return -1; }
 
+  // Pictures are replaced in place, under the same name, so their address carries imgVersion (content.js)
+  // the way the CSS and JS links carry ?v=: a changed picture reaches a browser that has the old one.
+  function asset(src) { return /^assets\/img\//.test(src) ? src + '?v=' + C.person.imgVersion : src; }
   function imgTag(src, alt, cls) {
-    return '<img src="' + src + '" alt="' + esc(alt || '') + '" loading="lazy"' + (cls ? ' class="' + cls + '"' : '') + '>';
+    return '<img src="' + asset(src) + '" alt="' + esc(alt || '') + '" loading="lazy"' + (cls ? ' class="' + cls + '"' : '') + '>';
   }
 
   // names what to press (Before/After or a year) and how (click with a mouse, tap on touch)
@@ -601,7 +604,7 @@
     if (m.film) {
       var f0 = m.film[0];
       return '<div class="film" data-film' + (m.video ? ' data-video="' + esc(m.video) + '"' : '') + '>' +
-        '<div class="film-screen"><img src="' + f0.src + '" alt="' + esc(L(f0.cap)) + '" data-film-img>' +
+        '<div class="film-screen"><img src="' + asset(f0.src) + '" alt="' + esc(L(f0.cap)) + '" data-film-img>' +
         (m.video ? '<button type="button" class="film-play" data-film-play aria-label="' + esc(t('case.play')) + '">' + ICON.play + '</button>' : '') +
         '<p class="film-cap"><span data-film-t>' + f0.t + '</span><span data-film-cap>' + esc(L(f0.cap)) + '</span></p></div>' +
         '<div class="film-strip">' + m.film.map(function (f, i) {
@@ -696,7 +699,9 @@
       cmp.style.setProperty('--pos', v + '%');
       tagB.setAttribute('aria-pressed', String(v >= 100)); tagA.setAttribute('aria-pressed', String(v <= 0));
     }
-    function follow(e) { var r = cmp.getBoundingClientRect(); set((e.clientX - r.left) / r.width * 100); }
+    // a phone pair's divider travels across the screen only: 25px in from each side of the 560px frame
+    var phone = cmp.classList.contains('is-phone'), x0 = phone ? 25 / 560 : 0, xw = phone ? 510 / 560 : 1;
+    function follow(e) { var r = cmp.getBoundingClientRect(); set(((e.clientX - r.left) / r.width - x0) / xw * 100); }
     input.addEventListener('input', function () { set(+input.value); });
     // drag the divider with a mouse, a finger or a pen (vertical swipes still scroll on touch)
     cmp.addEventListener('pointerdown', function (e) {
@@ -714,7 +719,7 @@
     var btns = $$('.film-strip button', film);
     function show(i) {
       var f = frames[i];
-      if (!reduceMotion.matches) { img.classList.add('swap'); setTimeout(function () { img.src = f.src; img.classList.remove('swap'); }, 120); } else img.src = f.src;
+      if (!reduceMotion.matches) { img.classList.add('swap'); setTimeout(function () { img.src = asset(f.src); img.classList.remove('swap'); }, 120); } else img.src = asset(f.src);
       img.alt = L(f.cap); cap.textContent = L(f.cap); tt.textContent = f.t; range.value = i;
       btns.forEach(function (b, j) { b.setAttribute('aria-pressed', String(j === i)); });
     }

@@ -1100,9 +1100,13 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 /* Phone screens: both pictures carry the same grey phone frame, so the box gives way to the phone's own
    shape and glow, and the divider and the tags stay on the screen (inset 25/1154 of the height, 25/560 of the width) */
 .compare.is-phone { border: 0; border-radius: 0; overflow: visible; box-shadow: none; filter: var(--pic-drop); }
-.compare.is-phone .cmp-line { top: 2.2%; bottom: 2.2%; }
-.compare.is-phone .cmp-tag { top: calc(2.2% + 8px); }
-.compare.is-phone .cmp-tag.before { left: calc(4.5% + 6px); } .compare.is-phone .cmp-tag.after { right: calc(4.5% + 6px); }
+.compare.is-phone { margin-top: 32px; }
+/* the divider and the reveal travel across the screen only (25px in from each side of the 560px frame), never onto the rim */
+.compare.is-phone .cmp-line { top: 2.2%; bottom: 2.2%; left: calc(4.46% + var(--pos) * .9107); }
+.compare.is-phone .cmp-after { clip-path: inset(0 0 0 calc(4.46% + var(--pos) * .9107)); }
+/* the year tags sit above the phone, over its corners, so they never cover the app's own bar */
+.compare.is-phone .cmp-tag { top: -30px; }
+.compare.is-phone .cmp-tag.before { left: 0; } .compare.is-phone .cmp-tag.after { right: 0; }
 .compare-hint { font-size: .74rem; color: var(--muted); font-family: var(--f-mono); }
 
 /* film scrubber */
