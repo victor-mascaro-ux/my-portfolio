@@ -677,8 +677,11 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .lo-art { position: relative; display: grid; place-items: center; min-height: 360px; }
 .lo-phone {
   position: relative; display: flex; flex-direction: column; gap: 10px; width: min(220px, 72%); aspect-ratio: 9 / 18.5; padding: 32px 14px 16px;
-  border-radius: 32px; border: 1.5px dashed color-mix(in srgb, var(--on-blue) 45%, transparent);
+  /* a solid hairline: dashed borders break up into jagged bits once the phone is rotated */
+  border-radius: 32px; border: 1.5px solid color-mix(in srgb, var(--on-blue) 28%, transparent);
+  box-shadow: inset 0 0 0 4px color-mix(in srgb, var(--on-blue) 5%, transparent), 0 24px 48px -20px rgba(0, 0, 0, .55);
   background: color-mix(in srgb, var(--tone-night) 60%, transparent); transform: rotate(-4deg); transition: transform .6s var(--ease-out);
+  backface-visibility: hidden;   /* smoother edges while tilted */
 }
 .lab-offer:hover .lo-phone { transform: rotate(0deg) translateY(-4px); }
 .lo-notch { position: absolute; top: 11px; left: 50%; width: 54px; height: 8px; margin-left: -27px; border-radius: 8px; background: color-mix(in srgb, var(--on-blue) 22%, transparent); }
