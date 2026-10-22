@@ -58,9 +58,9 @@
   --on-blue: #F5F6F8;
   --on-blue-2: #A9BCEA;
   --on-blue-line: rgba(245, 246, 248, .18);
-  /* Contact: the page colours in the light theme, the deep-blue band in the dark one */
+  /* Contact and the Lab offer: the page colours in the light theme, the deep-blue band in the dark one */
   --contact-bg: var(--paper); --contact-bg-2: var(--accent-soft); --contact-ink: var(--ink); --contact-ink-2: var(--ink-2); --contact-line: var(--dot);
-  --contact-cta: var(--accent); --contact-cta-ink: var(--accent-ink); --contact-focus: var(--accent);
+  --contact-cta: var(--accent); --contact-cta-ink: var(--accent-ink); --contact-focus: var(--accent); --contact-screen: var(--surface);
 
   /* 10 — trophy gold */
   --gold: #F2B705;
@@ -144,7 +144,7 @@
     --accent: #4FC3F7; --accent-ink: #06122B; --accent-soft: #102E57;
     --blue-deep: #15265C; --blue-deep-2: #2346A0; --on-blue: #F5F6F8; --on-blue-2: #A9BCEA; --on-blue-line: rgba(245, 246, 248, .18);
     --contact-bg: var(--blue-deep); --contact-bg-2: var(--blue-deep-2); --contact-ink: var(--on-blue); --contact-ink-2: var(--on-blue-2); --contact-line: var(--on-blue-line);
-    --contact-cta: var(--card-hi); --contact-cta-ink: var(--card-hi-ink); --contact-focus: var(--gold);
+    --contact-cta: var(--card-hi); --contact-cta-ink: var(--card-hi-ink); --contact-focus: var(--gold); --contact-screen: rgba(8, 16, 42, .6);
     --gold: #FFC83D; --gold-ink: #FFC83D; --gold-soft: #2E250B; --on-gold: #1F1600;
     --note: #FFD84D; --note-ink: #382800; --note-edge: #E3B214;
     --good-dot: #3FD08A;
@@ -168,7 +168,7 @@
   --accent: #4FC3F7; --accent-ink: #06122B; --accent-soft: #102E57;
   --blue-deep: #15265C; --blue-deep-2: #2346A0; --on-blue: #F5F6F8; --on-blue-2: #A9BCEA; --on-blue-line: rgba(245, 246, 248, .18);
   --contact-bg: var(--blue-deep); --contact-bg-2: var(--blue-deep-2); --contact-ink: var(--on-blue); --contact-ink-2: var(--on-blue-2); --contact-line: var(--on-blue-line);
-  --contact-cta: var(--card-hi); --contact-cta-ink: var(--card-hi-ink); --contact-focus: var(--gold);
+  --contact-cta: var(--card-hi); --contact-cta-ink: var(--card-hi-ink); --contact-focus: var(--gold); --contact-screen: rgba(8, 16, 42, .6);
   --gold: #FFC83D; --gold-ink: #FFC83D; --gold-soft: #2E250B; --on-gold: #1F1600;
   --note: #FFD84D; --note-ink: #382800; --note-edge: #E3B214;
   --good-dot: #3FD08A;
@@ -650,68 +650,68 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .grid-games > [data-layout="sm"] { grid-column: span 6; }
 .grid-games > [data-layout]:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .grid-gamification > [data-layout], .grid-lab > [data-layout] { grid-column: 1 / -1; }
-/* Lab offer: the invite to ask for a custom solution. A deep-blue band like Contact, with three steps,
+/* Lab offer: the invite to ask for a custom solution. A band with the Contact colours (light, or deep blue in the dark theme), with three steps,
    and a blueprint phone that builds itself when it scrolls into view (app.js adds is-ready, then is-building) */
 .lab-offer {
   position: relative; overflow: hidden; isolation: isolate;
   display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: center;
-  margin-top: clamp(40px, 5vw, 64px); padding: clamp(28px, 4vw, 52px); border-radius: 22px; color: var(--on-blue);
-  background: radial-gradient(90% 120% at 100% 0%, var(--blue-deep-2), var(--blue-deep) 60%); box-shadow: var(--pic-shadow);
+  margin-top: clamp(40px, 5vw, 64px); padding: clamp(28px, 4vw, 52px); border-radius: 22px; color: var(--contact-ink);
+  background: radial-gradient(90% 120% at 100% 0%, var(--contact-bg-2), var(--contact-bg) 60%); box-shadow: var(--pic-shadow);
 }
 .lab-offer::before {   /* a faint dot grid on the art side, like a blueprint */
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background: radial-gradient(var(--on-blue-line) 1px, transparent 1.4px) 0 0 / 22px 22px;
+  background: radial-gradient(var(--contact-line) 1px, transparent 1.4px) 0 0 / 22px 22px;
   -webkit-mask-image: linear-gradient(90deg, transparent 35%, #000 80%); mask-image: linear-gradient(90deg, transparent 35%, #000 80%);
 }
-.lab-offer .eyebrow { color: var(--on-blue-2); }
-.lab-offer :focus-visible { outline-color: var(--gold); }
+.lab-offer .eyebrow { color: var(--contact-ink-2); }
+.lab-offer :focus-visible { outline-color: var(--contact-focus); }
 .lo-copy { display: grid; gap: 16px; align-content: start; min-width: 0; }
-.lo-title { font-size: clamp(1.7rem, 1.2rem + 1.6vw, 2.5rem); font-weight: 720; letter-spacing: -.032em; line-height: 1.08; max-width: 26ch; color: var(--on-blue); }
-.lo-lede { color: var(--on-blue-2); font-size: var(--t-lg); line-height: 1.5; max-width: 34em; }
+.lo-title { font-size: clamp(1.7rem, 1.2rem + 1.6vw, 2.5rem); font-weight: 720; letter-spacing: -.032em; line-height: 1.08; max-width: 26ch; color: var(--contact-ink); }
+.lo-lede { color: var(--contact-ink-2); font-size: var(--t-lg); line-height: 1.5; max-width: 34em; }
 .lo-steps { list-style: none; margin: 6px 0 2px; padding: 0; display: grid; gap: 14px; }
 .lo-steps li { display: flex; align-items: flex-start; gap: 14px; }   /* the icon sits by the first line */
 .lo-step-icon {
   flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px;
-  border: 1px solid var(--on-blue-line); background: color-mix(in srgb, var(--card-hi) 14%, transparent); color: var(--card-hi);
+  border: 1px solid var(--contact-line); background: color-mix(in srgb, var(--contact-cta) 14%, transparent); color: var(--contact-cta);
 }
 .lo-step-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .lo-step-text { display: grid; gap: 0; padding-top: 1px; min-width: 0; }
-.lo-step-text strong { font-family: var(--f-display); font-size: 1.05rem; font-weight: 680; line-height: 1.12; letter-spacing: -.01em; color: var(--on-blue); }   /* tight to its line */
-.lo-step-text span { color: var(--on-blue-2); font-size: var(--t-sm); line-height: 1.45; }
+.lo-step-text strong { font-family: var(--f-display); font-size: 1.05rem; font-weight: 680; line-height: 1.12; letter-spacing: -.01em; color: var(--contact-ink); }   /* tight to its line */
+.lo-step-text span { color: var(--contact-ink-2); font-size: var(--t-sm); line-height: 1.45; }
 .lo-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 6px; }
-.lab-offer .btn-primary { background: var(--card-hi); color: var(--card-hi-ink); }
-.lo-note { font-family: var(--f-mono); font-size: var(--t-xs); color: var(--on-blue-2); }
+.lab-offer .btn-primary { background: var(--contact-cta); color: var(--contact-cta-ink); }
+.lo-note { font-family: var(--f-mono); font-size: var(--t-xs); color: var(--contact-ink-2); }
 .lo-art { position: relative; display: grid; place-items: center; min-height: 360px; }
 .lo-art::before {   /* a soft glow behind the phone, in the card highlight */
   content: ""; position: absolute; left: 50%; top: 50%; width: 96%; aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; pointer-events: none;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--card-hi) 62%, transparent), color-mix(in srgb, var(--card-hi) 24%, transparent) 50%, transparent);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--contact-cta) 62%, transparent), color-mix(in srgb, var(--contact-cta) 24%, transparent) 50%, transparent);
   filter: blur(26px); opacity: .9; transition: opacity .6s var(--ease-out), scale .6s var(--ease-out);
 }
 .lab-offer:hover .lo-art::before { opacity: 1; scale: 1.06; }
 .lo-phone {
   position: relative; display: flex; flex-direction: column; gap: 10px; width: min(220px, 72%); aspect-ratio: 9 / 18.5; padding: 32px 14px 16px;
   /* a solid hairline: dashed borders break up into jagged bits once the phone is rotated */
-  border-radius: 32px; border: 1.5px solid color-mix(in srgb, var(--on-blue) 28%, transparent);
-  box-shadow: inset 0 0 0 4px color-mix(in srgb, var(--on-blue) 5%, transparent), 0 24px 48px -20px rgba(0, 0, 0, .55);
-  background: color-mix(in srgb, var(--tone-night) 60%, transparent); transform: rotate(-4deg); transition: transform .6s var(--ease-out);
+  border-radius: 32px; border: 1.5px solid color-mix(in srgb, var(--contact-ink) 28%, transparent);
+  box-shadow: inset 0 0 0 4px color-mix(in srgb, var(--contact-ink) 5%, transparent), var(--shadow);
+  background: var(--contact-screen); transform: rotate(-4deg); transition: transform .6s var(--ease-out);
   backface-visibility: hidden;   /* smoother edges while tilted */
 }
 .lab-offer:hover .lo-phone { transform: rotate(0deg) translateY(-4px); }
-.lo-notch { position: absolute; top: 11px; left: 50%; width: 54px; height: 8px; margin-left: -27px; border-radius: 8px; background: color-mix(in srgb, var(--on-blue) 22%, transparent); }
-.lo-b { display: block; border-radius: 8px; background: color-mix(in srgb, var(--on-blue) 16%, transparent); transform-origin: left center; }
+.lo-notch { position: absolute; top: 11px; left: 50%; width: 54px; height: 8px; margin-left: -27px; border-radius: 8px; background: color-mix(in srgb, var(--contact-ink) 22%, transparent); }
+.lo-b { display: block; border-radius: 8px; background: color-mix(in srgb, var(--contact-ink) 16%, transparent); transform-origin: left center; }
 .lo-head { height: 12px; width: 55%; }
-.lo-hero { display: grid; align-content: end; gap: 6px; height: 96px; padding: 12px; background: color-mix(in srgb, var(--card-hi) 24%, transparent); }
-.lo-line { height: 8px; width: 80%; background: color-mix(in srgb, var(--on-blue) 38%, transparent); }
+.lo-hero { display: grid; align-content: end; gap: 6px; height: 96px; padding: 12px; background: color-mix(in srgb, var(--contact-cta) 24%, transparent); }
+.lo-line { height: 8px; width: 80%; background: color-mix(in srgb, var(--contact-ink) 38%, transparent); }
 .lo-row { position: relative; height: 30px; }
-.lo-row::before, .lo-row::after { content: ""; position: absolute; top: 50%; border-radius: 99px; background: color-mix(in srgb, var(--on-blue) 26%, transparent); }
+.lo-row::before, .lo-row::after { content: ""; position: absolute; top: 50%; border-radius: 99px; background: color-mix(in srgb, var(--contact-ink) 26%, transparent); }
 .lo-row::before { left: 8px; width: 14px; height: 14px; margin-top: -7px; }   /* an avatar */
 .lo-row::after { left: 30px; width: 45%; height: 6px; margin-top: -3px; }   /* and its line */
 .lo-b.is-short { width: 60%; }
 .lo-line.is-short { width: 45%; }
-.lo-btn { height: 34px; margin-top: auto; border-radius: 10px; background: var(--card-hi); }
+.lo-btn { height: 34px; margin-top: auto; border-radius: 10px; background: var(--contact-cta); }
 .lo-chip {
   position: absolute; top: 16%; right: 9%; display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px 7px 10px; border-radius: 999px;
-  background: var(--card-hi); color: var(--card-hi-ink); font-family: var(--f-mono); font-size: .8rem; font-weight: 700; letter-spacing: .04em; box-shadow: var(--shadow);
+  background: var(--contact-cta); color: var(--contact-cta-ink); font-family: var(--f-mono); font-size: .8rem; font-weight: 700; letter-spacing: .04em; box-shadow: var(--shadow);
 }
 .lo-chip svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .lab-offer.is-ready .lo-b, .lab-offer.is-ready .lo-chip { opacity: 0; }

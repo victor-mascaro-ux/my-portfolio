@@ -22,7 +22,7 @@
     ['accent', ['accent', 'accent-ink', 'accent-soft', 'card-hi', 'card-hi-ink']],
     ['gold', ['gold', 'gold-ink', 'gold-soft', 'on-gold', 'note', 'note-edge', 'note-ink', 'good-dot']],
     ['deep', ['blue-deep', 'blue-deep-2', 'on-blue', 'on-blue-2', 'on-blue-line']],
-    ['contact', ['contact-bg', 'contact-bg-2', 'contact-ink', 'contact-ink-2', 'contact-line', 'contact-cta', 'contact-cta-ink', 'contact-focus']],
+    ['contact', ['contact-bg', 'contact-bg-2', 'contact-ink', 'contact-ink-2', 'contact-line', 'contact-cta', 'contact-cta-ink', 'contact-focus', 'contact-screen']],
     ['tones', ['tone-night', 'tone-deep', 'tone-deep-2', 'tone-blue', 'tone-pale']],
     ['bands', ['band-1', 'band-2', 'band-3', 'band-4']],
     ['effects', ['glow', 'scrim', 'toast-bg', 'toast-fg', 'logo-bg']]
