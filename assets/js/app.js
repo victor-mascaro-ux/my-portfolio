@@ -288,8 +288,17 @@
       (s.extra ? '<p class="td-extra">' + esc(s.extra[lang].join(' · ')) + '</p>' : '');
   }
 
+  /* the designer card again in Contact: a copy of the hero's (the one to edit), drawn again on every render */
+  function renderContactCard() {
+    var box = $('#contactCard'); if (!box) return;
+    var c = $('#playerCard').cloneNode(true);
+    c.removeAttribute('id'); $$('[id]', c).forEach(function (n) { n.removeAttribute('id'); });
+    c.classList.remove('is-tilting'); c.removeAttribute('style');
+    box.innerHTML = ''; box.appendChild(c); tiltCard(c);
+  }
   function renderAll() {
     renderLoadout(); renderWork(); renderProcess(); renderTimeline(); renderTree(); renderQuestLog(); updateXPHud(false);
+    renderContactCard();
     renderSpecimens();
   }
 
@@ -500,7 +509,7 @@
   $$('a', mobileNav).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
 
   /* ---------- player card tilt + holo ---------- */
-  $$('.player-card').forEach(function (card) {
+  function tiltCard(card) {
     card.addEventListener('pointermove', function (e) {
       if (!finePointer.matches || reduceMotion.matches) return;
       var r = card.getBoundingClientRect();
@@ -516,7 +525,8 @@
       ['--rx', '--ry'].forEach(function (p) { card.style.setProperty(p, '0deg'); });
       card.style.setProperty('--hx', '50%'); card.style.setProperty('--hy', '50%');
     });
-  });
+  }
+  $$('.player-card').forEach(tiltCard);
 
   /* ---------- case sheet ---------- */
   function hist(kind, state, url) { try { history[kind](state, '', url); return true; } catch (e) { return false; } }
@@ -740,6 +750,7 @@
       return '<div class="toast" role="status"><span class="medal" aria-hidden="true">' + ICON.star + '</span><span><span class="toast-k">' + esc(t('quest.unlocked')) + '</span>' +
         '<span class="toast-t">' + esc(L(a.t)) + '  +' + a.xp + ' XP</span></span></div><div class="toast toast-plain" role="status">' + esc(t('contact.copied')) + '</div>';
     },
+    contact: function () { return outer($('#contact')); },
     footer: function () { return outer($('body > .footer')); }
   };
   // a preview is a copy: no ids, never a tab, headings under the component's own, landmarks named as previews, no email
@@ -1070,7 +1081,7 @@
       else fallback();
     } catch (e) { fallback(); }
   });
-  $('#linkedin').addEventListener('click', function () { unlock('party'); });
+  document.addEventListener('click', function (e) { if (e.target.closest('#linkedin, [data-social="linkedin"]')) unlock('party'); });
 
   /* ---------- keyboard ---------- */
   document.addEventListener('keydown', function (e) {
@@ -1165,7 +1176,7 @@
     process: ['#process .section-head', '#process .process-list li'],
     experience: ['#experience .section-head', '#experience .timeline > li'],
     skills: ['#skills .section-head', '#skills .tree-detail', '#skills .courses'],
-    contact: ['#contact .contact-inner > *'],
+    contact: ['#contact .contact-main > *', '#contact .contact-card'],
     system: ['#system > .section-head', '#system .ds-toc', '#system .ds-section > .group-head', '#system .ds-grid > *', '#system .ds-swatch', '#system .ds-scale-row', '#system .ds-curves > *', '#system .ds-demos > *', '#system .ds-icon', '#system .ds-comp', '#system .ds-say', '#system .ds-table-wrap']
   };
   function enterTab(id) {
