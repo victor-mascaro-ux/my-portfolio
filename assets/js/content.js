@@ -365,7 +365,7 @@ window.CONTENT = {
       'work.gamification.title': 'Gamification',
       'work.gamification.meta': 'Betsie · 2024',
       'work.side.title': 'University projects and game jams',
-      'work.side.lede': 'Games I made during my game design degree, alone or in small teams.',
+      'work.side.lede': 'Games I made during my game design degree, alone or in small teams. My roles included game producer, game designer and level designer.',
       'work.read': 'Read', 'work.min': 'min', 'work.open': 'Read',
 
       'process.eyebrow': 'Process',
@@ -764,7 +764,7 @@ window.CONTENT = {
       'work.gamification.title': 'Gamificação',
       'work.gamification.meta': 'Betsie · 2024',
       'work.side.title': 'Projetos da faculdade e game jams',
-      'work.side.lede': 'Jogos que fiz na faculdade de game design, sozinho ou em grupos pequenos.',
+      'work.side.lede': 'Jogos que fiz na faculdade de game design, sozinho ou em grupos pequenos. Meus papéis incluíram produtor de jogos, game designer e level designer.',
       'work.read': 'Ler', 'work.min': 'min', 'work.open': 'Ler',
 
       'process.eyebrow': 'Processo',
