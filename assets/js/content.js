@@ -1378,6 +1378,14 @@ window.CONTENT = {
       title: { en: 'Backpocket', pt: 'Backpocket' },
       tagline: { en: 'Half of workers in a 2023 survey don’t file expense reports for money they’re owed, and the top complaint is the paperwork. Here, the report fills itself in from a photo of the receipt, asks only about what it isn’t sure of, and checks the expense policy for you.', pt: 'Metade dos profissionais numa pesquisa de 2023 não pede o reembolso de despesas que a empresa deve a eles, e a maior reclamação é a papelada. Aqui, o relatório se preenche sozinho a partir da foto do recibo, só pergunta sobre o que não tem certeza e confere a política de despesas por você.' },
       chip: { en: 'About 3 min · guided', pt: 'Cerca de 3 min · guiado' }
+    },
+    {
+      id: 'firstweek', url: 'https://victor-mascaro-ux.github.io/firstweek/', layout: 'lg-wide', tone: 'blue',
+      cover: 'assets/img/card-firstweek.webp', coverAlt: { en: 'Firstweek on two laptops: the People team’s first-week plan with the source of a step open, and the new hire’s answer about vacation days, where two documents disagree and the newer one is used', pt: 'O Firstweek em dois notebooks: o plano da primeira semana do time de Pessoas com a fonte de uma etapa aberta, e a resposta sobre férias para quem acabou de chegar, em que dois documentos discordam e o mais novo é usado' },
+      kicker: { en: 'Prototype 02 · UX/AI', pt: 'Protótipo 02 · UX/AI' },
+      title: { en: 'Firstweek', pt: 'Firstweek' },
+      tagline: { en: '47% of digital workers in a 2023 survey struggle to find the information they need to do their jobs. Here, the AI drafts a new hire’s first week from the company’s documents and answers only from them, with the source, or hands the question to a person.', pt: '47% dos profissionais digitais numa pesquisa de 2023 têm dificuldade para encontrar as informações de que precisam para trabalhar. Aqui, a IA monta a primeira semana de quem chega a partir dos documentos da empresa e responde só com base neles, com a fonte, ou passa a pergunta para uma pessoa.' },
+      chip: { en: 'About 3 min · guided', pt: 'Cerca de 3 min · guiado' }
     }
   ],
 
