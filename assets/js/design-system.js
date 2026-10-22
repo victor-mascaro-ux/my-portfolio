@@ -22,6 +22,7 @@
     ['accent', ['accent', 'accent-ink', 'accent-soft', 'card-hi', 'card-hi-ink']],
     ['gold', ['gold', 'gold-ink', 'gold-soft', 'on-gold', 'note', 'note-edge', 'note-ink', 'good-dot']],
     ['deep', ['blue-deep', 'blue-deep-2', 'on-blue', 'on-blue-2', 'on-blue-line']],
+    ['contact', ['contact-bg', 'contact-bg-2', 'contact-ink', 'contact-ink-2', 'contact-line', 'contact-cta', 'contact-cta-ink', 'contact-focus']],
     ['tones', ['tone-night', 'tone-deep', 'tone-deep-2', 'tone-blue', 'tone-pale']],
     ['bands', ['band-1', 'band-2', 'band-3', 'band-4']],
     ['effects', ['glow', 'scrim', 'toast-bg', 'toast-fg', 'logo-bg']]
@@ -29,7 +30,8 @@
   var NAMES = [].concat.apply([], TOKENS.map(function (g) { return g[1]; }));
   // text pairs whose contrast is shown on the foreground's swatch and in the Accessibility table
   var PAIRS = [['ink', 'paper'], ['ink-2', 'paper'], ['muted', 'paper'], ['muted', 'surface'], ['accent', 'paper'], ['accent-ink', 'accent'],
-    ['gold-ink', 'paper'], ['on-gold', 'gold'], ['on-blue', 'blue-deep'], ['on-blue-2', 'blue-deep'], ['card-hi-ink', 'card-hi'], ['toast-fg', 'toast-bg'], ['note-ink', 'note']];
+    ['gold-ink', 'paper'], ['on-gold', 'gold'], ['on-blue', 'blue-deep'], ['on-blue-2', 'blue-deep'], ['card-hi-ink', 'card-hi'], ['toast-fg', 'toast-bg'], ['note-ink', 'note'],
+    ['contact-ink', 'contact-bg'], ['contact-ink-2', 'contact-bg'], ['contact-cta-ink', 'contact-cta']];
 
   // read every token in one theme by switching the root for a moment (no paint happens in between)
   function readTheme(theme, names) {

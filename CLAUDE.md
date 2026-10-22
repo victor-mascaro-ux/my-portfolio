@@ -14,7 +14,7 @@ Craft details matter as much as content.
 - **Both languages, always.** Every string lives in `assets/js/content.js` with
   `en` and `pt` (Brazilian Portuguese). Never add copy only in one language.
   Portuguese runs ~20% longer; check layouts in both.
-- **Palette “Viktory Night”, 60 · 30 · 10.** Ice / navy neutrals (60), neon blue (30: actions, the player card, card art, the contact band), trophy gold (10: progress and highlights). No other hues except tiny semantic dots.
+- **Palette “Viktory Night”, 60 · 30 · 10.** Ice / navy neutrals (60), neon blue (30: actions, the player card, card art, the Lab offer, and the contact band in the dark theme; Contact uses the page colours in the light theme via the `--contact-*` tokens), trophy gold (10: progress and highlights). No other hues except tiny semantic dots.
 - **Motion on every tab.** The hero entrance is the big moment. Every other tab gets a short staggered entrance each time it opens (`enterTab` in app.js), content below the fold rises in on scroll, and the Process line, Education rings and career path draw again. Everything else responds to input. Scroll reveals move content, never hide it.
 - **Both themes, always.** Colors are tokens at the top of `assets/css/main.css`:
   light values on `:root`, dark values repeated in the
