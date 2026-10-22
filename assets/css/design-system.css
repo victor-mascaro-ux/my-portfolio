@@ -190,6 +190,7 @@
 .ds-stage .tab-next { margin-top: 0; padding-bottom: 0; }
 .ds-stage .branch::before { display: none; }   /* one branch on its own: no connector up to the tree's root */
 .ds-stage .case-grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.ds-stage .case-grid > [data-layout="lg-wide"] { grid-column: 1 / -1; }   /* the Lab card, wide as on its tab */
 .ds-code { margin-top: 2px; }
 .ds-code > summary { list-style: none; cursor: pointer; }
 .ds-code > summary::-webkit-details-marker { display: none; }

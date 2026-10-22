@@ -142,6 +142,25 @@
     }).join('');
   }
 
+  /* Lab: the same card as Projects, but it opens the prototype itself in a new tab.
+     h3, since the Lab tab has no group heading above its cards. */
+  function labCardHTML(p) {
+    return '<a class="case-card tone-' + p.tone + '" href="' + esc(p.url) + '" target="_blank" rel="noopener" data-layout="' + p.layout + '">' +
+      '<div class="cc-media cover"><img src="' + p.cover + '" alt="' + esc(L(p.coverAlt)) + '" loading="lazy"></div>' +
+      '<div class="cc-body">' +
+        '<p class="cc-kicker label">' + esc(L(p.kicker)) + '</p>' +
+        '<h3 class="cc-title">' + esc(L(p.title)) + '</h3>' +
+        '<p class="cc-tagline">' + esc(L(p.tagline)) + '</p>' +
+        '<div class="cc-foot">' +
+          (p.chip ? '<span class="chip-metric">' + esc(L(p.chip)) + '</span>' : '') +
+          '<span class="cc-read">' + esc(t('lab.try')) + ICON.ext + '</span>' +
+        '</div>' +
+      '</div></a>';
+  }
+  function renderLab() {
+    $('#gridLab').innerHTML = C.lab.map(labCardHTML).join('');
+  }
+
   function caseThumb(c, cls) {
     return '<span class="' + cls + ' tone-' + c.tone + (c.art ? ' is-art' : '') + '"><img src="' + c.cover + '" alt="" loading="lazy"></span>';
   }
@@ -297,7 +316,7 @@
     box.innerHTML = ''; box.appendChild(c); tiltCard(c);
   }
   function renderAll() {
-    renderLoadout(); renderWork(); renderProcess(); renderTimeline(); renderTree(); renderQuestLog(); updateXPHud(false);
+    renderLoadout(); renderWork(); renderLab(); renderProcess(); renderTimeline(); renderTree(); renderQuestLog(); updateXPHud(false);
     renderContactCard();
     renderSpecimens();
   }
@@ -428,7 +447,7 @@
   /* One section at a time. Home is the hero and In short; each other section is a
      tab with its own hash (#work, #process…), so links, Back and reloads land on it.
      A case study (#case-<id>) opens over the Work tab. */
-  var TABS = ['work', 'process', 'experience', 'skills', 'system', 'contact'];
+  var TABS = ['work', 'lab', 'process', 'experience', 'skills', 'system', 'contact'];
   var currentTab = null;
   /* every tab ends with the hero's tiles; the next tab is the highlighted one */
   var tabNext = $('#tabNext');
@@ -732,7 +751,7 @@
       var rows = $$('#timeline > li'), game = rows.filter(function (li) { return $('.tl-case[target]', li); })[0];
       return outer(rows[0]) + (game && game !== rows[0] ? outer(game) : '');
     },
-    caseCards: function () { return cardHTML(caseById('advisor')) + cardHTML(caseById('illuminati')); },
+    caseCards: function () { return cardHTML(caseById('advisor')) + cardHTML(caseById('illuminati')) + labCardHTML(C.lab[0]); },
     loadout: function () { return C.loadout[lang].map(function (x) { return '<li>' + esc(x) + '</li>'; }).join(''); },
     process: function () { return $$('#processList > li').slice(0, 2).map(outer).join(''); },
     side: function () { return $$('#sideList > li').slice(0, 3).map(outer).join(''); },
@@ -1173,6 +1192,7 @@
   var ENTER = {
     home: ['.hero-copy > *', '.hero-card-wrap', '.short-inner'],
     work: ['#work .section-head', '#work .group-head', '#work .case-card', '#work .side-list li'],
+    lab: ['#lab .section-head', '#lab .case-card'],
     process: ['#process .section-head', '#process .process-list li'],
     experience: ['#experience .section-head', '#experience .timeline > li'],
     skills: ['#skills .section-head', '#skills .tree-detail', '#skills .courses'],

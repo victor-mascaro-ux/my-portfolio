@@ -27,6 +27,7 @@ window.CONTENT = {
       'nav.work': 'Projects', 'nav.process': 'Process', 'nav.experience': 'Experience', 'nav.skills': 'Education', 'nav.contact': 'Contact',
       'brand.label': 'Victor Mascaro: UX/AI, Gamification, Game Design. Back to top',
       'nav.system': 'Design system', 'hero.tab.system': 'How this site is built',
+      'nav.lab': 'Lab', 'hero.tab.lab': 'Prototypes you can try',
       'nav.menu': 'Menu', 'nav.close': 'Close menu',
       'hud.lang': 'EN, switch to Portuguese', 'hud.langShort': 'EN',
       // Design system tab (#system)
@@ -237,7 +238,7 @@ window.CONTENT = {
       'ds.m.s.durations': 'Durations',
       'ds.m.s.demos': 'Demos',
       'ds.icons.intro': 'Every icon is an inline SVG on a 24px viewBox, drawn with <code>stroke: currentColor</code> at 1.8–2px with round caps and joins, and no fill. They take the color of the text around them and are marked <code>aria-hidden</code>, since a visible label always sits next to them.',
-      'ds.icons.count': '29 icons, collected from <code>index.html</code> and the icon set in <code>app.js</code>, without duplicates.',
+      'ds.icons.count': '30 icons, collected from <code>index.html</code> and the icon set in <code>app.js</code>, without duplicates.',
       'ds.icons.brands': 'The tool logos in Experience are brand marks, mostly from Simple Icons (CC0), kept in <code>assets/img/tools.svg</code> and drawn in one color like these icons, one logo per brand. Their names show in a tooltip.',
       'ds.escHint': 'Press <kbd>Esc</kbd> to close.',
       'ds.for': 'for',
@@ -248,7 +249,7 @@ window.CONTENT = {
       'ds.sum.tool': 'Compact 38px header and toolbar buttons: language, theme, menu, close.',
       'ds.sum.xp-meter': 'The header button that shows the visitor’s level and XP and opens the quest log.',
       'ds.sum.header': 'The sticky 64px header (the site’s HUD): logo, section nav and tools on frosted glass. Between 1101 and 1199px the nav drops its icons so every label stays on one line; below that, the menu button takes over.',
-      'ds.sum.hero-tabs': 'Card-style section links: the hero’s shortcut grid and the “Keep exploring” row at the end of each tab.',
+      'ds.sum.hero-tabs': 'Card-style section links: the hero’s shortcut grid and the “Keep exploring” row at the end of each tab. In the hero, the filled Projects tile takes a row of its own so the other six split evenly; from 1101px the end-of-tab row keeps every tab on one line.',
       'ds.sum.mobile-nav': 'The full-width menu under the header on screens below 1100px.',
       'ds.sum.next-case': 'The deep-blue button at the end of a case study that opens the next project.',
       'ds.sum.eyebrow': 'Mono labels: <code>.eyebrow</code> above section titles and <code>.label</code> for small headings and metadata.',
@@ -261,7 +262,7 @@ window.CONTENT = {
       'ds.sum.skill-tree': 'The Education skill tree: branches of course nodes and a detail panel for the selected one.',
       'ds.sum.stat-strip': 'The “In short” card under the hero: four headline numbers with a one-line explanation each.',
       'ds.sum.timeline': 'One row per job in Experience: dates, company and role, then bullet points, cards for the related projects and the tools used there, as logos whose names show on hover or on a tap. A card can also open a game in a new tab, like Where is Estela? on the PROAC row.',
-      'ds.sum.case-card': 'The project card in Projects: cover, kicker, title, tagline, one metric chip and the read time.',
+      'ds.sum.case-card': 'The project card in Projects: cover, kicker, title, tagline, one metric chip and the read time. In Lab the same card opens the prototype in a new tab, so its footer says Try it with the external-link icon.',
       'ds.sum.player-card': 'The trading-card profile in a chrome frame, on Home and in Contact: level, portrait, the logo, stats, tools, status, the CV button and LinkedIn and GitHub. Move the pointer over it to tilt it; the frame’s reflections slide with the tilt.',
       'ds.sum.process-step': 'A numbered step in the Process tab, with a screenshot, an explanation and a linked example.',
       'ds.sum.side-card': 'Small external-link cards for side projects and game jams.',
@@ -369,6 +370,11 @@ window.CONTENT = {
       'work.side.lede': 'Games I made during my game design degree, alone or in small teams. My roles included game producer, game designer and level designer.',
       'work.read': 'Read', 'work.min': 'min', 'work.open': 'Read',
 
+      'lab.eyebrow': 'Lab',
+      'lab.title': 'Prototypes I build on my own',
+      'lab.lede': 'Ideas I design and build end to end, outside client work. Each one is a working prototype that runs in your browser.',
+      'lab.try': 'Try it',
+
       'process.eyebrow': 'Process',
       'process.title': 'How I work',
       'process.lede': 'Roughly the steps I follow on most projects.',
@@ -427,6 +433,7 @@ window.CONTENT = {
       'nav.work': 'Projetos', 'nav.process': 'Processo', 'nav.experience': 'Experiência', 'nav.skills': 'Formação', 'nav.contact': 'Contato',
       'brand.label': 'Victor Mascaro: UX/AI, Gamificação, Game Design. Voltar ao início',
       'nav.system': 'Design system', 'hero.tab.system': 'Como este site é construído',
+      'nav.lab': 'Lab', 'hero.tab.lab': 'Protótipos para testar',
       'nav.menu': 'Menu', 'nav.close': 'Fechar menu',
       'hud.lang': 'PT, mudar para inglês', 'hud.langShort': 'PT',
       // aba Design system (#system)
@@ -637,7 +644,7 @@ window.CONTENT = {
       'ds.m.s.durations': 'Durações',
       'ds.m.s.demos': 'Demonstrações',
       'ds.icons.intro': 'Cada ícone é um SVG inline numa viewBox de 24px, desenhado com <code>stroke: currentColor</code> de 1,8–2px, pontas e junções arredondadas e sem preenchimento. Eles herdam a cor do texto ao redor e são marcados com <code>aria-hidden</code>, já que sempre há um rótulo visível ao lado.',
-      'ds.icons.count': '29 ícones, reunidos do <code>index.html</code> e do conjunto de ícones do <code>app.js</code>, sem repetições.',
+      'ds.icons.count': '30 ícones, reunidos do <code>index.html</code> e do conjunto de ícones do <code>app.js</code>, sem repetições.',
       'ds.icons.brands': 'Os logos de ferramentas em Experiência são marcas, a maioria do Simple Icons (CC0), guardadas em <code>assets/img/tools.svg</code> e desenhadas numa cor só, como estes ícones, um logo por marca. Os nomes aparecem num tooltip.',
       'ds.escHint': 'Aperte <kbd>Esc</kbd> para fechar.',
       'ds.for': 'de',
@@ -648,7 +655,7 @@ window.CONTENT = {
       'ds.sum.tool': 'Botões compactos de 38px do cabeçalho e das barras: idioma, tema, menu, fechar.',
       'ds.sum.xp-meter': 'O botão do cabeçalho que mostra o nível e o XP do visitante e abre o registro de missões.',
       'ds.sum.header': 'O cabeçalho fixo de 64px (o HUD do site): logo, menu das seções e ferramentas sobre vidro fosco. Entre 1101 e 1199px o menu esconde os ícones, para cada rótulo caber numa linha; abaixo disso, entra o botão de menu.',
-      'ds.sum.hero-tabs': 'Links de seção em forma de card: a grade de atalhos do hero e a fileira “Continue explorando” no fim de cada aba.',
+      'ds.sum.hero-tabs': 'Links de seção em forma de card: a grade de atalhos do hero e a fileira “Continue explorando” no fim de cada aba. No hero, o card preenchido de Projetos ocupa uma linha inteira, para os outros seis se dividirem por igual; a partir de 1101px, a fileira do fim da aba mantém todas as abas numa linha só.',
       'ds.sum.mobile-nav': 'O menu de largura total sob o cabeçalho, em telas abaixo de 1100px.',
       'ds.sum.next-case': 'O botão em azul profundo no fim de um estudo de caso, que abre o próximo projeto.',
       'ds.sum.eyebrow': 'Rótulos mono: <code>.eyebrow</code> acima dos títulos de seção e <code>.label</code> para títulos pequenos e metadados.',
@@ -661,7 +668,7 @@ window.CONTENT = {
       'ds.sum.skill-tree': 'A árvore de habilidades de Formação: ramos de cursos e um painel com os detalhes do selecionado.',
       'ds.sum.stat-strip': 'O card “Em resumo” sob o hero: quatro números principais, cada um com uma explicação de uma linha.',
       'ds.sum.timeline': 'Uma linha por emprego em Experiência: datas, empresa e cargo, depois tópicos, cards dos projetos relacionados e as ferramentas usadas ali, como logos cujos nomes aparecem no hover ou ao tocar. Um card também pode abrir um jogo numa nova aba, como o Where is Estela? na linha da PROAC.',
-      'ds.sum.case-card': 'O card de projeto em Projetos: capa, kicker, título, tagline, um chip de métrica e o tempo de leitura.',
+      'ds.sum.case-card': 'O card de projeto em Projetos: capa, kicker, título, tagline, um chip de métrica e o tempo de leitura. No Lab, o mesmo card abre o protótipo numa nova aba, por isso o rodapé diz Testar, com o ícone de link externo.',
       'ds.sum.player-card': 'O perfil em forma de carta colecionável, numa moldura cromada, no início e em Contato: nível, retrato, o logo, atributos, ferramentas, status, o botão do CV e LinkedIn e GitHub. Passe o ponteiro por cima para inclinar; os reflexos da moldura deslizam junto.',
       'ds.sum.process-step': 'Uma etapa numerada da aba Processo, com uma tela, a explicação e um exemplo com link.',
       'ds.sum.side-card': 'Cards pequenos com link externo, para projetos paralelos e game jams.',
@@ -768,6 +775,11 @@ window.CONTENT = {
       'work.side.title': 'Projetos da faculdade e game jams',
       'work.side.lede': 'Jogos que fiz na faculdade de game design, sozinho ou em grupos pequenos. Meus papéis incluíram produtor de jogos, game designer e level designer.',
       'work.read': 'Ler', 'work.min': 'min', 'work.open': 'Ler',
+
+      'lab.eyebrow': 'Lab',
+      'lab.title': 'Protótipos que faço por conta própria',
+      'lab.lede': 'Ideias que desenho e construo do início ao fim, fora dos projetos para clientes. Cada uma é um protótipo funcional que roda no seu navegador.',
+      'lab.try': 'Testar',
 
       'process.eyebrow': 'Processo',
       'process.title': 'Como eu trabalho',
@@ -1304,6 +1316,20 @@ window.CONTENT = {
       ],
       metrics: [],
       live: 'https://apps.apple.com/us/app/hemp-paradise-420-weed-farm/id1541215176'
+    }
+  ],
+
+  /* ---------- Lab: my own prototypes ----------
+     Each card opens the prototype itself, in a new tab (no case-study sheet).
+  */
+  lab: [
+    {
+      id: 'backpocket', url: 'https://victor-mascaro-ux.github.io/backpocket/', layout: 'lg-wide', tone: 'deep',
+      cover: 'assets/img/card-backpocket.webp', coverAlt: { en: 'Three Backpocket screens: the October report, a smudged fuel total with two readings to pick from, and a client dinner offering the guests’ names from the calendar', pt: 'Três telas do Backpocket: o relatório de outubro, um total de combustível borrado com duas leituras para escolher e um jantar com cliente sugerindo os nomes dos convidados a partir da agenda' },
+      kicker: { en: 'Prototype 01 · UX/AI', pt: 'Protótipo 01 · UX/AI' },
+      title: { en: 'Backpocket', pt: 'Backpocket' },
+      tagline: { en: 'An expense report that fills itself in from a photo of the receipt, asks only about what it isn’t sure of, and checks every receipt against the expense policy.', pt: 'Um relatório de despesas que se preenche sozinho a partir da foto do recibo, só pergunta o que não tem certeza e confere cada recibo com a política de despesas.' },
+      chip: { en: '7 guided tasks', pt: '7 tarefas guiadas' }
     }
   ],
 
