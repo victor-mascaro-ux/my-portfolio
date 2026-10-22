@@ -23,7 +23,7 @@ Craft details matter as much as content.
 - **Nothing is gated by the game layer.** XP and achievements are decoration;
   content and contact stay one click away. The game layer can be switched off.
 - **Every change updates the Design system tab too** (`#system`): token notes, component summaries, previews and prose, in EN and PT, in the same commit. Its words are `ds.*` keys in `content.js` (between the "Design system tab's words" markers); live previews are the `SPECIMEN` builders in `app.js`; static previews are in `index.html`; the swatch list is in `design-system.js`.
-- **Yellow is for highlights only** (XP, the underline, badges, the Next tile's outline and pill): never a band, background or large fill. New colours must come from the existing tokens.
+- **Yellow is for highlights only** (XP, the underline, badges, the Next tile's outline): never a band, background or large fill. New colours must come from the existing tokens.
 - **Respect reduced motion.** New animations need a `prefers-reduced-motion` path.
 - **Plain writing.** First person, specific, no slogans or "lessons". Never add a number that can't be backed up.
 - **Metrics need context.** Each number states what it measured and whether it
