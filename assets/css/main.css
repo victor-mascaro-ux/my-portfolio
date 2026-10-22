@@ -435,12 +435,18 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .hero-lede { font-size: var(--t-lg); color: var(--ink-2); max-width: 34em; line-height: 1.55; }
 /* Hero shortcuts: one tile per tab */
 .hero-tabs { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); gap: 10px; max-width: 620px; min-width: 0; }
+/* the section's icon top left and a pill (Next, You're here) top right, then title and line */
 .hero-tab {
-  display: grid; gap: 2px; align-content: start; padding: 12px 14px 13px; border-radius: 12px; text-decoration: none; color: var(--ink);
+  display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon badge" "title title" "sub sub"; gap: 2px 8px;
+  align-content: start; padding: 12px 14px 13px; border-radius: 12px; text-decoration: none; color: var(--ink);
   background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm);
   transition: transform .25s var(--ease-out), border-color .2s, box-shadow .25s;
 }
-.hero-tab strong { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-family: var(--f-display); font-size: 1.04rem; font-weight: 680; letter-spacing: -.01em; }
+.hero-tab .ht-icon { grid-area: icon; width: 20px; height: 20px; margin-bottom: 8px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; color: var(--accent); }
+.hero-tab.is-primary .ht-icon { color: var(--accent-ink); }
+.hero-tab[aria-current="page"] .ht-icon { color: var(--muted); }
+.hero-tab > span { grid-area: sub; }
+.hero-tab strong { grid-area: title; display: flex; align-items: center; justify-content: space-between; gap: 8px; font-family: var(--f-display); font-size: 1.04rem; font-weight: 680; letter-spacing: -.01em; }
 .hero-tab strong svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; transition: transform .25s var(--ease-out); }
 .hero-tab > span { font-size: var(--t-xs); color: var(--muted); line-height: 1.4; }
 .hero-tab:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: var(--shadow); }
@@ -565,7 +571,7 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .hero-tab.is-next { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent), var(--shadow-sm); }
 .tab-next .hero-tab::before { content: "\00a0"; visibility: hidden; }
 .tab-next .hero-tab::before, .hero-tab[data-badge]::before {
-  justify-self: start; margin-bottom: 6px; padding: 2px 7px; border-radius: 5px;
+  grid-area: badge; justify-self: end; align-self: start; padding: 2px 7px; border-radius: 5px;
   font-family: var(--f-mono); font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
   background: var(--paper-2); color: var(--muted);
 }
