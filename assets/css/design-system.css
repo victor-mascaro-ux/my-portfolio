@@ -126,6 +126,7 @@
 .ds-scale-meta b { color: var(--ink); font-size: .82rem; transition: color var(--dur-1) var(--ease); }
 .ds-scale-sample { color: var(--ink); line-height: 1.15; overflow-wrap: anywhere; min-width: 0; }
 @media (max-width: 640px) { .ds-scale-row { grid-template-columns: minmax(0, 1fr); } }
+.ds-card .ds-hl-sample { font-family: var(--f-display); font-size: clamp(1.1rem, 1rem + .5vw, 1.35rem); font-weight: 650; line-height: 1.3; letter-spacing: -.015em; color: var(--ink); }
 
 /* ---------- space, radius, shadow ---------- */
 .ds-space { display: grid; gap: 10px; }

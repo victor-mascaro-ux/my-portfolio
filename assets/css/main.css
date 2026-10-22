@@ -229,6 +229,9 @@ kbd {
 }
 .eyebrow { display: inline-flex; align-items: center; gap: 10px; }
 .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--gold); transform: rotate(45deg); flex: none; position: relative; top: -.06em; }
+/* highlight: a few words of a sentence in color, one per block, never underlined (the gold underline is the hero title's) */
+.hl { color: var(--accent); font-weight: 700; }
+.hl-gold { color: var(--gold-ink); font-weight: 700; }
 
 /* ---------- Buttons ---------- */
 .btn {
