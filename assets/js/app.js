@@ -88,7 +88,8 @@
     check: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
     book: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5zM20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg>',
     spark: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></svg>',
-    mask: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6c3 1.5 13 1.5 16 0 0 7-3 12-8 12S4 13 4 6z"/><path d="M8.5 11h2M13.5 11h2"/></svg>'
+    mask: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6c3 1.5 13 1.5 16 0 0 7-3 12-8 12S4 13 4 6z"/><path d="M8.5 11h2M13.5 11h2"/></svg>',
+    power: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v8"/><path d="M7.2 6.4a7.5 7.5 0 1 0 9.6 0"/></svg>'
   };
   var EMBLEM = {
     eye: '<svg viewBox="0 0 120 120" aria-hidden="true"><path d="M60 14 108 100H12Z" fill="none" style="stroke:var(--note)" stroke-width="4" stroke-linejoin="round"/><path d="M34 72c14-16 38-16 52 0-14 16-38 16-52 0Z" style="fill:var(--note)"/><circle cx="60" cy="72" r="8" style="fill:var(--tone-night)"/><path d="M60 30v10M44 40l4 7M76 40l-4 7" style="stroke:var(--note)" stroke-width="3" stroke-linecap="round"/></svg>',
@@ -936,7 +937,7 @@
     }).join('');
     var maxed = C.achievements.filter(function (a) { return !a.secret; }).every(function (a) { return unlocked[a.id]; });
     $('#qlMax').hidden = !maxed; $('#qlMax').textContent = t('quest.max');
-    $('#gameToggle').textContent = gameOn() ? t('quest.hide') : t('quest.show');
+    var gt = $('#gameToggle span'); gt.setAttribute('data-i18n', gameOn() ? 'quest.hide' : 'quest.show'); gt.textContent = t(gt.getAttribute('data-i18n'));
   }
   function unlock(id) {
     if (unlocked[id]) return;
@@ -1017,7 +1018,7 @@
         holder.addEventListener('click', function () { setGame(true); });
         var fe = $('body > .footer .footer-end'); fe.insertBefore(holder, fe.firstElementChild.nextSibling);
       }
-      holder.textContent = t('quest.show');
+      holder.innerHTML = ICON.power + '<span>' + esc(t('quest.show')) + '</span>';
     } else if (holder) holder.remove();
   }
 

@@ -25,6 +25,7 @@ Craft details matter as much as content.
 - **Every change updates the Design system tab too** (`#system`): token notes, component summaries, previews and prose, in EN and PT, in the same commit. Its words are `ds.*` keys in `content.js` (between the "Design system tab's words" markers); live previews are the `SPECIMEN` builders in `app.js`; static previews are in `index.html`; the swatch list is in `design-system.js`.
 - **Yellow is for highlights only** (XP, the underline, badges, the Next tile's outline, a highlighted number): never a band, background or large fill. New colours must come from the existing tokens.
 - **One focus per block.** Text sits on the page, divided by space; only a block's main point gets a card. To stress words in a sentence, color them (`.hl` accent, `.hl-gold` for a number), one highlight per block, never underlined. A prototype's problem leads with its number, gold and two lines tall beside its sentence.
+- **Every button has an icon**, before its label (copy, download, contact, play, reset, power…). Take it from the icon set; a new icon also goes into the Design system's icon gallery and its count. Put the label in a `<span>` so code that changes the text keeps the icon.
 - **Respect reduced motion.** New animations need a `prefers-reduced-motion` path.
 - **Plain writing.** First person, specific, no slogans or "lessons". Never add a number that can't be backed up.
 - **Metrics need context.** Each number states what it measured and whether it
