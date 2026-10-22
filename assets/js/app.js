@@ -794,6 +794,7 @@
       return '<div class="toast" role="status"><span class="medal" aria-hidden="true">' + ICON.star + '</span><span><span class="toast-k">' + esc(t('quest.unlocked')) + '</span>' +
         '<span class="toast-t">' + esc(L(a.t)) + '  +' + a.xp + ' XP</span></span></div><div class="toast toast-plain" role="status">' + esc(t('contact.copied')) + '</div>';
     },
+    labOffer: function () { return outer($('#lab .lab-offer')); },
     contact: function () { return outer($('#contact')); },
     footer: function () { return outer($('body > .footer')); }
   };
@@ -802,7 +803,7 @@
     var box = document.createElement('div'); box.innerHTML = html;
     $$('*', box).forEach(function (n) {
       ['id', 'aria-controls', 'aria-labelledby', 'aria-describedby', 'for', 'data-tab'].forEach(function (a) { n.removeAttribute(a); });
-      n.classList.remove('rv', 'in', 'enter', 'is-hint', 'is-flipping', 'is-scrolled', 'is-tilting', 'tl-flash', 'bump', 'level-up');
+      n.classList.remove('rv', 'in', 'enter', 'is-ready', 'is-building', 'is-hint', 'is-flipping', 'is-scrolled', 'is-tilting', 'tl-flash', 'bump', 'level-up');
       ['--rd', '--ed', '--i', '--sx', '--sy', '--mx', '--my'].forEach(function (p) { n.style.removeProperty(p); });
       if (n.getAttribute('class') === '') n.removeAttribute('class');
       if (n.getAttribute('style') === '') n.removeAttribute('style');
@@ -1230,7 +1231,7 @@
   var ENTER = {
     home: ['.hero-copy > *', '.hero-card-wrap', '.short-inner'],
     work: ['#work .section-head', '#work .group-head', '#work .case-card', '#work .side-list li'],
-    lab: ['#lab .section-head', '#lab .case-card', '#lab .lab-cta'],
+    lab: ['#lab .section-head', '#lab .case-card', '#lab .lab-offer'],
     process: ['#process .section-head', '#process .process-list li'],
     experience: ['#experience .section-head', '#experience .timeline > li'],
     skills: ['#skills .section-head', '#skills .tree-detail', '#skills .courses'],
@@ -1261,6 +1262,18 @@
       var el = $(s); if (!el || !el.closest('[data-tab="' + id + '"]') || !revealIO) return;
       el.classList.remove('in'); el.classList.add('rv'); void el.offsetWidth; revealIO.observe(el);
     });
+    if (id === 'lab') buildLabOffer();
+  }
+
+  /* the Lab offer's blueprint phone builds itself once it is in view, each time the Lab opens */
+  var labOffer = $('#lab .lab-offer'), labOfferIO = ('IntersectionObserver' in window) && new IntersectionObserver(function (en) {
+    if (!en[0].isIntersecting) return;
+    labOffer.classList.add('is-building'); labOfferIO.unobserve(labOffer);
+  }, { threshold: .4 });
+  function buildLabOffer() {
+    if (!labOffer || !labOfferIO || reduceMotion.matches) return;
+    labOffer.classList.remove('is-building'); labOffer.classList.add('is-ready');
+    labOfferIO.unobserve(labOffer); labOfferIO.observe(labOffer);
   }
 
   function afterRender() {
