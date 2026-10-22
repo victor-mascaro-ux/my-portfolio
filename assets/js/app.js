@@ -47,6 +47,7 @@
     $('#menuBtn').setAttribute('aria-label', t('nav.menu'));
     $('#lbClose').setAttribute('aria-label', t('lightbox.close'));
     $('.hero-tabs').setAttribute('aria-label', t('hero.tabs'));
+    $('#workJump').setAttribute('aria-label', t('work.jump'));
     $('#career').setAttribute('aria-label', t('exp.path'));
     markTabNext();
     var cv = C.person.cv[lang] + '?v=' + C.person.cvVersion;
@@ -129,6 +130,9 @@
     $('#gridKnomee').innerHTML = g.knomee.join('');
     $('#gridGamification').innerHTML = g.gamification.join('');
     $('#gridGames').innerHTML = g.games.join('');
+    // the shortcuts under the intro say how many projects each group holds
+    var counts = { knomee: g.knomee.length, gamification: g.gamification.length, games: g.games.length, side: C.side.length };
+    $$('#workJump [data-jump]').forEach(function (n) { n.textContent = counts[n.getAttribute('data-jump')]; });
     $('#sideList').innerHTML = C.side.map(function (s) {
       var tag = s.url ? 'a href="' + esc(s.url) + '" target="_blank" rel="noopener"' : 'div';
       return '<li><' + tag + ' class="side-card">' +
@@ -424,6 +428,7 @@
     var id = (h || '').replace(/^#/, '');
     if (/^case-/.test(id)) return 'work';
     if (/^ds-/.test(id)) return 'system';
+    if (/^work-/.test(id)) return 'work';
     return TABS.indexOf(id) >= 0 ? id : 'home';
   }
   function showTab(id, opts) {
@@ -811,7 +816,7 @@
   }
   window.addEventListener('popstate', function () {
     showTab(tabFromHash(location.hash));
-    if (/^#ds-/.test(location.hash)) { var ds = document.getElementById(location.hash.slice(1)); if (ds) ds.scrollIntoView(); }
+    if (/^#(ds|work)-/.test(location.hash)) { var ds = document.getElementById(location.hash.slice(1)); if (ds) ds.scrollIntoView(); }
     var m = location.hash.match(/^#case-([\w-]+)$/);
     if (m && caseById(m[1])) openCase(m[1], { fromHash: true });
     else hideSheet();
@@ -1260,7 +1265,7 @@
   renderGameFooter();
   onScrollHud();
   showTab(tabFromHash(location.hash), { keepScroll: true, initial: true });
-  if (/^#ds-/.test(location.hash)) { var ds0 = document.getElementById(location.hash.slice(1)); if (ds0) ds0.scrollIntoView(); }
+  if (/^#(ds|work)-/.test(location.hash)) { var ds0 = document.getElementById(location.hash.slice(1)); if (ds0) ds0.scrollIntoView(); }
   var m0 = location.hash.match(/^#case-([\w-]+)$/);
   if (m0 && caseById(m0[1])) openCase(m0[1], { fromHash: true });
 

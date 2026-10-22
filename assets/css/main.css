@@ -577,6 +577,24 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .work-group:nth-of-type(2) { --band: var(--band-2); }
 .work-group:nth-of-type(3) { --band: var(--band-3); }
 .work-group:nth-of-type(4) { --band: var(--band-4); }
+/* shortcuts to the project groups, under the Projects intro: the group's icon, name and project count */
+.work-jump { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; width: max-content; max-width: calc(100vw - var(--gutter) - var(--gutter-r)); }   /* may run wider than the 760px head, so it stays one row on desktop */
+.work-jump a {
+  display: inline-flex; align-items: center; gap: 9px; padding: 5px 12px 5px 5px; border-radius: 12px; text-decoration: none;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-size: var(--t-sm); font-weight: 600; box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-2) var(--ease-out), border-color var(--dur-1) var(--ease), box-shadow var(--dur-2) var(--ease);
+}
+.work-jump a:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: var(--shadow); }
+.work-jump a:focus-visible { outline: 2.5px solid var(--accent); outline-offset: 3px; }
+.wj-icon {
+  display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; flex: none;
+  background: var(--accent-soft); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); transition: transform .35s var(--ease-pop);
+}
+.wj-icon svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.work-jump a:hover .wj-icon { transform: rotate(-8deg) scale(1.08); }
+.wj-n { font-family: var(--f-mono); font-size: var(--t-label); font-weight: 600; color: var(--muted); }
+/* html leaves 24px under the header for anchors; a band has its own padding, so it lands flush under the header */
+.work-group { scroll-margin-top: -24px; }
 .group-head { display: grid; gap: 8px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line-2); }
 .group-title { font-size: var(--t-h3); font-weight: 680; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
 /* section icon: a soft blue tile, centred on the title's line */
@@ -1330,6 +1348,7 @@ span.sep { display: inline; font-family: var(--f-mono); font-weight: 700; line-h
   .tool.is-hint, .btn.is-hint, .btn.is-hint svg { animation: none; }
   .film-play { transition: none; }
   .hero-tab:hover, .hero-tab:hover strong svg, a.side-card:hover { transform: none; }
+  .work-jump a:hover, .work-jump a:hover .wj-icon { transform: none; }
 }
 
 @media print {
