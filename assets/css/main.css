@@ -659,7 +659,7 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .lab-offer .eyebrow { color: var(--on-blue-2); }
 .lab-offer :focus-visible { outline-color: var(--gold); }
 .lo-copy { display: grid; gap: 16px; align-content: start; min-width: 0; }
-.lo-title { font-size: clamp(1.7rem, 1.2rem + 1.6vw, 2.5rem); font-weight: 720; letter-spacing: -.032em; line-height: 1.08; max-width: 18ch; color: var(--on-blue); }
+.lo-title { font-size: clamp(1.7rem, 1.2rem + 1.6vw, 2.5rem); font-weight: 720; letter-spacing: -.032em; line-height: 1.08; max-width: 26ch; color: var(--on-blue); }
 .lo-lede { color: var(--on-blue-2); font-size: var(--t-lg); line-height: 1.5; max-width: 34em; }
 .lo-steps { list-style: none; margin: 6px 0 2px; padding: 0; display: grid; gap: 14px; }
 .lo-steps li { display: flex; align-items: flex-start; gap: 14px; }   /* the icon sits by the first line */
@@ -668,13 +668,19 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
   border: 1px solid var(--on-blue-line); background: color-mix(in srgb, var(--card-hi) 14%, transparent); color: var(--card-hi);
 }
 .lo-step-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.lo-step-text { display: grid; gap: 2px; padding-top: 1px; min-width: 0; }
-.lo-step-text strong { font-family: var(--f-display); font-size: 1.05rem; font-weight: 680; letter-spacing: -.01em; color: var(--on-blue); }
+.lo-step-text { display: grid; gap: 0; padding-top: 1px; min-width: 0; }
+.lo-step-text strong { font-family: var(--f-display); font-size: 1.05rem; font-weight: 680; line-height: 1.12; letter-spacing: -.01em; color: var(--on-blue); }   /* tight to its line */
 .lo-step-text span { color: var(--on-blue-2); font-size: var(--t-sm); line-height: 1.45; }
 .lo-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 6px; }
 .lab-offer .btn-primary { background: var(--card-hi); color: var(--card-hi-ink); }
 .lo-note { font-family: var(--f-mono); font-size: var(--t-xs); color: var(--on-blue-2); }
 .lo-art { position: relative; display: grid; place-items: center; min-height: 360px; }
+.lo-art::before {   /* a soft glow behind the phone, in the card highlight */
+  content: ""; position: absolute; left: 50%; top: 50%; width: 96%; aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--card-hi) 62%, transparent), color-mix(in srgb, var(--card-hi) 24%, transparent) 50%, transparent);
+  filter: blur(26px); opacity: .9; transition: opacity .6s var(--ease-out), scale .6s var(--ease-out);
+}
+.lab-offer:hover .lo-art::before { opacity: 1; scale: 1.06; }
 .lo-phone {
   position: relative; display: flex; flex-direction: column; gap: 10px; width: min(220px, 72%); aspect-ratio: 9 / 18.5; padding: 32px 14px 16px;
   /* a solid hairline: dashed borders break up into jagged bits once the phone is rotated */
@@ -708,7 +714,7 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 @keyframes loPop { 0% { opacity: 0; transform: scale(.4) rotate(-10deg); } 70% { opacity: 1; transform: scale(1.08) rotate(3deg); } 100% { opacity: 1; transform: none; } }
 @media (max-width: 900px) {
   .lab-offer { grid-template-columns: minmax(0, 1fr); }
-  .lo-art { min-height: 0; padding-top: 8px; }
+  .lo-art { min-height: 0; padding-top: 8px; justify-self: center; width: min(100%, 360px); }   /* keeps the chip by the phone */
   .lo-phone { width: min(190px, 56%); }
 }
 @media (max-width: 640px) { .lo-art { display: none; } }
@@ -1450,7 +1456,7 @@ span.sep { display: inline; font-family: var(--f-mono); font-weight: 700; line-h
   .enter, .enter .eyebrow::before { animation: none; }
   .tool.is-hint, .btn.is-hint, .btn.is-hint svg, .case-card.is-hint { animation: none; }
   .lab-offer .lo-b, .lab-offer .lo-chip { animation: none !important; opacity: 1 !important; }
-  .lo-phone { transition: none; }
+  .lo-phone, .lo-art::before { transition: none; }
   .film-play { transition: none; }
   .hero-tab:hover, .hero-tab:hover strong svg, a.side-card:hover { transform: none; }
   .work-jump a:hover, .work-jump a:hover .wj-icon { transform: none; }
