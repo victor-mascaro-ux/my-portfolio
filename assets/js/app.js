@@ -509,11 +509,19 @@
   /* sliding nav indicator */
   var navEl = $('#hud .hud-nav'), navInd = document.createElement('span');
   navInd.className = 'nav-ind'; navInd.setAttribute('aria-hidden', 'true'); navEl.appendChild(navInd);
+  /* the line runs from where the icon's strokes start (its 24px box has space inside) to the end of
+     the label, so it lines up with what you see at both ends; with the icon hidden it starts at the label */
   function moveNavInd(target) {
     var a = target || $('#hud .hud-nav a[aria-current="page"]');
     if (!a) { navInd.style.setProperty('--no', 0); return; }
-    navInd.style.setProperty('--nx', (a.offsetLeft + 12) + 'px');
-    navInd.style.setProperty('--nw', (a.offsetWidth - 24) + 'px');
+    var ar = a.getBoundingClientRect(), label = $('span', a).getBoundingClientRect(), icon = $('.nav-icon', a);
+    var start = label.left, ir = icon && icon.getBoundingClientRect();
+    if (ir && ir.width) {
+      var bb = icon.getBBox(), s = ir.width / 24, sw = parseFloat(getComputedStyle(icon).strokeWidth) || 0;
+      start = ir.left + (bb.x - sw / 2) * s;
+    }
+    navInd.style.setProperty('--nx', (a.offsetLeft + start - ar.left) + 'px');
+    navInd.style.setProperty('--nw', (label.right - start) + 'px');
     navInd.style.setProperty('--no', 1);
   }
   $$('#hud .hud-nav a').forEach(function (a) {
