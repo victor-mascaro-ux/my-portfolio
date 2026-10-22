@@ -1211,7 +1211,7 @@
   var ENTER = {
     home: ['.hero-copy > *', '.hero-card-wrap', '.short-inner'],
     work: ['#work .section-head', '#work .group-head', '#work .case-card', '#work .side-list li'],
-    lab: ['#lab .section-head', '#lab .case-card'],
+    lab: ['#lab .section-head', '#lab .case-card', '#lab .lab-cta'],
     process: ['#process .section-head', '#process .process-list li'],
     experience: ['#experience .section-head', '#experience .timeline > li'],
     skills: ['#skills .section-head', '#skills .tree-detail', '#skills .courses'],

@@ -640,6 +640,10 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .grid-games > [data-layout="sm"] { grid-column: span 6; }
 .grid-games > [data-layout]:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .grid-gamification > [data-layout], .grid-lab > [data-layout] { grid-column: 1 / -1; }
+/* after the Lab cards: an invite to ask for a custom solution, closed off like the end of a case study */
+.lab-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; margin-top: clamp(32px, 4vw, 48px); padding-top: 28px; border-top: 1px dashed var(--line-2); }
+.lab-cta-text { flex: 1 1 26em; font-size: var(--t-lg); line-height: 1.5; color: var(--ink-2); }
+.lab-cta-text strong { color: var(--ink); font-weight: 650; }
 
 .case-card {
   position: relative; display: flex; flex-direction: column; min-width: 0; overflow: hidden;
