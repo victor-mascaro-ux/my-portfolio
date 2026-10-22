@@ -34,13 +34,13 @@
   .grid { display: grid; grid-template-columns: minmax(0, 1fr) 54mm; gap: 8mm; margin-top: 3mm; }
   .sec-t { font-weight: 700; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 2mm; margin: 3.5mm 0 1.6mm; }
   .sec-t::before { content: ""; width: 1.8mm; height: 1.8mm; background: var(--gold); transform: rotate(45deg); flex: none; }
-  .job { padding: 1.3mm 0; border-top: 1px solid var(--line); break-inside: avoid; }
+  .job { padding: 1.8mm 0; border-top: 1px solid var(--line); break-inside: avoid; }
   .job:first-of-type { border-top: 0; padding-top: 0; }
   .job-h { display: flex; justify-content: space-between; gap: 4mm; align-items: baseline; }
   .job-org { font-size: var(--t-head); font-weight: 700; }
   .job-role { font-weight: 600; }
   .job-role span { font-weight: 400; }
-  .job ul { margin-top: .8mm; display: grid; gap: .5mm; }
+  .job ul { margin-top: 1mm; display: grid; gap: .5mm; }
   /* a hanging diamond drawn inline: nothing positioned, so each bullet's text stays with its job in the PDF */
   .job li { padding-left: 3.4mm; text-indent: -3.4mm; }
   .job li::before { content: ""; display: inline-block; width: 1.2mm; height: 1.2mm; margin-right: 2.2mm; border: 1px solid var(--gold); transform: rotate(45deg); vertical-align: .18em; }
