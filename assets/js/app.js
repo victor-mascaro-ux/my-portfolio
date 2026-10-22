@@ -593,11 +593,13 @@
   function moveMedia(m, c) {
     if (m.compare) {
       var tb = m.tags ? m.tags[0] : t('case.before'), ta = m.tags ? m.tags[1] : t('case.after');
-      return '<div class="compare-wrap"><div class="compare' + (m.phone ? ' is-phone' : '') + '" style="--pos:50%">' +
+      return '<div class="compare-wrap"><div class="compare' + (m.phone ? ' is-phone' : '') + '" style="--pos:50%;--p:.5">' +
         imgTag(m.compare[0], tb + ': ' + L(m.title)) +
         '<div class="cmp-after">' + imgTag(m.compare[1], ta + ': ' + L(m.title)) + '</div>' +
         '<input type="range" min="0" max="100" value="50" aria-label="' + esc(t('case.compare')) + '">' +
         '<span class="cmp-line" aria-hidden="true"></span>' +
+        (m.phone ? '<img class="cmp-frame" src="' + asset('assets/img/phone-frame.webp') + '" alt="" aria-hidden="true">' : '') +
+        '<span class="cmp-knob" aria-hidden="true"></span>' +
         '<button type="button" class="cmp-tag before" aria-pressed="false">' + esc(tb) + '</button><button type="button" class="cmp-tag after" aria-pressed="false">' + esc(ta) + '</button>' +
         '</div>' + (m.noHint ? '' : compareHint(!!m.tags)) + '</div>';
     }
@@ -696,12 +698,16 @@
     function set(v, glide) {
       v = Math.max(0, Math.min(100, v)); input.value = v;
       cmp.classList.toggle('is-gliding', !!glide && !reduceMotion.matches);
-      cmp.style.setProperty('--pos', v + '%');
+      cmp.style.setProperty('--pos', v + '%'); cmp.style.setProperty('--p', v / 100);
       tagB.setAttribute('aria-pressed', String(v >= 100)); tagA.setAttribute('aria-pressed', String(v <= 0));
     }
-    // a phone pair's divider travels across the screen only: 25px in from each side of the 560px frame
-    var phone = cmp.classList.contains('is-phone'), x0 = phone ? 25 / 560 : 0, xw = phone ? 510 / 560 : 1;
-    function follow(e) { var r = cmp.getBoundingClientRect(); set(((e.clientX - r.left) / r.width - x0) / xw * 100); }
+    // a phone pair's divider travels across the screen (25px in from each side of the 560px frame) and 3px
+    // beyond it at each end, under the frame, so at either end it is hidden (main.css .compare.is-phone)
+    var phone = cmp.classList.contains('is-phone');
+    function follow(e) {
+      var r = cmp.getBoundingClientRect(), x = e.clientX - r.left;
+      set(phone ? (x - (r.width * 25 / 560 - 3)) / (r.width * 510 / 560 + 6) * 100 : x / r.width * 100);
+    }
     input.addEventListener('input', function () { set(+input.value); });
     // drag the divider with a mouse, a finger or a pen (vertical swipes still scroll on touch)
     cmp.addEventListener('pointerdown', function (e) {
