@@ -884,7 +884,7 @@ window.CONTENT = {
       proof: { en: 'At Knomee, each adventure shows clients something about their own finances that they can then share with their advisor.', pt: 'Na Knomee, cada aventura mostra ao cliente algo sobre as próprias finanças, que ele pode compartilhar com o assessor.' }
     },
     {
-      title: { en: 'Prototype early, with AI', pt: 'Prototipar cedo, com IA' },
+      title: { en: 'Prototype fast', pt: 'Prototipar rápido' },
       body: {
         en: 'Static mockups don’t show timing, animation or how a flow feels after the tenth tap. When those details matter, I build the prototype in HTML or React, working with Claude Code.',
         pt: 'Mockups estáticos não mostram timing, animação nem a sensação de um fluxo depois do décimo toque. Quando esses detalhes importam, faço o protótipo em HTML ou React, junto com o Claude Code.'
