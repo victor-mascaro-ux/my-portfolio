@@ -349,7 +349,7 @@ window.CONTENT = {
       'hero.title.a': 'UX/AI designer',
       'hero.title.s2': 'with a background in ',
       'hero.title.b': 'game design',
-      'hero.lede': 'Since 2024 I’ve designed Knomee, a fintech product for financial advisors and their clients, including its AI features, and I prototype it in code with AI. Before that I worked on mobile games like Smashing Four and Auction City.',
+      'hero.lede': 'I design digital products end to end, from the first flow to the final interface, and I use game design to help people finish what they start and come back. I build my prototypes in code with AI, so the team tests, demos and builds from a version that works.',
       'hero.tabs': 'Sections',
       'hero.tab.work': 'Knomee, Betsie and mobile games', 'hero.tab.process': 'How I work, step by step', 'hero.tab.experience': 'Where I’ve worked since 2021', 'hero.tab.skills': 'Degrees and courses', 'hero.tab.contact': 'Email, LinkedIn and CV',
 
@@ -779,7 +779,7 @@ window.CONTENT = {
       'hero.title.a': 'UX/AI designer',
       'hero.title.s2': 'com background em ',
       'hero.title.b': 'game design',
-      'hero.lede': 'Desde 2024 faço o design da Knomee, uma fintech para assessores financeiros e os clientes deles, incluindo as funcionalidades de IA, e prototipo em código com IA. Antes disso, trabalhei com jogos mobile como Smashing Four e Auction City.',
+      'hero.lede': 'Faço o design de produtos digitais de ponta a ponta, do primeiro fluxo à interface final, e uso game design para ajudar as pessoas a terminar o que começam e a voltar. Construo meus protótipos em código com IA, para que o time teste, faça demos e desenvolva a partir de uma versão que funciona.',
       'hero.tabs': 'Seções',
       'hero.tab.work': 'Knomee, Betsie e jogos mobile', 'hero.tab.process': 'Como eu trabalho, passo a passo', 'hero.tab.experience': 'Onde trabalhei desde 2021', 'hero.tab.skills': 'Graduação e cursos', 'hero.tab.contact': 'E-mail, LinkedIn e CV',
 
