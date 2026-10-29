@@ -351,7 +351,7 @@ window.CONTENT = {
       'hero.title.b': 'game design',
       'hero.lede': 'I design digital products end to end, from the first flow to the final interface, and I use game design to help people finish what they start and come back. I build my prototypes in code with AI, so the team tests, demos and builds from a version that works.',
       'hero.tabs': 'Sections',
-      'hero.tab.work': 'Knomee, Betsie and mobile games', 'hero.tab.process': 'How I work, step by step', 'hero.tab.experience': 'Where I’ve worked since 2021', 'hero.tab.skills': 'Degrees and courses', 'hero.tab.contact': 'Email, LinkedIn and CV',
+      'hero.tab.work': 'UX/AI, gamification, mobile games, university projects and game jams', 'hero.tab.process': 'How I work, step by step', 'hero.tab.experience': 'Where I’ve worked since 2021', 'hero.tab.skills': 'Degrees and courses', 'hero.tab.contact': 'Email, LinkedIn and CV',
 
       'card.rarity': 'Designer Card',
       'card.class': 'UX/AI Designer',
@@ -781,7 +781,7 @@ window.CONTENT = {
       'hero.title.b': 'game design',
       'hero.lede': 'Faço o design de produtos digitais de ponta a ponta, do primeiro fluxo à interface final, e uso game design para ajudar as pessoas a terminar o que começam e a voltar. Construo meus protótipos em código com IA, para que o time teste, faça demos e desenvolva a partir de uma versão que funciona.',
       'hero.tabs': 'Seções',
-      'hero.tab.work': 'Knomee, Betsie e jogos mobile', 'hero.tab.process': 'Como eu trabalho, passo a passo', 'hero.tab.experience': 'Onde trabalhei desde 2021', 'hero.tab.skills': 'Graduação e cursos', 'hero.tab.contact': 'E-mail, LinkedIn e CV',
+      'hero.tab.work': 'UX/AI, gamificação, jogos mobile, projetos da faculdade e game jams', 'hero.tab.process': 'Como eu trabalho, passo a passo', 'hero.tab.experience': 'Onde trabalhei desde 2021', 'hero.tab.skills': 'Graduação e cursos', 'hero.tab.contact': 'E-mail, LinkedIn e CV',
 
       'card.rarity': 'Ficha do designer',
       'card.class': 'UX/AI Designer',
