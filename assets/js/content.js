@@ -779,7 +779,7 @@ window.CONTENT = {
       'hero.title.a': 'UX/AI designer',
       'hero.title.s2': 'com background em ',
       'hero.title.b': 'game design',
-      'hero.lede': 'Cuido do design de produtos digitais e soluções de IA de ponta a ponta, do primeiro fluxo à interface final, e uso princípios de game design para impulsionar engajamento, retenção e monetização. Faço meus protótipos direto em código, com IA, e assim o time testa, apresenta demos e desenvolve em cima de uma versão funcional.',
+      'hero.lede': 'Cuido do design de produtos digitais e soluções com IA de ponta a ponta, do primeiro fluxo à interface final, e uso princípios de game design para impulsionar engajamento, retenção e monetização. Faço meus protótipos direto em código, com IA, e assim o time testa, apresenta demos e desenvolve em cima de uma versão funcional.',
       'hero.tabs': 'Seções',
       'hero.tab.work': 'UX/AI, gamificação, jogos mobile, projetos da faculdade e game jams', 'hero.tab.process': 'Como eu trabalho, passo a passo', 'hero.tab.experience': 'Onde trabalhei desde 2021', 'hero.tab.skills': 'Graduação e cursos', 'hero.tab.contact': 'E-mail, LinkedIn e CV',
 
