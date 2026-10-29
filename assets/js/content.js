@@ -349,7 +349,7 @@ window.CONTENT = {
       'hero.title.a': 'UX/AI designer',
       'hero.title.s2': 'with a background in ',
       'hero.title.b': 'game design',
-      'hero.lede': 'I design digital products end to end, from the first flow to the final interface, and I use game design to help people finish what they start and come back. I build my prototypes in code with AI, so the team tests, demos and builds from a version that works.',
+      'hero.lede': 'I design digital products end to end, from the first flow to the final interface, and I use game design so people finish what they start, come back – and find it worth paying for. I build my prototypes in code with AI, so the team tests, demos and builds from a version that works.',
       'hero.tabs': 'Sections',
       'hero.tab.work': 'UX/AI, gamification, mobile games, university projects and game jams', 'hero.tab.process': 'How I work, step by step', 'hero.tab.experience': 'Where I’ve worked since 2021', 'hero.tab.skills': 'Degrees and courses', 'hero.tab.contact': 'Email, LinkedIn and CV',
 
@@ -779,7 +779,7 @@ window.CONTENT = {
       'hero.title.a': 'UX/AI designer',
       'hero.title.s2': 'com background em ',
       'hero.title.b': 'game design',
-      'hero.lede': 'Cuido do design de produtos digitais de ponta a ponta, do primeiro fluxo à interface final, e uso game design para que as pessoas terminem o que começaram e queiram voltar. Faço meus protótipos direto em código, com IA, e assim o time testa, apresenta demos e desenvolve em cima de uma versão funcional.',
+      'hero.lede': 'Cuido do design de produtos digitais de ponta a ponta, do primeiro fluxo à interface final, e uso game design para que as pessoas terminem o que começaram, queiram voltar – e achem que vale a pena pagar. Faço meus protótipos direto em código, com IA, e assim o time testa, apresenta demos e desenvolve em cima de uma versão funcional.',
       'hero.tabs': 'Seções',
       'hero.tab.work': 'UX/AI, gamificação, jogos mobile, projetos da faculdade e game jams', 'hero.tab.process': 'Como eu trabalho, passo a passo', 'hero.tab.experience': 'Onde trabalhei desde 2021', 'hero.tab.skills': 'Graduação e cursos', 'hero.tab.contact': 'E-mail, LinkedIn e CV',
 
