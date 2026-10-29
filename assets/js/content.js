@@ -895,8 +895,8 @@ window.CONTENT = {
     {
       title: { en: 'Give real value', pt: 'Entregar valor de verdade' },
       body: {
-        en: 'Before drawing screens I try to understand what value users get out of the product and what would make them stay and buy. Most of my design decisions start there.',
-        pt: 'Antes de desenhar qualquer tela, tento entender que valor os usuários tiram do produto e o que os faria ficar e comprar. A maioria das minhas decisões de design parte daí.'
+        en: 'Before drawing screens I try to understand what value people get from the product and what would make them stay – and pay for it. Most of my design decisions start there.',
+        pt: 'Antes de desenhar qualquer tela, tento entender que valor as pessoas tiram do produto e o que as faria ficar – e pagar por ele. A maioria das minhas decisões de design parte daí.'
       },
       case: 'adventures',
       proof: { en: 'At Knomee, each adventure shows clients something about their own finances that they can then share with their advisor.', pt: 'Na Knomee, cada aventura mostra ao cliente algo sobre as próprias finanças, que ele pode compartilhar com o assessor.' }
