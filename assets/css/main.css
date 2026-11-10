@@ -973,7 +973,9 @@ img.brand-mark { display: block; background: none; box-shadow: none; }
 .contact-lede { color: var(--contact-ink-2); font-size: var(--t-lg); max-width: 34em; }
 .contact-mail { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 8px; }
 .mail-address {
-  font-family: var(--f-mono); font-size: clamp(1rem, .8rem + 1.2vw, 1.6rem); font-weight: 600; letter-spacing: -.01em;
+  font-family: var(--f-mono); font-weight: 600; letter-spacing: -.01em;
+  /* one line on every screen: below ~360px the size follows the screen so all 28 characters fit (mono ≈ .6em a character); wider screens keep the clamp */
+  font-size: clamp(.8125rem, min(.8rem + 1.2vw, (100vw - 64px) / 17), 1.6rem);
   user-select: all; -webkit-user-select: all; padding: 10px 14px; border-radius: 10px; border: 1px dashed color-mix(in srgb, var(--contact-ink) 40%, transparent);
   overflow-wrap: anywhere;
 }

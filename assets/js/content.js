@@ -9,13 +9,13 @@
 window.CONTENT = {
   person: {
     name: 'Victor Mascaro',
-    email: 'viktor.mascaro@gmail.com',
+    email: 'victor.mascaro.uxd@gmail.com',
     phone: '+55 11 969-428-552',
     linkedin: 'https://www.linkedin.com/in/victor-mascaro/',
     github: 'https://github.com/victor-mascaro-ux',
     cv: { en: 'assets/cv/Victor-Mascaro-CV-EN.pdf', pt: 'assets/cv/Victor-Mascaro-CV-PT.pdf' },
     // bump whenever the PDFs are rebuilt: it changes the link, so browsers don't show an old saved copy
-    cvVersion: '2026-10-22e',
+    cvVersion: '2026-11-10a',
     // bump when a picture in assets/img changes under the same name: it changes every picture's link
     imgVersion: '2026-10-22c'
   },
@@ -290,7 +290,7 @@ window.CONTENT = {
       'ds.sum.sheet-bar': 'The sticky bar on top of a case study sheet, with breadcrumb, previous and next, close and reading progress.',
       'ds.sum.toast': 'Small messages in the bottom-right corner: achievements in the XP game and plain confirmations.',
       'ds.sum.lab-offer': 'The invite at the end of the Lab, in the Contact colours (light in the light theme, deep blue in the dark one): a band with the question, three steps with icons, Contact me and a blueprint phone on a soft glow that builds itself part by part when it scrolls into view, each time the Lab opens. With reduced motion the phone is simply there.',
-      'ds.sum.contact-band': 'The contact section, light in the light theme and deep blue in the dark one: title, lede, the email to copy and links, with the designer card beside them.',
+      'ds.sum.contact-band': 'The contact section, light in the light theme and deep blue in the dark one: title, lede, the email to copy (always on one line; on the narrowest phones its text shrinks to fit) and links, with the designer card beside them.',
       'ds.sum.footer': 'The page footer: a short colophon, copyright and a back-to-top link.',
       'ds.do': 'Do',
       'ds.dont': 'Don’t',
@@ -720,7 +720,7 @@ window.CONTENT = {
       'ds.sum.sheet-bar': 'A barra fixa no topo do painel de um estudo de caso, com a trilha, anterior e próximo, fechar e o progresso de leitura.',
       'ds.sum.toast': 'Mensagens pequenas no canto inferior direito: conquistas do jogo de XP e confirmações simples.',
       'ds.sum.lab-offer': 'O convite no fim do Lab, nas cores de Contato (clara no tema claro, azul profundo no escuro): uma faixa com a pergunta, três etapas com ícones, Falar comigo e um celular em planta, sobre um brilho suave, que se monta parte por parte quando entra na tela, cada vez que o Lab abre. Com movimento reduzido, o celular já aparece pronto.',
-      'ds.sum.contact-band': 'A seção de contato, clara no tema claro e em azul profundo no escuro: título, texto de abertura, o e-mail para copiar e links, com a ficha do designer ao lado.',
+      'ds.sum.contact-band': 'A seção de contato, clara no tema claro e em azul profundo no escuro: título, texto de abertura, o e-mail para copiar (sempre numa linha só; nos celulares mais estreitos o texto diminui para caber) e links, com a ficha do designer ao lado.',
       'ds.sum.footer': 'O rodapé da página: um colofão curto, direitos autorais e um link de volta ao topo.',
       'ds.do': 'Faça',
       'ds.dont': 'Não faça',
